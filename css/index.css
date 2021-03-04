@@ -279,6 +279,7 @@ td img {
   text-align: center;
   width: 100%;
   margin-bottom: 22px;
+  z-index: 1;
 }
 
 .back {
