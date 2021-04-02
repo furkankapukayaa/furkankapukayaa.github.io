@@ -1,5 +1,5 @@
-<h1> Hey 👋, I'm Furkan!</h1>
-<h2>My Personal Website 🌐</h2>
+<h1> Hey 👋, I'm Furkan! <br >My Personal Website 🌐</h1>
+
 
 [![Facebook](https://img.shields.io/badge/facebook-%231877F2.svg?&style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/furkankapukayaa) 
 [![Twitter](https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/furkankapukayaa) 
