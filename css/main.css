@@ -5284,3 +5284,24 @@ a.credit {
 /* Common Style */
 .section {
   padding-bottom: 0; }
+
+/* other */
+
+#github-logo{
+  width: 30%;
+  margin-left: 255px;
+}
+
+@media (max-width: 768px) {
+  #github-logo{
+    width: 30%;
+    margin-left: 160px;
+  }
+}
+
+@media (max-width: 991px) {
+  #github-logo{
+    width: 30%;
+    margin-left: 160px;
+  }
+}
