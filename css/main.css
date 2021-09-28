@@ -5288,20 +5288,17 @@ a.credit {
 /* other */
 
 #github-logo{
-  width: 30%;
-  margin-left: 255px;
+  margin-left: 50px;
 }
 
 @media (max-width: 768px) {
   #github-logo{
-    width: 30%;
     margin-left: 160px;
   }
 }
 
 @media (max-width: 991px) {
   #github-logo{
-    width: 30%;
-    margin-left: 160px;
+    margin-left: 40px;
   }
 }
