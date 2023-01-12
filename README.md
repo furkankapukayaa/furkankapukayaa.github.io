@@ -8,6 +8,9 @@
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://instagram.com/furkankapukayaa/)
 [![Youtube Badge](https://img.shields.io/badge/-Youtube-ff0000?style=flat-square&logo=Youtube&logoColor=white)](https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q)	
 
+![](https://visitor-badge.glitch.me/badge?page_id=furkankapukayaa.furkankapukayaa&style=flat-square&color=0088cc)
+### Glad to see you here! &nbsp;
+
 I'm a graduate in Computer Programming from Kırklareli University. Then I won Anadolu University Management Information Systems with DGS. I'm a passionate learner who's always willing to learn and work across technologies and domains. I love to explore new technologies and leverage them to solve real-life problems. Apart from that I also love to guide. I'm currently into Web Development.
 
 </div><br>
@@ -146,7 +149,6 @@ I'm a graduate in Computer Programming from Kırklareli University. Then I won A
   <summary><b>⚙️ Things I use to get stuff done</b></summary>
   	<ul>
   	    <li><b>OS:</b> Windows 10</li>
-	    <li><b>Laptop: </b> HP Elitebook 820 G2</li>
 	    <li><b>Code Editor:</b> Visual Studio - Visual Studio Code </li>
 	    <li><b>To Stay Updated:</b> Medium, Twitter, Youtube and Linkedin.</li>
 	</ul>	
