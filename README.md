@@ -8,7 +8,7 @@
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://instagram.com/furkankapukayaa/)
 [![Youtube Badge](https://img.shields.io/badge/-Youtube-ff0000?style=flat-square&logo=Youtube&logoColor=white)](https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q)	
 
-![](https://visitor-badge.glitch.me/badge?page_id=furkankapukayaa.furkankapukayaa&style=flat-square&color=0088cc)
+![](https://komarev.com/ghpvc/?username=furkankapukayaa&style=flat&color=blueviolet)
 ### Glad to see you here! &nbsp;
 
 I'm a graduate in Computer Programming from Kırklareli University. Then I won Anadolu University Management Information Systems with DGS. I'm a passionate learner who's always willing to learn and work across technologies and domains. I love to explore new technologies and leverage them to solve real-life problems. Apart from that I also love to guide. I'm currently into Web Development.
@@ -22,7 +22,7 @@ I'm a graduate in Computer Programming from Kırklareli University. Then I won A
 - 👨🏻‍💻 &nbsp; Most of my projects are available on [Github](https://github.com/furkankapukayaa?tab=repositories).
 - 📫 &nbsp; How to reach me: furkankapukayaa@gmail.com.
 - 🤙 &nbsp; Let's meet: [Superpeer](https://superpeer.com/furkankapukaya).
-- 📝 &nbsp; Checkout my [Resume](https://furkankapukayaa.github.io/assets/Resume.pdf).
+- 📝 &nbsp; Checkout my [Resume](https://furkankapukayaa.github.io/assets/pdf/Resume.pdf).
 
 ### My Absolute Favorites:
 
