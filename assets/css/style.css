@@ -1591,6 +1591,11 @@
  .avatar-box img {
    width: 80px;
  }
+
+ .author-signature{
+  text-align: center;
+  font-weight: bold;
+ }
  
  @media screen and (min-width: 1280px) {
    .avatar-box img {
