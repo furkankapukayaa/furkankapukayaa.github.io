@@ -1,734 +1,807 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="Furkan Kapukaya, furkankapukayaa@gmail.com">
-    <meta name="description" content="Furkan Kapukaya, .NET ve C# geliştiricisi. Portfolyom ve CV'm burada! Projelerim ve yeteneklerim hakkında daha fazla bilgi edinin. İletişime geçin!">
-    <meta name="keywords" content="furkan kapukaya portfolio resume cv personal .net csharp developer">
-    <title>Furkan Kapukaya</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <!-- #main  -->
-    <main>
-      <!-- #sidebar -->
-      <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-          <figure class="avatar-box">
-            <img src="assets/images/my-avatar.png" alt="Furkan KAPUKAYA">
-          </figure>
-          <div class="info-content">
-            <h1 class="name" title="Furkan KAPUKAYA">Furkan KAPUKAYA</h1>
-            <p class="title">Jr. Software Developer</p>
-          </div>
-          <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
-            <ion-icon name="chevron-down"></ion-icon>
-          </button>
-        </div>
-        <div class="sidebar-info_more">
-          <div class="separator"></div>
-          <ul class="contacts-list">
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="code-working"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Work</p>
-                <a href="https://pikselmutfak.com/" target="_blank" class="contact-link">PXL Digital Solutions</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="newspaper-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">CV</p>
-                <a href="assets/pdf/Resume.pdf" class="contact-link" download>Download</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Email</p>
-                <a href="mailto:furkankapukayaa@gmail.com" class="contact-link">furkankapukayaa@gmail.com</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Location</p>
-                <address>Istanbul, Turkiye</address>
-              </div>
-            </li>
-          </ul>
-          <div class="separator"></div>
-          <ul class="social-list">
-            <li class="social-item">
-              <a href="https://github.com/furkankapukayaa" target="_blank" class="social-link">
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://www.linkedin.com/in/furkankapukayaa/" target="_blank" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://twitter.com/furkankapukayaa" target="_blank" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://www.instagram.com/furkankapukayaa/?hl=tr" target="_blank" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q?sub_confirmation=1" target="_blank" class="social-link">
-                <ion-icon name="logo-youtube"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://t.me/furkankapukaya" target="_blank" class="social-link">
-                <ion-icon name="paper-plane-outline"></ion-icon>
-              </a>
-            </li>
-            <li class="social-item">
-              <a href="https://discord.gg/DyQzf5YAaq" target="_blank" class="social-link">
-                <ion-icon name="logo-discord"></ion-icon>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-      <!-- #main-content -->
-      <div class="main-content">
-        <!-- #navbar -->
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <button class="navbar-link  active" data-nav-link>About</button>
-            </li>
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Resume</button>
-            </li>
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Portfolio</button>
-            </li>
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Blog</button>
-            </li>
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Contact</button>
-            </li>
-          </ul>
-        </nav>
-        <!-- #about -->
-        <article class="about  active" data-page="about">
-          <header>
-            <h2 class="h2 article-title">About me</h2>
-          </header>
-          <section class="about-text">
-            <p> I am a Software Developer. I am a tech enthusiast who is passionate about learning and working with new technologies. I am currently working with C#, .NET, SQL, HTML, CSS, Javascript, etc. I want to become a Full Stack Web Developer. </p>
-            <p> I graduated from Kırklareli University Computer Programming, and then I earned Anadolu University Management Information Systems with DGS. I am a passionate student who is always willing to learn and work across technologies and fields. I love discovering new technologies and leveraging them to solve real-life problems. I love sharing what I know with others and guiding them. Currently, I am interested in Web Development. </p>
-          </section>
-          <!-- #service -->
-          <section class="service">
-            <h3 class="h3 service-title">What i'm doing</h3>
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="assets/images/about/web.png" alt="Web development icon" width="50">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web development</h4>
-                  <p class="service-item-text"> While developing web applications, I usually work on the back-end side and develop with .NET. </p>
-                </div>
-              </li>
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="assets/images/about/desktop.png" alt="Desktop development icon" width="50">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Desktop development</h4>
-                  <p class="service-item-text"> I develop desktop programs for my needs with C#. I try to imitate the applications I see on the internet. </p>
-                </div>
-              </li>
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="assets/images/about/console.png" alt="Console development icon" width="40">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Console development</h4>
-                  <p class="service-item-text"> I develop console applications with C#.</p>
-                </div>
-              </li>
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="assets/images/about/photoshop.png" alt="Photoshop icon" width="45">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Photoshop</h4>
-                  <p class="service-item-text"> I'm trying to learn Adobe Photoshop, I create and edit photos on my own. </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-          <!-- #testimonials -->
-          <section class="testimonials">
-            <h3 class="h3 testimonials-title">Testimonials</h3>
-            <ul class="testimonials-list has-scrollbar">
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-6.png" alt="Erdal Parmaksız" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Erdal Parmaksız</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Software Manager at Ofmark</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> During the period we worked together, it was a great pleasure to work with Furkan, especially his work discipline, ability to interpret events, ability to solve problems, practical intelligence. Even though we parted ways in this project, he is a friend that I would like to be in the same team in the future and that I can be a reference in every sense. </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-5.png" alt="Eda Pelvan" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Eda Pelvan</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Project Manager at Ofmark & Piksel Mutfak</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> A friend who is compatible with teamwork, has work discipline and loves to work. He is a highly compatible colleague with his technical skills and communication. </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-4.png" alt="Murat Efe Arslan" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Murat Efe Arslan</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Lead Software Developer at Umur Printing Company</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> I have had the pleasure of working alongside Furkan Kapukaya at PXL Digital Solutions, and I must say he is an exceptional Junior .NET Developer. His passion for coding and ambition to excel in his field are truly inspiring. <br><br> Furkan's enthusiasm for software development is evident in the way he approaches challenges and projects. His proficiency in C#, HTML, CSS, MySQL, NoSQL, .NET Core, MicroServices, and CentOS showcases a diverse skill set that enables him to tackle various tasks with confidence. <br><br> Not only is Furkan technically skilled, but his positive attitude and eagerness to learn also make him an invaluable team member. He actively seeks opportunities to expand his knowledge and consistently contributes fresh ideas to the projects we collaborate on. <br><br> As a colleague, Furkan is approachable and always ready to lend a helping hand. His dedication to the success of the team and projects he works on has left a lasting impression on everyone around him. <br><br> In short, Furkan Kapukaya is a driven and talented Junior .NET Developer who demonstrates unwavering commitment to his craft. I am certain that he will continue to achieve remarkable milestones in his career and make significant contributions to the world of software development. </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-3.png" alt="Nadir Subaşı" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Nadir Subaşı</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Lecturer at Kirklareli University</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> Furkan studied and graduated from our department between 2019-2021. In addition to his success in his courses, he stood out with his academic performance and professional approach in his projects. He was a very hardworking, determined and goal-oriented student. The way he worked constructively and efficiently on his projects and his desire to continuously improve himself made him stand out in many different fields. Furkan was also a student who could develop himself socially, was prone to group work and could bring positive energy to the environment. At the same time, he has a strong communication skills, is easy to understand and can establish good relationships with other people. </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-2.png" alt="Beysemi Emirhan Bayrak" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Beysemi Emirhan Bayrak</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Front-End Developer at Dijital Sahne</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> Furkan and I went to university together. He is a good team player. He is meticulous and careful in his work. He follows new technologies and likes to research. He has good communication skills and can build good relationships.  </p>
-                  </div>
-                </div>
-              </li>
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img src="assets/images/testimonials/avatar-1.png" alt="Uğur Erbay" width="60" data-testimonials-avatar>
-                  </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-name>Uğur Erbay</h4>
-                  <h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Software Developer at Intertech</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p> Furkan and I went to university together. He was a successful and determined student at school. He was a meticulous and disciplined team member who was compatible with teamwork in the projects we developed together. </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-          <!-- #testimonials-modal -->
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img src="assets/images/testimonials/avatar-1.png" alt="Name" width="80" data-modal-img>
-                </figure>
-                <img src="assets/images/testimonials/icon-quote.svg" alt="quote icon">
-              </div>
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-modal-name>Name</h4>
-                <h4 class="h5 modal-title" data-modal-title>Title</h4>
-                <div data-modal-text>
-                  <p> Description </p>
-                </div>
-              </div>
-            </section>
-          </div>
-          <!-- #clients -->
-          <section class="clients">
-            <h3 class="h3 clients-title">Clients</h3>
-            <ul class="clients-list has-scrollbar">
-              <li class="clients-item">
-                <img src="assets/images/clients/kiraz-oto.png" alt="client logo">
-              </li>
-              <li class="clients-item">
-                <img src="assets/images/clients/futs-medya.png" alt="client logo" style="width: 50%;">
-              </li>
-            </ul>
-          </section>
-        </article>
-        <!-- #resume -->
-        <article class="resume" data-page="resume">
-          <header>
-            <h2 class="h2 article-title">Resume</h2>
-          </header>
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Education</h3>
-            </div>
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Anatolian University | Management Information Systems</h4>
-                <span>2022 — Present</span>
-                <p class="timeline-text"> I am currently studying to complete my university life to undergraduate with DGS and to improve myself. </p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Kirklareli University | Computer Programming</h4>
-                <span>2019 — 2021</span>
-                <p class="timeline-text"> I studied C#, Python, Java, PostgreSQL, PHP, HTML and CSS technologies at a basic level. </p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Mehmet Akif Ersoy Anatolian Imam Hatip Highscool</h4>
-                <span>2015 — 2019</span>
-                <p class="timeline-text"> It is one of the important times of my life when I studied and completed my studies in Istanbul and took part in various activities (Tübitak, Music Choir, etc.), where I accumulated good experiences and memories... </p>
-              </li>
-            </ol>
-          </section>
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="code-slash-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Experience</h3>
-            </div>
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Junior Software Developer at PXL Digital Solutions</h4>
-                <span>February 2022 — Present</span>
-                <p class="timeline-text"> I am involved in the development and bug fixing of various projects within the company. </p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Junior Software Developer at Ofmark</h4>
-                <span>February 2022 — August 2023</span>
-                <p class="timeline-text"> Basic enhancements and bug fixing in Ofmark E-Commerce platform for end users and companies. I am working with PXL Digital Solutions.</p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Software Developer Intern at Omega BigData</h4>
-                <span>March 2021 - June 2021</span>
-                <p class="timeline-text"> I took part in web projects created for new generation loyalty platforms for shoppers and employees. My task is to develop, edit and report web projects. </p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Volunteer at ÜNOG</h4>
-                <span>January 2021</span>
-                <p class="timeline-text"> I volunteered for ÜNOG's GGJ21 event. Communicating one-on-one with the participants, etc. I completed the tasks. It was an enjoyable and educational experience. </p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Volunteer at Kirklareli University</h4>
-                <span>October 2019 - March 2020</span>
-                <p class="timeline-text"> With the "Artificial Intelligence Workshop" project, our professors working in the Computer Programming, Electronics Technology and Mechatronics departments and our volunteer students in these programs, under the supervision of department professors, provided training on artificial intelligence to students from BİLSEM and guided them to make projects equipped with artificial intelligence. </p>
-              </li>
-            </ol>
-          </section>
-          <section class="clients">
-            <h3 class="h3 clients-title">Skills</h3>
-            <span class="badge">C#</span>
-            <span class="badge">.NET</span>
-            <span class="badge">SQL</span>
-            <span class="badge">Microsoft SQL Server</span>
-            <span class="badge">Javascript</span>
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
-            <span class="badge">Bootstrap</span>
-            <span class="badge">Git</span>
-            <span class="badge">Github</span>
-            <span class="badge">Postman</span>
-            <span class="badge">Visual Studio</span>
-            <span class="badge">Visual Studio Code</span>
-            <span class="badge">Office</span>
-            <span class="badge">Photoshop</span>
-            <!--
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="Author" content="Furkan Kapukaya, furkankapukayaa@gmail.com" />
+		<meta name="description" content="Furkan Kapukaya, .NET ve C# geliştiricisi. Portfolyom ve CV'm burada! Projelerim ve yeteneklerim hakkında daha fazla bilgi edinin. İletişime geçin!" />
+		<meta name="keywords" content="furkan kapukaya portfolio resume cv personal .net csharp developer" />
+		<title>Furkan Kapukaya</title>
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!-- #main  -->
+		<main>
+			<!-- #sidebar -->
+			<aside class="sidebar" data-sidebar>
+				<div class="sidebar-info">
+					<figure class="avatar-box">
+						<img src="assets/images/my-avatar.png" alt="Furkan KAPUKAYA" />
+					</figure>
+					<div class="info-content">
+						<h1 class="name" title="Furkan KAPUKAYA">Furkan KAPUKAYA</h1>
+						<p class="title">Jr. Software Developer</p>
+					</div>
+					<button class="info_more-btn" data-sidebar-btn>
+						<span>Show Contacts</span>
+						<ion-icon name="chevron-down"></ion-icon>
+					</button>
+				</div>
+				<div class="sidebar-info_more">
+					<div class="separator"></div>
+					<ul class="contacts-list">
+						<li class="contact-item">
+							<div class="icon-box">
+								<ion-icon name="code-working"></ion-icon>
+							</div>
+							<div class="contact-info">
+								<p class="contact-title">Work</p>
+								<a href="https://pikselmutfak.com/" target="_blank" class="contact-link">PXL Digital Solutions</a>
+							</div>
+						</li>
+						<li class="contact-item">
+							<div class="icon-box">
+								<ion-icon name="newspaper-outline"></ion-icon>
+							</div>
+							<div class="contact-info">
+								<p class="contact-title">CV</p>
+								<a href="assets/pdf/Resume.pdf" class="contact-link" download>Download</a>
+							</div>
+						</li>
+						<li class="contact-item">
+							<div class="icon-box">
+								<ion-icon name="mail-outline"></ion-icon>
+							</div>
+							<div class="contact-info">
+								<p class="contact-title">Email</p>
+								<a href="mailto:furkankapukayaa@gmail.com" class="contact-link">furkankapukayaa@gmail.com</a>
+							</div>
+						</li>
+						<li class="contact-item">
+							<div class="icon-box">
+								<ion-icon name="location-outline"></ion-icon>
+							</div>
+							<div class="contact-info">
+								<p class="contact-title">Location</p>
+								<address>Istanbul, Turkiye</address>
+							</div>
+						</li>
+					</ul>
+					<div class="separator"></div>
+					<ul class="social-list">
+						<li class="social-item">
+							<a href="https://github.com/furkankapukayaa" target="_blank" class="social-link">
+								<ion-icon name="logo-github"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://www.linkedin.com/in/furkankapukayaa/" target="_blank" class="social-link">
+								<ion-icon name="logo-linkedin"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://twitter.com/furkankapukayaa" target="_blank" class="social-link">
+								<ion-icon name="logo-twitter"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://www.instagram.com/furkankapukayaa/?hl=tr" target="_blank" class="social-link">
+								<ion-icon name="logo-instagram"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q?sub_confirmation=1" target="_blank" class="social-link">
+								<ion-icon name="logo-youtube"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://t.me/furkankapukaya" target="_blank" class="social-link">
+								<ion-icon name="paper-plane-outline"></ion-icon>
+							</a>
+						</li>
+						<li class="social-item">
+							<a href="https://discord.gg/DyQzf5YAaq" target="_blank" class="social-link">
+								<ion-icon name="logo-discord"></ion-icon>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<!-- #main-content -->
+			<div class="main-content">
+				<!-- #navbar -->
+				<nav class="navbar">
+					<ul class="navbar-list">
+						<li class="navbar-item">
+							<button class="navbar-link active" data-nav-link>About</button>
+						</li>
+						<li class="navbar-item">
+							<button class="navbar-link" data-nav-link>Resume</button>
+						</li>
+						<li class="navbar-item">
+							<button class="navbar-link" data-nav-link>Portfolio</button>
+						</li>
+						<li class="navbar-item">
+							<button class="navbar-link" data-nav-link>Blog</button>
+						</li>
+						<li class="navbar-item">
+							<button class="navbar-link" data-nav-link>Contact</button>
+						</li>
+					</ul>
+				</nav>
+				<!-- #about -->
+				<article class="about active" data-page="about">
+					<header>
+						<h2 class="h2 article-title">About me</h2>
+					</header>
+					<section class="about-text">
+						<p>
+							I am a Software Developer. I am a tech enthusiast who is passionate about learning and working with new technologies. I am currently working with C#, .NET, SQL, HTML, CSS, Javascript, etc. I want to become a Full
+							Stack Web Developer.
+						</p>
+						<p>
+							I graduated from Kırklareli University Computer Programming, and then I earned Anadolu University Management Information Systems with DGS. I am a passionate student who is always willing to learn and work across
+							technologies and fields. I love discovering new technologies and leveraging them to solve real-life problems. I love sharing what I know with others and guiding them. Currently, I am interested in Web
+							Development.
+						</p>
+					</section>
+					<!-- #service -->
+					<section class="service">
+						<h3 class="h3 service-title">What i'm doing</h3>
+						<ul class="service-list">
+							<li class="service-item">
+								<div class="service-icon-box">
+									<img src="assets/images/about/web.png" alt="Web development icon" width="50" />
+								</div>
+								<div class="service-content-box">
+									<h4 class="h4 service-item-title">Web development</h4>
+									<p class="service-item-text">While developing web applications, I usually work on the back-end side and develop with .NET.</p>
+								</div>
+							</li>
+							<li class="service-item">
+								<div class="service-icon-box">
+									<img src="assets/images/about/desktop.png" alt="Desktop development icon" width="50" />
+								</div>
+								<div class="service-content-box">
+									<h4 class="h4 service-item-title">Desktop development</h4>
+									<p class="service-item-text">I develop desktop programs for my needs with C#. I try to imitate the applications I see on the internet.</p>
+								</div>
+							</li>
+							<li class="service-item">
+								<div class="service-icon-box">
+									<img src="assets/images/about/console.png" alt="Console development icon" width="40" />
+								</div>
+								<div class="service-content-box">
+									<h4 class="h4 service-item-title">Console development</h4>
+									<p class="service-item-text">I develop console applications with C#.</p>
+								</div>
+							</li>
+							<li class="service-item">
+								<div class="service-icon-box">
+									<img src="assets/images/about/photoshop.png" alt="Photoshop icon" width="45" />
+								</div>
+								<div class="service-content-box">
+									<h4 class="h4 service-item-title">Photoshop</h4>
+									<p class="service-item-text">I'm trying to learn Adobe Photoshop, I create and edit photos on my own.</p>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<!-- #testimonials -->
+					<section class="testimonials">
+						<h3 class="h3 testimonials-title">Testimonials</h3>
+						<ul class="testimonials-list has-scrollbar">
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-7.png" alt="Fulya Er" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Fulya Er</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Senior .Net Developer at PXL Digital Solutions</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											Obviously, even though we've only been working for a short time; <br />
+											<br />
+											Your ability to learn quickly and your enthusiasm for your work made a very positive impression. Since you started working, you have been able to quickly grasp the tasks I have given you and
+											interpret them for yourself. At the same time, the fact that you do not hesitate to ask questions when you encounter difficulties contributes significantly to the work. <br />
+											<br />
+											*Ability to learn quickly and adapt to new technologies. <br />
+											*Ability to complete assigned tasks in a timely and accurate manner. <br />
+											*Ability to research and propose your own solutions. <br />
+											*Willingness to ask for help and cooperate when you get stuck. <br />
+											<br />
+											I can say that you are successful in these matters. Of course, you have a long way to go, but I think you will develop your skills even more by taking more responsibility in projects in the future
+											🙂
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-6.png" alt="Erdal Parmaksız" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Erdal Parmaksız</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Software Manager at Ofmark</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											During the period we worked together, it was a great pleasure to work with Furkan, especially his work discipline, ability to interpret events, ability to solve problems, practical intelligence.
+											Even though we parted ways in this project, he is a friend that I would like to be in the same team in the future and that I can be a reference in every sense.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-5.png" alt="Eda Pelvan" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Eda Pelvan</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Project Manager at Ofmark & Piksel Mutfak</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>A friend who is compatible with teamwork, has work discipline and loves to work. He is a highly compatible colleague with his technical skills and communication.</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-4.png" alt="Murat Efe Arslan" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Murat Efe Arslan</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Lead Software Developer at Umur Printing Company</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											I have had the pleasure of working alongside Furkan Kapukaya at PXL Digital Solutions, and I must say he is an exceptional Junior .NET Developer. His passion for coding and ambition to excel in
+											his field are truly inspiring. <br />
+											<br />
+											Furkan's enthusiasm for software development is evident in the way he approaches challenges and projects. His proficiency in C#, HTML, CSS, MySQL, NoSQL, .NET Core, MicroServices, and CentOS
+											showcases a diverse skill set that enables him to tackle various tasks with confidence. <br />
+											<br />
+											Not only is Furkan technically skilled, but his positive attitude and eagerness to learn also make him an invaluable team member. He actively seeks opportunities to expand his knowledge and
+											consistently contributes fresh ideas to the projects we collaborate on. <br />
+											<br />
+											As a colleague, Furkan is approachable and always ready to lend a helping hand. His dedication to the success of the team and projects he works on has left a lasting impression on everyone around
+											him. <br />
+											<br />
+											In short, Furkan Kapukaya is a driven and talented Junior .NET Developer who demonstrates unwavering commitment to his craft. I am certain that he will continue to achieve remarkable milestones in
+											his career and make significant contributions to the world of software development.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-3.png" alt="Nadir Subaşı" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Nadir Subaşı</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Lecturer at Kirklareli University</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											Furkan studied and graduated from our department between 2019-2021. In addition to his success in his courses, he stood out with his academic performance and professional approach in his projects.
+											He was a very hardworking, determined and goal-oriented student. The way he worked constructively and efficiently on his projects and his desire to continuously improve himself made him stand out
+											in many different fields. Furkan was also a student who could develop himself socially, was prone to group work and could bring positive energy to the environment. At the same time, he has a
+											strong communication skills, is easy to understand and can establish good relationships with other people.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-2.png" alt="Beysemi Emirhan Bayrak" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Beysemi Emirhan Bayrak</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Front-End Developer at Dijital Sahne</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											Furkan and I went to university together. He is a good team player. He is meticulous and careful in his work. He follows new technologies and likes to research. He has good communication skills
+											and can build good relationships.
+										</p>
+									</div>
+								</div>
+							</li>
+							<li class="testimonials-item">
+								<div class="content-card" data-testimonials-item>
+									<figure class="testimonials-avatar-box">
+										<img src="assets/images/testimonials/avatar-1.png" alt="Uğur Erbay" width="60" data-testimonials-avatar />
+									</figure>
+									<h4 class="h4 testimonials-item-title" data-testimonials-name>Uğur Erbay</h4>
+									<h4 class="h4 testimonials-item-sub-title" data-testimonials-title>Software Developer at Intertech</h4>
+									<div class="testimonials-text" data-testimonials-text>
+										<p>
+											Furkan and I went to university together. He was a successful and determined student at school. He was a meticulous and disciplined team member who was compatible with teamwork in the projects we
+											developed together.
+										</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<!-- #testimonials-modal -->
+					<div class="modal-container" data-modal-container>
+						<div class="overlay" data-overlay></div>
+						<section class="testimonials-modal">
+							<button class="modal-close-btn" data-modal-close-btn>
+								<ion-icon name="close-outline"></ion-icon>
+							</button>
+							<div class="modal-img-wrapper">
+								<figure class="modal-avatar-box">
+									<img src="assets/images/testimonials/avatar-1.png" alt="Name" width="80" data-modal-img />
+								</figure>
+								<img src="assets/images/testimonials/icon-quote.svg" alt="quote icon" />
+							</div>
+							<div class="modal-content">
+								<h4 class="h3 modal-title" data-modal-name>Name</h4>
+								<h4 class="h5 modal-title" data-modal-title>Title</h4>
+								<div data-modal-text>
+									<p>Description</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					<!-- #clients -->
+					<section class="clients">
+						<h3 class="h3 clients-title">Clients</h3>
+						<ul class="clients-list has-scrollbar">
+							<li class="clients-item">
+								<img src="assets/images/clients/kiraz-oto.png" alt="client logo" />
+							</li>
+							<li class="clients-item">
+								<img src="assets/images/clients/futs-medya.png" alt="client logo" style="width: 50%;" />
+							</li>
+						</ul>
+					</section>
+				</article>
+				<!-- #resume -->
+				<article class="resume" data-page="resume">
+					<header>
+						<h2 class="h2 article-title">Resume</h2>
+					</header>
+					<section class="timeline">
+						<div class="title-wrapper">
+							<div class="icon-box">
+								<ion-icon name="book-outline"></ion-icon>
+							</div>
+							<h3 class="h3">Education</h3>
+						</div>
+						<ol class="timeline-list">
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Anatolian University | Management Information Systems</h4>
+								<span>2022 — Present</span>
+								<p class="timeline-text">I am currently studying to complete my university life to undergraduate with DGS and to improve myself.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Kirklareli University | Computer Programming</h4>
+								<span>2019 — 2021</span>
+								<p class="timeline-text">I studied C#, Python, Java, PostgreSQL, PHP, HTML and CSS technologies at a basic level.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Mehmet Akif Ersoy Anatolian Imam Hatip Highscool</h4>
+								<span>2015 — 2019</span>
+								<p class="timeline-text">
+									It is one of the important times of my life when I studied and completed my studies in Istanbul and took part in various activities (Tübitak, Music Choir, etc.), where I accumulated good experiences and
+									memories...
+								</p>
+							</li>
+						</ol>
+					</section>
+					<section class="timeline">
+						<div class="title-wrapper">
+							<div class="icon-box">
+								<ion-icon name="code-slash-outline"></ion-icon>
+							</div>
+							<h3 class="h3">Experience</h3>
+						</div>
+						<ol class="timeline-list">
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Junior Software Developer at PXL Digital Solutions</h4>
+								<span>February 2022 — Present</span>
+								<p class="timeline-text">I am involved in the development and bug fixing of various projects within the company.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Junior Software Developer at Ofmark</h4>
+								<span>February 2022 — August 2023</span>
+								<p class="timeline-text">Basic enhancements and bug fixing in Ofmark E-Commerce platform for end users and companies. I am working with PXL Digital Solutions.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Software Developer Intern at Omega BigData</h4>
+								<span>March 2021 - June 2021</span>
+								<p class="timeline-text">I took part in web projects created for new generation loyalty platforms for shoppers and employees. My task is to develop, edit and report web projects.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Volunteer at ÜNOG</h4>
+								<span>January 2021</span>
+								<p class="timeline-text">I volunteered for ÜNOG's GGJ21 event. Communicating one-on-one with the participants, etc. I completed the tasks. It was an enjoyable and educational experience.</p>
+							</li>
+							<li class="timeline-item">
+								<h4 class="h4 timeline-item-title">Volunteer at Kirklareli University</h4>
+								<span>October 2019 - March 2020</span>
+								<p class="timeline-text">
+									With the "Artificial Intelligence Workshop" project, our professors working in the Computer Programming, Electronics Technology and Mechatronics departments and our volunteer students in these programs,
+									under the supervision of department professors, provided training on artificial intelligence to students from BİLSEM and guided them to make projects equipped with artificial intelligence.
+								</p>
+							</li>
+						</ol>
+					</section>
+					<section class="clients">
+						<h3 class="h3 clients-title">Skills</h3>
+						<span class="badge">C#</span>
+						<span class="badge">.NET</span>
+						<span class="badge">SQL</span>
+						<span class="badge">Microsoft SQL Server</span>
+						<span class="badge">Javascript</span>
+						<span class="badge">HTML</span>
+						<span class="badge">CSS</span>
+						<span class="badge">Bootstrap</span>
+						<span class="badge">Git</span>
+						<span class="badge">Github</span>
+						<span class="badge">Postman</span>
+						<span class="badge">Visual Studio</span>
+						<span class="badge">Visual Studio Code</span>
+						<span class="badge">Office</span>
+						<span class="badge">Photoshop</span>
+						<!--
             <ul class="clients-list has-scrollbar"><li class="clients-item"><img src="./assets/images/skills/csharp.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/dotnet.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/sql.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/sql-server.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/js.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/html.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/css.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/bootstrap.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/git.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/github.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/terminal.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/postman.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/visual-studio.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/visual-studio-code.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/office.png" alt="client logo"></li><li class="clients-item"><img src="./assets/images/skills/photoshop.png" alt="client logo"></li></ul>
           -->
-          </section>
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="star-outline"></ion-icon>
-              </div>
-              <h3 class="h3">Certificates and Certificates of Participation</h3>
-            </div>
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/artificial-intelligence-workshop.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Artificial Intelligence Workshop</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/cloud101.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Cloud Technologies 101</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/blockcahin-literacy.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Blockchain Literacy Awareness Training</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/digitalmarketing.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Fundamentals of Digital Marketing</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/version-control-systems-and-portfolio.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Version Control Systems and Portfolio</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/mvc-project-camp.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">MVC Project Camp</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/c++2.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">C++ Game Programming 2</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/gitgithub.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Git&Github</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/pg1926-project-camp.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">PG1926 Programming Camp</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/c++.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">C++ Game Programming</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/leadership.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Leadership Program</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/blockchain101.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Blockchain 101</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/cyber-security101.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Cyber Security 101</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/financial-literacy.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Financial Literacy Education</h4>
-                </a>
-              </li>
-              <li class="timeline-item">
-                <a href="assets/pdf/certs/onlinesafety.pdf" target="_blank">
-                  <h4 class="h4 timeline-item-title">Online Safety Training</h4>
-                </a>
-              </li>
-            </ol>
-          </section>
-        </article>
-        <!-- #portfolio -->
-        <article class="portfolio" data-page="portfolio">
-          <header>
-            <h2 class="h2 article-title">Projects</h2>
-          </header>
-          <section class="projects">
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="active" data-filter-btn>All</button>
-              </li>
-              <li class="filter-item">
-                <button data-filter-btn>Web</button>
-              </li>
-              <li class="filter-item">
-                <button data-filter-btn>Desktop</button>
-              </li>
-              <li class="filter-item">
-                <button data-filter-btn>Console</button>
-              </li>
-            </ul>
-            <div class="filter-select-box">
-              <button class="filter-select" data-select>
-                <div class="select-value" data-selecct-value>Select category</div>
-                <div class="select-icon">
-                  <ion-icon name="chevron-down"></ion-icon>
-                </div>
-              </button>
-              <ul class="select-list">
-                <li class="select-item">
-                  <button data-select-item>All</button>
-                </li>
-                <li class="select-item">
-                  <button data-select-item>Web</button>
-                </li>
-                <li class="select-item">
-                  <button data-select-item>Desktop</button>
-                </li>
-                <li class="select-item">
-                  <button data-select-item>Console</button>
-                </li>
-              </ul>
-            </div>
-            <ul class="project-list">
-              <li class="project-item  active" data-filter-item data-category="web">
-                <a href="https://youtu.be/44ZLJxbF0Yo" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-1.jpg" alt="MVC Project Camp" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">MVC Project Camp</h3>
-                  <p class="project-category">Web</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="web">
-                <a href="https://youtu.be/gMWR5f3FTEk" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-2.jpg" alt="Course Registration Website with Layered Architecture" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Course Registration with Layered Architecture</h3>
-                  <p class="project-category">Web</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="web">
-                <a href="https://youtu.be/wYMWtsYHPaE" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-3.jpg" alt="Stock Tracking Control" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Stock Tracking Control</h3>
-                  <p class="project-category">Web</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/-y5GHEqIjO4" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-4.jpg" alt="Messaging With Database" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Messaging With Database</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/vviyEYHV698" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-5.jpg" alt="Writing on Picture" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Writing on Picture</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/kO-4JHoHKzE" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-6.jpg" alt="Todo List" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Todo List</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/_rBH_TNe-yI" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-7.jpg" alt="Coronavirus Stay At Home Application" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Coronavirus Stay At Home Application</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/XFYd9yQ-zuk" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-8.jpg" alt="Hotel Automation Application" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Hotel Automation Application</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://youtu.be/WixgLAOrQrE" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-9.jpg" alt="Parking Automation Application" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Parking Automation Application</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://github.com/furkankapukayaa/Shuttime" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-11.png" alt="Shuttime" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Shuttime</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="web">
-                <a href="https://youtu.be/bvmXvi76qQ8" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-12.png" alt="Real Estate Office" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Real Estate Office</h3>
-                  <p class="project-category">Web</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="console">
-                <a href="https://github.com/furkankapukayaa/DataReading" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-13.png" alt="Data Pull and Read" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">Data Pull and Read</h3>
-                  <p class="project-category">Console</p>
-                </a>
-              </li>
-              <li class="project-item  active" data-filter-item data-category="desktop">
-                <a href="https://github.com/furkankapukayaa/QRCodeGeneration" target="_blank">
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                    <img src="assets/images/portfolio/portfolio-10.gif" alt="QR Code Generation" loading="lazy">
-                  </figure>
-                  <h3 class="project-title">QR Code Generation</h3>
-                  <p class="project-category">Desktop</p>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
-        <!-- #blog -->
-        <article class="blog" data-page="blog">
-          <header>
-            <h2 class="h2 article-title">Blog</h2>
-          </header>
-          <section class="blog-posts">
-            <ul class="blog-posts-list">
-              <li class="blog-post-item">
-                <a href="blog/advice-for-beginners-in-software-development.html">
-                  <figure class="blog-banner-box">
-                    <img src="assets/images/blog/advice-for-beginners-in-software-development.jpeg" alt="Design conferences in 2022" loading="lazy">
-                  </figure>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Software</p>
-                      <span class="dot"></span>
-                      <time datetime="2022-02-23">17.07.2023</time>
-                    </div>
-                    <h3 class="h3 blog-item-title">Advice for Beginners in Software Development</h3>
-                    <p class="blog-text"> ChatGPT </p>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
-        <!-- #contact -->
-        <article class="contact" data-page="contact">
-          <header>
-            <h2 class="h2 article-title">Contact</h2>
-          </header>
-          <section class="mapbox" data-mapbox>
-            <figure>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48090.135519072835!2d28.832347594383872!3d41.12069532113815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1ef321b9cf5%3A0xe86773f1959d7cfc!2sSultangazi%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1689512331754!5m2!1str!2str" width="400" height="300" loading="lazy"></iframe>
-            </figure>
-          </section>
-          <section class="contact-form">
-            <h3 class="h3 form-title">Contact Form</h3>
-            <form action="https://formspree.io/f/xwkdkggo" method="POST" class="form" data-form>
-              <div class="input-wrapper">
-                <input type="text" name="fullname" class="form-input" placeholder="Full name*" autocomplete="off" required data-form-input>
-                <input type="email" name="email" class="form-input" placeholder="Email address*" autocomplete="off" required data-form-input>
-              </div>
-              <textarea name="message" class="form-input" placeholder="Your Message*" autocomplete="off" required data-form-input></textarea>
-              <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-            </form>
-          </section>
-        </article>
-      </div>
-    </main>
-    <script src="assets/js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  </body>
+					</section>
+					<section class="timeline">
+						<div class="title-wrapper">
+							<div class="icon-box">
+								<ion-icon name="star-outline"></ion-icon>
+							</div>
+							<h3 class="h3">Certificates and Certificates of Participation</h3>
+						</div>
+						<ol class="timeline-list">
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/artificial-intelligence-workshop.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Artificial Intelligence Workshop</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/cloud101.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Cloud Technologies 101</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/blockcahin-literacy.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Blockchain Literacy Awareness Training</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/digitalmarketing.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Fundamentals of Digital Marketing</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/version-control-systems-and-portfolio.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Version Control Systems and Portfolio</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/mvc-project-camp.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">MVC Project Camp</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/c++2.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">C++ Game Programming 2</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/gitgithub.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Git&Github</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/pg1926-project-camp.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">PG1926 Programming Camp</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/c++.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">C++ Game Programming</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/leadership.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Leadership Program</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/blockchain101.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Blockchain 101</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/cyber-security101.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Cyber Security 101</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/financial-literacy.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Financial Literacy Education</h4>
+								</a>
+							</li>
+							<li class="timeline-item">
+								<a href="assets/pdf/certs/onlinesafety.pdf" target="_blank">
+									<h4 class="h4 timeline-item-title">Online Safety Training</h4>
+								</a>
+							</li>
+						</ol>
+					</section>
+				</article>
+				<!-- #portfolio -->
+				<article class="portfolio" data-page="portfolio">
+					<header>
+						<h2 class="h2 article-title">Projects</h2>
+					</header>
+					<section class="projects">
+						<ul class="filter-list">
+							<li class="filter-item">
+								<button class="active" data-filter-btn>All</button>
+							</li>
+							<li class="filter-item">
+								<button data-filter-btn>Web</button>
+							</li>
+							<li class="filter-item">
+								<button data-filter-btn>Desktop</button>
+							</li>
+							<li class="filter-item">
+								<button data-filter-btn>Console</button>
+							</li>
+						</ul>
+						<div class="filter-select-box">
+							<button class="filter-select" data-select>
+								<div class="select-value" data-selecct-value>Select category</div>
+								<div class="select-icon">
+									<ion-icon name="chevron-down"></ion-icon>
+								</div>
+							</button>
+							<ul class="select-list">
+								<li class="select-item">
+									<button data-select-item>All</button>
+								</li>
+								<li class="select-item">
+									<button data-select-item>Web</button>
+								</li>
+								<li class="select-item">
+									<button data-select-item>Desktop</button>
+								</li>
+								<li class="select-item">
+									<button data-select-item>Console</button>
+								</li>
+							</ul>
+						</div>
+						<ul class="project-list">
+							<li class="project-item active" data-filter-item data-category="web">
+								<a href="https://youtu.be/44ZLJxbF0Yo" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-1.jpg" alt="MVC Project Camp" loading="lazy" />
+									</figure>
+									<h3 class="project-title">MVC Project Camp</h3>
+									<p class="project-category">Web</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="web">
+								<a href="https://youtu.be/gMWR5f3FTEk" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-2.jpg" alt="Course Registration Website with Layered Architecture" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Course Registration with Layered Architecture</h3>
+									<p class="project-category">Web</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="web">
+								<a href="https://youtu.be/wYMWtsYHPaE" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-3.jpg" alt="Stock Tracking Control" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Stock Tracking Control</h3>
+									<p class="project-category">Web</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/-y5GHEqIjO4" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-4.jpg" alt="Messaging With Database" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Messaging With Database</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/vviyEYHV698" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-5.jpg" alt="Writing on Picture" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Writing on Picture</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/kO-4JHoHKzE" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-6.jpg" alt="Todo List" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Todo List</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/_rBH_TNe-yI" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-7.jpg" alt="Coronavirus Stay At Home Application" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Coronavirus Stay At Home Application</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/XFYd9yQ-zuk" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-8.jpg" alt="Hotel Automation Application" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Hotel Automation Application</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://youtu.be/WixgLAOrQrE" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-9.jpg" alt="Parking Automation Application" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Parking Automation Application</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://github.com/furkankapukayaa/Shuttime" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-11.png" alt="Shuttime" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Shuttime</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="web">
+								<a href="https://youtu.be/bvmXvi76qQ8" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-12.png" alt="Real Estate Office" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Real Estate Office</h3>
+									<p class="project-category">Web</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="console">
+								<a href="https://github.com/furkankapukayaa/DataReading" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-13.png" alt="Data Pull and Read" loading="lazy" />
+									</figure>
+									<h3 class="project-title">Data Pull and Read</h3>
+									<p class="project-category">Console</p>
+								</a>
+							</li>
+							<li class="project-item active" data-filter-item data-category="desktop">
+								<a href="https://github.com/furkankapukayaa/QRCodeGeneration" target="_blank">
+									<figure class="project-img">
+										<div class="project-item-icon-box">
+											<ion-icon name="eye-outline"></ion-icon>
+										</div>
+										<img src="assets/images/portfolio/portfolio-10.gif" alt="QR Code Generation" loading="lazy" />
+									</figure>
+									<h3 class="project-title">QR Code Generation</h3>
+									<p class="project-category">Desktop</p>
+								</a>
+							</li>
+						</ul>
+					</section>
+				</article>
+				<!-- #blog -->
+				<article class="blog" data-page="blog">
+					<header>
+						<h2 class="h2 article-title">Blog</h2>
+					</header>
+					<section class="blog-posts">
+						<ul class="blog-posts-list">
+							<li class="blog-post-item">
+								<a href="blog/advice-for-beginners-in-software-development.html">
+									<figure class="blog-banner-box">
+										<img src="assets/images/blog/advice-for-beginners-in-software-development.jpeg" alt="Design conferences in 2022" loading="lazy" />
+									</figure>
+									<div class="blog-content">
+										<div class="blog-meta">
+											<p class="blog-category">Software</p>
+											<span class="dot"></span>
+											<time datetime="2022-02-23">17.07.2023</time>
+										</div>
+										<h3 class="h3 blog-item-title">Advice for Beginners in Software Development</h3>
+										<p class="blog-text">ChatGPT</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</section>
+				</article>
+				<!-- #contact -->
+				<article class="contact" data-page="contact">
+					<header>
+						<h2 class="h2 article-title">Contact</h2>
+					</header>
+					<section class="mapbox" data-mapbox>
+						<figure>
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48090.135519072835!2d28.832347594383872!3d41.12069532113815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1ef321b9cf5%3A0xe86773f1959d7cfc!2sSultangazi%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1689512331754!5m2!1str!2str"
+								width="400"
+								height="300"
+								loading="lazy"
+							></iframe>
+						</figure>
+					</section>
+					<section class="contact-form">
+						<h3 class="h3 form-title">Contact Form</h3>
+						<form action="https://formspree.io/f/xwkdkggo" method="POST" class="form" data-form>
+							<div class="input-wrapper">
+								<input type="text" name="fullname" class="form-input" placeholder="Full name*" autocomplete="off" required data-form-input />
+								<input type="email" name="email" class="form-input" placeholder="Email address*" autocomplete="off" required data-form-input />
+							</div>
+							<textarea name="message" class="form-input" placeholder="Your Message*" autocomplete="off" required data-form-input></textarea>
+							<button class="form-btn" type="submit" disabled data-form-btn>
+								<ion-icon name="paper-plane"></ion-icon>
+								<span>Send Message</span>
+							</button>
+						</form>
+					</section>
+				</article>
+			</div>
+		</main>
+		<script src="assets/js/script.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</body>
 </html>
