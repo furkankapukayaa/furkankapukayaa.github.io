@@ -11,7 +11,7 @@
 ![](https://komarev.com/ghpvc/?username=furkankapukayaa&style=flat&color=blueviolet)
 ### Glad to see you here! &nbsp;
 
-I'm a graduate in Computer Programming from Kırklareli University. Then I won Anadolu University Management Information Systems with DGS. I'm a passionate learner who's always willing to learn and work across technologies and domains. I love to explore new technologies and leverage them to solve real-life problems. Apart from that I also love to guide. I'm currently into Web Development.
+I graduated from Kırklareli University Computer Programming, and then I earned Anadolu University Management Information Systems with DGS. I am a passionate student who is always willing to learn and work across technologies and fields. I love discovering new technologies and leveraging them to solve real-life problems. I love sharing what I know with others and guiding them. Currently, I am interested in Web Development.
 
 </div><br>
 	 
@@ -21,7 +21,6 @@ I'm a graduate in Computer Programming from Kırklareli University. Then I won A
 - 🚀 &nbsp; I’m currently learning Full Stack Web Development.
 - 👨🏻‍💻 &nbsp; Most of my projects are available on [Github](https://github.com/furkankapukayaa?tab=repositories).
 - 📫 &nbsp; How to reach me: furkankapukayaa@gmail.com.
-- 🤙 &nbsp; Let's meet: [Superpeer](https://superpeer.com/furkankapukaya).
 - 📝 &nbsp; Checkout my [Resume](https://furkankapukayaa.github.io/assets/pdf/Resume.pdf).
 
 ### My Absolute Favorites:
