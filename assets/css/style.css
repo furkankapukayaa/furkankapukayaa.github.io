@@ -808,14 +808,16 @@
  }
  .project-item.active {
    display: block;
-   animation: scaleUp 0.25s ease forwards;
+  animation: scaleUp 0.5s ease forwards;
  }
  @keyframes scaleUp {
    0% {
      transform: scale(0.5);
+    opacity: 0;
    }
    100% {
      transform: scale(1);
+    opacity: 1;
    }
  }
  .project-item > a {
