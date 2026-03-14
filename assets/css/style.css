@@ -274,6 +274,12 @@
  .avatar-box {
    background: var(--bg-gradient-onyx);
    border-radius: 20px;
+  transition: var(--transition-1);
+}
+.avatar-box:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-2);
+  z-index: 2;
  }
  .info-content .name {
    color: var(--white-2);
@@ -436,19 +442,17 @@
  }
  .service-item {
    position: relative;
-   background: var(--border-gradient-onyx);
+   background: var(--eerie-black-2);
+   border: 1px solid var(--jet);
    padding: 20px;
    border-radius: 14px;
-   box-shadow: var(--shadow-2);
    z-index: 1;
- }
- .service-item::before {
-   content: "";
-   position: absolute;
-   inset: 1px;
-   background: var(--bg-gradient-jet);
-   border-radius: inherit;
-   z-index: -1;
+  transition: var(--transition-1);
+}
+.service-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-2);
  }
  .service-icon-box {
    margin-bottom: 10px;
@@ -709,12 +713,22 @@
    font-weight: var(--fw-300);
    line-height: 1.6;
  }
+.timeline-text strong {
+  color: var(--white-2);
+  font-weight: var(--fw-500);
+}
  /* skills */
+.skills {
+  margin-bottom: 40px;
+}
  .skills-title {
    margin-bottom: 20px;
  }
  .skills-list {
-   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
  }
  .skills-item:not(:last-child) {
    margin-bottom: 15px;
@@ -740,7 +754,68 @@
    background: var(--text-gradient-yellow);
    height: 100%;
    border-radius: inherit;
- }
+}
+/* certificates */
+.certificates {
+  margin-bottom: 30px;
+}
+.certificates .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.certificates-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+.certificate-item a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  background: var(--border-gradient-onyx);
+  border-radius: 14px;
+  box-shadow: var(--shadow-1);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-1);
+}
+.certificate-item a::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--eerie-black-1);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+.certificate-item a:hover {
+  transform: translateY(-3px);
+}
+.certificate-item a:hover::before {
+  background: var(--bg-gradient-jet);
+}
+.certificate-icon {
+  color: var(--light-gray-70);
+  font-size: 24px;
+  transition: var(--transition-1);
+}
+.certificate-item a:hover .certificate-icon {
+  color: var(--orange-yellow-crayola);
+}
+.certificate-item h4 {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-400);
+  text-transform: capitalize;
+  line-height: 1.4;
+  transition: var(--transition-1);
+}
+.certificate-item a:hover h4 {
+  color: var(--white-2);
+}
  /*-----------------------------------*\ #PORTFOLIO \*-----------------------------------*/
  .filter-list {
    display: none;
@@ -1378,7 +1453,8 @@
    }
    /* portfolio and blog grid */
    .project-list,
-   .blog-posts-list {
+  .blog-posts-list,
+  .certificates-list {
      grid-template-columns: 1fr 1fr;
    }
    /* CONTACT */
@@ -1565,13 +1641,29 @@
  
  /* OTHER */
  .badge {
-   background-color: var(--vegas-gold);
-   color: rgb(0, 0, 0);
-   padding: 4px 8px;
-   margin: 5px;
-   text-align: center;
-   border-radius: 5px;
-   display: inline-block;
+   background: var(--eerie-black-2);
+   color: var(--light-gray);
+   font-size: var(--fs-6);
+   font-weight: var(--fw-400);
+   padding: 10px 18px;
+   border-radius: 12px;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   border: 1px solid var(--jet);
+   box-shadow: var(--shadow-1);
+   transition: var(--transition-1);
+ }
+ .badge i {
+   color: var(--orange-yellow-crayola);
+   font-size: 16px;
+ }
+ .badge:hover {
+   background: var(--bg-gradient-onyx);
+   border-color: var(--orange-yellow-crayola);
+   transform: translateY(-3px);
+   box-shadow: var(--shadow-2);
+   color: var(--white-2);
  }
  .blog-badge {
    background-color: var(--vegas-gold);
