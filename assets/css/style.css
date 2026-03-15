@@ -15,13 +15,13 @@
      hsl(240, 2%, 13%);
    --bg-gradient-yellow-1: linear-gradient(
      to bottom right,
-     hsl(45, 100%, 71%) 0%,
-     hsla(36, 100%, 69%, 0) 50%
+    hsl(45, 100%, 71%) 0%,
+    hsla(36, 100%, 69%, 0) 50%
    );
    --bg-gradient-yellow-2: linear-gradient(
        135deg,
-       hsla(45, 100%, 71%, 0.251) 0%,
-       hsla(35, 100%, 68%, 0) 59.86%
+      hsla(45, 100%, 71%, 0.251) 0%,
+      hsla(35, 100%, 68%, 0) 59.86%
      ),
      hsl(240, 2%, 13%);
    --border-gradient-onyx: linear-gradient(
@@ -31,8 +31,8 @@
    );
    --text-gradient-yellow: linear-gradient(
      to right,
-     hsl(45, 100%, 72%),
-     hsl(35, 100%, 68%)
+    hsl(45, 100%, 72%),
+    hsl(35, 100%, 68%)
    );
    /* solid */
    --jet: hsl(0, 0%, 22%);
@@ -42,8 +42,8 @@
    --smoky-black: hsl(0, 0%, 7%);
    --white-1: hsl(0, 0%, 100%);
    --white-2: hsl(0, 0%, 98%);
-   --orange-yellow-crayola: hsl(45, 100%, 72%);
-   --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: hsl(45, 100%, 72%);
+  --vegas-gold: hsl(45, 54%, 58%);
    --light-gray: hsl(0, 0%, 84%);
    --light-gray-70: hsla(0, 0%, 84%, 0.7);
    --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -438,18 +438,32 @@
    margin-bottom: 20px;
  }
  .service-list {
-   display: grid;
-   grid-template-columns: 1fr;
+   display: flex;
+   justify-content: flex-start;
+   align-items: stretch;
    gap: 20px;
+   margin: 0 -15px;
+   padding: 5px 15px 15px;
+   overflow-x: auto;
+   overscroll-behavior-inline: contain;
+   scrollbar-width: none; /* Firefox için scrollbar gizleme */
+   -ms-overflow-style: none; /* IE ve Edge için scrollbar gizleme */
+ }
+ .service-list::-webkit-scrollbar {
+   display: none; /* Chrome, Safari, Opera için scrollbar gizleme */
  }
  .service-item {
+   min-width: 85%; /* Akıcı görünüm için biraz küçültüldü */
    position: relative;
    background: var(--eerie-black-2);
    border: 1px solid var(--jet);
-   padding: 20px;
+   padding: 12px 15px; /* Daha yatay görünüm için alt/üst boşluk kısıldı */
    border-radius: 14px;
    z-index: 1;
   transition: var(--transition-1);
+   display: flex;
+   align-items: center;
+   gap: 15px;
 }
 .service-item:hover {
   transform: translateY(-3px);
@@ -457,13 +471,14 @@
   box-shadow: var(--shadow-2);
  }
  .service-icon-box {
-   margin-bottom: 10px;
+   flex-shrink: 0;
  }
  .service-icon-box img {
    margin: auto;
+   width: 35px; /* Kutuyu daraltmak için ikon biraz daha ufaltıldı */
  }
  .service-content-box {
-   text-align: center;
+   text-align: left;
  }
  .service-item-title {
    margin-bottom: 7px;
@@ -639,14 +654,16 @@
    padding: 25px;
    padding-bottom: 25px;
    overflow-x: auto;
-   scroll-behavior: smooth;
    overscroll-behavior-inline: contain;
-   scroll-snap-type: inline mandatory;
    scroll-padding-inline: 25px;
+  scrollbar-width: none; /* Firefox için scrollbar gizleme */
+  -ms-overflow-style: none; /* IE ve Edge için scrollbar gizleme */
+}
+.clients-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera için scrollbar gizleme */
  }
  .clients-item {
    min-width: 50%;
-   scroll-snap-align: start;
  }
  .clients-item img {
    width: 80%;
@@ -723,9 +740,12 @@
 .skills {
   margin-bottom: 40px;
 }
- .skills-title {
-   margin-bottom: 20px;
- }
+.skills .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
  .skills-list {
   display: flex;
   flex-wrap: wrap;
@@ -775,33 +795,21 @@
 .certificate-item a {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 18px;
-  background: var(--border-gradient-onyx);
-  border-radius: 14px;
-  box-shadow: var(--shadow-1);
-  position: relative;
-  z-index: 1;
-  transition: var(--transition-1);
-}
-.certificate-item a::before {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: var(--eerie-black-1);
-  border-radius: inherit;
-  z-index: -1;
+  gap: 10px;
+  padding: 10px 15px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 8px;
   transition: var(--transition-1);
 }
 .certificate-item a:hover {
-  transform: translateY(-3px);
-}
-.certificate-item a:hover::before {
-  background: var(--bg-gradient-jet);
+  transform: translateY(-2px);
+  border-color: var(--orange-yellow-crayola);
+  background: var(--eerie-black-1);
 }
 .certificate-icon {
-  color: var(--light-gray-70);
-  font-size: 24px;
+  color: var(--orange-yellow-crayola);
+  font-size: 16px;
   transition: var(--transition-1);
 }
 .certificate-item a:hover .certificate-icon {
@@ -809,8 +817,8 @@
 }
 .certificate-item h4 {
   color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-400);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
   text-transform: capitalize;
   line-height: 1.4;
   transition: var(--transition-1);
@@ -1008,7 +1016,7 @@
  }
  .blog-banner-box {
    width: 100%;
-   height: 200px;
+  height: 160px;
    border-radius: 12px;
    overflow: hidden;
  }
@@ -1168,8 +1176,7 @@
      min-width: calc(33.33% - 10px);
    }
    /* #PORTFOLIO, BLOG */
-   .project-img,
-   .blog-banner-box {
+  .project-img {
      height: auto;
    }
  
@@ -1279,19 +1286,17 @@
      margin-bottom: 40px;
    }
    /* service */
+   .service-list {
+     margin: 0 -30px;
+     padding: 5px 30px 15px;
+     gap: 30px;
+   }
    .service-item {
-     display: flex;
-     justify-content: flex-start;
-     align-items: flex-start;
-     gap: 18px;
-     padding: 30px;
+     gap: 15px;
+     padding: 15px 20px; /* Masaüstünde daha uzunlamasına bir dikdörtgen için kısıldı */
    }
    .service-icon-box {
-     margin-bottom: 0;
-     margin-top: 5px;
-   }
-   .service-content-box {
-     text-align: left;
+     margin-top: 0;
    }
    /* testimonials */
    .testimonials-title {
@@ -1529,9 +1534,8 @@
    }
    /* ABOUT */
    /* service */
-   .service-list {
-     grid-template-columns: 1fr 1fr;
-     gap: 20px 25px;
+   .service-item {
+     min-width: calc(50% - 15px);
    }
    /* testimonials */
    .testimonials-item {
@@ -1542,12 +1546,12 @@
      min-width: calc(25% - 38px);
    }
    /* PORTFOLIO */
-   .project-list {
+  .project-list {
      grid-template-columns: repeat(3, 1fr);
    }
    /* BLOG */
    .blog-banner-box {
-     height: 230px;
+    height: 160px;
    }
  
    .avatar-box img {

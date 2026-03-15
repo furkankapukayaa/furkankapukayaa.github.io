@@ -112,8 +112,11 @@
             <li class="navbar-item">
               <a href="#resume" class="navbar-link" data-nav-link>Resume</a>
             </li>
-            <li class="navbar-item">
+            <!-- <li class="navbar-item">
               <a href="#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
+            </li> -->
+            <li class="navbar-item">
+              <a href="#projects" class="navbar-link" data-nav-link>Projects</a>
             </li>
             <!-- 
 					<li class="navbar-item"><a href="https://blog.kapukaya.dev" target="_blank" class="navbar-link">Blog</a></li>
@@ -123,20 +126,20 @@
         <!-- #about -->
         <article class="about active" id="about" data-page="about">
           <header>
-            <h2 class="h2 article-title">About me</h2>
+            <h2 class="h2 article-title">Who I Am</h2>
           </header>
           <section class="about-text">
             <p>
-              As a dedicated and results-oriented Software Developer, I specialize in building robust and scalable applications using the .NET ecosystem. My passion lies in transforming complex problems into elegant, efficient software solutions that drive business value for my clients.
+              I provide professional software consulting and custom development services designed to accelerate your digital transformation. Instead of one-size-fits-all products, I partner with businesses to architect, build, and deploy tailored digital solutions—ranging from complex desktop automations to high-performance web platforms.
             </p>
             <p>
-              With a strong foundation in C#, .NET, and SQL, combined with modern web technologies, I deliver high-quality code and user-centric products. I am committed to continuous learning and staying ahead of the technology curve to provide cutting-edge solutions. My goal is to partner with clients to understand their unique needs and build software that not only meets but exceeds their expectations.
+              Leveraging the robust .NET ecosystem, modern web technologies, and advanced database architectures, my focus is on solving unique operational challenges. My mission is to empower brands by optimizing their workflows, enhancing user experiences, and delivering scalable, enterprise-grade software that generates measurable business value.
             </p>
           </section>
           <!-- #service -->
           <section class="service">
             <h3 class="h3 service-title">What I Do</h3>
-            <ul class="service-list">
+            <ul class="service-list" data-service-list>
               <li class="service-item">
                 <div class="service-icon-box">
                   <img src="assets/images/about/web.png" alt="Web development icon" width="50" />
@@ -352,7 +355,7 @@
           <!-- #clients -->
           <section class="clients">
             <h3 class="h3 clients-title">Clients</h3>
-            <ul class="clients-list has-scrollbar">
+            <ul class="clients-list" data-clients-list>
               <li class="clients-item">
                 <img src="assets/images/clients/kiraz-oto.png" alt="Kiraz Oto client logo" />
               </li>
@@ -364,6 +367,10 @@
               </li>
               <li class="clients-item">
                 <img src="assets/images/clients/m2.png" alt="M2 client logo" />
+              </li>
+              <li class="clients-item">
+                <img src="assets/images/clients/freelancer.png" alt="Freelance Projects" />
+              </li>
             </ul>
           </section>
         </article>
@@ -372,31 +379,6 @@
           <header>
             <h2 class="h2 article-title">Resume</h2>
           </header>
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <h3 class="h3">Education</h3>
-            </div>
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Anatolian University | Management Information Systems </h4>
-                <span>2022 — Present</span>
-                <p class="timeline-text">I am currently studying to complete my university life to undergraduate with DGS and to improve myself.</p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Kirklareli University | Computer Programming</h4>
-                <span>2019 — 2021</span>
-                <p class="timeline-text">I studied C#, Python, Java, PostgreSQL, PHP, HTML and CSS technologies at a basic level.</p>
-              </li>
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">Mehmet Akif Ersoy Anatolian Imam Hatip Highscool</h4>
-                <span>2015 — 2019</span>
-                <p class="timeline-text"> It is one of the important times of my life when I studied and completed my studies in Istanbul and took part in various activities (Tübitak, Music Choir, etc.), where I accumulated good experiences and memories... </p>
-              </li>
-            </ol>
-          </section>
           <section class="timeline">
             <div class="title-wrapper">
               <div class="icon-box">
@@ -437,9 +419,41 @@
               </li>
             </ol>
           </section>
+          <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h3 class="h3">Education</h3>
+            </div>
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Anatolian University | Management Information Systems </h4>
+                <span>2022 — Present</span>
+                <p class="timeline-text">I am currently studying to complete my university life to undergraduate with DGS and to improve myself.</p>
+              </li>
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Kirklareli University | Computer Programming</h4>
+                <span>2019 — 2021</span>
+                <p class="timeline-text">I studied C#, Python, Java, PostgreSQL, PHP, HTML and CSS technologies at a basic level.</p>
+              </li>
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Mehmet Akif Ersoy Anatolian Imam Hatip Highscool</h4>
+                <span>2015 — 2019</span>
+                <p class="timeline-text"> It is one of the important times of my life when I studied and completed my studies in Istanbul and took part in various activities (Tübitak, Music Choir, etc.), where I accumulated good experiences and memories... </p>
+              </li>
+            </ol>
+          </section>
           <section class="skills">
-            <h3 class="h3 skills-title">Skills</h3>
-            <ul class="skills-list">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h3 class="h3">Skills</h3>
+            </div>
+
+            <h4 class="h4" style="margin-bottom: 15px;">Backend & Database</h4>
+            <ul class="skills-list" style="margin-bottom: 30px;">
               <li class="badge"><i class="fa-solid fa-hashtag"></i> C#</li>
               <li class="badge"><i class="fa-brands fa-microsoft"></i> .NET</li>
               <li class="badge"><i class="fa-brands fa-microsoft"></i> .NET Core</li>
@@ -447,10 +461,18 @@
               <li class="badge"><i class="fa-solid fa-window-maximize"></i> Windows Forms</li>
               <li class="badge"><i class="fa-solid fa-database"></i> SQL</li>
               <li class="badge"><i class="fa-solid fa-server"></i> Microsoft SQL Server</li>
+            </ul>
+
+            <h4 class="h4" style="margin-bottom: 15px;">Frontend</h4>
+            <ul class="skills-list" style="margin-bottom: 30px;">
               <li class="badge"><i class="fa-brands fa-js"></i> Javascript</li>
               <li class="badge"><i class="fa-brands fa-html5"></i> HTML</li>
               <li class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</li>
               <li class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap</li>
+            </ul>
+
+            <h4 class="h4" style="margin-bottom: 15px;">Tools & Others</h4>
+            <ul class="skills-list">
               <li class="badge"><i class="fa-brands fa-git-alt"></i> Git</li>
               <li class="badge"><i class="fa-brands fa-github"></i> Github</li>
               <li class="badge"><i class="fa-solid fa-rocket"></i> Postman</li>
@@ -565,6 +587,7 @@
           </section>
         </article>
         <!-- #portfolio -->
+        <!-- 
         <article class="portfolio" id="portfolio" data-page="portfolio">
           <header>
             <h2 class="h2 article-title">Projects</h2>
@@ -790,6 +813,100 @@
             </ul>
           </section>
         </article>
+        -->
+
+        <!-- #client-projects-blog -->
+        <article class="projects" id="projects" data-page="projects">
+          <header>
+            <h2 class="h2 article-title">Featured Solutions & Projects</h2>
+          </header>
+          <section class="blog-posts">
+            <ul class="blog-posts-list">
+              <li class="blog-post-item">
+                <a href="kiraz-oto.html">
+                  <figure class="blog-banner-box">
+                    <img src="assets/images/clients/kiraz-oto.png" alt="Kiraz Oto" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Desktop Automation</p>
+                      <span class="dot"></span>
+                      <time datetime="2023">2023</time>
+                    </div>
+                    <h3 class="h3 blog-item-title">Kiraz Oto</h3>
+                  </div>
+                </a>
+              </li>
+              <li class="blog-post-item">
+                <a href="futs-medya.html">
+                  <figure class="blog-banner-box">
+                    <img src="assets/images/clients/futs-medya.png" alt="Futs Medya" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Web & Business Panel</p>
+                      <span class="dot"></span>
+                      <time datetime="2023">2023</time>
+                    </div>
+                    <h3 class="h3 blog-item-title">Futs Medya</h3>
+                  </div>
+                </a>
+              </li>
+              <li class="blog-post-item">
+                <a href="olivia.html">
+                  <figure class="blog-banner-box">
+                    <img src="assets/images/clients/olivia.png" alt="Olivia" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Salon Management System</p>
+                      <span class="dot"></span>
+                      <time datetime="2024">2024</time>
+                    </div>
+                    <h3 class="h3 blog-item-title">Olivia</h3>
+                  </div>
+                </a>
+              </li>
+              <li class="blog-post-item">
+                <a href="m2.html">
+                  <figure class="blog-banner-box">
+                    <img src="assets/images/clients/m2.png" alt="M2" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Corporate Website</p>
+                      <span class="dot"></span>
+                      <time datetime="2025">2025</time>
+                    </div>
+                    <h3 class="h3 blog-item-title">M2</h3>
+                  </div>
+                </a>
+              </li>
+              <li class="blog-post-item">
+                <a href="freelance.html">
+                  <figure class="blog-banner-box">
+                    <img src="assets/images/clients/freelancer.png" alt="Freelance Projects" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);" />
+                  </figure>
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Custom Solutions</p>
+                      <span class="dot"></span>
+                      <time datetime="2026">2026</time>
+                    </div>
+                    <h3 class="h3 blog-item-title">Freelance Consulting</h3>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </article>
+
+        <!-- JS hatalarını ve sayfa çökmesini önlemek için gizli kukla (dummy) elementler -->
+        <div style="display: none;">
+          <button data-select></button>
+          <div data-selecct-value></div>
+          <button data-filter-btn></button>
+        </div>
       </div>
     </main>
     <script src="assets/js/script.js"></script>

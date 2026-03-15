@@ -144,18 +144,121 @@ const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
-	navigationLinks[i].addEventListener("click", function() {
+	navigationLinks[i].addEventListener("click", function(e) {
+		e.preventDefault(); // Tarayıcının içeriğe otomatik aşağı kayma davranışını engelle
+		
+		// Sayfa yenilendiğinde aynı sekmede kalması için URL'i manuel olarak güncelle
+		history.pushState(null, null, this.getAttribute("href"));
 
-		for (let i = 0; i < pages.length; i++) {
-			if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-				pages[i].classList.add("active");
-				navigationLinks[i].classList.add("active");
+		for (let j = 0; j < pages.length; j++) {
+			if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
+				pages[j].classList.add("active");
+				navigationLinks[j].classList.add("active");
 				window.scrollTo(0, 0);
 			} else {
-				pages[i].classList.remove("active");
-				navigationLinks[i].classList.remove("active");
+				pages[j].classList.remove("active");
+				navigationLinks[j].classList.remove("active");
 			}
 		}
 
 	});
+}
+
+// Sayfa yüklendiğinde tarayıcının otomatik olarak hash elementine kaymasını engelle
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'manual';
+}
+
+// Sayfa ilk yüklendiğinde URL'deki hash (#) değerini kontrol et
+if (window.location.hash) {
+	const hashPage = window.location.hash.substring(1); // '#' işaretini kaldırır
+	for (let i = 0; i < pages.length; i++) {
+		if (pages[i].dataset.page === hashPage) {
+			pages[i].classList.add("active");
+			// Navbar linkini de aktif yap
+			for (let j = 0; j < navigationLinks.length; j++) {
+				if (navigationLinks[j].innerHTML.toLowerCase() === hashPage) {
+					navigationLinks[j].classList.add("active");
+				} else {
+					navigationLinks[j].classList.remove("active");
+				}
+			}
+			setTimeout(() => window.scrollTo(0, 0), 10); // Tarayıcı gecikmesini önlemek için ufak bir bekleme
+		} else {
+			pages[i].classList.remove("active");
+		}
+	}
+}
+
+// service list auto scroll function
+const serviceList = document.querySelector("[data-service-list]");
+
+if (serviceList) {
+	// Sürekli (marquee) kayma efekti için elemanları kopyalıyoruz
+	const items = Array.from(serviceList.children);
+	items.forEach(item => {
+		const clone = item.cloneNode(true);
+		serviceList.appendChild(clone);
+	});
+
+	let isHovered = false;
+	let scrollPos = 0;
+	let scrollSpeed = 0.5; // Ortalama kayma hızı (çok hızlı olmaması için)
+
+	const autoScroll = () => {
+		if (!isHovered) {
+			scrollPos += scrollSpeed;
+			
+			// Kopyalanan elemanların tam başladığı noktayı hesapla
+			const firstClone = serviceList.children[items.length];
+			const resetPoint = firstClone.offsetLeft - items[0].offsetLeft;
+
+			if (scrollPos >= resetPoint) {
+				scrollPos -= resetPoint; // Kesintisiz sonsuz döngü için sıfırla
+			}
+			serviceList.scrollLeft = scrollPos;
+		}
+		requestAnimationFrame(autoScroll);
+	};
+
+	requestAnimationFrame(autoScroll);
+
+	// Kullanıcı fareyle üzerine gelince veya dokununca durdur, çekince tekrar başlat
+	serviceList.addEventListener("mouseenter", () => isHovered = true);
+	serviceList.addEventListener("mouseleave", () => { isHovered = false; scrollPos = serviceList.scrollLeft; });
+	serviceList.addEventListener("touchstart", () => isHovered = true, { passive: true });
+	serviceList.addEventListener("touchend", () => { isHovered = false; scrollPos = serviceList.scrollLeft; });
+	serviceList.addEventListener("scroll", () => { if (isHovered) scrollPos = serviceList.scrollLeft; }, { passive: true });
+}
+
+// clients list auto scroll function (non-stop)
+const clientsList = document.querySelector("[data-clients-list]");
+
+if (clientsList) {
+	// Sürekli (marquee) kayma efekti için elemanları kopyalıyoruz
+	const clientItems = Array.from(clientsList.children);
+	clientItems.forEach(item => {
+		const clone = item.cloneNode(true);
+		clientsList.appendChild(clone);
+	});
+
+	let clientScrollPos = 0;
+	let clientScrollSpeed = 0.5; // Kayma hızı
+
+	const autoScrollClients = () => {
+		clientScrollPos += clientScrollSpeed;
+		
+		// Kopyalanan elemanların tam başladığı noktayı hesapla
+		const firstClone = clientsList.children[clientItems.length];
+		const resetPoint = firstClone.offsetLeft - clientItems[0].offsetLeft;
+
+		if (clientScrollPos >= resetPoint) {
+			clientScrollPos -= resetPoint; // Kesintisiz sonsuz döngü için sıfırla
+		}
+		clientsList.scrollLeft = clientScrollPos;
+		
+		requestAnimationFrame(autoScrollClients);
+	};
+
+	requestAnimationFrame(autoScrollClients);
 }
