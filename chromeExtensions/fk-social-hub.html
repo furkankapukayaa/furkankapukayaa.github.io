@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik Politikası | FK Social Hub</title>
+  <meta name="description" content="FK Social Hub Chrome uzantısı gizlilik politikası.">
+  <style>
+    :root {
+      --bg: #080b12;
+      --card: #111722;
+      --card-2: #151c29;
+      --text: #eef3ff;
+      --muted: #9ba8bd;
+      --border: #273247;
+      --blue: #2d8cff;
+      --purple: #a855f7;
+      --cyan: #22d3ee;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(45,140,255,.18), transparent 32%),
+        radial-gradient(circle at 90% 100%, rgba(168,85,247,.14), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #208cff, #6b5cff);
+      box-shadow: 0 12px 35px rgba(45,140,255,.25);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 44px);
+      letter-spacing: -.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(17,23,34,.75);
+      color: #b9c5d8;
+      font-size: 13px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(21,28,41,.94), rgba(13,18,28,.94));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      margin: 18px 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 17px;
+      color: #dce7fa;
+    }
+
+    p { margin: 0 0 14px; color: #c3cede; }
+
+    ul {
+      margin: 8px 0 16px;
+      padding-left: 22px;
+      color: #c3cede;
+    }
+
+    li { margin: 7px 0; }
+
+    strong { color: #f3f7ff; }
+
+    .highlight {
+      border-left: 3px solid var(--blue);
+      padding: 14px 16px;
+      margin: 18px 0;
+      background: rgba(45,140,255,.07);
+      border-radius: 0 10px 10px 0;
+    }
+
+    a {
+      color: #67b0ff;
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #718096;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding-top: 32px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <header class="header">
+      <div class="logo">FK</div>
+      <h1>Gizlilik Politikası</h1>
+      <p class="subtitle">FK Social Hub Chrome Uzantısı</p>
+      <span class="updated">Son Güncelleme: 8 Ağustos 2026</span>
+    </header>
+
+    <section class="card">
+      <h2>1. Genel</h2>
+      <p>
+        FK Social Hub ("Uzantı"), X/Twitter, Instagram, TikTok ve YouTube gibi
+        sosyal medya platformlarında analiz, araştırma, trend keşfi, otomasyon
+        ve yapay zekâ destekli içerik üretimi özellikleri sunan bir Chrome
+        uzantısıdır.
+      </p>
+      <p>
+        Bu Gizlilik Politikası, Uzantının hangi verileri işlediğini, bu verilerin
+        hangi amaçlarla kullanıldığını ve nasıl korunduğunu açıklar.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>2. İşlenen Veriler</h2>
+      <p>
+        Uzantının kullandığı özelliklere bağlı olarak aşağıdaki veri türleri
+        işlenebilir:
+      </p>
+      <ul>
+        <li><strong>Kimlik doğrulama bilgileri:</strong> Kullanıcının kendi isteğiyle sağladığı Gemini API anahtarı.</li>
+        <li><strong>Web sitesi içeriği:</strong> Kullanıcı tarafından başlatılan işlemler sırasında X/Twitter, Instagram ve TikTok üzerinde erişilebilen profil, gönderi, video, görsel, açıklama, etkileşim ve trend bilgileri.</li>
+        <li><strong>Kullanıcı tarafından oluşturulan veriler:</strong> Arama konuları, içerik taslakları, analiz tercihleri, zamanlama ayarları ve benzeri kullanıcı girdileri.</li>
+        <li><strong>Uzantı verileri:</strong> Kullanıcı ayarları, analiz geçmişi, görev kuyruğu ve işlem durumları.</li>
+        <li><strong>Teknik veriler:</strong> Uzantının özelliklerini çalıştırmak için gerekli işlem ve hata kayıtları.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Verilerin Kullanım Amaçları</h2>
+      <p>Veriler yalnızca Uzantının temel amacıyla bağlantılı özellikleri sağlamak için kullanılır. Bunlar arasında:</p>
+      <ul>
+        <li>Sosyal medya profillerini ve içeriklerini analiz etmek,</li>
+        <li>Konular ve trendler hakkında araştırma yapmak,</li>
+        <li>X/Twitter için içerik taslakları oluşturmak ve kullanıcı tarafından ayarlanan otomasyonları yürütmek,</li>
+        <li>Instagram ve TikTok analizleri oluşturmak,</li>
+        <li>Kullanıcı tarafından istenen medya veya raporları oluşturmak ve indirmek,</li>
+        <li>Yapay zekâ destekli analiz ve içerik üretimi sağlamak,</li>
+        <li>Kullanıcı ayarlarını ve işlem geçmişini saklamak</li>
+      </ul>
+      <p>
+        bulunmaktadır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>4. Verilerin Saklanması</h2>
+      <p>
+        Uzantı, kullanıcı ayarları, analiz geçmişleri, görev bilgileri ve
+        benzeri verileri mümkün olduğunca kullanıcının kendi cihazında,
+        Chrome'un yerel depolama mekanizması (<strong>chrome.storage</strong>)
+        aracılığıyla saklar.
+      </p>
+
+      <div class="highlight">
+        <strong>API anahtarı:</strong> Kullanıcı tarafından sağlanan Gemini API
+        anahtarı Uzantının yerel depolama alanında saklanır ve yalnızca ilgili
+        Gemini API isteklerini gerçekleştirmek amacıyla kullanılır.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. Üçüncü Taraf Hizmetler</h2>
+
+      <h3>Google Gemini API</h3>
+      <p>
+        Kullanıcı yapay zekâ destekli özellikleri başlattığında, ilgili içerik
+        ve istemler yapay zekâ işleminin gerçekleştirilebilmesi amacıyla
+        Google Gemini API'ye gönderilebilir.
+      </p>
+      <p>
+        Gemini API kullanımı, kullanıcının kendi sağladığı API anahtarı ile
+        gerçekleştirilebilir. Google'ın ilgili hizmet koşulları ve gizlilik
+        uygulamaları ayrıca geçerlidir.
+      </p>
+
+      <h3>Sosyal medya platformları</h3>
+      <p>
+        Uzantı, kullanıcı tarafından başlatılan özellikleri gerçekleştirmek
+        amacıyla ilgili sosyal medya web sitelerine erişebilir. Bu platformların
+        kendi gizlilik politikaları ve kullanım koşulları geçerlidir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Veri Paylaşımı ve Satışı</h2>
+      <p>
+        FK Social Hub kullanıcı verilerini <strong>satmaz</strong>.
+      </p>
+      <p>
+        Kullanıcı verileri, Uzantının temel amacını gerçekleştirmek için gerekli
+        olan hizmetler dışında reklam, profil oluşturma veya başka ilgisiz
+        amaçlarla paylaşılmaz.
+      </p>
+      <p>
+        Kullanıcının açıkça başlattığı yapay zekâ işlemleri kapsamında gerekli
+        içeriklerin Google Gemini API gibi ilgili hizmetlere gönderilebileceği
+        yukarıda açıklanmıştır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>7. Veri Güvenliği</h2>
+      <p>
+        Kullanıcı verilerinin korunması için uygun teknik ve organizasyonel
+        önlemler uygulanır. Yerel olarak saklanan veriler Chrome'un sağladığı
+        depolama mekanizmaları kullanılarak tutulur.
+      </p>
+      <p>
+        Bununla birlikte, internet üzerinden gerçekleştirilen hiçbir veri
+        aktarımının tamamen risksiz olduğu garanti edilemez.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Kullanıcı Kontrolü</h2>
+      <p>
+        Kullanıcı, Uzantının özelliklerini yalnızca ihtiyaç duyduğu zaman
+        çalıştırabilir. Analiz, araştırma, indirme ve yapay zekâ işlemleri
+        kullanıcı tarafından başlatılan özelliklere bağlıdır.
+      </p>
+      <p>
+        Kullanıcı, Chrome üzerinden Uzantının yerel verilerini temizleyebilir
+        veya Uzantıyı kaldırarak yerel olarak saklanan Uzantı verilerini
+        silebilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. Çocukların Gizliliği</h2>
+      <p>
+        FK Social Hub özellikle çocuklardan kişisel veri toplamayı amaçlamaz.
+        Uzantı, çocuklara yönelik bir hizmet olarak tasarlanmamıştır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>10. Politika Değişiklikleri</h2>
+      <p>
+        Bu Gizlilik Politikası, Uzantının özelliklerinde veya ilgili mevzuat ve
+        hizmetlerde meydana gelen değişikliklere bağlı olarak güncellenebilir.
+        Güncel sürüm bu sayfada yayımlanır ve sayfanın üst kısmındaki
+        "Son Güncelleme" tarihi değiştirilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>11. İletişim</h2>
+      <p>
+        Gizlilik Politikası veya veri kullanımı hakkında sorularınız için
+        aşağıdaki iletişim adresinden bize ulaşabilirsiniz:
+      </p>
+      <p>
+        <strong>E-posta:</strong>
+        <a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a>
+      </p>
+    </section>
+
+    <div class="footer">
+      © 2026 FK Social Hub. Tüm hakları saklıdır.
+    </div>
+
+  </main>
+</body>
+</html>
