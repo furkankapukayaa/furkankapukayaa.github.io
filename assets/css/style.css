@@ -1715,3 +1715,54 @@
    }
  }
  
+/* Subtle cross-page navigation. The deployed site uses the native MPA View Transition API. */
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  --page-transition-duration: 220ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: ease-out;
+}
+
+::view-transition-old(root) {
+  animation-name: page-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: page-fade-in;
+}
+
+@keyframes page-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html.page-transition-enabled {
+  opacity: 1;
+}
+
+html.page-transition-enabled.page-leaving {
+  opacity: .96;
+  transition: opacity 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.page-transition-enabled.page-leaving {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* Featured Solutions & Projects requested size */
+.featured-projects-title { font-size: 26px !important; }
