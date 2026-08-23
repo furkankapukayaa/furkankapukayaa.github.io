@@ -1,28 +1,30 @@
 (function () {
   'use strict';
 
-  function slugify(text) {
-    const map = {
-      'ç': 'c', 'Ç': 'c', 'ğ': 'g', 'Ğ': 'g', 'ı': 'i', 'İ': 'i',
-      'ö': 'o', 'Ö': 'o', 'ş': 's', 'Ş': 's', 'ü': 'u', 'Ü': 'u'
-    };
-    return text
-      .replace(/[çÇğĞıİöÖşŞüÜ]/g, function (char) { return map[char] || char; })
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-');
+  function getPageKey() {
+    const path = window.location.pathname || '';
+    const file = path.split('/').filter(Boolean).pop();
+    if (file && /\.html$/i.test(file)) return decodeURIComponent(file);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      try {
+        return new URL(canonical.href).pathname.split('/').filter(Boolean).pop() || '';
+      } catch (e) {}
+    }
+    return '';
   }
 
-  function uniqueId(base, used) {
-    let id = base || 'bolum';
-    let index = 2;
-    while (used.has(id) || document.getElementById(id)) {
-      id = (base || 'bolum') + '-' + index++;
-    }
-    used.add(id);
-    return id;
+  function safeStorageGet(key) {
+    try { return window.localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  function safeStorageSet(key, value) {
+    try { window.localStorage.setItem(key, value); } catch (e) {}
+  }
+
+  function setMeta(selector, value) {
+    const el = document.querySelector(selector);
+    if (el) el.setAttribute('content', value);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -31,7 +33,20 @@
 
     document.body.classList.add('blog-article-page');
 
-    // Reading progress
+    const translations = window.BLOG_TRANSLATIONS || {};
+    const pageData = translations[getPageKey()] || null;
+    const body = article.querySelector('.article-body');
+    const title = article.querySelector('h1');
+    const kicker = article.querySelector('.blog-kicker');
+    const meta = article.querySelector('.blog-meta');
+    const breadcrumbs = article.querySelector('.blog-breadcrumbs');
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn[data-lang]'));
+    const languageSwitch = document.querySelector('.blog-language-switch');
+    const backLabel = document.querySelector('[data-back-label]');
+
+    if (!body) return;
+
+    // Reading progress bar.
     const progress = document.createElement('div');
     progress.className = 'reading-progress';
     progress.setAttribute('aria-hidden', 'true');
@@ -39,13 +54,8 @@
     document.body.prepend(progress);
     const progressBar = progress.querySelector('span');
 
-    // Group the article heading area into a premium hero card.
-    const breadcrumbs = article.querySelector(':scope > .blog-breadcrumbs');
-    const kicker = article.querySelector(':scope > .blog-kicker');
-    const title = article.querySelector(':scope > h1');
-    const meta = article.querySelector(':scope > .blog-meta');
-
-    if (title) {
+    // Build the article hero without creating an author, related section or table of contents.
+    if (title && !article.querySelector('.article-hero-card')) {
       const hero = document.createElement('header');
       hero.className = 'article-hero-card';
       const inner = document.createElement('div');
@@ -55,24 +65,7 @@
       if (breadcrumbs) inner.appendChild(breadcrumbs);
       if (kicker) inner.appendChild(kicker);
       inner.appendChild(title);
-
-      if (meta) {
-        const raw = meta.textContent.trim();
-        const parts = raw.split('·').map(function (part) { return part.trim(); }).filter(Boolean);
-        meta.textContent = '';
-        meta.classList.add('article-meta-row');
-        parts.forEach(function (part, index) {
-          const item = document.createElement('span');
-          item.className = 'article-meta-item';
-          const icon = document.createElement('i');
-          icon.className = index === 0 ? 'fa-regular fa-user' : 'fa-regular fa-clock';
-          icon.setAttribute('aria-hidden', 'true');
-          item.appendChild(icon);
-          item.appendChild(document.createTextNode(part));
-          meta.appendChild(item);
-        });
-        inner.appendChild(meta);
-      }
+      if (meta) inner.appendChild(meta);
 
       const accent = document.createElement('div');
       accent.className = 'article-hero-accent';
@@ -81,109 +74,144 @@
       article.insertBefore(hero, article.firstChild);
     }
 
-    const body = article.querySelector(':scope > .article-body');
-    const related = article.querySelector(':scope > .blog-related');
-    if (!body) return;
+    // Keep the reading column centered now that the table of contents is removed.
+    if (!article.querySelector('.article-reading-grid')) {
+      const grid = document.createElement('div');
+      grid.className = 'article-reading-grid';
+      const mainColumn = document.createElement('div');
+      mainColumn.className = 'article-main-column';
+      article.insertBefore(grid, body);
+      grid.appendChild(mainColumn);
+      mainColumn.appendChild(body);
+    }
 
-    // Build table of contents from h2 headings.
-    const headings = Array.from(body.querySelectorAll('h2'));
-    const usedIds = new Set();
-    const toc = document.createElement('aside');
-    toc.className = 'article-aside';
-    toc.setAttribute('aria-label', 'İçindekiler');
+    let currentLanguage = 'tr';
 
-    const tocCard = document.createElement('div');
-    tocCard.className = 'article-toc-card';
-    const tocTitle = document.createElement('div');
-    tocTitle.className = 'article-toc-title';
-    tocTitle.innerHTML = '<i class="fa-solid fa-list-ul" aria-hidden="true"></i><span>İçindekiler</span>';
-    tocCard.appendChild(tocTitle);
+    function renderMeta(lang, minutes) {
+      if (!meta) return;
+      const readText = lang === 'en' ? (minutes + ' min read') : (minutes + ' dk okuma');
+      meta.classList.add('article-meta-row');
+      meta.innerHTML = '';
 
-    const nav = document.createElement('nav');
-    nav.className = 'article-toc-links';
+      const author = document.createElement('span');
+      author.className = 'article-meta-item';
+      author.innerHTML = '<i class="fa-regular fa-user" aria-hidden="true"></i><span>Furkan Kapukaya</span>';
 
-    headings.forEach(function (heading, index) {
-      if (!heading.id) heading.id = uniqueId(slugify(heading.textContent), usedIds);
-      const link = document.createElement('a');
-      link.href = '#' + heading.id;
-      link.textContent = heading.textContent;
-      if (index === 0) link.classList.add('active');
-      nav.appendChild(link);
-    });
+      const read = document.createElement('span');
+      read.className = 'article-meta-item';
+      read.innerHTML = '<i class="fa-regular fa-clock" aria-hidden="true"></i><span></span>';
+      read.querySelector('span').textContent = readText;
 
-    tocCard.appendChild(nav);
-    toc.appendChild(tocCard);
+      meta.appendChild(author);
+      meta.appendChild(read);
+    }
 
-    // Reading column.
-    const grid = document.createElement('div');
-    grid.className = 'article-reading-grid';
-    const mainColumn = document.createElement('div');
-    mainColumn.className = 'article-main-column';
+    function addCopyButtons() {
+      body.querySelectorAll('pre').forEach(function (pre) {
+        const old = pre.querySelector(':scope > .code-copy-btn');
+        if (old) old.remove();
 
-    article.insertBefore(grid, body);
-    grid.appendChild(toc);
-    grid.appendChild(mainColumn);
-    mainColumn.appendChild(body);
-    if (related) mainColumn.appendChild(related);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'code-copy-btn';
 
-    // Author / continuation card.
-    const author = document.createElement('div');
-    author.className = 'article-author-card';
-    author.innerHTML = [
-      '<img src="../assets/images/my-avatar.png" alt="Furkan Kapukaya" loading="lazy">',
-      '<div class="article-author-copy">',
-      '<span class="article-author-label">Yazar</span>',
-      '<strong>Furkan Kapukaya</strong>',
-      '<p>Software Developer · C#, .NET, backend ve yazılım çözümleri üzerine notlar.</p>',
-      '</div>',
-      '<a href="./index.html" class="article-author-link">Tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>'
-    ].join('');
-    mainColumn.appendChild(author);
+        function resetButton() {
+          const isEn = currentLanguage === 'en';
+          button.setAttribute('aria-label', isEn ? 'Copy code' : 'Kodu kopyala');
+          button.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>' + (isEn ? 'Copy' : 'Kopyala') + '</span>';
+        }
 
-    // Copy buttons for code examples.
-    body.querySelectorAll('pre').forEach(function (pre) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'code-copy-btn';
-      button.setAttribute('aria-label', 'Kodu kopyala');
-      button.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Kopyala</span>';
-      button.addEventListener('click', function () {
-        const code = pre.querySelector('code');
-        const text = (code || pre).innerText;
-        if (!navigator.clipboard) return;
-        navigator.clipboard.writeText(text).then(function () {
-          button.classList.add('copied');
-          button.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i><span>Kopyalandı</span>';
-          window.setTimeout(function () {
-            button.classList.remove('copied');
-            button.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Kopyala</span>';
-          }, 1600);
-        }).catch(function () {});
+        resetButton();
+        button.addEventListener('click', function () {
+          const code = pre.querySelector('code');
+          const text = (code || pre).innerText;
+          if (!navigator.clipboard) return;
+          navigator.clipboard.writeText(text).then(function () {
+            button.classList.add('copied');
+            button.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i><span>' + (currentLanguage === 'en' ? 'Copied' : 'Kopyalandı') + '</span>';
+            window.setTimeout(function () {
+              button.classList.remove('copied');
+              resetButton();
+            }, 1600);
+          }).catch(function () {});
+        });
+        pre.appendChild(button);
       });
-      pre.appendChild(button);
+    }
+
+    function updateStructuredData(langData, lang) {
+      const ld = document.querySelector('script[type="application/ld+json"]');
+      if (!ld) return;
+      try {
+        const obj = JSON.parse(ld.textContent || '{}');
+        obj.headline = langData.title;
+        obj.description = langData.description;
+        obj.inLanguage = lang;
+        ld.textContent = JSON.stringify(obj);
+      } catch (e) {}
+    }
+
+    function applyLanguage(lang) {
+      if (!pageData || !pageData[lang]) return;
+      currentLanguage = lang;
+      const langData = pageData[lang];
+
+      document.documentElement.lang = lang;
+      document.body.setAttribute('data-blog-lang', lang);
+      if (title) title.textContent = langData.title;
+      if (kicker) kicker.textContent = langData.category;
+      if (breadcrumbs) {
+        breadcrumbs.innerHTML = '<a href="../index.html">' + (lang === 'en' ? 'Home' : 'Ana Sayfa') + '</a> / <a href="./index.html">Blog</a> / ' + langData.category;
+      }
+      body.innerHTML = langData.body;
+      renderMeta(lang, pageData.minutes);
+      addCopyButtons();
+
+      const fullTitle = langData.title + ' | Furkan Kapukaya';
+      document.title = fullTitle;
+      setMeta('meta[name="description"]', langData.description);
+      setMeta('meta[property="og:title"]', fullTitle);
+      setMeta('meta[property="og:description"]', langData.description);
+      setMeta('meta[name="twitter:title"]', fullTitle);
+      setMeta('meta[name="twitter:description"]', langData.description);
+      updateStructuredData(langData, lang);
+
+      if (backLabel) backLabel.textContent = lang === 'en' ? 'Back to blog' : 'Bloga geri dön';
+      if (languageSwitch) languageSwitch.setAttribute('aria-label', lang === 'en' ? 'Language selection' : 'Dil seçimi');
+
+      langButtons.forEach(function (button) {
+        const active = button.dataset.lang === lang;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      safeStorageSet('blog-language', lang);
+      updateProgress();
+    }
+
+    langButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        applyLanguage(button.dataset.lang === 'en' ? 'en' : 'tr');
+      });
     });
 
-    // Scroll state: reading progress + active table-of-contents link.
-    const tocLinks = Array.from(nav.querySelectorAll('a'));
-    function updateScrollState() {
+    function updateProgress() {
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - window.innerHeight;
       const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
       progressBar.style.transform = 'scaleX(' + ratio + ')';
-
-      if (!headings.length) return;
-      let current = headings[0].id;
-      const marker = window.scrollY + 170;
-      headings.forEach(function (heading) {
-        if (heading.getBoundingClientRect().top + window.scrollY <= marker) current = heading.id;
-      });
-      tocLinks.forEach(function (link) {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-      });
     }
 
-    window.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState);
-    updateScrollState();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+
+    const stored = safeStorageGet('blog-language');
+    const initialLanguage = stored === 'en' ? 'en' : 'tr';
+    if (pageData) applyLanguage(initialLanguage);
+    else {
+      currentLanguage = document.documentElement.lang === 'en' ? 'en' : 'tr';
+      addCopyButtons();
+      updateProgress();
+    }
   });
 })();
