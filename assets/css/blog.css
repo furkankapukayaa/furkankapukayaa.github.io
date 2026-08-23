@@ -3,14 +3,23 @@
    Dark editorial system built on top of the portfolio tokens.
    ========================================================= */
 
-html { scroll-behavior: smooth; overflow-x: hidden; background: var(--smoky-black); }
-body { overflow-x: hidden; background: var(--smoky-black); }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  overflow-y: auto;
+  background: var(--smoky-black);
+}
+body {
+  overflow-x: clip;
+  overflow-y: visible;
+  background: var(--smoky-black);
+}
 
 .blog-shell {
   position: relative;
   min-height: 100vh;
   padding: 34px 24px 72px;
-  overflow: hidden;
+  overflow: clip;
   background:
     radial-gradient(circle at 12% 4%, hsla(45, 100%, 72%, .075), transparent 28rem),
     radial-gradient(circle at 88% 18%, hsla(35, 100%, 68%, .045), transparent 30rem),
@@ -257,6 +266,14 @@ body { overflow-x: hidden; background: var(--smoky-black); }
 /* =========================================================
    ARTICLE PAGE
    ========================================================= */
+
+/* Keep article pages on a single document scrollbar. */
+body.blog-article-page {
+  height: auto !important;
+  max-height: none !important;
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}
 
 /* The portfolio stylesheet globally hides article elements. */
 .blog-shell .blog-article {
