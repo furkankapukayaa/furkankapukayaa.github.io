@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volumora – Gizlilik Politikası</title>
+  <meta name="description" content="Volumora – Ses Yükseltici ve Ekolayzır gizlilik politikası">
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg:#0f1117;
+      --panel:#171b24;
+      --panel2:#1e2430;
+      --text:#f5f7fb;
+      --muted:#a9b2c3;
+      --accent:#44b7ff;
+      --accent2:#ff4fa3;
+      --border:#2a3343;
+      --good:#49d17d;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:linear-gradient(180deg,#0c0f15 0%,#111722 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+    .wrap{max-width:920px;margin:0 auto;padding:40px 20px 64px}
+    .hero{
+      background:linear-gradient(135deg,rgba(68,183,255,.14),rgba(255,79,163,.10));
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:30px;
+      margin-bottom:22px;
+    }
+    h1{font-size:34px;line-height:1.2;margin:0 0 8px}
+    h2{font-size:22px;margin:0 0 12px}
+    h3{font-size:17px;margin:22px 0 8px}
+    p{margin:8px 0 14px}
+    .muted{color:var(--muted)}
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(73,209,125,.12);
+      color:#83f2aa;
+      border:1px solid rgba(73,209,125,.3);
+      font-size:13px;
+      font-weight:700;
+      margin-top:8px;
+    }
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:24px;
+      margin:16px 0;
+    }
+    ul{padding-left:22px}
+    li{margin:7px 0}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      overflow:hidden;
+      border-radius:12px;
+    }
+    th,td{
+      border:1px solid var(--border);
+      padding:12px;
+      text-align:left;
+      vertical-align:top;
+    }
+    th{background:var(--panel2)}
+    a{color:var(--accent)}
+    .notice{
+      border-left:4px solid var(--accent);
+      background:rgba(68,183,255,.08);
+      padding:14px 16px;
+      border-radius:10px;
+      margin:14px 0;
+    }
+    .lang{
+      margin-top:36px;
+      padding-top:28px;
+      border-top:1px solid var(--border);
+    }
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+    @media (max-width:640px){
+      h1{font-size:28px}
+      .hero,.card{padding:20px}
+      table{font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>🔊 Volumora – Gizlilik Politikası</h1>
+      <p class="muted">Volumora – Ses Yükseltici ve Ekolayzır</p>
+      <span class="badge">Ses verileri harici sunuculara gönderilmez</span>
+      <p class="muted" style="margin-top:14px">Son güncelleme: 12 Eylül 2026</p>
+    </section>
+
+    <section class="card">
+      <h2>1. Genel Bakış</h2>
+      <p>
+        Volumora’nın amacı, kullanıcının aktif tarayıcı sekmesindeki sesi yükseltmek
+        ve ekolayzır, Smart Boost, Voice Enhance ve benzeri ses geliştirme
+        kontrolleri sunmaktır.
+      </p>
+      <p>
+        Volumora, aktif sekmedeki sesi tarayıcı içinde yerel olarak işler.
+        Ses akışı kaydedilmez, geliştiricinin sunucularına yüklenmez ve üçüncü
+        taraflara aktarılmaz.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>2. İşlenen Veriler</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Veri türü</th>
+            <th>Neden işlenir?</th>
+            <th>Nerede işlenir / saklanır?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web sitesi içeriği – sekme sesi</td>
+            <td>
+              Ses yükseltme, ekolayzır, Smart Boost, Voice Enhance ve clipping
+              koruması gibi özelliklerin çalışabilmesi için aktif sekmenin ses
+              akışı işlenir.
+            </td>
+            <td>
+              Yalnızca kullanıcının tarayıcısında, geçici olarak bellekte işlenir.
+              Harici sunucuya gönderilmez.
+            </td>
+          </tr>
+          <tr>
+            <td>Web geçmişiyle ilişkili site/domain bilgisi</td>
+            <td>
+              Kullanıcı siteye özel ayarları hatırlamayı seçtiğinde, ilgili
+              domain ile ses tercihlerini eşleştirmek için kullanılır.
+            </td>
+            <td>
+              Cihaz üzerinde <code>chrome.storage.local</code> içinde saklanabilir.
+            </td>
+          </tr>
+          <tr>
+            <td>Ses ve ekolayzır tercihleri</td>
+            <td>
+              Ses seviyesi, Bass, Mid, Treble, Smart Boost ve Voice Enhance gibi
+              tercihleri yeniden uygulamak için kullanılır.
+            </td>
+            <td>
+              Cihaz üzerinde <code>chrome.storage.local</code> içinde saklanabilir.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="notice">
+        Volumora; ad, e-posta adresi, telefon numarası, parola, ödeme bilgisi,
+        sağlık bilgisi, hassas kimlik bilgisi veya GPS konumu toplamaz.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Verilerin Paylaşımı ve Satışı</h2>
+      <ul>
+        <li>Kullanıcı verileri satılmaz.</li>
+        <li>Kullanıcı verileri reklam amacıyla üçüncü taraflara aktarılmaz.</li>
+        <li>Kullanıcı verileri kredi uygunluğu değerlendirmesi amacıyla kullanılmaz.</li>
+        <li>
+          Veriler, Volumora’nın tek amacı olan tarayıcı sesini yükseltme ve
+          geliştirme dışında bir amaç için kullanılmaz.
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Verilerin Saklanması</h2>
+      <p>
+        Sekme sesi yalnızca gerçek zamanlı ses işleme sırasında kullanılır ve
+        kalıcı olarak saklanmaz.
+      </p>
+      <p>
+        Kullanıcı tercihleri ve siteye özel ayarlar, kullanıcı bunları sıfırlayana,
+        tarayıcı verilerini temizleyene veya uzantıyı kaldırana kadar cihaz üzerinde
+        saklanabilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. İzinler</h2>
+
+      <h3>activeTab</h3>
+      <p>
+        Kullanıcının aktif sekmesinde Volumora özelliklerini uygulayabilmek için
+        gerekli sekme bilgisini kullanır.
+      </p>
+
+      <h3>tabCapture</h3>
+      <p>
+        Aktif sekmenin ses akışını yakalayarak ses yükseltme ve ses işleme
+        özelliklerini uygulamak için kullanılır.
+      </p>
+
+      <h3>offscreen</h3>
+      <p>
+        Web Audio işlemlerinin arka planda kesintisiz şekilde yürütülebilmesi için
+        görünmeyen bir ses işleme dokümanı oluşturmak amacıyla kullanılır.
+      </p>
+
+      <h3>storage</h3>
+      <p>
+        Kullanıcının ses seviyesi, ekolayzır ve siteye özel ayarlarını cihaz üzerinde
+        saklamak için kullanılır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Güvenlik</h2>
+      <p>
+        Volumora’nın ses işleme fonksiyonları tarayıcı içinde yerel olarak çalışacak
+        şekilde tasarlanmıştır. Uzantı, ses akışını uzak bir sunucuya göndermeden
+        işlemeyi amaçlar.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>7. Kullanıcı Kontrolü</h2>
+      <p>
+        Kullanıcı, Volumora’nın siteye özel tercihlerini uzantının ayarlarından
+        sıfırlayabilir. Uzantının kaldırılması veya Chrome uzantı verilerinin
+        temizlenmesiyle yerel ayarlar da silinebilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Politika Değişiklikleri</h2>
+      <p>
+        Bu gizlilik politikası, Volumora’nın özellikleri veya veri işleme yöntemleri
+        değiştiğinde güncellenebilir. En güncel sürüm, bu sayfada belirtilen
+        “Son güncelleme” tarihiyle yayımlanır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. İletişim</h2>
+      <p>
+        Gizlilikle ilgili sorular için Chrome Web Store’daki Volumora geliştirici
+        iletişim bilgileri üzerinden geliştiriciyle iletişime geçebilirsiniz.
+      </p>
+    </section>
+
+    <section class="lang">
+      <div class="hero">
+        <h1>🇬🇧 Volumora – Privacy Policy</h1>
+        <p class="muted">Last updated: September 12, 2026</p>
+      </div>
+
+      <section class="card">
+        <h2>Overview</h2>
+        <p>
+          Volumora is a browser extension designed to boost and enhance the audio
+          of the active browser tab using volume amplification, equalizer controls,
+          Smart Boost, Voice Enhance and related audio-processing features.
+        </p>
+        <p>
+          Audio is processed locally in the browser. Volumora does not record tab
+          audio, upload it to developer-operated servers, or sell it to third parties.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Data Processed</h2>
+        <ul>
+          <li>
+            <strong>Website content / tab audio:</strong> processed temporarily and
+            locally to provide audio enhancement features.
+          </li>
+          <li>
+            <strong>Site/domain information:</strong> may be stored locally when the
+            user chooses to remember settings for a website.
+          </li>
+          <li>
+            <strong>Audio preferences:</strong> volume and equalizer-related settings
+            may be stored locally using <code>chrome.storage.local</code>.
+          </li>
+        </ul>
+        <p>
+          Volumora does not collect names, email addresses, passwords, financial
+          information, health information, government identifiers, or precise GPS
+          location.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Data Sharing</h2>
+        <ul>
+          <li>User data is not sold.</li>
+          <li>User data is not transferred for advertising purposes.</li>
+          <li>User data is not used for credit eligibility or lending decisions.</li>
+          <li>
+            Data is not used for purposes unrelated to Volumora’s single purpose:
+            browser audio boosting and enhancement.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Data Retention</h2>
+        <p>
+          Tab audio is processed in real time and is not permanently stored.
+          Preferences and per-site settings may remain in local browser storage until
+          the user resets them, clears extension data, or uninstalls the extension.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Permissions</h2>
+        <p><strong>activeTab:</strong> used to work with the active browser tab.</p>
+        <p><strong>tabCapture:</strong> used to capture the active tab’s audio stream for local audio processing.</p>
+        <p><strong>offscreen:</strong> used to host background Web Audio processing.</p>
+        <p><strong>storage:</strong> used to save user preferences and per-site settings locally.</p>
+      </section>
+
+      <section class="card">
+        <h2>Contact</h2>
+        <p>
+          For privacy questions, please use the developer contact information
+          provided on Volumora’s Chrome Web Store listing.
+        </p>
+      </section>
+    </section>
+
+    <footer>
+      © 2026 Volumora – Ses Yükseltici ve Ekolayzır
+    </footer>
+  </main>
+</body>
+</html>
