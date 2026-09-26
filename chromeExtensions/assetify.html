@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assetify - Gizlilik Politikası</title>
+  <style>
+    :root {
+      --bg-color: #f9fafb;
+      --text-color: #1f2937;
+      --card-bg: #ffffff;
+      --primary-color: #4f46e5;
+      --border-color: #e5e7eb;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #111827;
+        --text-color: #f9fafb;
+        --card-bg: #1f2937;
+        --primary-color: #818cf8;
+        --border-color: #374151;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border-color);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .last-updated {
+      color: #6b7280;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .last-updated {
+        color: #9ca3af;
+      }
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gizlilik Politikası</h1>
+    <p class="last-updated">Son Güncelleme: 27 Eylül 2026</p>
+
+    <p><strong>Assetify</strong> ("biz", "bizim" veya "uzantı"), gizliliğinize saygı duyar ve kişisel verilerinizi korumayı taahhüt eder. Bu Gizlilik Politikası, Assetify Chrome eklentisini kullandığınızda verilerinizin nasıl işlendiğini açıklar.</p>
+
+    <h2>1. Toplanan Veriler ve Kullanım Amacı</h2>
+    <p>Assetify, temel işlevini yerine getirmek için <strong>herhangi bir kişisel veri toplamaz, saklamaz veya üçüncü taraflara iletmez.</strong></p>
+    <ul>
+      <li><strong>Web Sitesi İçeriği:</strong> Eklentiyi çalıştırdığınızda (Analiz Et butonuna tıkladığınızda), o anki web sayfasındaki görselleri, videoları, renkleri ve fontları bulmak için sayfanın içeriği <strong>yalnızca yerel cihazınızda (tarayıcınızda)</strong> geçici olarak taranır. Bu içerik hiçbir zaman bizim sunucularımıza veya üçüncü taraf sunuculara gönderilmez.</li>
+      <li><strong>Yerel Tercihler:</strong> Eklentinin arayüz dili (örn. Türkçe, İngilizce) ve tema seçimi (Aydınlık/Karanlık mod) gibi kişiselleştirme ayarlarınız ile son analiz edilen sayfanın geçici sonuçları, daha hızlı bir kullanıcı deneyimi sunmak amacıyla bilgisayarınızdaki yerel Chrome depolama alanında (<code>chrome.storage.local</code>) saklanır.</li>
+    </ul>
+
+    <h2>2. İstenen İzinler ve Nedenleri</h2>
+    <p>Assetify, yalnızca size vadedilen hizmetleri sunabilmek için gerekli olan minimum izinleri talep eder:</p>
+    <ul>
+      <li><strong>activeTab:</strong> Yalnızca eklentiye tıkladığınızda ve analizi başlattığınızda o an açık olan sekmeye geçici olarak erişmek için gereklidir.</li>
+      <li><strong>scripting:</strong> Sayfa içindeki medya öğelerini (resim, video) bulmak için sayfa yapısını (DOM) analiz eden kod parçacıklarını çalıştırmak için gereklidir.</li>
+      <li><strong>downloads:</strong> Bulunan ve önizlemesini yaptığınız dosyaları cihazınıza kaydedebilmeniz için kullanılır.</li>
+      <li><strong>storage:</strong> Eklenti tema ayarlarınızı ve sekmedeki analiz sonuçlarını kapatıp açtığınızda kaybetmemeniz için cihazınızda yerel olarak tutmak için kullanılır.</li>
+    </ul>
+
+    <h2>3. Veri Paylaşımı</h2>
+    <p>Assetify tamamen çevrimdışı (istemci tarafında) çalışır. Girdiğiniz web siteleri, indirdiğiniz dosyalar veya kopyaladığınız renk/font bilgileri <strong>hiçbir şekilde takip edilmez, satılmaz, paylaşılmaz veya herhangi bir bulut sistemine aktarılmaz.</strong> Analitik veya izleme kodları (Google Analytics vb.) içermez.</p>
+
+    <h2>4. Çocukların Gizliliği</h2>
+    <p>Eklentimiz doğrudan 13 yaşın altındaki çocukları hedef almaz ve onlardan bilinçli olarak kişisel bilgi toplamaz. Herhangi bir kişisel veri toplamadığımız için çocuklar için de tamamen güvenlidir.</p>
+
+    <h2>5. Bu Politikadaki Değişiklikler</h2>
+    <p>Bu Gizlilik Politikasını zaman zaman eklenti güncellemeleri veya yasal gereksinimler doğrultusunda güncelleyebiliriz. Politikada yapılan her türlü değişiklik bu sayfada yayınlanacak ve üst kısımdaki "Son Güncelleme" tarihi değiştirilecektir.</p>
+
+    <h2>6. İletişim</h2>
+    <p>Bu Gizlilik Politikası hakkında herhangi bir sorunuz, öneriniz veya endişeniz varsa, bizimle iletişime geçmekten çekinmeyin.</p>
+  </div>
+
+</body>
+</html>
