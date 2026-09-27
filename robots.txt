@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /blog/BLOG-TEMPLATE.html
+Disallow: /thank-you.html
+
+# Arama motorları ve yapay zekâ arama/asistan botları: tüm içerik açıktır.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: Googlebot
+User-agent: YandexBot
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /blog/BLOG-TEMPLATE.html
+Disallow: /thank-you.html
 
 Sitemap: https://kapukaya.dev/sitemap.xml

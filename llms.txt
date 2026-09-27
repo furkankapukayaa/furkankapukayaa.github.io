@@ -1,0 +1,47 @@
+# Furkan Kapukaya | Yazılım Geliştirme
+
+> İstanbul merkezli yazılım geliştirici Furkan Kapukaya; işletmelere özel Windows masaüstü uygulamaları, kurumsal web siteleri, web tabanlı yönetim panelleri, C# konsol uygulamaları, API ve sistem entegrasyonları ile Chrome tarayıcı eklentileri geliştirir. Türkiye genelinde uzaktan hizmet verir. Ana teknolojiler: C#, .NET, ASP.NET Core, Entity Framework, SQL Server.
+
+İletişim: info@kapukaya.dev | Teklif formu: https://kapukaya.dev/#iletisim | Fiyatlandırma projeye özel teklif ile belirlenir.
+
+## Sayfalar
+
+- [Ana sayfa](https://kapukaya.dev/): Hizmetler, referans projeler, süreç, sık sorulan sorular ve iletişim formu
+- [Hakkımda ve özgeçmiş](https://kapukaya.dev/hakkimda.html): Deneyim, eğitim, yetenekler, sertifikalar, kişisel projeler ve referanslar
+- [Blog](https://kapukaya.dev/blog/): İşletme yazılımları, web, .NET ve yapay zekâ üzerine yazılar
+
+## Hizmetler
+
+- Masaüstü uygulamaları: Randevu, stok, satış, servis, personel ve kasa takibi için Windows uygulamaları
+- Kurumsal web siteleri: Mobil uyumlu, arama motorlarına uygun tanıtım siteleri
+- Web tabanlı yönetim panelleri: Yetkilendirmeli iş takibi, finans ve raporlama ekranları
+- API ve sistem entegrasyonu: Ödeme altyapıları, barkod ve etiket yazıcılar, üçüncü taraf servisler
+- Konsol uygulamaları: Zamanlanmış veri aktarımı, toplu işlemler, raporlama ve bildirim görevleri
+- Tarayıcı eklentileri: Chrome eklentileri
+
+## Referans projeler
+
+- [Kiraz Oto servis ve stok otomasyonu](https://kapukaya.dev/projeler/kiraz-oto.html): Lastik ve yol yardım işletmesi için stok, satış, servis ve müşteri kayıtlarını tek programda toplayan masaüstü uygulama. (2023)
+- [Futs Medya web sitesi ve yönetim paneli](https://kapukaya.dev/projeler/futs-medya.html): Medya ve tasarım ajansı için tanıtım sitesi ile finans ve personel takibi yapılan şirket içi yönetim paneli. (2023)
+- [Olivia Hair Mansion salon yönetim sistemi](https://kapukaya.dev/projeler/olivia-hair-mansion.html): Kuaför salonu için randevu, müşteri, personel ve kasa takibini bir araya getiren salon yönetim programı. (2024)
+- [Metrekare Gayrimenkul kurumsal web sitesi](https://kapukaya.dev/projeler/metrekare-gayrimenkul.html): Emlak ofisi için portföyü sergileyen, telefonda da rahat kullanılan kurumsal tanıtım sitesi. (2025)
+- [Prodent, Prosoll ve Prosense kurumsal web sitesi](https://kapukaya.dev/projeler/pro-markalar.html): Üç markadan oluşan ürün ailesi için ürün gruplarını, satış noktalarını ve iletişim bilgilerini bir arada sunan ortak kurumsal site. (2026)
+
+## Blog yazıları
+
+- [İşletmeler İçin Masaüstü Otomasyon Sistemleri](https://kapukaya.dev/blog/masaustu-otomasyon-sistemleri.html): Stok, satış, müşteri, personel ve servis süreçlerinin özel yazılımla nasıl dijitalleştirilebileceğini anlatan rehber.
+- [Kurumsal Web Sitesi Nasıl Yapılır?](https://kapukaya.dev/blog/kurumsal-web-sitesi-nasil-yapilir.html): Kurumsal web sitesinde güven, mobil uyumluluk, performans, içerik mimarisi ve dönüşüm odaklı tasarım.
+- [Freelance Yazılım Projesi Nasıl Yönetilir?](https://kapukaya.dev/blog/freelance-yazilim-hizmeti.html): İhtiyaç analizi, kapsam, teknik planlama, teslim ve bakım aşamalarını daha sağlıklı yönetmek için pratik yaklaşım.
+- [Barkod Okuyucu ve Etiket Yazdırma Otomasyonu](https://kapukaya.dev/blog/barkod-etiket-yazdirma-otomasyonu.html): Barkod okuyucu, ürün verisi ve etiket yazıcı entegrasyonlarının işletme süreçlerine nasıl bağlanacağını inceleyin.
+- [Ödeme Sistemleri Entegrasyonunda Dikkat Edilmesi Gerekenler](https://kapukaya.dev/blog/odeme-sistemleri-entegrasyonu.html): Ödeme akışlarında güvenlik, webhook, idempotency, hata yönetimi ve kayıt tutma gibi kritik backend konuları.
+- [C# Async/Await Nedir?](https://kapukaya.dev/blog/csharp-async-await-nedir.html): C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.
+- [ASP.NET Core Web API Nedir?](https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html): ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.
+- [Entity Framework Core Nedir?](https://kapukaya.dev/blog/entity-framework-core-nedir.html): .NET uygulamalarında DbContext, migrations ve Entity Framework Core rolünü anlaşılır şekilde öğrenin.
+- [SQL Server Performansını İyileştirme](https://kapukaya.dev/blog/sql-server-performans.html): Index, sorgu tasarımı ve uygulama veri erişimi için pratik SQL Server performans önerileri.
+- [REST API Nedir?](https://kapukaya.dev/blog/rest-api-nedir.html): REST API, HTTP metodları, resource yaklaşımı ve status code temellerini öğrenin.
+- [ASP.NET Core Uygulamalarında Performans Optimizasyonu](https://kapukaya.dev/blog/aspnet-core-performans-optimizasyonu.html): Caching, async I/O, sorgu optimizasyonu, logging ve response sürelerini iyileştirmek için uygulanabilir yöntemler.
+- [Junior .NET Developer İçin Yol Haritası](https://kapukaya.dev/blog/junior-dotnet-yol-haritasi.html): C# ve .NET ile gerçek dünya becerileri geliştirmek isteyen yazılımcılar için pratik öğrenme yol haritası.
+- [2026’da Yapay Zeka Yazılım Geliştirmeyi Nasıl Değiştiriyor?](https://kapukaya.dev/blog/yapay-zeka-yazilim-gelistirme-2026.html): AI destekli geliştirme, coding agent yaklaşımı, insan denetimi ve üretim süreçlerinde yeni çalışma biçimleri.
+- [AI Coding Agent Nedir ve Yazılımcının Rolü Nasıl Değişiyor?](https://kapukaya.dev/blog/ai-coding-agent-nedir.html): Coding agentların kod yazmanın ötesinde test, düzeltme, inceleme ve teslim süreçlerine nasıl dahil olduğunu anlatan rehber.
+- [MCP Nedir? AI Agentlar Araçlara Nasıl Bağlanır?](https://kapukaya.dev/blog/mcp-yazilim-gelistirme.html): Model Context Protocol yaklaşımını ve AI agentların araçlar, servisler ve proje bağlamıyla çalışmasını anlaşılır biçimde ele alın.
+- [AI ile Kod Yazarken Güvenlik ve Kod Kalitesi](https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html): AI tarafından üretilen kodu doğrulama, secret yönetimi, test, code review ve güvenlik kontrolleri için pratik yaklaşım.

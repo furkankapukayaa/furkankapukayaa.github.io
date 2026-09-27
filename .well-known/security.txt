@@ -1,0 +1,4 @@
+Contact: mailto:info@kapukaya.dev
+Expires: 2027-09-27T00:00:00.000Z
+Preferred-Languages: tr, en
+Canonical: https://kapukaya.dev/.well-known/security.txt

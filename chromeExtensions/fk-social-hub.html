@@ -1,148 +1,47 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gizlilik Politikası | FK Social Hub</title>
-  <meta name="description" content="FK Social Hub Chrome uzantısı gizlilik politikası.">
-  <style>
-    :root {
-      --bg: #080b12;
-      --card: #111722;
-      --card-2: #151c29;
-      --text: #eef3ff;
-      --muted: #9ba8bd;
-      --border: #273247;
-      --blue: #2d8cff;
-      --purple: #a855f7;
-      --cyan: #22d3ee;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gizlilik Politikası | FK Social Hub</title>
+<meta name="description" content="FK Social Hub Chrome eklentisinin gizlilik politikası.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#121212">
+<link rel="canonical" href="https://kapukaya.dev/chromeExtensions/fk-social-hub.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Gizlilik Politikası | FK Social Hub">
+<meta property="og:description" content="FK Social Hub Chrome eklentisinin gizlilik politikası.">
+<meta property="og:url" content="https://kapukaya.dev/chromeExtensions/fk-social-hub.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/my-avatar.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gizlilik Politikası | FK Social Hub">
+<meta name="twitter:description" content="FK Social Hub Chrome eklentisinin gizlilik politikası.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/my-avatar.png">
+<link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(45,140,255,.18), transparent 32%),
-        radial-gradient(circle at 90% 100%, rgba(168,85,247,.14), transparent 32%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .container {
-      width: min(900px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0 80px;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .logo {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      font-size: 24px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #208cff, #6b5cff);
-      box-shadow: 0 12px 35px rgba(45,140,255,.25);
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(30px, 5vw, 44px);
-      letter-spacing: -.03em;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .updated {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(17,23,34,.75);
-      color: #b9c5d8;
-      font-size: 13px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(21,28,41,.94), rgba(13,18,28,.94));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-      margin: 18px 0;
-      box-shadow: 0 20px 50px rgba(0,0,0,.18);
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: 22px;
-      color: #fff;
-    }
-
-    h3 {
-      margin: 22px 0 8px;
-      font-size: 17px;
-      color: #dce7fa;
-    }
-
-    p { margin: 0 0 14px; color: #c3cede; }
-
-    ul {
-      margin: 8px 0 16px;
-      padding-left: 22px;
-      color: #c3cede;
-    }
-
-    li { margin: 7px 0; }
-
-    strong { color: #f3f7ff; }
-
-    .highlight {
-      border-left: 3px solid var(--blue);
-      padding: 14px 16px;
-      margin: 18px 0;
-      background: rgba(45,140,255,.07);
-      border-radius: 0 10px 10px 0;
-    }
-
-    a {
-      color: #67b0ff;
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .footer {
-      text-align: center;
-      margin-top: 28px;
-      color: #718096;
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-      .container { padding-top: 32px; }
-      .card { padding: 22px; }
-    }
-  </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2JTL8F60Q"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-N2JTL8F60Q");</script>
 </head>
-
 <body>
-  <main class="container">
-
-    <header class="header">
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+<div class="wrap"><article class="legal"><a class="legal__back" href="../index.html#urunler"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Ürünlerim</a>
+<header class="legal-intro">
       <div class="logo">FK</div>
       <h1>Gizlilik Politikası</h1>
       <p class="subtitle">FK Social Hub Chrome Uzantısı</p>
@@ -312,6 +211,39 @@
       © 2026 FK Social Hub. Tüm hakları saklıdır.
     </div>
 
-  </main>
+  
+</article></div>
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p>İşletmelere özel masaüstü otomasyon programları, kurumsal web siteleri ve sistem entegrasyonları.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>
