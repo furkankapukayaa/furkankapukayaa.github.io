@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır? | Furkan Kapukaya</title>
+<meta name="description" content="e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır? | Furkan Kapukaya">
+<meta property="og:description" content="e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.">
+<meta property="og:url" content="https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır? | Furkan Kapukaya">
+<meta name="twitter:description" content="e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="İşletme Yazılımları">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır?", "description": "e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.", "url": "https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html", "mainEntityOfPage": "https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "İşletme Yazılımları", "wordCount": 579, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "e-fatura entegrasyonu, e-arşiv fatura, özel entegratör, e-dönüşüm yazılım"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "İşletme Yazılımları", "item": "https://kapukaya.dev/blog/kategori/isletme-yazilimlari.html"}, {"@type": "ListItem", "position": 4, "name": "e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır?", "item": "https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hangi entegratörü seçmeliyim?", "acceptedAnswer": {"@type": "Answer", "text": "API dokümantasyonunun kalitesi, test ortamı sunup sunmadığı, destek hızı ve fiyatlandırma modeli önemli kriterlerdir. Muhasebe tarafıyla uyum için mali müşavirinizin görüşünü de alın."}}, {"@type": "Question", "name": "Mevcut stok programıma e-fatura eklenebilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Programın veritabanına ve koduna erişim varsa çoğu durumda eklenebilir. Ürün, cari ve vergi bilgilerinin eksiksiz tutulması ön koşuldur."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır?</h1>
+    <p class="page-hero__lead">e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Türkiye'de e-dönüşüm uygulamaları her yıl daha fazla işletmeyi kapsıyor. Artık asıl soru "e-faturaya geçmeli miyim?" değil, "faturayı kendi iş yazılımımdan nasıl sorunsuz keserim?" haline geldi. Bu yazıda e-Fatura ve e-Arşiv'in temel farklarını ve bir stok, satış veya servis programını bu sistemlere bağlarken dikkat edilmesi gereken teknik noktaları ele alıyoruz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#e-fatura-ve-e-arsiv-farki">e-Fatura ve e-Arşiv farkı</a></li><li><a href="#guncel-cerceveye-kisa-bakis">Güncel çerçeveye kısa bakış</a></li><li><a href="#entegrasyon-secenekleri">Entegrasyon seçenekleri</a></li><li><a href="#kendi-yaziliminizi-baglarken-teknik-kontrol-listesi">Kendi yazılımınızı bağlarken teknik kontrol listesi</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<blockquote>
+<p><strong>Önemli not:</strong> Geçiş zorunlulukları, ciro sınırları ve tarihler Gelir İdaresi Başkanlığı (GİB) tebliğleriyle belirlenir ve sık güncellenir. Kendi yükümlülüğünüzü mutlaka GİB'in güncel duyuruları ve mali müşaviriniz ile doğrulayın. Bu yazı mali veya hukuki danışmanlık değildir.</p>
+</blockquote>
+<h2 id="e-fatura-ve-e-arsiv-farki">e-Fatura ve e-Arşiv farkı</h2>
+<ul>
+<li><strong>e-Fatura:</strong> İki e-Fatura mükellefi arasında düzenlenen elektronik faturadır. Fatura, GİB sistemi üzerinden alıcının sistemine elektronik olarak iletilir.</li>
+<li><strong>e-Arşiv Fatura:</strong> Alıcı e-Fatura mükellefi değilse (örneğin bireysel müşteri veya e-Fatura'ya kayıtlı olmayan firma) düzenlenen elektronik faturadır. Alıcıya e-posta veya çıktı olarak iletilebilir.</li>
+</ul>
+<p>Yani aynı işletme, müşterisinin durumuna göre bazı satışlarında e-Fatura, bazılarında e-Arşiv düzenler. Yazılımınızın bu ayrımı otomatik yapması gerekir.</p>
+<h2 id="guncel-cerceveye-kisa-bakis">Güncel çerçeveye kısa bakış</h2>
+<p>Genel kural olarak belirli bir brüt satış hasılatı sınırını aşan mükellefler (bu sınır 2022 ve sonrası için 3 milyon TL olarak uygulanıyor) ve e-ticaret gibi bazı sektörlerde faaliyet gösterenler e-Fatura'ya geçmekle yükümlüdür. Ayrıca son düzenlemelerle, e-Fatura kapsamında olmayan mükelleflerin düzenlediği faturaların da e-Arşiv olarak düzenlenmesi yönünde kapsam genişletilmiştir; bazı mükellef grupları için geçiş tarihleri ertelenmiştir. Ayrıntılar sık değiştiğinden güncel durumu mutlaka resmi kaynaktan kontrol edin.</p>
+<h2 id="entegrasyon-secenekleri">Entegrasyon seçenekleri</h2>
+<h3>1. GİB portalı</h3>
+<p>Faturaların GİB'in web arayüzünden elle düzenlenmesidir. Ücretsizdir ancak düşük hacimli işletmeler için uygundur; kendi yazılımınızla otomatik bağlantı kurmaz.</p>
+<h3>2. Özel entegratör</h3>
+<p>GİB tarafından yetkilendirilmiş özel entegratör firmaları, faturaları sizin adınıza sisteme iletir ve saklar. Çoğu entegratör <strong>web servis / API</strong> sunar. Kendi yazılımınızdan fatura kesmek için en yaygın yol budur.</p>
+<h3>3. Doğrudan entegrasyon</h3>
+<p>Kendi bilgi işlem sistemini GİB'e doğrudan bağlamak; yüksek hacimli ve teknik altyapısı güçlü kurumlar içindir, ciddi teknik ve idari gereksinimleri vardır.</p>
+<h2 id="kendi-yaziliminizi-baglarken-teknik-kontrol-listesi">Kendi yazılımınızı bağlarken teknik kontrol listesi</h2>
+<h3>Mükellef sorgulama</h3>
+<p>Fatura keserken alıcının e-Fatura mükellefi olup olmadığı sorgulanmalı ve fatura türü buna göre seçilmelidir. Sorgu sonuçlarını kısa süreli önbelleğe almak performansı artırır.</p>
+<h3>UBL-TR formatı</h3>
+<p>e-Belgeler UBL-TR adı verilen XML standardına dayanır. Entegratör API'leri bu formatı çoğu zaman sizin yerinize üretir; yine de vergi oranları, istisna kodları ve birim kodlarının doğru eşlenmesi yazılımınızın sorumluluğundadır.</p>
+<h3>Numara ve tekrar gönderim kontrolü</h3>
+<p>Ağ hatası nedeniyle aynı faturanın iki kez gönderilmesi ciddi bir sorundur. Her fatura için benzersiz bir kimlik (örneğin ETTN/UUID) üretip gönderim durumunu kaydedin. Bu yaklaşım, <a href="odeme-sistemleri-entegrasyonu.html">ödeme entegrasyonlarındaki idempotency</a> mantığıyla aynıdır.</p>
+<h3>Durum takibi</h3>
+<p>Gönderilen faturanın kabul, ret veya hata durumlarını takip edin. Özellikle ticari faturalarda alıcının yanıtı önemlidir. Durum değişikliklerini bir <a href="../index.html#hizmetler">arka plan görevi</a> ile düzenli sorgulamak veya entegratör destekliyorsa <a href="webhook-nedir.html">webhook</a> kullanmak gerekir.</p>
+<h3>İptal ve iade süreçleri</h3>
+<p>İade faturası ve iptal kuralları mevzuata tabidir. Yazılımınız bu senaryoları kullanıcıya doğru seçeneklerle sunmalıdır.</p>
+<h3>Güvenlik</h3>
+<p>Entegratör API anahtarlarını kaynak koduna yazmayın; güvenli yapılandırma veya gizli anahtar yönetimi kullanın. Fatura verileri kişisel veri içerebileceğinden erişim yetkilerini sınırlayın.</p>
+<h3>Loglama ve yedek</h3>
+<p>Gönderilen her isteği ve alınan her yanıtı kayıt altına alın. Sorun çıktığında entegratör destek ekibiyle konuşurken bu kayıtlar hayat kurtarır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Hangi entegratörü seçmeliyim?</h3>
+<p>API dokümantasyonunun kalitesi, test ortamı sunup sunmadığı, destek hızı ve fiyatlandırma modeli önemli kriterlerdir. Muhasebe tarafıyla uyum için mali müşavirinizin görüşünü de alın.</p>
+<h3>Mevcut stok programıma e-fatura eklenebilir mi?</h3>
+<p>Programın veritabanına ve koduna erişim varsa çoğu durumda eklenebilir. Ürün, cari ve vergi bilgilerinin eksiksiz tutulması ön koşuldur.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>e-Fatura ve e-Arşiv entegrasyonu, doğru kurgulandığında faturayı ayrı bir iş olmaktan çıkarıp satışın doğal bir adımına dönüştürür. Mevzuatı güncel takip edip teknik tarafta tekrar gönderim, durum takibi ve güvenlik konularına özen göstermek gerekir. Yazılımınıza e-dönüşüm entegrasyonu için <a href="../index.html#iletisim">teklif isteyebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html" aria-current="page">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/ozel-yazilim-maliyeti.html"><span class="post__meta"><span>İşletme Yazılımları</span><span>3 dk</span></span><h3>Özel Yazılım Geliştirme Maliyeti Neye Göre Belirlenir?</h3><p>Özel yazılım projelerinde maliyeti etkileyen kapsam, ekran sayısı, entegrasyon, kullanıcı rolleri, platform, test ve bakım kalemleri ile bütçe planlama önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/excelden-ozel-yazilima-gecis.html"><span class="post__meta"><span>İşletme Yazılımları</span><span>3 dk</span></span><h3>Excel&#x27;den Özel Yazılıma Geçiş: Ne Zaman ve Nasıl?</h3><p>Excel ile iş takibinin sınırları, özel yazılıma geçiş zamanının işaretleri, veri temizliği, taşıma adımları ve geçişte yapılan yaygın hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/bulut-mu-yerel-sunucu-mu.html"><span class="post__meta"><span>İşletme Yazılımları</span><span>3 dk</span></span><h3>Bulut mu, Yerel Sunucu mu? İşletme Yazılımları İçin Doğru Altyapı</h3><p>İşletme yazılımlarını bulutta veya yerel sunucuda çalıştırmanın maliyet, erişim, güvenlik, internet bağımlılığı ve yedekleme açısından karşılaştırması.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

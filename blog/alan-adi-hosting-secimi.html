@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi | Furkan Kapukaya</title>
+<meta name="description" content="Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/alan-adi-hosting-secimi.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/alan-adi-hosting-secimi.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/alan-adi-hosting-secimi.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi | Furkan Kapukaya">
+<meta property="og:description" content="Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.">
+<meta property="og:url" content="https://kapukaya.dev/blog/alan-adi-hosting-secimi.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi | Furkan Kapukaya">
+<meta name="twitter:description" content="Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="Web Tasarım ve Geliştirme">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi", "description": "Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.", "url": "https://kapukaya.dev/blog/alan-adi-hosting-secimi.html", "mainEntityOfPage": "https://kapukaya.dev/blog/alan-adi-hosting-secimi.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "Web Tasarım ve Geliştirme", "wordCount": 459, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "alan adı seçimi, hosting nedir, domain nasıl alınır, vps mi paylaşımlı hosting mi"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Web Tasarım ve Geliştirme", "item": "https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html"}, {"@type": "ListItem", "position": 4, "name": "Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi", "item": "https://kapukaya.dev/blog/alan-adi-hosting-secimi.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Alan adını ve hostingi aynı firmadan almak zorunda mıyım?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Alan adını bir kayıt firmasında tutup DNS ayarlarıyla başka bir sağlayıcıdaki hostinge yönlendirebilirsiniz. Bu ayrım taşınmayı kolaylaştırır."}}, {"@type": "Question", "name": "Ucuz hosting SEO'yu etkiler mi?", "acceptedAnswer": {"@type": "Answer", "text": "Doğrudan değil, ancak yavaş yanıt süreleri ve sık kesintiler kullanıcı deneyimini ve dolayısıyla performansı olumsuz etkileyebilir."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi</h1>
+    <p class="page-hero__lead">Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Web sitesinin temeli iki şeydir: insanların sizi bulduğu <strong>alan adı</strong> ve sitenin dosyalarının çalıştığı <strong>hosting</strong>. İkisi de ilk bakışta basit görünse de yanlış seçimler ileride taşınma zahmetine, yavaşlığa ve hatta marka kaybına yol açabilir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#alan-adi-secimi">Alan adı seçimi</a></li><li><a href="#hosting-turleri">Hosting türleri</a></li><li><a href="#hosting-secerken-kontrol-listesi">Hosting seçerken kontrol listesi</a></li><li><a href="#kurumsal-e-posta-ayri-olsun-mu">Kurumsal e-posta ayrı olsun mu?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="alan-adi-secimi">Alan adı seçimi</h2>
+<h3>Kısa, akılda kalıcı ve yazımı kolay</h3>
+<p>İyi bir alan adı söylendiğinde kolayca yazılabilmelidir. Tire, rakam ve Türkçe karakterlerden mümkünse kaçının; telefonda anlatırken karışıklık yaratırlar.</p>
+<h3>Uzantıyı bilinçli seçin</h3>
+<ul>
+<li><strong>.com:</strong> En tanınan uzantıdır, uluslararası hedefiniz varsa güçlü bir tercihtir.</li>
+<li><strong>.com.tr / .tr:</strong> Türkiye'ye odaklı işletmeler için güven verici bir seçenektir. .tr uzantılı alan adları TRABİS üzerinden yetkili kayıt kuruluşları aracılığıyla tahsis edilir.</li>
+<li><strong>.dev, .app, .io gibi uzantılar:</strong> Teknoloji markaları için tercih edilebilir. Bazıları (örneğin .dev) HTTPS zorunluluğu getirir.</li>
+</ul>
+<h3>Marka haklarına dikkat edin</h3>
+<p>Başka bir firmanın tescilli markasını içeren alan adları hukuki sorunlara yol açabilir. Kayıt öncesinde marka araştırması yapmak iyi bir alışkanlıktır.</p>
+<h3>Sahipliği ve yenilemeyi takip edin</h3>
+<p>Alan adını kendi adınıza ve erişebildiğiniz bir e-posta adresiyle kaydedin. Otomatik yenilemeyi açın; süresi dolan alan adları kısa sürede başkalarına geçebilir.</p>
+<h2 id="hosting-turleri">Hosting türleri</h2>
+<h3>Paylaşımlı hosting</h3>
+<p>Aynı sunucu kaynaklarını birçok site paylaşır. Ekonomiktir ve küçük siteler için yeterlidir, ancak komşu sitelerin yükü performansınızı etkileyebilir.</p>
+<h3>VPS (sanal sunucu)</h3>
+<p>Size ayrılmış sanal kaynaklar sunar. Daha fazla kontrol ve performans sağlar, ancak sunucu yönetimi bilgisi veya yönetilen hizmet gerektirir.</p>
+<h3>Bulut sunucu ve PaaS</h3>
+<p>Kaynakları ihtiyaca göre artırıp azaltabileceğiniz hizmetlerdir. ASP.NET Core gibi uygulamaları çalıştırmak, veritabanı ve yedekleme hizmetlerini bir arada kullanmak için uygundur.</p>
+<h3>Statik barındırma</h3>
+<p>Sunucu tarafında kod çalıştırmayan siteler için CDN tabanlı statik barındırma hızlı, güvenli ve çoğu zaman düşük maliyetlidir. <a href="statik-web-sitesi-nedir.html">Statik web sitesi</a> yazımızda bu yaklaşımı ayrıntılı anlattık.</p>
+<h2 id="hosting-secerken-kontrol-listesi">Hosting seçerken kontrol listesi</h2>
+<ol>
+<li><strong>Sunucu konumu:</strong> Hedef kitlenize yakın veri merkezi veya CDN desteği gecikmeyi azaltır.</li>
+<li><strong>Yedekleme:</strong> Otomatik yedekleme var mı, ne sıklıkta, geri yükleme kolay mı?</li>
+<li><strong>SSL:</strong> Ücretsiz sertifika ve otomatik yenileme sunuluyor mu?</li>
+<li><strong>Teknoloji desteği:</strong> Sitenizin çalışacağı dil ve veritabanı destekleniyor mu?</li>
+<li><strong>Destek kalitesi:</strong> Türkçe ve hızlı destek alabiliyor musunuz?</li>
+<li><strong>Kaynak limitleri:</strong> Disk, bant genişliği ve eş zamanlı bağlantı sınırları yeterli mi?</li>
+<li><strong>E-posta:</strong> Kurumsal e-posta aynı pakette mi, yoksa ayrı bir hizmet mi kullanacaksınız?</li>
+</ol>
+<h2 id="kurumsal-e-posta-ayri-olsun-mu">Kurumsal e-posta ayrı olsun mu?</h2>
+<p>Web sitesi ve e-postanın aynı sunucuda olması, sunucu sorunu yaşandığında ikisinin birden etkilenmesi demektir. Birçok işletme, e-postayı özel bir e-posta hizmetinde tutmayı tercih eder. Bu durumda DNS kayıtlarının (MX, SPF, DKIM, DMARC) doğru ayarlanması teslim edilebilirlik için önemlidir.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Alan adını ve hostingi aynı firmadan almak zorunda mıyım?</h3>
+<p>Hayır. Alan adını bir kayıt firmasında tutup DNS ayarlarıyla başka bir sağlayıcıdaki hostinge yönlendirebilirsiniz. Bu ayrım taşınmayı kolaylaştırır.</p>
+<h3>Ucuz hosting SEO'yu etkiler mi?</h3>
+<p>Doğrudan değil, ancak yavaş yanıt süreleri ve sık kesintiler kullanıcı deneyimini ve dolayısıyla performansı olumsuz etkileyebilir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Alan adı markanızın adresi, hosting ise sitenizin evidir. İkisini de sahipliği sizde kalacak şekilde, ihtiyacınıza uygun ve büyümeye açık biçimde seçin. Sitenizin altyapısını planlarken destek isterseniz <a href="../index.html#iletisim">iletişime geçebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html" aria-current="page">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/statik-web-sitesi-nedir.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Statik Web Sitesi Nedir? Hız, Güvenlik ve Maliyet Avantajları</h3><p>Statik web sitesinin dinamik siteden farkı, hız ve güvenlik avantajları, sınırlamaları ve hangi işletmeler için ideal olduğu hakkında pratik rehber.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/landing-page-nedir.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Landing Page (Açılış Sayfası) Nedir? Dönüşüm Getiren Sayfa Nasıl Hazırlanır?</h3><p>Landing page&#x27;in ne olduğu, ana sayfadan farkı, dönüşüm oranını artıran bölümler ve reklam kampanyalarında açılış sayfası hazırlama ipuçları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/web-erisilebilirlik-wcag.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi</h3><p>WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

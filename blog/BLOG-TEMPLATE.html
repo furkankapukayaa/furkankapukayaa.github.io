@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<!-- YENİ YAZI: Bu dosyayı kopyalayıp adını değiştirin (ör. yeni-yazi.html). title, description, canonical, başlık, kategori ve içerik alanlarını doldurun, robots satırını "index, follow" yapın. Ardından blog/index.html içindeki listeye bir <li class="post"> kartı ekleyin ve sitemap.xml dosyasına adresi yazın. -->
+<!-- ŞABLON: Yeni yazıları elle eklemek yerine blog-kaynak/yazilar klasörüne Markdown olarak yazıp build_blog.py betiğini çalıştırın. Betik yazı sayfasını, blog listesini, kategori sayfalarını, sitemap.xml ve llms.txt dosyalarını otomatik günceller. -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Yazı başlığı | Furkan Kapukaya</title>
-<meta name="description" content="Bu yazı için kısa bir açıklama (arama sonuçlarında görünür).">
+<meta name="description" content="Açıklama">
 <meta name="author" content="Furkan Kapukaya">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
 <script src="../assets/js/boot-head.js"></script>
-<link rel="canonical" href="https://kapukaya.dev/blog/yazi-adresi.html">
-<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/yazi-adresi.html">
-<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/yazi-adresi.html">
+<link rel="canonical" href="https://kapukaya.dev/blog/BLOG-TEMPLATE.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/BLOG-TEMPLATE.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/BLOG-TEMPLATE.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Furkan Kapukaya">
 <meta property="og:title" content="Yazı başlığı | Furkan Kapukaya">
-<meta property="og:description" content="Bu yazı için kısa bir açıklama (arama sonuçlarında görünür).">
-<meta property="og:url" content="https://kapukaya.dev/blog/yazi-adresi.html">
+<meta property="og:description" content="Açıklama">
+<meta property="og:url" content="https://kapukaya.dev/blog/BLOG-TEMPLATE.html">
 <meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@furkankapukayaa">
 <meta name="twitter:title" content="Yazı başlığı | Furkan Kapukaya">
-<meta name="twitter:description" content="Bu yazı için kısa bir açıklama (arama sonuçlarında görünür).">
+<meta name="twitter:description" content="Açıklama">
 <meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
 <link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
@@ -40,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/chrome.css">
 <link rel="stylesheet" href="../assets/css/site.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Yazı başlığı", "description": "Bu yazı için kısa bir açıklama (arama sonuçlarında görünür).", "url": "https://kapukaya.dev/blog/BLOG-TEMPLATE.html", "mainEntityOfPage": "https://kapukaya.dev/blog/BLOG-TEMPLATE.html", "datePublished": "2026-08-22", "dateModified": "2026-08-22", "inLanguage": "tr", "articleSection": "Kategori", "timeRequired": "PT5M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}}</script>
+
 <script src="../assets/js/analytics.js" defer></script>
 </head>
 <body>
@@ -73,43 +73,19 @@
 
 <section class="page-hero article-hero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / Kategori</nav>
-    <div class="art-meta"><span class="art-cat">Kategori</span><time datetime="2026-08-22">22 Ağustos 2026</time><span>5 dk okuma</span></div>
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/KATEGORI-SLUG.html">Kategori adı</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/KATEGORI-SLUG.html">Kategori adı</a><time datetime="2026-01-01">1 Ocak 2026</time><span>5 dk okuma</span></div>
     <h1>Yazı başlığı</h1>
-    <p class="page-hero__lead">Bu yazı için kısa bir açıklama (arama sonuçlarında görünür).</p>
+    <p class="page-hero__lead">Kısa açıklama (arama sonuçlarında görünür).</p>
   </div>
 </section>
 <div class="wrap article-layout">
   <article class="prose">
-<p>Giriş paragrafı. Konuyu kısaca tanıt ve okuyucuya bu yazıda ne öğreneceğini anlat.</p>
-<h2>Birinci bölüm</h2>
+<p>Giriş paragrafı.</p>
+<h2 id="birinci-bolum">Birinci bölüm</h2>
 <p>İçerik.</p>
-<h2>İkinci bölüm</h2>
-<p>İçerik.</p>
-<ul><li>Önemli nokta 1</li><li>Önemli nokta 2</li></ul>
-<h2>Sonuç</h2>
-<p>Ana fikir.</p>
   </article>
-  <aside class="article-aside">
-    <div class="aside-card">
-      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
-      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
-      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <div class="aside-card aside-card--cta">
-      <b>Bir projeniz mi var?</b>
-      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
-      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
-    </div>
-  </aside>
 </div>
-<section class="section">
-  <div class="wrap">
-    <div class="section__head"><h2>Diğer yazılar</h2></div>
-    <ul class="posts"><li class="post"><a href="../blog/masaustu-otomasyon-sistemleri.html"><span class="post__meta"><span>İşletme çözümleri</span><span>9 dk</span></span><h3>İşletmeler İçin Masaüstü Otomasyon Sistemleri</h3><p>Stok, satış, müşteri, personel ve servis süreçlerinin özel yazılımla nasıl dijitalleştirilebileceğini anlatan rehber.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/kurumsal-web-sitesi-nasil-yapilir.html"><span class="post__meta"><span>Web geliştirme</span><span>9 dk</span></span><h3>Kurumsal Web Sitesi Nasıl Yapılır?</h3><p>Kurumsal web sitesinde güven, mobil uyumluluk, performans, içerik mimarisi ve dönüşüm odaklı tasarım.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/freelance-yazilim-hizmeti.html"><span class="post__meta"><span>Süreç</span><span>8 dk</span></span><h3>Freelance Yazılım Projesi Nasıl Yönetilir?</h3><p>İhtiyaç analizi, kapsam, teknik planlama, teslim ve bakım aşamalarını daha sağlıklı yönetmek için pratik yaklaşım.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
-    <div class="section__foot"><a class="link-more" href="../blog/index.html">Tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-  </div>
-</section>
 
 </main>
 <footer class="k-footer">

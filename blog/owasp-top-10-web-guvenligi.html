@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk | Furkan Kapukaya</title>
+<meta name="description" content="OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk | Furkan Kapukaya">
+<meta property="og:description" content="OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.">
+<meta property="og:url" content="https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk | Furkan Kapukaya">
+<meta name="twitter:description" content="OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="Güvenlik ve KVKK">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk", "description": "OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.", "url": "https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html", "mainEntityOfPage": "https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "Güvenlik ve KVKK", "wordCount": 633, "timeRequired": "PT4M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "owasp top 10, owasp 2025, web güvenliği, güvenlik açıkları, sql injection"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Güvenlik ve KVKK", "item": "https://kapukaya.dev/blog/kategori/guvenlik-kvkk.html"}, {"@type": "ListItem", "position": 4, "name": "OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk", "item": "https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "OWASP Top 10 bir standart mı?", "acceptedAnswer": {"@type": "Answer", "text": "Resmi bir uyumluluk standardı değil, bir farkındalık belgesidir. Ancak birçok güvenlik değerlendirmesinde referans olarak kullanılır."}}, {"@type": "Question", "name": "Küçük bir site için de geçerli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Saldırıların çoğu otomatik araçlarla yapılır ve sitenin büyüklüğüne bakmaz."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a><time datetime="2026-09-30">30 Eylül 2026</time><span>4 dk okuma</span></div>
+    <h1>OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk</h1>
+    <p class="page-hero__lead">OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>OWASP (Open Worldwide Application Security Project), yazılım güvenliğini iyileştirmeye odaklanan kâr amacı gütmeyen bir topluluktur. En bilinen çalışması olan <strong>OWASP Top 10</strong>, web uygulamalarındaki en kritik güvenlik risklerini listeler. 2021'den sonraki ilk büyük güncelleme olan <strong>2025 sürümü</strong> iki yeni kategori içeriyor. Bu yazıda her riski sade bir dille açıklayıp temel korunma yollarını özetliyoruz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#a01-bozuk-erisim-kontrolu">A01: Bozuk Erişim Kontrolü</a></li><li><a href="#a02-guvenlik-yanlis-yapilandirmasi">A02: Güvenlik Yanlış Yapılandırması</a></li><li><a href="#a03-yazilim-tedarik-zinciri-hatalari-yeni">A03: Yazılım Tedarik Zinciri Hataları (yeni)</a></li><li><a href="#a04-kriptografik-hatalar">A04: Kriptografik Hatalar</a></li><li><a href="#a05-enjeksiyon">A05: Enjeksiyon</a></li><li><a href="#a06-guvensiz-tasarim">A06: Güvensiz Tasarım</a></li><li><a href="#a07-kimlik-dogrulama-hatalari">A07: Kimlik Doğrulama Hataları</a></li><li><a href="#a08-yazilim-veya-veri-butunlugu-hatalari">A08: Yazılım veya Veri Bütünlüğü Hataları</a></li><li><a href="#a09-guvenlik-loglama-ve-uyari-hatalari">A09: Güvenlik Loglama ve Uyarı Hataları</a></li><li><a href="#a10-istisnai-durumlarin-yanlis-yonetimi-yeni">A10: İstisnai Durumların Yanlış Yönetimi (yeni)</a></li><li><a href="#isletmeler-icin-pratik-kontrol-listesi">İşletmeler için pratik kontrol listesi</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="a01-bozuk-erisim-kontrolu">A01: Bozuk Erişim Kontrolü</h2>
+<p>Kullanıcının yetkisi olmayan verilere veya işlemlere erişebilmesidir. Örneğin URL'deki sipariş numarasını değiştirerek başkasının siparişini görmek. 2025 sürümünde sunucu taraflı istek sahteciliği (SSRF) de bu kategoriye dahil edildi.</p>
+<p><strong>Korunma:</strong> Yetki kontrolünü her istekte sunucu tarafında yapın; "varsayılan olarak reddet" ilkesini uygulayın; kaynak sahipliğini doğrulayın.</p>
+<h2 id="a02-guvenlik-yanlis-yapilandirmasi">A02: Güvenlik Yanlış Yapılandırması</h2>
+<p>Varsayılan parolalar, açık bırakılan yönetim panelleri, ayrıntılı hata mesajları, gereksiz servisler ve eksik güvenlik başlıkları. 2025'te beşinci sıradan ikinciye yükseldi.</p>
+<p><strong>Korunma:</strong> Standart, tekrarlanabilir sunucu yapılandırması; üretimde hata ayrıntılarının gizlenmesi; güvenlik başlıkları (CSP, HSTS vb.); düzenli yapılandırma denetimi.</p>
+<h2 id="a03-yazilim-tedarik-zinciri-hatalari-yeni">A03: Yazılım Tedarik Zinciri Hataları (yeni)</h2>
+<p>2021'deki "savunmasız ve güncel olmayan bileşenler" kategorisinin genişletilmiş halidir. Kullandığınız paketler, derleme araçları ve dağıtım süreçlerinin tamamını kapsar. Kötü amaçlı paket sürümleri ve ele geçirilmiş bağımlılıklar gerçek ve güncel bir tehdittir.</p>
+<p><strong>Korunma:</strong> Bağımlılıkları düzenli güncelleyin ve güvenlik açıklarını tarayın; paket sürümlerini sabitleyin; yalnızca güvenilir kaynakları kullanın; derleme ve yayın süreçlerine erişimi sınırlayın.</p>
+<h2 id="a04-kriptografik-hatalar">A04: Kriptografik Hatalar</h2>
+<p>Hassas verinin şifrelenmeden saklanması veya iletilmesi, zayıf algoritmalar, parolaların düz metin veya zayıf özetle saklanması.</p>
+<p><strong>Korunma:</strong> Her yerde <a href="ssl-sertifikasi-https-nedir.html">HTTPS</a>; parolalar için bcrypt, scrypt, Argon2 veya PBKDF2 gibi yavaş özet fonksiyonları; anahtarların kaynak kod dışında yönetimi.</p>
+<h2 id="a05-enjeksiyon">A05: Enjeksiyon</h2>
+<p>SQL enjeksiyonu, komut enjeksiyonu ve XSS gibi, kullanıcı girdisinin kod olarak yorumlanmasıyla oluşan açıklar.</p>
+<p><strong>Korunma:</strong> Parametreli sorgular veya ORM kullanımı; girdileri doğrulama; çıktıları bağlama göre kodlama (encoding); Content Security Policy.</p>
+<pre><code class="language-csharp">// Yanlış: kullanıcı girdisi doğrudan SQL'e ekleniyor
+var sql = &quot;SELECT * FROM Musteriler WHERE Ad = '&quot; + ad + &quot;'&quot;;
+
+// Doğru: parametreli sorgu
+var cmd = new SqlCommand(&quot;SELECT * FROM Musteriler WHERE Ad = @ad&quot;, baglanti);
+cmd.Parameters.AddWithValue(&quot;@ad&quot;, ad);
+</code></pre>
+<h2 id="a06-guvensiz-tasarim">A06: Güvensiz Tasarım</h2>
+<p>Kodlama hatasından değil, tasarım aşamasında güvenliğin düşünülmemesinden kaynaklanan sorunlar. Örneğin parola sıfırlamada tahmin edilebilir sorular kullanmak veya hız sınırı olmayan bir doğrulama kodu ekranı.</p>
+<p><strong>Korunma:</strong> Tasarım aşamasında tehdit modelleme; kötüye kullanım senaryolarını düşünmek; güvenli tasarım kalıplarını kullanmak.</p>
+<h2 id="a07-kimlik-dogrulama-hatalari">A07: Kimlik Doğrulama Hataları</h2>
+<p>Zayıf parola politikaları, kaba kuvvet saldırılarına karşı koruma olmaması, oturum yönetimi hataları.</p>
+<p><strong>Korunma:</strong> <a href="iki-faktorlu-dogrulama.html">İki faktörlü doğrulama</a>; giriş denemelerini sınırlama; güvenli oturum ve <a href="jwt-kimlik-dogrulama.html">token yönetimi</a>.</p>
+<h2 id="a08-yazilim-veya-veri-butunlugu-hatalari">A08: Yazılım veya Veri Bütünlüğü Hataları</h2>
+<p>Güncellemelerin, kodun veya verinin bütünlüğü doğrulanmadan güvenilmesi; güvensiz serileştirme.</p>
+<p><strong>Korunma:</strong> İmzalı paketler ve güncellemeler; bütünlük kontrolleri; korumalı yayın süreçleri.</p>
+<h2 id="a09-guvenlik-loglama-ve-uyari-hatalari">A09: Güvenlik Loglama ve Uyarı Hataları</h2>
+<p>Saldırıların fark edilmemesi. Başarısız giriş denemeleri, yetki hataları gibi olaylar loglanmıyor veya kimse uyarı almıyorsa saldırı aylarca sürebilir.</p>
+<p><strong>Korunma:</strong> Güvenlikle ilgili olayları kaydedin, logları değiştirilmeye karşı koruyun, anlamlı uyarılar kurun.</p>
+<h2 id="a10-istisnai-durumlarin-yanlis-yonetimi-yeni">A10: İstisnai Durumların Yanlış Yönetimi (yeni)</h2>
+<p>Uygulamanın beklenmedik durumlarda (hatalar, kaynak tükenmesi, beklenmeyen girdiler) güvensiz davranması. Hata durumunda yetki kontrolünü atlayan ("fail open") bir kod buna örnektir.</p>
+<p><strong>Korunma:</strong> Merkezi ve güvenli hata yönetimi; hata durumunda güvenli tarafta kalma ("fail closed"); kaynak sınırları; uç durumların test edilmesi; kullanıcıya iç hata ayrıntısı göstermemek.</p>
+<h2 id="isletmeler-icin-pratik-kontrol-listesi">İşletmeler için pratik kontrol listesi</h2>
+<ol>
+<li>Tüm yazılım ve bağımlılıklar güncel mi?</li>
+<li>Yönetim panelleri güçlü parola ve 2FA ile korunuyor mu?</li>
+<li>Veritabanı sorguları parametreli mi?</li>
+<li>Hata mesajları iç bilgi sızdırıyor mu?</li>
+<li>Yedekler alınıyor ve test ediliyor mu? Bkz. <a href="veritabani-yedekleme-stratejisi.html">yedekleme stratejisi</a>.</li>
+<li>Şüpheli olaylar için loglama ve uyarı var mı?</li>
+</ol>
+<p>Yapay zekâ ile üretilen kodda bu risklerin nasıl yönetileceğini <a href="ai-ile-kod-yazarken-guvenlik.html">AI ile kod yazarken güvenlik</a> yazısında ele aldık.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>OWASP Top 10 bir standart mı?</h3>
+<p>Resmi bir uyumluluk standardı değil, bir farkındalık belgesidir. Ancak birçok güvenlik değerlendirmesinde referans olarak kullanılır.</p>
+<h3>Küçük bir site için de geçerli mi?</h3>
+<p>Evet. Saldırıların çoğu otomatik araçlarla yapılır ve sitenin büyüklüğüne bakmaz.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>OWASP Top 10, web uygulamalarında nereye odaklanmanız gerektiğini gösteren bir yol haritasıdır. Erişim kontrolü, doğru yapılandırma ve güvenilir bağımlılıklar 2025 listesinin öne çıkan başlıklarıdır. Uygulamanızın güvenlik gözden geçirmesi için <a href="../index.html#iletisim">iletişime geçebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html" aria-current="page">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/iki-faktorlu-dogrulama.html"><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>İki Faktörlü Doğrulama (2FA) Nedir? Hesapları Korumanın En Etkili Yolu</h3><p>İki faktörlü doğrulamanın çalışma mantığı, SMS, doğrulama uygulaması, güvenlik anahtarı ve passkey yöntemlerinin karşılaştırması ve işletmeler için uygulama önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/ssl-sertifikasi-https-nedir.html"><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>SSL Sertifikası Nedir? HTTPS&#x27;e Geçiş ve Sık Yapılan Hatalar</h3><p>SSL/TLS sertifikasının ne işe yaradığı, DV, OV ve EV farkları, ücretsiz sertifikalar, HTTPS&#x27;e geçiş adımları, HSTS ve karışık içerik sorunları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/kvkk-uyumlu-web-sitesi.html"><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>KVKK Uyumlu Web Sitesi Nasıl Olmalı? Formlar, Çerezler ve Aydınlatma Metni</h3><p>Web sitelerinde KVKK kapsamında aydınlatma metni, açık rıza, çerez tercihi, iletişim formları, veri güvenliği ve yurt dışı aktarım konularında genel rehber.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

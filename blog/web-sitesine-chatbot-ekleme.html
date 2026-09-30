@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber | Furkan Kapukaya</title>
+<meta name="description" content="Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber | Furkan Kapukaya">
+<meta property="og:description" content="Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber | Furkan Kapukaya">
+<meta name="twitter:description" content="Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="Yapay Zekâ">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber", "description": "Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.", "url": "https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html", "mainEntityOfPage": "https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "Yapay Zekâ", "wordCount": 488, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "web sitesi chatbot, yapay zeka chatbot, müşteri hizmetleri botu, canlı destek yapay zeka"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Yapay Zekâ", "item": "https://kapukaya.dev/blog/kategori/yapay-zeka.html"}, {"@type": "ListItem", "position": 4, "name": "Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber", "item": "https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Chatbot yanlış bilgi verirse ne olur?", "acceptedAnswer": {"@type": "Answer", "text": "Bilgi kaynağını sınırlamak, \"bilmiyorum\" davranışını tanımlamak ve kayıtları düzenli incelemek bu riski azaltır. Kritik bilgiler (fiyat, sözleşme şartları) için ziyaretçiyi resmi sayfaya yönlendirmek en güvenlisidir."}}, {"@type": "Question", "name": "Hazır widget mi, özel geliştirme mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hazır çözümler hızlı başlangıç sunar. Kendi sistemlerinizle (randevu, stok, CRM) entegrasyon ve veri kontrolü önemliyse özel geliştirme daha esnektir."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber</h1>
+    <p class="page-hero__lead">Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Eski tip chatbotlar önceden tanımlanmış butonlar ve katı karar ağaçlarıyla çalışırdı. Büyük dil modelleri ise doğal dilde yazılan soruları anlayıp bağlama uygun cevap üretebiliyor. Doğru kurgulanmış bir yapay zekâ asistanı, web sitenizi ziyaret edenlere gece gündüz yardımcı olabilir. Yanlış kurgulanmış bir asistan ise yanlış bilgi vererek güven kaybettirebilir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#chatbot-ne-ise-yarar">Chatbot ne işe yarar?</a></li><li><a href="#dogru-kurgunun-temel-taslari">Doğru kurgunun temel taşları</a></li><li><a href="#guvenlik">Güvenlik</a></li><li><a href="#kvkk-ve-gizlilik">KVKK ve gizlilik</a></li><li><a href="#performans-ve-seo">Performans ve SEO</a></li><li><a href="#basariyi-olcmek">Başarıyı ölçmek</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="chatbot-ne-ise-yarar">Chatbot ne işe yarar?</h2>
+<ul>
+<li>Sık sorulan soruları anında yanıtlamak</li>
+<li>Ziyaretçiyi doğru hizmet sayfasına yönlendirmek</li>
+<li>Teklif veya randevu talebi için ön bilgi toplamak</li>
+<li>Mesai dışında gelen talepleri kaydetmek</li>
+<li>Destek ekibinin tekrar eden sorularla geçen zamanını azaltmak</li>
+</ul>
+<h2 id="dogru-kurgunun-temel-taslari">Doğru kurgunun temel taşları</h2>
+<h3>1. Bilgi kaynağını sınırlayın</h3>
+<p>Asistanın genel internet bilgisiyle değil, <strong>sizin onayladığınız içerikle</strong> cevap vermesi gerekir: hizmet sayfaları, fiyat politikası, SSS, çalışma saatleri. Bu yaklaşımın teknik adı <a href="rag-nedir.html">RAG (Retrieval-Augmented Generation)</a> olarak bilinir.</p>
+<h3>2. Kapsamı ve üslubu tanımlayın</h3>
+<p>Sistem talimatlarında asistanın kim olduğunu, hangi konularda yardım edeceğini, hangi konulara girmeyeceğini ve nasıl bir üslup kullanacağını açıkça yazın. Örneğin fiyat taahhüdü vermemesi, hukuki veya tıbbi tavsiye vermemesi gibi sınırlar belirleyin.</p>
+<h3>3. "Bilmiyorum" diyebilsin</h3>
+<p>Bilgi kaynağında cevap yoksa uydurmak yerine bunu söyleyip ziyaretçiyi iletişim formuna veya bir çalışana yönlendirmelidir.</p>
+<h3>4. İnsana devir</h3>
+<p>Karmaşık talepler, şikâyetler veya satın almaya yakın ziyaretçiler için insan desteğine geçiş yolu olmalıdır: telefon, e-posta veya canlı destek.</p>
+<h3>5. Kendini tanıtsın</h3>
+<p>Ziyaretçinin bir yapay zekâ asistanıyla konuştuğunu bilmesi şeffaflık ve güven açısından önemlidir.</p>
+<h2 id="guvenlik">Güvenlik</h2>
+<h3>API anahtarlarını istemciye koymayın</h3>
+<p>Yapay zekâ servisine yapılan çağrılar tarayıcıdan değil, kendi sunucunuz üzerinden yapılmalıdır. Aksi halde anahtar ele geçirilip sizin adınıza kullanılabilir.</p>
+<h3>Kötüye kullanıma karşı sınırlar</h3>
+<ul>
+<li>IP veya oturum bazlı istek sınırı (rate limiting)</li>
+<li>Mesaj uzunluğu sınırı</li>
+<li>Günlük harcama limiti ve uyarılar</li>
+</ul>
+<h3>Talimat enjeksiyonu (prompt injection)</h3>
+<p>Kullanıcılar asistanı kurallarının dışına çıkarmaya çalışabilir. Asistana hassas iç bilgiler veya yetkili işlemler (sipariş iptali, veri silme gibi) doğrudan verilmemeli; bu tür işlemler ek doğrulamadan geçmelidir. Genel ilkeler için <a href="ai-ile-kod-yazarken-guvenlik.html">AI ile kod yazarken güvenlik</a> yazımıza da bakabilirsiniz.</p>
+<h2 id="kvkk-ve-gizlilik">KVKK ve gizlilik</h2>
+<ul>
+<li>Sohbet kayıtları kişisel veri içerebilir; saklama süresi ve amacı belirlenmelidir.</li>
+<li>Aydınlatma metninde chatbot ve kullanılan servis sağlayıcıları belirtilmelidir.</li>
+<li>Kullanıcıların kimlik numarası, kart bilgisi gibi hassas verileri paylaşmaması için uyarı gösterilebilir.</li>
+<li>Yurt dışındaki servis sağlayıcılar kullanılıyorsa aktarım kuralları değerlendirilmelidir. Bkz. <a href="kvkk-uyumlu-web-sitesi.html">KVKK uyumlu web sitesi</a>.</li>
+</ul>
+<h2 id="performans-ve-seo">Performans ve SEO</h2>
+<p>Sohbet widget'ları, sayfa hızını olumsuz etkileyen üçüncü taraf betiklerin başında gelir. Widget'ı sayfa yüklendikten sonra veya kullanıcı sohbet simgesine tıkladığında yükleyin. Bu, <a href="core-web-vitals-nedir.html">Core Web Vitals</a> değerlerinizi korur.</p>
+<h2 id="basariyi-olcmek">Başarıyı ölçmek</h2>
+<ul>
+<li>Çözülen soru oranı ve insana devredilen oran</li>
+<li>En sık sorulan konular (içerik fikri olarak da değerlidir)</li>
+<li>Sohbet sonrası form veya randevu dönüşümleri</li>
+<li>Olumsuz geri bildirimlerin incelenmesi</li>
+</ul>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Chatbot yanlış bilgi verirse ne olur?</h3>
+<p>Bilgi kaynağını sınırlamak, "bilmiyorum" davranışını tanımlamak ve kayıtları düzenli incelemek bu riski azaltır. Kritik bilgiler (fiyat, sözleşme şartları) için ziyaretçiyi resmi sayfaya yönlendirmek en güvenlisidir.</p>
+<h3>Hazır widget mi, özel geliştirme mi?</h3>
+<p>Hazır çözümler hızlı başlangıç sunar. Kendi sistemlerinizle (randevu, stok, CRM) entegrasyon ve veri kontrolü önemliyse özel geliştirme daha esnektir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>İyi bir yapay zekâ asistanı; sınırlı ve doğru bilgi kaynağına dayanır, bilmediğini söyler, gerektiğinde insana devreder ve güvenlik önlemleriyle korunur. Web sitenize özel bir asistan için <a href="../index.html#iletisim">iletişime geçebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html" aria-current="page">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/rag-nedir.html"><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>RAG Nedir? Yapay Zekâyı Kendi Belgelerinizle Konuşturmak</h3><p>Retrieval-Augmented Generation (RAG) yaklaşımının çalışma mantığı, embedding ve vektör arama, belge hazırlığı, kaynak gösterme ve iş uygulamalarında kullanım.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/llms-txt-nedir.html"><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>llms.txt Nedir? Web Sitenizi Yapay Zekâ Asistanlarına Tanıtın</h3><p>llms.txt dosyasının amacı, formatı, robots.txt ve sitemap.xml ile farkı, örnek içerik, sınırlamaları ve yapay zekâ botları için genel öneriler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/yapay-zeka-yazilim-gelistirme-2026.html"><span class="post__meta"><span>Yapay Zekâ</span><span>1 dk</span></span><h3>2026’da Yapay Zeka Yazılım Geliştirmeyi Nasıl Değiştiriyor?</h3><p>AI destekli geliştirme, coding agent yaklaşımı, insan denetimi ve üretim süreçlerinde yeni çalışma biçimleri.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

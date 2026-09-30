@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme | Furkan Kapukaya</title>
+<meta name="description" content="Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/aspnet-core-minimal-api.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/aspnet-core-minimal-api.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/aspnet-core-minimal-api.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme | Furkan Kapukaya">
+<meta property="og:description" content="Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/aspnet-core-minimal-api.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme | Furkan Kapukaya">
+<meta name="twitter:description" content="Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="C# ve .NET">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme", "description": "Minimal API'nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.", "url": "https://kapukaya.dev/blog/aspnet-core-minimal-api.html", "mainEntityOfPage": "https://kapukaya.dev/blog/aspnet-core-minimal-api.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 457, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "minimal api, asp.net core minimal api, .net web api, c# api geliştirme"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "C# ve .NET", "item": "https://kapukaya.dev/blog/kategori/csharp-dotnet.html"}, {"@type": "ListItem", "position": 4, "name": "ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme", "item": "https://kapukaya.dev/blog/aspnet-core-minimal-api.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Minimal API büyük projeler için uygun mu?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, ancak düzen için endpoint gruplama, ayrı dosyalar ve servis katmanı kullanmak şarttır. Aksi halde Program.cs hızla okunamaz hale gelir."}}, {"@type": "Question", "name": "Performans farkı var mı?", "acceptedAnswer": {"@type": "Answer", "text": "Minimal API genellikle daha az ek yük ile çalışır; ancak çoğu uygulamada asıl belirleyici veritabanı ve dış servis çağrılarıdır."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme</h1>
+    <p class="page-hero__lead">Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Minimal API, ASP.NET Core ile az kodla HTTP servisleri geliştirmeyi sağlayan yaklaşımdır. Controller sınıfları yazmadan, doğrudan <code>Program.cs</code> içinde veya düzenli uzantı metotlarında endpoint tanımlanır. Küçük servisler, mikro servisler ve entegrasyon uç noktaları için oldukça pratiktir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#ilk-ornek">İlk örnek</a></li><li><a href="#controller-yaklasimindan-farki">Controller yaklaşımından farkı</a></li><li><a href="#dependency-injection-ve-servisler">Dependency injection ve servisler</a></li><li><a href="#endpoint-gruplama">Endpoint gruplama</a></li><li><a href="#dogrulama">Doğrulama</a></li><li><a href="#openapi-dokumantasyonu">OpenAPI dokümantasyonu</a></li><li><a href="#kimlik-dogrulama-ve-yetkilendirme">Kimlik doğrulama ve yetkilendirme</a></li><li><a href="#uretim-icin-kontrol-listesi">Üretim için kontrol listesi</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="ilk-ornek">İlk örnek</h2>
+<pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet(&quot;/api/merhaba&quot;, () =&gt; Results.Ok(new { mesaj = &quot;Merhaba dünya&quot; }));
+
+app.Run();
+</code></pre>
+<p>Birkaç satırla çalışan bir API elde edilir.</p>
+<h2 id="controller-yaklasimindan-farki">Controller yaklaşımından farkı</h2>
+<p>Klasik <a href="aspnet-core-web-api-nedir.html">ASP.NET Core Web API</a> yaklaşımında her kaynak için bir controller sınıfı ve action metotları yazılır. Minimal API'de ise endpoint'ler doğrudan lambda veya metot olarak tanımlanır.</p>
+<ul>
+<li><strong>Minimal API:</strong> Daha az tören (ceremony), daha hızlı başlangıç, küçük ve odaklı servisler için ideal.</li>
+<li><strong>Controller:</strong> Büyük ve çok ekipli projelerde alışılmış yapı, filtreler ve konvansiyonlar.</li>
+</ul>
+<p>İki yaklaşım aynı projede birlikte de kullanılabilir.</p>
+<h2 id="dependency-injection-ve-servisler">Dependency injection ve servisler</h2>
+<pre><code class="language-csharp">builder.Services.AddScoped&lt;IUrunServisi, UrunServisi&gt;();
+
+app.MapGet(&quot;/api/urunler/{id:int}&quot;, async (int id, IUrunServisi servis) =&gt;
+{
+    var urun = await servis.GetirAsync(id);
+    return urun is null ? Results.NotFound() : Results.Ok(urun);
+});
+</code></pre>
+<p>Parametredeki servis, dependency injection ile otomatik olarak sağlanır.</p>
+<h2 id="endpoint-gruplama">Endpoint gruplama</h2>
+<p>Proje büyüdükçe endpoint'leri gruplamak düzeni korur:</p>
+<pre><code class="language-csharp">var urunler = app.MapGroup(&quot;/api/urunler&quot;)
+                 .RequireAuthorization();
+
+urunler.MapGet(&quot;/&quot;, async (IUrunServisi s) =&gt; await s.ListeleAsync());
+urunler.MapPost(&quot;/&quot;, async (UrunEkleDto dto, IUrunServisi s) =&gt;
+{
+    var yeni = await s.EkleAsync(dto);
+    return Results.Created($&quot;/api/urunler/{yeni.Id}&quot;, yeni);
+});
+</code></pre>
+<p>Grupları ayrı dosyalarda uzantı metotları olarak tanımlamak, <code>Program.cs</code> dosyasının şişmesini önler.</p>
+<h2 id="dogrulama">Doğrulama</h2>
+<p>Gelen verinin doğrulanması güvenli bir API'nin temelidir. Güncel ASP.NET Core sürümlerinde Minimal API'ler için veri açıklama (data annotation) tabanlı yerleşik doğrulama desteği bulunur. Daha karmaşık kurallar için doğrulama kütüphaneleri veya endpoint filtreleri kullanılabilir. Doğrulama hatalarında tutarlı bir hata formatı (örneğin Problem Details) döndürmek istemci tarafını kolaylaştırır.</p>
+<h2 id="openapi-dokumantasyonu">OpenAPI dokümantasyonu</h2>
+<p>ASP.NET Core, API'nizin OpenAPI tanımını üretmeyi destekler. Bu tanım; istemci kodu üretmek, test etmek ve ekip içinde paylaşmak için kullanılır.</p>
+<pre><code class="language-csharp">builder.Services.AddOpenApi();
+app.MapOpenApi();
+</code></pre>
+<h2 id="kimlik-dogrulama-ve-yetkilendirme">Kimlik doğrulama ve yetkilendirme</h2>
+<p>JWT tabanlı kimlik doğrulama, API'ler için yaygın bir tercihtir. Ayrıntılar için <a href="jwt-kimlik-dogrulama.html">JWT ile kimlik doğrulama</a> yazımıza bakabilirsiniz. Endpoint veya grup seviyesinde <code>RequireAuthorization()</code> ile koruma eklenir; rol ve politika bazlı yetkilendirme de desteklenir.</p>
+<h2 id="uretim-icin-kontrol-listesi">Üretim için kontrol listesi</h2>
+<ul>
+<li>Hata yönetimi için merkezi bir ara katman (exception handler)</li>
+<li>Yapılandırılmış loglama</li>
+<li>Hız sınırlama (rate limiting) ile kötüye kullanımı önleme</li>
+<li>CORS ayarlarının yalnızca gerekli kaynaklara izin vermesi</li>
+<li>Sağlık kontrolü (health check) endpoint'i</li>
+<li>Gizli anahtarların kod dışında saklanması</li>
+</ul>
+<p>Performans önerileri için <a href="aspnet-core-performans-optimizasyonu.html">ASP.NET Core performans optimizasyonu</a> yazısına göz atabilirsiniz.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Minimal API büyük projeler için uygun mu?</h3>
+<p>Evet, ancak düzen için endpoint gruplama, ayrı dosyalar ve servis katmanı kullanmak şarttır. Aksi halde <code>Program.cs</code> hızla okunamaz hale gelir.</p>
+<h3>Performans farkı var mı?</h3>
+<p>Minimal API genellikle daha az ek yük ile çalışır; ancak çoğu uygulamada asıl belirleyici veritabanı ve dış servis çağrılarıdır.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Minimal API, ASP.NET Core ile hızlı, sade ve modern web servisleri geliştirmenin etkili bir yoludur. Doğru klasör yapısı, doğrulama ve güvenlik önlemleriyle küçük servislerden kurumsal API'lere kadar kullanılabilir. API geliştirme ve entegrasyon ihtiyaçlarınız için <a href="../index.html#iletisim">teklif isteyebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/csharp-async-await-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>C# Async/Await Nedir?</h3><p>C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/aspnet-core-web-api-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>ASP.NET Core Web API Nedir?</h3><p>ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/entity-framework-core-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>Entity Framework Core Nedir?</h3><p>.NET uygulamalarında DbContext, migrations ve Entity Framework Core rolünü anlaşılır şekilde öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

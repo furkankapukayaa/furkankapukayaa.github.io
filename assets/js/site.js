@@ -88,17 +88,123 @@
     update();
   });
 
-  /* Blog kategori filtresi */
-  document.querySelectorAll('[data-filter-group]').forEach(function (g) {
-    var chips = g.querySelectorAll('.chip');
-    var items = g.querySelectorAll('[data-cat]');
+  /* Blog: arama, kategori filtresi ve sayfalama */
+  var trMap = { 'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'â': 'a', 'î': 'i', 'û': 'u' };
+  var norm = function (v) {
+    return (v || '').replace(/İ/g, 'i').replace(/I/g, 'ı').toLowerCase()
+      .replace(/[çğıöşüâîû]/g, function (ch) { return trMap[ch]; })
+      .replace(/[^a-z0-9#.+ ]/g, ' ').replace(/\s+/g, ' ').trim();
+  };
+  document.querySelectorAll('[data-blog]').forEach(function (root) {
+    var list = root.querySelector('[data-blog-list]');
+    if (!list) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll('.post'));
+    var input = root.querySelector('[data-blog-search]');
+    var form = root.querySelector('[data-blog-form]');
+    var clear = root.querySelector('[data-blog-clear]');
+    var chips = Array.prototype.slice.call(root.querySelectorAll('[data-filter]'));
+    var pager = root.querySelector('[data-blog-pager]');
+    var status = root.querySelector('[data-blog-status]');
+    var empty = root.querySelector('[data-blog-empty]');
+    var perPage = parseInt(root.dataset.perPage, 10) || 12;
+    var isIndex = root.dataset.mode === 'index';
+    var params = new URLSearchParams(location.search);
+    var state = { q: params.get('q') || '', cat: (isIndex && params.get('kategori')) || '*', page: parseInt(params.get('sayfa'), 10) || 1 };
+    var timer;
+
+    if (input) input.value = state.q;
+
+    var syncUrl = function () {
+      var p = new URLSearchParams();
+      if (state.q) p.set('q', state.q);
+      if (isIndex && state.cat !== '*') p.set('kategori', state.cat);
+      if (state.page > 1) p.set('sayfa', state.page);
+      var qs = p.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    };
+
+    var pageList = function (cur, total) {
+      if (total <= 7) return Array.from({ length: total }, function (_, i) { return i + 1; });
+      var out = [1];
+      var from = Math.max(2, cur - 1), to = Math.min(total - 1, cur + 1);
+      if (from > 2) out.push('…');
+      for (var i = from; i <= to; i++) out.push(i);
+      if (to < total - 1) out.push('…');
+      out.push(total);
+      return out;
+    };
+
+    var apply = function (scroll) {
+      var terms = norm(state.q).split(' ').filter(Boolean);
+      var matched = items.filter(function (it) {
+        if (state.cat !== '*' && it.dataset.cat !== state.cat) return false;
+        var hay = it.dataset.search || norm(it.textContent);
+        return terms.every(function (t) { return hay.indexOf(t) !== -1; });
+      });
+      var pages = Math.max(1, Math.ceil(matched.length / perPage));
+      if (state.page > pages) state.page = pages;
+      if (state.page < 1) state.page = 1;
+      var start = (state.page - 1) * perPage, end = start + perPage;
+      items.forEach(function (it) { it.hidden = true; });
+      matched.forEach(function (it, i) { it.hidden = i < start || i >= end; });
+
+      chips.forEach(function (c) {
+        var on = c.dataset.filter === state.cat;
+        c.classList.toggle('is-active', on);
+        if (on) c.setAttribute('aria-current', 'page'); else c.removeAttribute('aria-current');
+      });
+      if (clear) clear.hidden = !state.q;
+      if (empty) empty.hidden = matched.length !== 0;
+      if (status) {
+        var txt = matched.length + ' yazı';
+        if (state.q) txt = '“' + state.q + '” için ' + matched.length + ' sonuç';
+        if (pages > 1) txt += ' · Sayfa ' + state.page + '/' + pages;
+        status.textContent = txt;
+      }
+      if (pager) {
+        pager.hidden = pages < 2;
+        pager.innerHTML = '';
+        if (pages > 1) {
+          var mk = function (label, page, opts) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.innerHTML = label;
+            if (opts && opts.aria) b.setAttribute('aria-label', opts.aria);
+            if (page === state.page && !(opts && opts.nav)) b.setAttribute('aria-current', 'page');
+            if (opts && opts.disabled) b.disabled = true;
+            b.addEventListener('click', function () { state.page = page; apply(true); });
+            pager.appendChild(b);
+          };
+          mk('<i class="fa-solid fa-arrow-left" aria-hidden="true"></i>', state.page - 1, { nav: true, aria: 'Önceki sayfa', disabled: state.page === 1 });
+          pageList(state.page, pages).forEach(function (n) {
+            if (n === '…') { var s = document.createElement('span'); s.className = 'pager__gap'; s.textContent = '…'; pager.appendChild(s); }
+            else mk(String(n), n, { aria: 'Sayfa ' + n });
+          });
+          mk('<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>', state.page + 1, { nav: true, aria: 'Sonraki sayfa', disabled: state.page === pages });
+        }
+      }
+      syncUrl();
+      if (scroll) root.scrollIntoView({ block: 'start' });
+    };
+
+    if (input) {
+      input.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () { state.q = input.value.trim(); state.page = 1; apply(false); }, 120);
+      });
+    }
+    if (form) form.addEventListener('submit', function (e) { e.preventDefault(); state.q = input.value.trim(); state.page = 1; apply(false); });
+    if (clear) clear.addEventListener('click', function () { input.value = ''; state.q = ''; state.page = 1; apply(false); input.focus(); });
+    root.querySelectorAll('[data-blog-reset]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); if (input) input.value = ''; state.q = ''; state.cat = '*'; state.page = 1; apply(false); });
+    });
     chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        var f = chip.dataset.filter;
-        chips.forEach(function (c) { var on = c === chip; c.classList.toggle('is-active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-        items.forEach(function (it) { it.hidden = !(f === '*' || it.dataset.cat === f); });
+      chip.addEventListener('click', function (e) {
+        e.preventDefault();
+        state.cat = chip.dataset.filter; state.page = 1; apply(false);
       });
     });
+    apply(false);
   });
 
   /* İletişim formu (Web3Forms) */

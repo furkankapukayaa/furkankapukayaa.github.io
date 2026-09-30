@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi | Furkan Kapukaya</title>
+<meta name="description" content="Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/webhook-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/webhook-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/webhook-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi | Furkan Kapukaya">
+<meta property="og:description" content="Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.">
+<meta property="og:url" content="https://kapukaya.dev/blog/webhook-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi | Furkan Kapukaya">
+<meta name="twitter:description" content="Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="Backend, API ve Veritabanı">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi", "description": "Webhook'un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.", "url": "https://kapukaya.dev/blog/webhook-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/webhook-nedir.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "Backend, API ve Veritabanı", "wordCount": 501, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "webhook nedir, webhook örneği, webhook güvenliği, api bildirim"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Backend, API ve Veritabanı", "item": "https://kapukaya.dev/blog/kategori/backend-api-veritabani.html"}, {"@type": "ListItem", "position": 4, "name": "Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi", "item": "https://kapukaya.dev/blog/webhook-nedir.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Webhook ulaşmazsa ne olur?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu sağlayıcı belirli aralıklarla tekrar dener. Yine de kritik süreçlerde, belirli aralıklarla çalışan bir kontrol görevi ile eksik kalan olayları API üzerinden tamamlamak güvenli bir yedek yöntemdir."}}, {"@type": "Question", "name": "Webhook endpoint'i gizli tutulmalı mı?", "acceptedAnswer": {"@type": "Answer", "text": "URL'nin tahmin edilmesi zor olması faydalıdır ama güvenlik için yeterli değildir. Asıl koruma imza doğrulamasıdır."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi</h1>
+    <p class="page-hero__lead">Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Webhook, bir sistemde bir olay gerçekleştiğinde başka bir sisteme otomatik olarak HTTP isteği gönderilmesidir. "Bir şey olduğunda bana haber ver" mantığıyla çalışır. Ödeme tamamlandığında, sipariş oluşturulduğunda veya bir fatura onaylandığında ilgili sistem sizin belirlediğiniz adrese bilgi gönderir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#api-sorgulamadan-polling-farki">API sorgulamadan (polling) farkı</a></li><li><a href="#yaygin-kullanim-senaryolari">Yaygın kullanım senaryoları</a></li><li><a href="#nasil-calisir">Nasıl çalışır?</a></li><li><a href="#guvenli-bir-webhook-alicisinin-kurallari">Güvenli bir webhook alıcısının kuralları</a></li><li><a href="#test-etme">Test etme</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="api-sorgulamadan-polling-farki">API sorgulamadan (polling) farkı</h2>
+<p>Bir ödemenin tamamlanıp tamamlanmadığını öğrenmek için iki yol vardır:</p>
+<ul>
+<li><strong>Polling:</strong> Belirli aralıklarla "Ödeme tamamlandı mı?" diye sormak. Gereksiz istekler oluşturur ve gecikmeli bilgi verir.</li>
+<li><strong>Webhook:</strong> Ödeme tamamlandığı anda ödeme sağlayıcısı sizin sisteminize bildirim gönderir. Daha verimli ve anlıktır.</li>
+</ul>
+<p>Kısacası API'de siz sorarsınız, webhook'ta size söylenir. İkisi birbirini tamamlar; REST temelleri için <a href="rest-api-nedir.html">REST API nedir</a> yazımıza bakabilirsiniz.</p>
+<h2 id="yaygin-kullanim-senaryolari">Yaygın kullanım senaryoları</h2>
+<ul>
+<li>Ödeme sağlayıcısından ödeme başarılı/başarısız bildirimi</li>
+<li>E-ticaret altyapısından yeni sipariş bildirimi</li>
+<li>e-Fatura entegratöründen belge durum değişikliği</li>
+<li>Kod deposundan yeni commit bildirimi ile otomatik yayın</li>
+<li>Form servisinden yeni başvuru bildirimi</li>
+<li>Kargo firmasından teslimat durumu güncellemesi</li>
+</ul>
+<h2 id="nasil-calisir">Nasıl çalışır?</h2>
+<ol>
+<li>Webhook alıcısı olarak sisteminizde bir endpoint oluşturursunuz (örneğin <code>/webhooks/odeme</code>).</li>
+<li>Bu adresi karşı sistemin paneline kaydedersiniz.</li>
+<li>Olay gerçekleştiğinde karşı sistem, olay bilgisini genellikle JSON formatında bu adrese POST eder.</li>
+<li>Sisteminiz isteği doğrular, kaydeder ve hızlıca <code>2xx</code> yanıtı döner.</li>
+<li>Asıl iş (stok düşme, e-posta gönderme vb.) arka planda işlenir.</li>
+</ol>
+<h2 id="guvenli-bir-webhook-alicisinin-kurallari">Güvenli bir webhook alıcısının kuralları</h2>
+<h3>1. İmzayı doğrulayın</h3>
+<p>Webhook adresi herkese açık bir URL'dir. Birisi sahte istek göndererek "ödeme başarılı" bildirimi uydurabilir. Sağlayıcıların çoğu isteği gizli bir anahtarla imzalar (genellikle HMAC). Her istekte imzayı doğrulayın, geçersizse reddedin.</p>
+<pre><code class="language-csharp">static bool ImzaGecerli(string govde, string gelenImza, string gizliAnahtar)
+{
+    using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(gizliAnahtar));
+    var hesaplanan = Convert.ToHexString(hmac.ComputeHash(Encoding.UTF8.GetBytes(govde)));
+    return CryptographicOperations.FixedTimeEquals(
+        Encoding.UTF8.GetBytes(hesaplanan.ToLowerInvariant()),
+        Encoding.UTF8.GetBytes(gelenImza.ToLowerInvariant()));
+}
+</code></pre>
+<p>İmza formatı sağlayıcıya göre değişir; mutlaka kendi dokümantasyonunu takip edin.</p>
+<h3>2. Zaman damgasını kontrol edin</h3>
+<p>Eski bir isteğin tekrar gönderilmesini (replay) önlemek için istekteki zaman damgası makul bir aralıkta değilse reddedin.</p>
+<h3>3. Idempotent olun</h3>
+<p>Sağlayıcılar yanıt alamadığında aynı olayı tekrar gönderir. Aynı olay iki kez işlenirse stok iki kez düşebilir veya müşteriye iki e-posta gidebilir. Olay kimliğini kaydedip daha önce işlenmiş olayları atlayın. Bu konu <a href="odeme-sistemleri-entegrasyonu.html">ödeme sistemleri entegrasyonu</a> için hayati önemdedir.</p>
+<h3>4. Hızlı yanıt verin</h3>
+<p>Uzun işlemleri webhook isteği içinde yapmayın. Olayı bir kuyruğa veya tabloya kaydedip hemen yanıt verin, işlemeyi arka planda yapın. Aksi halde zaman aşımı nedeniyle tekrar denemeler başlar.</p>
+<h3>5. Kritik bilgiyi doğrulayın</h3>
+<p>Özellikle ödeme gibi kritik olaylarda, webhook'taki bilgiye ek olarak sağlayıcının API'sinden işlemin durumunu sorgulayarak teyit etmek iyi bir uygulamadır.</p>
+<h3>6. Loglayın ve izleyin</h3>
+<p>Gelen her webhook'u (hassas veriler maskelenerek) kaydedin. Başarısız işlemeler için uyarı kurun.</p>
+<h2 id="test-etme">Test etme</h2>
+<ul>
+<li>Sağlayıcıların test ortamlarını ve test olay gönderme özelliklerini kullanın.</li>
+<li>Yerel geliştirmede, yerel sunucunuzu geçici olarak internete açan tünel araçlarından yararlanabilirsiniz.</li>
+<li>Aynı olayı iki kez göndererek idempotency'yi test edin.</li>
+</ul>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Webhook ulaşmazsa ne olur?</h3>
+<p>Çoğu sağlayıcı belirli aralıklarla tekrar dener. Yine de kritik süreçlerde, belirli aralıklarla çalışan bir kontrol görevi ile eksik kalan olayları API üzerinden tamamlamak güvenli bir yedek yöntemdir.</p>
+<h3>Webhook endpoint'i gizli tutulmalı mı?</h3>
+<p>URL'nin tahmin edilmesi zor olması faydalıdır ama güvenlik için yeterli değildir. Asıl koruma imza doğrulamasıdır.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Webhook'lar sistemler arasında anlık ve verimli iletişim sağlar. Güvenli bir alıcı; imzayı doğrular, tekrar gönderimlere dayanıklıdır, hızlı yanıt verir ve her şeyi kayıt altına alır. Entegrasyon projeleriniz için <a href="../index.html#iletisim">teklif isteyebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html" aria-current="page">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/odeme-sistemleri-entegrasyonu.html"><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>1 dk</span></span><h3>Ödeme Sistemleri Entegrasyonunda Dikkat Edilmesi Gerekenler</h3><p>Ödeme akışlarında güvenlik, webhook, idempotency, hata yönetimi ve kayıt tutma gibi kritik backend konuları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/sql-server-performans.html"><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>1 dk</span></span><h3>SQL Server Performansını İyileştirme</h3><p>Index, sorgu tasarımı ve uygulama veri erişimi için pratik SQL Server performans önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/rest-api-nedir.html"><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>1 dk</span></span><h3>REST API Nedir?</h3><p>REST API, HTTP metodları, resource yaklaşımı ve status code temellerini öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

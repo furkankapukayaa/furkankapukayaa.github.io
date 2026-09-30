@@ -27,21 +27,97 @@
 - [Metrekare Gayrimenkul kurumsal web sitesi](https://kapukaya.dev/projeler/metrekare-gayrimenkul.html): Emlak ofisi için portföyü sergileyen, telefonda da rahat kullanılan kurumsal tanıtım sitesi. (2025)
 - [Prodent, Prosoll ve Prosense kurumsal web sitesi](https://kapukaya.dev/projeler/pro-markalar.html): Üç markadan oluşan ürün ailesi için ürün gruplarını, satış noktalarını ve iletişim bilgilerini bir arada sunan ortak kurumsal site. (2026)
 
+## Blog kategorileri
+
+- [Web Tasarım ve Geliştirme](https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html): Kurumsal web sitesi, mobil uyum, hosting, statik siteler, açılış sayfaları ve erişilebilirlik üzerine pratik rehberler.
+- [SEO ve Dijital Pazarlama](https://kapukaya.dev/blog/kategori/seo-dijital-pazarlama.html): Arama motoru optimizasyonu, Core Web Vitals, yerel SEO, yapısal veri ve yapay zekâ aramalarında görünürlük.
+- [İşletme Yazılımları](https://kapukaya.dev/blog/kategori/isletme-yazilimlari.html): Stok, randevu, CRM, e-fatura ve masaüstü otomasyon gibi işletmeye özel yazılım çözümleri.
+- [C# ve .NET](https://kapukaya.dev/blog/kategori/csharp-dotnet.html): C#, .NET 10, ASP.NET Core, Blazor, Entity Framework ve masaüstü teknolojileri üzerine teknik yazılar.
+- [Backend, API ve Veritabanı](https://kapukaya.dev/blog/kategori/backend-api-veritabani.html): REST API, webhook, kimlik doğrulama, SQL Server, veritabanı tasarımı ve yedekleme.
+- [Güvenlik ve KVKK](https://kapukaya.dev/blog/kategori/guvenlik-kvkk.html): Web güvenliği, OWASP Top 10, SSL/HTTPS, iki faktörlü doğrulama ve KVKK uyumu.
+- [Yapay Zekâ](https://kapukaya.dev/blog/kategori/yapay-zeka.html): İşletmelerde yapay zekâ, AI destekli yazılım geliştirme, chatbot, RAG ve MCP.
+- [Proje Süreci ve Kariyer](https://kapukaya.dev/blog/kategori/proje-sureci-kariyer.html): Yazılım projesi yönetimi, teklif süreci, freelance çalışma, Git ve yazılımcı kariyeri.
+
 ## Blog yazıları
 
-- [İşletmeler İçin Masaüstü Otomasyon Sistemleri](https://kapukaya.dev/blog/masaustu-otomasyon-sistemleri.html): Stok, satış, müşteri, personel ve servis süreçlerinin özel yazılımla nasıl dijitalleştirilebileceğini anlatan rehber.
+### Web Tasarım ve Geliştirme
+
+- [Web Sitesi Yaptırmak Ne Kadar Tutar? 2026 Maliyet Rehberi](https://kapukaya.dev/blog/web-sitesi-yaptirma-maliyeti.html): Web sitesi fiyatlarını belirleyen tasarım, sayfa sayısı, altyapı, içerik, hosting ve bakım kalemlerini 2026 koşullarıyla açıklayan rehber.
+- [Web Sitesi Yaptırmadan Önce Sorulması Gereken 15 Soru](https://kapukaya.dev/blog/web-sitesi-yaptirmadan-once-sorular.html): Web tasarım firması veya freelance geliştiriciyle çalışmadan önce sahiplik, kapsam, SEO, bakım ve güvenlik hakkında sormanız gereken 15 kritik soru.
+- [Hazır Site Altyapısı mı, Özel Yazılım mı? Doğru Seçim Rehberi](https://kapukaya.dev/blog/hazir-altyapi-mi-ozel-yazilim-mi.html): Hazır içerik yönetim sistemi, site kurucu veya özel yazılım arasında seçim yaparken maliyet, esneklik, güvenlik ve sahiplik açısından karşılaştırma.
+- [Mobil Uyumlu Web Sitesi Nedir? Responsive Tasarımın 2026 Kuralları](https://kapukaya.dev/blog/mobil-uyumlu-web-sitesi.html): Mobil uyumlu (responsive) web sitesinin ne olduğu, mobile-first indekslemenin SEO'ya etkisi ve telefonda iyi deneyim için uygulanabilir kurallar.
+- [Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi](https://kapukaya.dev/blog/alan-adi-hosting-secimi.html): Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.
+- [Statik Web Sitesi Nedir? Hız, Güvenlik ve Maliyet Avantajları](https://kapukaya.dev/blog/statik-web-sitesi-nedir.html): Statik web sitesinin dinamik siteden farkı, hız ve güvenlik avantajları, sınırlamaları ve hangi işletmeler için ideal olduğu hakkında pratik rehber.
+- [Landing Page (Açılış Sayfası) Nedir? Dönüşüm Getiren Sayfa Nasıl Hazırlanır?](https://kapukaya.dev/blog/landing-page-nedir.html): Landing page'in ne olduğu, ana sayfadan farkı, dönüşüm oranını artıran bölümler ve reklam kampanyalarında açılış sayfası hazırlama ipuçları.
+- [Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi](https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html): WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.
 - [Kurumsal Web Sitesi Nasıl Yapılır?](https://kapukaya.dev/blog/kurumsal-web-sitesi-nasil-yapilir.html): Kurumsal web sitesinde güven, mobil uyumluluk, performans, içerik mimarisi ve dönüşüm odaklı tasarım.
-- [Freelance Yazılım Projesi Nasıl Yönetilir?](https://kapukaya.dev/blog/freelance-yazilim-hizmeti.html): İhtiyaç analizi, kapsam, teknik planlama, teslim ve bakım aşamalarını daha sağlıklı yönetmek için pratik yaklaşım.
+
+### SEO ve Dijital Pazarlama
+
+- [SEO Nedir? 2026'da Arama Motoru Optimizasyonu Rehberi](https://kapukaya.dev/blog/seo-nedir-rehber.html): SEO'nun ne olduğu, teknik SEO, içerik ve otorite ayakları, yapay zekâ destekli arama sonuçlarının etkisi ve işletmeler için uygulanabilir ilk adımlar.
+- [Core Web Vitals Nedir? LCP, INP ve CLS Nasıl İyileştirilir?](https://kapukaya.dev/blog/core-web-vitals-nedir.html): Google'ın sayfa deneyimi metrikleri LCP, INP ve CLS'nin anlamı, iyi kabul edilen eşik değerleri, ölçüm araçları ve pratik iyileştirme yöntemleri.
+- [Yerel SEO ve Google İşletme Profili: Haritada Öne Çıkmanın Yolları](https://kapukaya.dev/blog/yerel-seo-google-isletme-profili.html): Yerel SEO'nun nasıl çalıştığı, Google İşletme Profili optimizasyonu, NAP tutarlılığı, müşteri yorumları ve şehir odaklı hizmet sayfaları rehberi.
+- [Teknik SEO Kontrol Listesi: Yayına Almadan Önce 20 Madde](https://kapukaya.dev/blog/teknik-seo-kontrol-listesi.html): Tarama, dizine ekleme, site haritası, canonical, hız, mobil uyum, yapısal veri ve güvenlik başlıklarında yayın öncesi teknik SEO kontrol listesi.
+- [Yapısal Veri (Schema Markup) Nedir? JSON-LD ile Uygulama Rehberi](https://kapukaya.dev/blog/yapisal-veri-schema-nedir.html): Schema.org yapısal verisinin ne işe yaradığı, JSON-LD formatı, işletmeler için en faydalı şema türleri, örnek kod ve test yöntemleri.
+- [Yapay Zekâ Aramaları İçin Optimizasyon (GEO): AI Özetlerinde Nasıl Görünürsünüz?](https://kapukaya.dev/blog/yapay-zeka-aramalari-icin-optimizasyon.html): Google AI Modu, yapay zekâ özetleri ve sohbet asistanlarında kaynak gösterilmek için içerik, teknik altyapı ve marka güveni tarafında uygulanabilir öneriler.
+- [Web Sitesi Nasıl Hızlandırılır? 15 Etkili Yöntem](https://kapukaya.dev/blog/web-sitesi-hizlandirma.html): Görsel optimizasyonu, önbellekleme, CDN, font yönetimi, JavaScript azaltma ve sunucu ayarlarıyla web sitesini hızlandırmanın pratik yolları.
+- [Google Search Console Nasıl Kullanılır? Başlangıç Rehberi](https://kapukaya.dev/blog/google-search-console-rehberi.html): Search Console kurulumu, site doğrulama, site haritası gönderme, performans raporu, dizine ekleme sorunları ve düzenli takip edilmesi gereken raporlar.
+
+### İşletme Yazılımları
+
+- [Stok Takip Programı Nasıl Seçilir? İşletmeler İçin Rehber](https://kapukaya.dev/blog/stok-takip-programi-secimi.html): Stok takip programında olması gereken özellikler, barkod ve çoklu depo desteği, raporlama, hazır ve özel yazılım karşılaştırması ile seçim kriterleri.
+- [Online Randevu Sistemi: Salon, Klinik ve Servisler İçin Rehber](https://kapukaya.dev/blog/online-randevu-sistemi.html): Online randevu sisteminin işletmeye faydaları, olması gereken özellikler, hatırlatma, personel takvimi, KVKK ve web sitesi entegrasyonu.
+- [CRM Nedir? Küçük İşletmeler İçin Müşteri İlişkileri Yönetimi](https://kapukaya.dev/blog/crm-nedir.html): CRM'in ne olduğu, küçük ve orta ölçekli işletmelere faydaları, temel modüller, satış hunisi, doğru CRM seçimi ve başarılı kullanım ipuçları.
+- [e-Fatura ve e-Arşiv Entegrasyonu: Yazılımınıza Nasıl Bağlanır?](https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html): e-Fatura ile e-Arşiv farkı, GİB portalı ve özel entegratör seçenekleri, kendi stok veya satış yazılımınızı e-dönüşüme bağlarken dikkat edilecek teknik noktalar.
+- [Özel Yazılım Geliştirme Maliyeti Neye Göre Belirlenir?](https://kapukaya.dev/blog/ozel-yazilim-maliyeti.html): Özel yazılım projelerinde maliyeti etkileyen kapsam, ekran sayısı, entegrasyon, kullanıcı rolleri, platform, test ve bakım kalemleri ile bütçe planlama önerileri.
+- [Excel'den Özel Yazılıma Geçiş: Ne Zaman ve Nasıl?](https://kapukaya.dev/blog/excelden-ozel-yazilima-gecis.html): Excel ile iş takibinin sınırları, özel yazılıma geçiş zamanının işaretleri, veri temizliği, taşıma adımları ve geçişte yapılan yaygın hatalar.
+- [Bulut mu, Yerel Sunucu mu? İşletme Yazılımları İçin Doğru Altyapı](https://kapukaya.dev/blog/bulut-mu-yerel-sunucu-mu.html): İşletme yazılımlarını bulutta veya yerel sunucuda çalıştırmanın maliyet, erişim, güvenlik, internet bağımlılığı ve yedekleme açısından karşılaştırması.
+- [İşletmeler İçin Masaüstü Otomasyon Sistemleri](https://kapukaya.dev/blog/masaustu-otomasyon-sistemleri.html): Stok, satış, müşteri, personel ve servis süreçlerinin özel yazılımla nasıl dijitalleştirilebileceğini anlatan rehber.
 - [Barkod Okuyucu ve Etiket Yazdırma Otomasyonu](https://kapukaya.dev/blog/barkod-etiket-yazdirma-otomasyonu.html): Barkod okuyucu, ürün verisi ve etiket yazıcı entegrasyonlarının işletme süreçlerine nasıl bağlanacağını inceleyin.
-- [Ödeme Sistemleri Entegrasyonunda Dikkat Edilmesi Gerekenler](https://kapukaya.dev/blog/odeme-sistemleri-entegrasyonu.html): Ödeme akışlarında güvenlik, webhook, idempotency, hata yönetimi ve kayıt tutma gibi kritik backend konuları.
+
+### C# ve .NET
+
+- [.NET 10 ve C# 14 ile Gelen Yenilikler: Geçiş Rehberi](https://kapukaya.dev/blog/dotnet-10-yenilikleri.html): .NET 10 LTS sürümünün destek süresi, C# 14 dil özellikleri, performans ve ASP.NET Core yenilikleri ile mevcut projeleri güncellerken izlenecek adımlar.
+- [Blazor Nedir? C# ile Web Arayüzü Geliştirme Rehberi](https://kapukaya.dev/blog/blazor-nedir.html): Blazor'un çalışma modelleri, bileşen yapısı, avantajları, sınırlamaları ve iş uygulamaları ile yönetim panelleri için ne zaman tercih edilmesi gerektiği.
+- [WinForms, WPF ve .NET MAUI: Masaüstü Uygulama İçin Hangisi?](https://kapukaya.dev/blog/winforms-wpf-maui-karsilastirma.html): Windows Forms, WPF ve .NET MAUI teknolojilerinin güçlü ve zayıf yönleri, kullanım alanları ve işletme masaüstü uygulamaları için seçim kriterleri.
+- [C# LINQ Rehberi: Where, Select, GroupBy ve Performans İpuçları](https://kapukaya.dev/blog/csharp-linq-rehberi.html): C# LINQ sorgularının temel operatörleri, ertelenmiş çalıştırma, Entity Framework ile kullanımı, sık yapılan performans hataları ve örnek kodlar.
+- [ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme](https://kapukaya.dev/blog/aspnet-core-minimal-api.html): Minimal API'nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.
 - [C# Async/Await Nedir?](https://kapukaya.dev/blog/csharp-async-await-nedir.html): C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.
 - [ASP.NET Core Web API Nedir?](https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html): ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.
 - [Entity Framework Core Nedir?](https://kapukaya.dev/blog/entity-framework-core-nedir.html): .NET uygulamalarında DbContext, migrations ve Entity Framework Core rolünü anlaşılır şekilde öğrenin.
+- [ASP.NET Core Uygulamalarında Performans Optimizasyonu](https://kapukaya.dev/blog/aspnet-core-performans-optimizasyonu.html): Caching, async I/O, sorgu optimizasyonu, logging ve response sürelerini iyileştirmek için uygulanabilir yöntemler.
+
+### Backend, API ve Veritabanı
+
+- [SQL ve NoSQL Arasındaki Fark: Projenize Hangi Veritabanı Uygun?](https://kapukaya.dev/blog/sql-nosql-farki.html): İlişkisel (SQL) ve NoSQL veritabanlarının yapısı, avantajları, kullanım alanları, tutarlılık ve ölçeklenebilirlik açısından karşılaştırması.
+- [Veritabanı Yedekleme Stratejisi: 3-2-1 Kuralı ve Geri Yükleme Testi](https://kapukaya.dev/blog/veritabani-yedekleme-stratejisi.html): İşletme verilerini korumak için tam, fark ve işlem günlüğü yedekleri, 3-2-1 kuralı, fidye yazılımına karşı önlemler ve geri yükleme testinin önemi.
+- [JWT ile Kimlik Doğrulama Nedir? Güvenli Kullanım Rehberi](https://kapukaya.dev/blog/jwt-kimlik-dogrulama.html): JSON Web Token'ın yapısı, API'lerde kimlik doğrulama akışı, access ve refresh token, token saklama, süre yönetimi ve sık yapılan güvenlik hataları.
+- [Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi](https://kapukaya.dev/blog/webhook-nedir.html): Webhook'un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.
+- [Ödeme Sistemleri Entegrasyonunda Dikkat Edilmesi Gerekenler](https://kapukaya.dev/blog/odeme-sistemleri-entegrasyonu.html): Ödeme akışlarında güvenlik, webhook, idempotency, hata yönetimi ve kayıt tutma gibi kritik backend konuları.
 - [SQL Server Performansını İyileştirme](https://kapukaya.dev/blog/sql-server-performans.html): Index, sorgu tasarımı ve uygulama veri erişimi için pratik SQL Server performans önerileri.
 - [REST API Nedir?](https://kapukaya.dev/blog/rest-api-nedir.html): REST API, HTTP metodları, resource yaklaşımı ve status code temellerini öğrenin.
-- [ASP.NET Core Uygulamalarında Performans Optimizasyonu](https://kapukaya.dev/blog/aspnet-core-performans-optimizasyonu.html): Caching, async I/O, sorgu optimizasyonu, logging ve response sürelerini iyileştirmek için uygulanabilir yöntemler.
-- [Junior .NET Developer İçin Yol Haritası](https://kapukaya.dev/blog/junior-dotnet-yol-haritasi.html): C# ve .NET ile gerçek dünya becerileri geliştirmek isteyen yazılımcılar için pratik öğrenme yol haritası.
+
+### Güvenlik ve KVKK
+
+- [SSL Sertifikası Nedir? HTTPS'e Geçiş ve Sık Yapılan Hatalar](https://kapukaya.dev/blog/ssl-sertifikasi-https-nedir.html): SSL/TLS sertifikasının ne işe yaradığı, DV, OV ve EV farkları, ücretsiz sertifikalar, HTTPS'e geçiş adımları, HSTS ve karışık içerik sorunları.
+- [KVKK Uyumlu Web Sitesi Nasıl Olmalı? Formlar, Çerezler ve Aydınlatma Metni](https://kapukaya.dev/blog/kvkk-uyumlu-web-sitesi.html): Web sitelerinde KVKK kapsamında aydınlatma metni, açık rıza, çerez tercihi, iletişim formları, veri güvenliği ve yurt dışı aktarım konularında genel rehber.
+- [OWASP Top 10 (2025) Nedir? Web Uygulamalarında En Kritik 10 Risk](https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html): OWASP Top 10 2025 listesindeki erişim kontrolü, yanlış yapılandırma, tedarik zinciri, enjeksiyon ve hata yönetimi risklerinin açıklaması ve korunma yolları.
+- [İki Faktörlü Doğrulama (2FA) Nedir? Hesapları Korumanın En Etkili Yolu](https://kapukaya.dev/blog/iki-faktorlu-dogrulama.html): İki faktörlü doğrulamanın çalışma mantığı, SMS, doğrulama uygulaması, güvenlik anahtarı ve passkey yöntemlerinin karşılaştırması ve işletmeler için uygulama önerileri.
+
+### Yapay Zekâ
+
+- [İşletmeler Yapay Zekâyı Nasıl Kullanabilir? 12 Pratik Kullanım Alanı](https://kapukaya.dev/blog/isletmelerde-yapay-zeka-kullanimi.html): Küçük ve orta ölçekli işletmelerin müşteri hizmetleri, içerik, belge işleme, raporlama ve iç süreçlerde yapay zekâyı güvenli ve verimli kullanma yolları.
+- [Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber](https://kapukaya.dev/blog/web-sitesine-chatbot-ekleme.html): Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.
+- [RAG Nedir? Yapay Zekâyı Kendi Belgelerinizle Konuşturmak](https://kapukaya.dev/blog/rag-nedir.html): Retrieval-Augmented Generation (RAG) yaklaşımının çalışma mantığı, embedding ve vektör arama, belge hazırlığı, kaynak gösterme ve iş uygulamalarında kullanım.
+- [llms.txt Nedir? Web Sitenizi Yapay Zekâ Asistanlarına Tanıtın](https://kapukaya.dev/blog/llms-txt-nedir.html): llms.txt dosyasının amacı, formatı, robots.txt ve sitemap.xml ile farkı, örnek içerik, sınırlamaları ve yapay zekâ botları için genel öneriler.
 - [2026’da Yapay Zeka Yazılım Geliştirmeyi Nasıl Değiştiriyor?](https://kapukaya.dev/blog/yapay-zeka-yazilim-gelistirme-2026.html): AI destekli geliştirme, coding agent yaklaşımı, insan denetimi ve üretim süreçlerinde yeni çalışma biçimleri.
 - [AI Coding Agent Nedir ve Yazılımcının Rolü Nasıl Değişiyor?](https://kapukaya.dev/blog/ai-coding-agent-nedir.html): Coding agentların kod yazmanın ötesinde test, düzeltme, inceleme ve teslim süreçlerine nasıl dahil olduğunu anlatan rehber.
 - [MCP Nedir? AI Agentlar Araçlara Nasıl Bağlanır?](https://kapukaya.dev/blog/mcp-yazilim-gelistirme.html): Model Context Protocol yaklaşımını ve AI agentların araçlar, servisler ve proje bağlamıyla çalışmasını anlaşılır biçimde ele alın.
 - [AI ile Kod Yazarken Güvenlik ve Kod Kalitesi](https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html): AI tarafından üretilen kodu doğrulama, secret yönetimi, test, code review ve güvenlik kontrolleri için pratik yaklaşım.
+
+### Proje Süreci ve Kariyer
+
+- [Git ve GitHub Başlangıç Rehberi: Temel Komutlar ve İş Akışı](https://kapukaya.dev/blog/git-github-baslangic-rehberi.html): Git ile sürüm kontrolünün temelleri, sık kullanılan komutlar, dal (branch) mantığı, pull request akışı, .gitignore ve gizli bilgileri koruma önerileri.
+- [Yazılım Projesi İçin Doğru Teklif Nasıl İstenir? Brif Hazırlama Rehberi](https://kapukaya.dev/blog/yazilim-projesi-teklif-isteme.html): Yazılım veya web projesi için teklif isterken hazırlanması gereken brif, kapsam, örnekler, bütçe aralığı, takvim ve teklifleri değerlendirme kriterleri.
+- [Freelance Yazılım Projesi Nasıl Yönetilir?](https://kapukaya.dev/blog/freelance-yazilim-hizmeti.html): İhtiyaç analizi, kapsam, teknik planlama, teslim ve bakım aşamalarını daha sağlıklı yönetmek için pratik yaklaşım.
+- [Junior .NET Developer İçin Yol Haritası](https://kapukaya.dev/blog/junior-dotnet-yol-haritasi.html): C# ve .NET ile gerçek dünya becerileri geliştirmek isteyen yazılımcılar için pratik öğrenme yol haritası.

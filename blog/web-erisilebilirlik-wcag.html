@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi | Furkan Kapukaya</title>
+<meta name="description" content="WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi | Furkan Kapukaya">
+<meta property="og:description" content="WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.">
+<meta property="og:url" content="https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi | Furkan Kapukaya">
+<meta name="twitter:description" content="WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:section" content="Web Tasarım ve Geliştirme">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi", "description": "WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.", "url": "https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html", "mainEntityOfPage": "https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "inLanguage": "tr", "articleSection": "Web Tasarım ve Geliştirme", "wordCount": 485, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "web erişilebilirliği, wcag nedir, erişilebilir web sitesi, engelsiz web"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Web Tasarım ve Geliştirme", "item": "https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html"}, {"@type": "ListItem", "position": 4, "name": "Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi", "item": "https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Erişilebilirlik yasal bir zorunluluk mu?", "acceptedAnswer": {"@type": "Answer", "text": "Bazı ülkelerde ve kamu kurumları için yasal düzenlemeler bulunur; Avrupa'da belirli ürün ve hizmetler için erişilebilirlik gereksinimleri genişlemektedir. Kendi durumunuz için güncel mevzuatı bir uzmanla değerlendirmeniz önerilir."}}, {"@type": "Question", "name": "Mevcut siteyi erişilebilir yapmak zor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu iyileştirme (kontrast, alt metin, etiketler, başlıklar) küçük değişikliklerle yapılabilir. Yapısal sorunlar ise daha kapsamlı çalışma gerektirebilir."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__win">
+    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
+    <div class="boot__body">
+      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
+      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
+      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
+      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
+      <div class="boot__out boot__hi">Hoş geldiniz.</div>
+      <div class="boot__progress"><i></i></div>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/boot.js"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-09-30">30 Eylül 2026</time><span>3 dk okuma</span></div>
+    <h1>Web Erişilebilirliği (WCAG) Nedir? Herkes İçin Web Sitesi Rehberi</h1>
+    <p class="page-hero__lead">WCAG ilkeleri, erişilebilir web sitesinin temel kuralları, sık yapılan hatalar ve erişilebilirliğin SEO ile kullanıcı deneyimine katkısı.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Web erişilebilirliği, görme, işitme, hareket veya bilişsel farklılıkları olan kişiler dahil herkesin bir web sitesini kullanabilmesidir. Ekran okuyucu kullanan bir ziyaretçi, klavyeyle gezinen biri veya güneş altında telefonuna bakan herkes erişilebilir tasarımdan fayda sağlar.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#wcag-nedir">WCAG nedir?</a></li><li><a href="#dort-temel-ilke-pour">Dört temel ilke (POUR)</a></li><li><a href="#hemen-uygulanabilecek-10-kural">Hemen uygulanabilecek 10 kural</a></li><li><a href="#erisilebilirlik-ve-seo-iliskisi">Erişilebilirlik ve SEO ilişkisi</a></li><li><a href="#nasil-test-edilir">Nasıl test edilir?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="wcag-nedir">WCAG nedir?</h2>
+<p>WCAG (Web Content Accessibility Guidelines), W3C tarafından yayımlanan uluslararası erişilebilirlik yönergeleridir. Güncel sürüm olan WCAG 2.2, kriterleri A, AA ve AAA olmak üzere üç seviyede tanımlar. Kurumsal siteler için genellikle <strong>AA seviyesi</strong> hedeflenir.</p>
+<h2 id="dort-temel-ilke-pour">Dört temel ilke (POUR)</h2>
+<ol>
+<li><strong>Algılanabilir:</strong> İçerik farklı duyularla algılanabilmelidir. Görsellerin metin alternatifi, videoların altyazısı olmalıdır.</li>
+<li><strong>Kullanılabilir:</strong> Tüm işlevler klavyeyle kullanılabilmeli, kullanıcıya yeterli süre tanınmalıdır.</li>
+<li><strong>Anlaşılabilir:</strong> Metinler açık, formlar öngörülebilir, hata mesajları yol gösterici olmalıdır.</li>
+<li><strong>Sağlam:</strong> İçerik, ekran okuyucular dahil farklı yardımcı teknolojilerle uyumlu çalışmalıdır.</li>
+</ol>
+<h2 id="hemen-uygulanabilecek-10-kural">Hemen uygulanabilecek 10 kural</h2>
+<h3>1. Görsellere anlamlı alternatif metin yazın</h3>
+<p><code>alt</code> metni görselin içeriğini veya işlevini anlatmalıdır. Süsleme amaçlı görsellerde boş bırakılabilir (<code>alt=""</code>).</p>
+<h3>2. Yeterli renk kontrastı sağlayın</h3>
+<p>AA seviyesinde normal metin için en az 4.5:1, büyük metin için 3:1 kontrast oranı önerilir.</p>
+<h3>3. Başlık hiyerarşisini doğru kurun</h3>
+<p>Her sayfada bir <code>h1</code>, altında mantıklı sırayla <code>h2</code> ve <code>h3</code> kullanın. Ekran okuyucu kullanıcıları sayfada başlıklar üzerinden gezinir.</p>
+<h3>4. Klavye ile gezinmeyi test edin</h3>
+<p>Tab tuşuyla tüm bağlantı, buton ve form alanlarına ulaşılabilmeli, odaklanılan öğe görünür olmalıdır.</p>
+<h3>5. Form alanlarını etiketleyin</h3>
+<p>Her girişin görünür bir <code>label</code> etiketi olmalıdır. Yalnızca placeholder kullanmak yeterli değildir.</p>
+<h3>6. Bağlantı metinlerini anlamlı yapın</h3>
+<p>"Buraya tıklayın" yerine bağlantının nereye gittiğini anlatan metinler kullanın.</p>
+<h3>7. Anlamı yalnızca renge bağlamayın</h3>
+<p>Hata durumunu sadece kırmızı renkle değil, ikon ve metinle de belirtin.</p>
+<h3>8. Dili belirtin</h3>
+<p><code>&lt;html lang="tr"&gt;</code> ekran okuyucunun doğru telaffuz kullanmasını sağlar.</p>
+<h3>9. Hareketleri kontrol altında tutun</h3>
+<p>Otomatik oynayan animasyonlar ve kayan içerikler durdurulabilmeli; hareket azaltma tercihine (<code>prefers-reduced-motion</code>) saygı gösterilmelidir.</p>
+<h3>10. Semantik HTML kullanın</h3>
+<p><code>button</code>, <code>nav</code>, <code>main</code>, <code>header</code> gibi etiketler yardımcı teknolojilere yapı hakkında bilgi verir. Her şeyi <code>div</code> ile yapmaktan kaçının.</p>
+<h2 id="erisilebilirlik-ve-seo-iliskisi">Erişilebilirlik ve SEO ilişkisi</h2>
+<p>Erişilebilirlik ve SEO aynı temellere dayanır: anlamlı başlıklar, açıklayıcı bağlantı metinleri, alternatif metinler ve temiz HTML. Arama motorları da içeriği bir ekran okuyucu gibi yapısal olarak okur. Bu nedenle erişilebilir bir site genellikle arama motorları için de daha anlaşılırdır.</p>
+<h2 id="nasil-test-edilir">Nasıl test edilir?</h2>
+<ul>
+<li>Tarayıcı geliştirici araçlarındaki Lighthouse erişilebilirlik denetimi</li>
+<li>Tarayıcı eklentisi olarak çalışan otomatik denetim araçları</li>
+<li>Klavyeyle manuel gezinme testi</li>
+<li>Ekran okuyucu ile kısa bir kullanım testi (NVDA, VoiceOver, TalkBack)</li>
+</ul>
+<p>Otomatik araçlar sorunların yalnızca bir kısmını yakalar; manuel test vazgeçilmezdir.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Erişilebilirlik yasal bir zorunluluk mu?</h3>
+<p>Bazı ülkelerde ve kamu kurumları için yasal düzenlemeler bulunur; Avrupa'da belirli ürün ve hizmetler için erişilebilirlik gereksinimleri genişlemektedir. Kendi durumunuz için güncel mevzuatı bir uzmanla değerlendirmeniz önerilir.</p>
+<h3>Mevcut siteyi erişilebilir yapmak zor mu?</h3>
+<p>Çoğu iyileştirme (kontrast, alt metin, etiketler, başlıklar) küçük değişikliklerle yapılabilir. Yapısal sorunlar ise daha kapsamlı çalışma gerektirebilir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Erişilebilir bir web sitesi daha fazla kişiye ulaşır, daha iyi bir deneyim sunar ve arama motorları için de daha anlaşılır olur. Küçük adımlarla başlayıp düzenli test ederek sitenizi herkes için kullanılabilir hale getirebilirsiniz. Sitenizin erişilebilirlik denetimi için <a href="../index.html#iletisim">iletişime geçebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html" aria-current="page">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post"><a href="../blog/kurumsal-web-sitesi-nasil-yapilir.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>1 dk</span></span><h3>Kurumsal Web Sitesi Nasıl Yapılır?</h3><p>Kurumsal web sitesinde güven, mobil uyumluluk, performans, içerik mimarisi ve dönüşüm odaklı tasarım.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/web-sitesi-yaptirma-maliyeti.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Web Sitesi Yaptırmak Ne Kadar Tutar? 2026 Maliyet Rehberi</h3><p>Web sitesi fiyatlarını belirleyen tasarım, sayfa sayısı, altyapı, içerik, hosting ve bakım kalemlerini 2026 koşullarıyla açıklayan rehber.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/web-sitesi-yaptirmadan-once-sorular.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Web Sitesi Yaptırmadan Önce Sorulması Gereken 15 Soru</h3><p>Web tasarım firması veya freelance geliştiriciyle çalışmadan önce sahiplik, kapsam, SEO, bakım ve güvenlik hakkında sormanız gereken 15 kritik soru.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <a href="../privacy.html">Gizlilik politikası</a>
+  </div>
+</footer>
+<div class="consent" id="consent" role="region" aria-label="Çerez tercihi" hidden>
+  <p>Bu site, ziyaret istatistiklerini anonim olarak ölçmek için çerez kullanır. Ayrıntılı bilgi için <a href="../privacy.html">gizlilik politikasını</a> inceleyebilirsiniz.</p>
+  <div class="consent__actions"><button class="btn btn--ghost" type="button" data-consent="no">Reddet</button><button class="btn btn--primary" type="button" data-consent="yes">Kabul et</button></div>
+</div>
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>
