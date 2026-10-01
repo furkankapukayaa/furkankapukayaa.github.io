@@ -24,23 +24,172 @@
     onScroll();
   }
 
-  /* Ana sayfadaki temsili ekranlar */
-  var demo = document.querySelector('[data-demo]');
-  if (demo) {
-    var tabs = Array.prototype.slice.call(demo.querySelectorAll('.demo__tab'));
-    var panels = demo.querySelectorAll('.demo__panel');
-    var show = function (key) {
-      tabs.forEach(function (t) { var on = t.dataset.key === key; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === key); });
+  /* Ana sayfadaki sanal bilgisayar: simgeler, pencereler, görev çubuğu */
+  var pc = document.querySelector('[data-pc]');
+  if (pc) {
+    var desktop = pc.querySelector('[data-pc-desktop]');
+    var screen = pc.querySelector('[data-pc-screen]');
+    var startBtn = pc.querySelector('[data-pc-start-btn]');
+    var startMenu = pc.querySelector('[data-pc-start]');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var layout = {
+      desk:  [11, 4, 60, 88], web: [37, 8, 59, 84], panel: [15, 5, 63, 88],
+      term:  [30, 14, 56, 68], ext: [33, 5, 56, 88], note: [21, 11, 46, 76]
     };
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () { show(tab.dataset.key); });
-      tab.addEventListener('keydown', function (e) {
-        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-        var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
-        next.focus(); show(next.dataset.key);
-      });
+    var wins = {}, z = 10;
+    pc.querySelectorAll('[data-win]').forEach(function (w) {
+      var k = w.dataset.win, l = layout[k] || [15, 6, 60, 84];
+      w.style.setProperty('--x', l[0] + '%'); w.style.setProperty('--y', l[1] + '%');
+      w.style.setProperty('--w', l[2] + '%'); w.style.setProperty('--h', l[3] + '%');
+      w.tabIndex = -1;
+      wins[k] = w;
     });
+    var tasks = {};
+    pc.querySelectorAll('[data-task]').forEach(function (t) { tasks[t.dataset.task] = t; });
+    var icons = pc.querySelectorAll('.pc-ico');
+
+    var isOpen = function (k) { return !wins[k].hidden; };
+    var narrow = function () { return screen.clientWidth <= 640; };
+    var sync = function () {
+      var top = null, topZ = -1;
+      Object.keys(wins).forEach(function (k) {
+        var w = wins[k];
+        if (!w.hidden && !w.classList.contains('is-min') && +w.style.zIndex > topZ) { topZ = +w.style.zIndex; top = k; }
+      });
+      Object.keys(wins).forEach(function (k) {
+        var on = k === top, open = isOpen(k);
+        wins[k].classList.toggle('is-active', on);
+        if (tasks[k]) {
+          tasks[k].classList.toggle('is-open', open);
+          tasks[k].classList.toggle('is-active', on);
+          tasks[k].setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+      });
+      icons.forEach(function (ic) { ic.setAttribute('aria-pressed', ic.dataset.open === top ? 'true' : 'false'); });
+    };
+    var anim = function (w, cls, done) {
+      if (reduce) { if (done) done(); return; }
+      w.classList.remove('is-opening', 'is-closing', 'is-minimizing');
+      void w.offsetWidth;
+      w.classList.add(cls);
+      var fin = function () { w.classList.remove(cls); w.removeEventListener('animationend', fin); if (done) done(); };
+      w.addEventListener('animationend', function (e) { if (e.target === w) fin(); });
+      setTimeout(function () { if (w.classList.contains(cls)) fin(); }, 400);
+    };
+    var focusWin = function (k, moveFocus) {
+      var w = wins[k];
+      w.style.zIndex = ++z;
+      sync();
+      if (moveFocus) w.focus({ preventScroll: true });
+    };
+    var open = function (k, moveFocus) {
+      var w = wins[k];
+      if (!w) return;
+      closeStart();
+      if (!w.hidden && !w.classList.contains('is-min')) { focusWin(k, moveFocus); return; }
+      var wasMin = w.classList.contains('is-min');
+      w.hidden = false;
+      w.classList.remove('is-min');
+      if (!wasMin) { w.classList.remove('is-fresh'); void w.offsetWidth; w.classList.add('is-fresh'); }
+      anim(w, 'is-opening');
+      focusWin(k, moveFocus);
+    };
+    var close = function (k) {
+      var w = wins[k];
+      anim(w, 'is-closing', function () { w.hidden = true; w.classList.remove('is-min', 'is-max', 'is-fresh'); sync(); });
+    };
+    var minimize = function (k) {
+      var w = wins[k];
+      anim(w, 'is-minimizing', function () { w.hidden = true; w.classList.add('is-min'); sync(); });
+    };
+    var toggleMax = function (k) {
+      var w = wins[k], on = w.classList.toggle('is-max');
+      var b = w.querySelector('[data-act="max"]');
+      if (b) b.setAttribute('aria-label', b.getAttribute('aria-label').replace(on ? 'büyüt' : 'eski boyutuna getir', on ? 'eski boyutuna getir' : 'büyüt'));
+    };
+
+    pc.addEventListener('click', function (e) {
+      var o = e.target.closest('[data-open]');
+      if (o) { open(o.dataset.open, true); return; }
+      var t = e.target.closest('[data-task]');
+      if (t) {
+        var k = t.dataset.task, w = wins[k];
+        if (!isOpen(k)) open(k, true);
+        else if (w.classList.contains('is-active')) minimize(k);
+        else focusWin(k, true);
+        return;
+      }
+      var a = e.target.closest('[data-act]');
+      if (a) {
+        var key = a.closest('[data-win]').dataset.win;
+        if (a.dataset.act === 'close') close(key);
+        else if (a.dataset.act === 'min') minimize(key);
+        else toggleMax(key);
+        return;
+      }
+      if (e.target.closest('.pc-startmenu a')) closeStart();
+    });
+    pc.addEventListener('pointerdown', function (e) {
+      var w = e.target.closest('[data-win]');
+      if (w && !w.classList.contains('is-active')) focusWin(w.dataset.win, false);
+    });
+
+    /* Başlık çubuğundan sürükleme (geniş ekranlarda) */
+    var drag = null;
+    pc.addEventListener('pointerdown', function (e) {
+      var bar = e.target.closest('[data-drag]');
+      if (!bar || e.target.closest('button, a') || e.button !== 0 || narrow()) return;
+      var w = bar.closest('[data-win]');
+      if (w.classList.contains('is-max')) return;
+      var r = w.getBoundingClientRect(), d = desktop.getBoundingClientRect();
+      drag = { w: w, dx: e.clientX - r.left, dy: e.clientY - r.top, d: d, ww: r.width };
+      w.classList.add('is-dragging');
+      bar.setPointerCapture(e.pointerId);
+    });
+    pc.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var d = drag.d;
+      var x = Math.min(Math.max(e.clientX - d.left - drag.dx, 80 - drag.ww), d.width - 80);
+      var y = Math.min(Math.max(e.clientY - d.top - drag.dy, 0), d.height - 36);
+      drag.w.style.setProperty('--x', (x / d.width * 100) + '%');
+      drag.w.style.setProperty('--y', (y / d.height * 100) + '%');
+    });
+    var endDrag = function () { if (drag) { drag.w.classList.remove('is-dragging'); drag = null; } };
+    pc.addEventListener('pointerup', endDrag);
+    pc.addEventListener('pointercancel', endDrag);
+    pc.addEventListener('dblclick', function (e) {
+      var bar = e.target.closest('[data-drag]');
+      if (bar && !e.target.closest('button, a') && !narrow()) toggleMax(bar.closest('[data-win]').dataset.win);
+    });
+
+    /* Başlat menüsü */
+    function closeStart() { if (!startMenu.hidden) { startMenu.hidden = true; startBtn.setAttribute('aria-expanded', 'false'); } }
+    startBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var show = startMenu.hidden;
+      startMenu.hidden = !show;
+      startBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
+      if (show) { var f = startMenu.querySelector('button'); if (f) f.focus({ preventScroll: true }); }
+    });
+    document.addEventListener('click', function (e) { if (!e.target.closest('[data-pc-start], [data-pc-start-btn]')) closeStart(); });
+    pc.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !startMenu.hidden) { closeStart(); startBtn.focus(); }
+    });
+
+    /* Saat ve tarih */
+    var clock = pc.querySelector('[data-pc-clock]'), date = pc.querySelector('[data-pc-date]'), now = pc.querySelector('[data-pc-now]');
+    var tick = function () {
+      var d = new Date();
+      var hm = d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+      if (clock) clock.textContent = hm;
+      if (date) date.textContent = d.toLocaleDateString('tr-TR');
+      if (now) { var g = d.toLocaleDateString('tr-TR', { weekday: 'long' }); now.textContent = g.charAt(0).toLocaleUpperCase('tr-TR') + g.slice(1) + ', ' + hm; }
+    };
+    tick(); setInterval(tick, 30000);
+
+    /* Açılışta iki pencere: web sitesi arkada, masaüstü uygulaması önde */
+    if (!narrow()) open('web', false);
+    open('desk', false);
   }
 
   /* "Tümünü göster" düğmeleri */
@@ -207,33 +356,79 @@
     apply(false);
   });
 
-  /* İletişim formu (Web3Forms) */
+  /* Açılır pencereler (aydınlatma metni, açık rıza, çerez tercihleri) */
+  var openModal = function (dlg, opener) {
+    if (!dlg) return;
+    dlg._opener = opener || document.activeElement;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    document.documentElement.classList.add('has-modal');
+  };
+  var closeModal = function (dlg) {
+    if (!dlg) return;
+    if (typeof dlg.close === 'function' && dlg.open) dlg.close(); else dlg.removeAttribute('open');
+  };
+  document.querySelectorAll('dialog.k-modal').forEach(function (dlg) {
+    dlg.addEventListener('close', function () {
+      document.documentElement.classList.remove('has-modal');
+      if (dlg._opener && dlg._opener.focus) dlg._opener.focus({ preventScroll: true });
+    });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) closeModal(dlg); });
+  });
+  document.addEventListener('click', function (e) {
+    var o = e.target.closest('[data-legal-open]');
+    if (o) { e.preventDefault(); openModal(document.getElementById('legal-' + o.dataset.legalOpen), o); return; }
+    var c = e.target.closest('[data-modal-close]');
+    if (c) { closeModal(c.closest('dialog')); return; }
+    var a = e.target.closest('[data-modal-accept]');
+    if (a) {
+      var box = document.querySelector('[data-consent-box="' + a.dataset.modalAccept + '"]');
+      if (box) { box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true })); box._fromModal = true; }
+      var d = a.closest('dialog');
+      if (d) { d._opener = box || d._opener; closeModal(d); }
+    }
+  });
+
+  /* İletişim formu (Web3Forms) ve basit kötüye kullanım korumaları */
   var form = document.querySelector('[data-contact-form]');
   if (form && window.fetch) {
     var status = form.querySelector('.form__status');
     var submit = form.querySelector('button[type="submit"]');
+    var started = Date.now();
+    var startedField = form.querySelector('[name="form_started"]');
+    if (startedField) startedField.value = new Date(started).toISOString();
+    var RL = 'fk-form-sent';
+    var recent = function () {
+      try { return (JSON.parse(localStorage.getItem(RL)) || []).filter(function (t) { return Date.now() - t < 10 * 60 * 1000; }); } catch (e) { return []; }
+    };
+    var mark = function () { try { var r = recent(); r.push(Date.now()); localStorage.setItem(RL, JSON.stringify(r)); } catch (e) {} };
+    var fail = function (html) { status.className = 'form__status is-err'; status.innerHTML = html; };
+    var MAIL = '<a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a>';
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function (el) { el.value = el.value.trim(); });
       if (!form.reportValidity()) return;
       var key = form.querySelector('[name="access_key"]').value;
-      if (!key || key.indexOf('BURAYA') !== -1) {
-        status.className = 'form__status is-err';
-        status.innerHTML = 'Form şu anda kullanılamıyor. Lütfen <a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a> adresine e-posta gönderin.';
-        return;
-      }
+      if (!key || key.indexOf('BURAYA') !== -1) { fail('Form şu anda kullanılamıyor. Lütfen ' + MAIL + ' adresine e-posta gönderin.'); return; }
+      var hp = form.querySelector('[name="botcheck"]');
+      if (hp && hp.checked) { form.reset(); status.className = 'form__status is-ok'; status.textContent = 'Talebiniz alındı.'; return; }
+      if (Date.now() - started < 3000) { fail('Form çok hızlı gönderildi. Bilgilerinizi kontrol edip birkaç saniye sonra tekrar deneyin.'); return; }
+      if (recent().length >= 3) { fail('Kısa sürede birden fazla talep gönderdiniz. Lütfen 10 dakika sonra tekrar deneyin veya ' + MAIL + ' adresine yazın.'); return; }
+      var log = form.querySelector('[name="consent_log"]');
+      if (log) log.value = 'Aydınlatma Metni: okundu (sürüm 2026-10-01) | Açık rıza (yurt dışı aktarım): verildi | Zaman: ' + new Date().toISOString() + ' | Sayfa: ' + location.href.split('#')[0];
+
       var data = new FormData(form);
       var label = submit.textContent;
       submit.disabled = true;
       submit.textContent = 'Gönderiliyor…';
       status.className = 'form__status';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
-      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
         .then(function (res) {
           if (res.ok && res.j && res.j.success) {
+            mark();
             form.reset();
+            started = Date.now();
             status.className = 'form__status is-ok';
             status.textContent = 'Talebiniz alındı. En kısa sürede size dönüş yapılacaktır.';
           } else {
@@ -241,13 +436,9 @@
           }
         })
         .catch(function () {
-          status.className = 'form__status is-err';
-          status.innerHTML = 'Talebiniz iletilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyin veya <a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a> adresine e-posta gönderin.';
+          fail('Talebiniz iletilemedi. Lütfen bağlantınızı kontrol edip tekrar deneyin veya ' + MAIL + ' adresine e-posta gönderin.');
         })
-        .then(function () {
-          submit.disabled = false;
-          submit.textContent = label;
-        });
+        .then(function () { submit.disabled = false; submit.textContent = label; });
     });
   }
 

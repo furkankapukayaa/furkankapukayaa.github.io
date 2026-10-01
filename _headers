@@ -1,0 +1,16 @@
+# Cloudflare Pages / Netlify kullanılırsa otomatik uygulanır.
+# GitHub Pages bu dosyayı okumaz; o durumda YAYINA-ALMA-REHBERI.md içindeki Cloudflare kurallarını kullanın.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: frame-ancestors 'none'
+
+/assets/*
+  Cache-Control: public, max-age=2592000
+
+/*.html
+  Cache-Control: public, max-age=600

@@ -4,6 +4,16 @@
 
 İletişim: info@kapukaya.dev | Teklif formu: https://kapukaya.dev/#iletisim | Fiyatlandırma projeye özel teklif ile belirlenir.
 
+## Hızlı bilgiler
+
+- Kim: Furkan Kapukaya, 2021'den beri profesyonel yazılım geliştirici (C#, .NET, ASP.NET Core, SQL Server)
+- Ne yapar: İşletmelere özel Windows masaüstü uygulamaları, kurumsal web siteleri, web tabanlı yönetim panelleri, C# konsol uygulamaları, API entegrasyonları ve Chrome eklentileri
+- Nerede: İstanbul merkezli; Türkiye genelinde uzaktan hizmet
+- Fiyat: Sabit fiyat listesi yoktur; ön görüşmeden sonra projeye özel yazılı teklif verilir
+- Süreç: Ön görüşme → kapsam ve teklif → geliştirme (çalışan ara sürümlerle) → teslim ve kurulum → teslim sonrası destek
+- Teklif: https://kapukaya.dev/#iletisim veya info@kapukaya.dev
+- Eklentiler: https://chromewebstore.google.com/search/kapukaya.dev
+
 ## Sayfalar
 
 - [Ana sayfa](https://kapukaya.dev/): Hizmetler, referans projeler, süreç, sık sorulan sorular ve iletişim formu
@@ -26,6 +36,23 @@
 - [Olivia Hair Mansion salon yönetim sistemi](https://kapukaya.dev/projeler/olivia-hair-mansion.html): Kuaför salonu için randevu, müşteri, personel ve kasa takibini bir araya getiren salon yönetim programı. (2024)
 - [Metrekare Gayrimenkul kurumsal web sitesi](https://kapukaya.dev/projeler/metrekare-gayrimenkul.html): Emlak ofisi için portföyü sergileyen, telefonda da rahat kullanılan kurumsal tanıtım sitesi. (2025)
 - [Prodent, Prosoll ve Prosense kurumsal web sitesi](https://kapukaya.dev/projeler/pro-markalar.html): Üç markadan oluşan ürün ailesi için ürün gruplarını, satış noktalarını ve iletişim bilgilerini bir arada sunan ortak kurumsal site. (2026)
+
+## Ürünler (Chrome eklentileri)
+
+Tümü: https://chromewebstore.google.com/search/kapukaya.dev
+
+- [Volumora](https://kapukaya.dev/chromeExtensions/volumora.html): Sekmedeki sesi yükselten, ekolayzır ve ses iyileştirme ayarları sunan eklenti
+- [Assetify](https://kapukaya.dev/chromeExtensions/assetify.html): Sayfadaki görselleri, videoları, renkleri ve yazı tiplerini bulup indirmeyi kolaylaştırır
+- [Copy Unlocker](https://kapukaya.dev/chromeExtensions/copy-unlocker.html): Kopyalama ve sağ tıklamanın engellendiği sayfalarda bu işlevleri yeniden açar
+- [FK Social Hub](https://kapukaya.dev/chromeExtensions/fk-social-hub.html): X, Instagram, TikTok ve YouTube için analiz, trend keşfi ve yapay zekâ destekli içerik araçları
+
+## Yasal ve güvenlik
+
+- [Gizlilik Politikası](https://kapukaya.dev/privacy.html)
+- [KVKK Aydınlatma Metni](https://kapukaya.dev/kvkk-aydinlatma-metni.html)
+- [Açık Rıza Metni](https://kapukaya.dev/acik-riza-metni.html)
+- [Çerez Politikası](https://kapukaya.dev/cerez-politikasi.html)
+- [Güvenlik Politikası](https://kapukaya.dev/guvenlik.html)
 
 ## Blog kategorileri
 

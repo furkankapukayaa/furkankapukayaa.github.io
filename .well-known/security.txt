@@ -1,4 +1,5 @@
 Contact: mailto:info@kapukaya.dev
-Expires: 2027-09-27T00:00:00.000Z
+Expires: 2027-09-30T00:00:00.000Z
 Preferred-Languages: tr, en
 Canonical: https://kapukaya.dev/.well-known/security.txt
+Policy: https://kapukaya.dev/guvenlik.html

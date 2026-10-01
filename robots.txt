@@ -1,9 +1,21 @@
+# kapukaya.dev robots.txt — son güncelleme 2026-10-01
+# Tüm içerik arama motorlarına ve yapay zekâ arama/asistan botlarına açıktır.
+# Yapay zekâ için özet: https://kapukaya.dev/llms.txt
+
 User-agent: *
 Allow: /
-Disallow: /blog/BLOG-TEMPLATE.html
 Disallow: /thank-you.html
+Disallow: /blog/BLOG-TEMPLATE.html
 
-# Arama motorları ve yapay zekâ arama/asistan botları: tüm içerik açıktır.
+# Arama motorları
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: YandexBot
+User-agent: DuckDuckBot
+User-agent: Applebot
+User-agent: Slurp
+# Yapay zekâ arama ve asistan botları (AIO / GEO / AEO)
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -14,13 +26,27 @@ User-agent: anthropic-ai
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 User-agent: Google-Extended
+User-agent: Google-CloudVertexBot
 User-agent: Applebot-Extended
-User-agent: Bingbot
-User-agent: Googlebot
-User-agent: YandexBot
-User-agent: DuckDuckBot
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: cohere-ai
+User-agent: YouBot
+User-agent: CCBot
 Allow: /
-Disallow: /blog/BLOG-TEMPLATE.html
 Disallow: /thank-you.html
+Disallow: /blog/BLOG-TEMPLATE.html
+
+# Agresif SEO tarayıcıları: sunucu yükünü azaltmak için engellenir
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: PetalBot
+User-agent: Bytespider
+Disallow: /
 
 Sitemap: https://kapukaya.dev/sitemap.xml
