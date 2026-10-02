@@ -34,7 +34,8 @@
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var layout = {
       desk:  [11, 4, 60, 88], web: [37, 8, 59, 84], panel: [15, 5, 63, 88],
-      term:  [30, 14, 56, 68], ext: [33, 5, 56, 88], note: [21, 11, 46, 76]
+      term:  [30, 14, 56, 68], ext: [33, 5, 56, 88], note: [21, 11, 46, 76],
+      bin:   [26, 16, 50, 62]
     };
     var wins = {}, z = 10;
     pc.querySelectorAll('[data-win]').forEach(function (w) {
@@ -72,9 +73,13 @@
       w.classList.remove('is-opening', 'is-closing', 'is-minimizing');
       void w.offsetWidth;
       w.classList.add(cls);
-      var fin = function () { w.classList.remove(cls); w.removeEventListener('animationend', fin); if (done) done(); };
-      w.addEventListener('animationend', function (e) { if (e.target === w) fin(); });
-      setTimeout(function () { if (w.classList.contains(cls)) fin(); }, 400);
+      if (w._animEnd) w.removeEventListener('animationend', w._animEnd);
+      var finished = false;
+      var fin = function () { if (finished) return; finished = true; w.classList.remove(cls); w.removeEventListener('animationend', onEnd); if (w._animEnd === onEnd) w._animEnd = null; if (done) done(); };
+      var onEnd = function (e) { if (e.target === w) fin(); };
+      w._animEnd = onEnd;
+      w.addEventListener('animationend', onEnd);
+      setTimeout(function () { if (w._animEnd === onEnd || w.classList.contains(cls)) fin(); }, 400);
     };
     var focusWin = function (k, moveFocus) {
       var w = wins[k];
@@ -187,9 +192,25 @@
     };
     tick(); setInterval(tick, 30000);
 
-    /* Açılışta iki pencere: web sitesi arkada, masaüstü uygulaması önde */
-    if (!narrow()) open('web', false);
-    open('desk', false);
+    /* Diğer betiklerin (pc-apps.js) kullanabilmesi için küçük bir arayüz */
+    window.FKPC = {
+      root: pc, screen: screen, desktop: desktop, wins: wins,
+      open: open, close: close, minimize: minimize, focus: focusWin, isOpen: isOpen,
+      narrow: narrow, closeStart: closeStart, sync: sync,
+      top: function () { var t = null, tz = -1; Object.keys(wins).forEach(function (k) { var w = wins[k]; if (!w.hidden && !w.classList.contains('is-min') && +w.style.zIndex > tz) { tz = +w.style.zIndex; t = k; } }); return t; }
+    };
+
+    /* Açılışta iki pencere: web sitesi arkada, masaüstü uygulaması önde.
+       Açılış ekranı sürerken bekler; ekran monitöre küçüldükten sonra pencereler açılır. */
+    var firstOpen = function () {
+      if (!narrow()) open('web', false);
+      open('desk', false);
+      window.__fkpcReady = true;
+      document.dispatchEvent(new Event('fkpc:ready'));
+    };
+    if (document.documentElement.classList.contains('is-booting') && !window.__fkBooted) {
+      document.addEventListener('fk:booted', function () { setTimeout(firstOpen, 120); }, { once: true });
+    } else firstOpen();
   }
 
   /* "Tümünü göster" düğmeleri */
@@ -407,7 +428,12 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function (el) { el.value = el.value.trim(); });
-      if (!form.reportValidity()) return;
+      if (!form.checkValidity()) {
+        var bad = form.querySelector('input:invalid, select:invalid, textarea:invalid');
+        if (bad && form._goStepOf) form._goStepOf(bad);
+        form.reportValidity();
+        return;
+      }
       var key = form.querySelector('[name="access_key"]').value;
       if (!key || key.indexOf('BURAYA') !== -1) { fail('Form şu anda kullanılamıyor. Lütfen ' + MAIL + ' adresine e-posta gönderin.'); return; }
       var hp = form.querySelector('[name="botcheck"]');
@@ -428,6 +454,7 @@
           if (res.ok && res.j && res.j.success) {
             mark();
             form.reset();
+            if (form._goStep) form._goStep(0);
             started = Date.now();
             status.className = 'form__status is-ok';
             status.textContent = 'Talebiniz alındı. En kısa sürede size dönüş yapılacaktır.';
@@ -441,6 +468,283 @@
         .then(function () { submit.disabled = false; submit.textContent = label; });
     });
   }
+
+  /* İletişim formu: adım adım ilerleme (JavaScript yoksa tüm alanlar tek sayfada görünür) */
+  (function () {
+    var f = document.querySelector('[data-contact-form]');
+    if (!f) return;
+    var steps = Array.prototype.slice.call(f.querySelectorAll('[data-fstep]'));
+    if (steps.length < 2) return;
+    var bar = f.querySelector('[data-fsteps]');
+    var dots = bar ? Array.prototype.slice.call(bar.querySelectorAll('li')) : [];
+    var prev = f.querySelector('[data-fprev]'), next = f.querySelector('[data-fnext]'), sub = f.querySelector('[data-fsubmit]');
+    var cur = 0;
+    f.classList.add('is-steps');
+    var go = function (n, focus) {
+      cur = Math.max(0, Math.min(steps.length - 1, n));
+      steps.forEach(function (st, i) { st.hidden = i !== cur; });
+      dots.forEach(function (d, i) { d.classList.toggle('is-on', i === cur); d.classList.toggle('is-done', i < cur); });
+      prev.hidden = cur === 0;
+      next.hidden = cur === steps.length - 1;
+      sub.hidden = cur !== steps.length - 1;
+      if (focus) {
+        var el = steps[cur].querySelector('input:checked') || steps[cur].querySelector('input:not([type="hidden"]), select, textarea');
+        if (el) el.focus({ preventScroll: true });
+      }
+    };
+    var valid = function (i) {
+      var els = steps[i].querySelectorAll('input, select, textarea');
+      for (var k = 0; k < els.length; k++) {
+        if (els[k].type !== 'hidden' && !els[k].checkValidity()) { els[k].reportValidity(); return false; }
+      }
+      return true;
+    };
+    next.addEventListener('click', function () { if (valid(cur)) go(cur + 1, true); });
+    prev.addEventListener('click', function () { go(cur - 1, true); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { if (i < cur) go(i, true); }); });
+    f.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && cur < steps.length - 1 && e.target.tagName !== 'TEXTAREA' && e.target.type !== 'button') {
+        e.preventDefault();
+        if (valid(cur)) go(cur + 1, true);
+      }
+    });
+    f.querySelectorAll('input[name="project_type"]').forEach(function (r) {
+      r.addEventListener('change', function () { if (cur === 0) setTimeout(function () { go(1, true); }, 260); });
+    });
+    f._goStep = function (n) { go(n, false); };
+    f._goStepOf = function (el) { steps.forEach(function (st, i) { if (st.contains(el)) go(i, false); }); };
+    go(0, false);
+  })();
+
+  /* Süreç: kurulum sihirbazı */
+  document.querySelectorAll('[data-wiz]').forEach(function (wz) {
+    var panes = Array.prototype.slice.call(wz.querySelectorAll('[data-wiz-pane]'));
+    var nav = Array.prototype.slice.call(wz.querySelectorAll('[data-wiz-go]'));
+    var prev = wz.querySelector('[data-wiz-prev]'), next = wz.querySelector('[data-wiz-next]'), done = wz.querySelector('[data-wiz-done]');
+    var label = wz.querySelector('[data-wiz-label]'), fill = wz.querySelector('[data-wiz-bar]');
+    var cur = 0, seen = 0;
+    wz.classList.add('is-ready');
+    var go = function (n, focus) {
+      cur = Math.max(0, Math.min(panes.length - 1, n));
+      seen = Math.max(seen, cur);
+      panes.forEach(function (p, i) { p.hidden = i !== cur; p.classList.toggle('is-in', i === cur); });
+      nav.forEach(function (b, i) {
+        var li = b.parentNode;
+        li.classList.toggle('is-on', i === cur);
+        li.classList.toggle('is-done', i < cur || (i <= seen && i !== cur));
+        if (i === cur) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+      });
+      var last = cur === panes.length - 1;
+      label.textContent = last ? 'Kurulum tamamlanmak üzere' : 'Kurulum ilerlemesi %' + Math.round((cur + 1) / panes.length * 100);
+      fill.style.width = ((cur + 1) / panes.length * 100) + '%';
+      prev.disabled = cur === 0;
+      next.hidden = last;
+      done.hidden = !last;
+      if (focus) (last ? done : next).focus({ preventScroll: true });
+    };
+    next.addEventListener('click', function () { go(cur + 1, true); });
+    prev.addEventListener('click', function () { go(cur - 1, true); });
+    nav.forEach(function (b, i) { b.addEventListener('click', function () { go(i, false); }); });
+    go(0, false);
+  });
+
+  /* Öncesi / sonrası karşılaştırma sürgüsü: <figure class="compare" data-compare> ... (README'ye bakın) */
+  document.querySelectorAll('[data-compare]').forEach(function (c) {
+    var r = c.querySelector('input[type="range"]');
+    if (!r) return;
+    var set = function () { c.style.setProperty('--pos', r.value + '%'); };
+    r.addEventListener('input', set);
+    set();
+  });
+
+  /* Komut paleti: Ctrl+K / ⌘K ile sitede hızlı arama */
+  (function () {
+    var me = document.currentScript && document.currentScript.src;
+    var base = me ? me.replace(/assets\/js\/site\.js.*$/, '') : '/';
+    var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    var inner = document.querySelector('.k-header__inner');
+    if (inner) {
+      var sb = document.createElement('button');
+      sb.type = 'button';
+      sb.className = 'k-search-btn';
+      sb.setAttribute('aria-label', 'Sitede ara (' + (isMac ? '⌘K' : 'Ctrl+K') + ')');
+      sb.innerHTML = '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>Ara</span><kbd aria-hidden="true">' + (isMac ? '⌘K' : 'Ctrl K') + '</kbd>';
+      var mb = inner.querySelector('.k-menu-btn');
+      inner.insertBefore(sb, mb || null);
+      sb.addEventListener('click', function () { openK(); });
+    }
+    var dlg = null, input, list, items = null, sel = 0, shown = [];
+    var quick = [
+      { t: 'Teklif isteyin', u: 'index.html#iletisim', k: 'Eylem', i: 'fa-regular fa-envelope' },
+      { t: 'Hizmetler', u: 'index.html#hizmetler', k: 'Bölüm', i: 'fa-solid fa-layer-group' },
+      { t: 'Referans projeler', u: 'index.html#isler', k: 'Bölüm', i: 'fa-solid fa-briefcase' },
+      { t: 'Süreç nasıl ilerliyor?', u: 'index.html#surec', k: 'Bölüm', i: 'fa-solid fa-list-check' },
+      { t: 'Sık sorulan sorular', u: 'index.html#sss', k: 'Bölüm', i: 'fa-regular fa-circle-question' },
+      { t: 'Blog yazıları', u: 'blog/index.html', k: 'Sayfa', i: 'fa-regular fa-newspaper' },
+      { t: 'Hakkımda', u: 'hakkimda.html', k: 'Sayfa', i: 'fa-regular fa-user' }
+    ];
+    var icon = { 'Blog': 'fa-regular fa-file-lines', 'Proje': 'fa-solid fa-briefcase', 'Eklenti': 'fa-solid fa-puzzle-piece', 'Sayfa': 'fa-regular fa-file', 'Kategori': 'fa-regular fa-folder' };
+    var escH = function (v) { return String(v).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var build = function () {
+      dlg = document.createElement('dialog');
+      dlg.className = 'cmdk';
+      dlg.setAttribute('aria-label', 'Sitede ara');
+      dlg.innerHTML = '<div class="cmdk__box"><div class="cmdk__in"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" placeholder="Yazı, proje veya sayfa arayın" aria-label="Arama" aria-controls="cmdk-list" aria-autocomplete="list" autocomplete="off" spellcheck="false"><kbd>Esc</kbd></div><ul class="cmdk__list" id="cmdk-list" role="listbox"></ul><div class="cmdk__foot"><span><kbd>↑</kbd><kbd>↓</kbd> gezin</span><span><kbd>Enter</kbd> aç</span><span><kbd>Esc</kbd> kapat</span></div></div>';
+      document.body.appendChild(dlg);
+      input = dlg.querySelector('input');
+      list = dlg.querySelector('.cmdk__list');
+      input.addEventListener('input', render);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+        else if (e.key === 'Enter') { e.preventDefault(); go(shown[sel]); }
+      });
+      list.addEventListener('click', function (e) { var li = e.target.closest('[data-i]'); if (li) go(shown[+li.dataset.i]); });
+      list.addEventListener('mousemove', function (e) { var li = e.target.closest('[data-i]'); if (li && +li.dataset.i !== sel) { sel = +li.dataset.i; mark(); } });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener('close', function () { document.documentElement.classList.remove('has-modal'); });
+    };
+    var load = function () {
+      if (items || !window.fetch) return;
+      items = [];
+      fetch(base + 'assets/data/search.json').then(function (r) { return r.json(); }).then(function (j) {
+        items = j.map(function (x) { x.h = norm(x.t + ' ' + (x.d || '') + ' ' + x.k); x.nt = norm(x.t); return x; });
+        if (dlg && dlg.open) render();
+      }).catch(function () { items = []; });
+    };
+    var row = function (x, i) {
+      return '<li role="option" data-i="' + i + '" id="cmdk-o' + i + '"><i class="' + (x.i || icon[x.k] || 'fa-regular fa-file') + '" aria-hidden="true"></i><span class="cmdk__t"><b>' + escH(x.t) + '</b>' + (x.d ? '<small>' + escH(x.d) + '</small>' : '') + '</span><em>' + escH(x.k) + '</em></li>';
+    };
+    var render = function () {
+      var q = input.value.trim(), terms = norm(q).split(' ').filter(Boolean), html = '';
+      sel = 0;
+      if (!terms.length) {
+        shown = quick.slice();
+        html = '<li class="cmdk__group" aria-hidden="true">Hızlı erişim</li>' + shown.map(row).join('');
+      } else {
+        var pool = quick.concat(items || []);
+        var seenU = {};
+        shown = pool.filter(function (x) {
+          var h = x.h || norm(x.t + ' ' + x.k);
+          if (seenU[x.u]) return false;
+          var ok = terms.every(function (t) { return h.indexOf(t) !== -1; });
+          if (ok) seenU[x.u] = 1;
+          return ok;
+        }).map(function (x) {
+          var nt = x.nt || norm(x.t), sc = 0;
+          terms.forEach(function (t) { if (nt.indexOf(t) === 0) sc += 3; else if (nt.indexOf(t) !== -1) sc += 2; });
+          return { x: x, s: sc };
+        }).sort(function (a, b) { return b.s - a.s; }).slice(0, 9).map(function (o) { return o.x; });
+        shown.push({ t: '“' + q + '” için blogda ara', u: 'blog/index.html?q=' + encodeURIComponent(q), k: 'Arama', i: 'fa-solid fa-magnifying-glass' });
+        html = shown.map(row).join('');
+        if (shown.length === 1) html = '<li class="cmdk__empty" aria-hidden="true">Başlıklarda eşleşme bulunamadı. Blog yazılarının içinde aramak için Enter’a basın.</li>' + html;
+      }
+      list.innerHTML = html;
+      mark();
+    };
+    var mark = function () {
+      list.querySelectorAll('[data-i]').forEach(function (li) {
+        var on = +li.dataset.i === sel;
+        li.classList.toggle('is-sel', on);
+        li.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (on) { input.setAttribute('aria-activedescendant', li.id); li.scrollIntoView({ block: 'nearest' }); }
+      });
+    };
+    var move = function (d) { if (!shown.length) return; sel = (sel + d + shown.length) % shown.length; mark(); };
+    var go = function (x) {
+      if (!x) return;
+      var url = base + x.u;
+      var here = location.pathname.replace(/index\.html$/, '');
+      var target = new URL(url, location.href);
+      dlg.close();
+      if (target.pathname.replace(/index\.html$/, '') === here && target.hash) {
+        var el = document.querySelector(target.hash);
+        if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); history.replaceState(null, '', target.hash); return; }
+      }
+      if (window.FKNav) window.FKNav(url); else location.href = url;
+    };
+    var openK = function () {
+      if (!dlg) build();
+      load();
+      if (dlg.open) return;
+      input.value = '';
+      render();
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+      document.documentElement.classList.add('has-modal');
+      input.focus();
+    };
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); openK(); }
+      else if (e.key === '/' && !e.ctrlKey && !e.metaKey && !/INPUT|TEXTAREA|SELECT/.test((e.target.tagName || '')) && !e.target.isContentEditable) { e.preventDefault(); openK(); }
+    });
+    window.FKSearch = { open: openK };
+  })();
+
+  /* Sayfa geçişi (gidiş): site içi bağlantıya tıklanınca konsol tarzı geçiş ekranı açılır,
+     ardından yeni sayfaya gidilir. Varış tarafı boot-head.js içindedir. */
+  (function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cmdFor = function (u) {
+      var path = decodeURIComponent(u.pathname).replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/^\/+|\/+$/g, '');
+      return 'PS C:\\kapukaya.dev> cd ' + (path ? '.\\' + path.replace(/\//g, '\\') : '~');
+    };
+    var layer = null;
+    var go = function (url) {
+      var u = new URL(url, location.href);
+      if (reduceMotion) { location.href = u.href; return; }
+      var cmd = cmdFor(u);
+      try { sessionStorage.setItem('fk-pt', JSON.stringify({ t: Date.now(), c: cmd + '  ✓' })); } catch (e) {}
+      if (!layer) {
+        layer = document.createElement('div');
+        layer.className = 'pt';
+        layer.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(layer);
+      }
+      var pre = cmd.split('> ');
+      layer.innerHTML = '<div class="pt__box"><p class="pt__cmd">' + pre[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '&gt; <b>' + pre[1].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</b><i></i></p><div class="pt__bar"><i></i></div></div>';
+      void layer.offsetWidth;
+      layer.classList.add('is-on');
+      setTimeout(function () { location.href = u.href; }, 300);
+    };
+    window.FKNav = go;
+    var internal = function (a, e) {
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return null;
+      if ((a.target && a.target !== '_self') || a.hasAttribute('download') || a.hasAttribute('data-no-pt')) return null;
+      var u;
+      try { u = new URL(a.href, location.href); } catch (err) { return null; }
+      if (u.origin !== location.origin || !/^https?:$/.test(u.protocol)) return null;
+      if (/\.(pdf|zip|png|jpe?g|webp|svg|xml|txt|json|mp4|webm)$/i.test(u.pathname)) return null;
+      var norm = function (p) { return p.replace(/index\.html$/, ''); };
+      if (norm(u.pathname) === norm(location.pathname) && u.search === location.search) return null;
+      return u;
+    };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      var u = internal(a, e);
+      if (!u) return;
+      e.preventDefault();
+      go(u.href);
+    });
+    /* Fareyle üzerine gelindiğinde sayfayı önceden indir: geçiş daha kısa sürer */
+    var done = {};
+    var prefetch = function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var u = internal(a, { button: 0 });
+      if (!u || done[u.pathname]) return;
+      done[u.pathname] = 1;
+      var l = document.createElement('link');
+      l.rel = 'prefetch'; l.href = u.pathname;
+      document.head.appendChild(l);
+    };
+    document.addEventListener('pointerover', prefetch, { passive: true });
+    document.addEventListener('touchstart', prefetch, { passive: true });
+    /* Geri tuşuyla dönülünce (sayfa önbellekten gelirse) geçiş ekranını kaldır */
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted && layer) { layer.classList.remove('is-on'); layer.innerHTML = ''; }
+      try { sessionStorage.removeItem('fk-pt'); } catch (err) {}
+    });
+  })();
 
   var y = document.querySelectorAll('[data-year]');
   y.forEach(function (el) { el.textContent = new Date().getFullYear(); });

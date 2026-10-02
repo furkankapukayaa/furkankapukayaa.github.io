@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-noboot>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="/assets/js/boot-head.js"></script>
+<script src="/assets/js/boot-head.js?v=20261006"></script>
 <link rel="canonical" href="https://kapukaya.dev/404.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/404.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/404.html">
@@ -37,26 +37,14 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="/llms.txt">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="/assets/css/chrome.css">
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/chrome.css?v=20261006">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261006">
 
 <script src="/assets/js/analytics.js" defer></script>
 </head>
 <body>
-<div class="boot" id="boot" aria-hidden="true">
-  <div class="boot__win">
-    <div class="boot__bar"><span class="boot__dots"><i></i><i></i><i></i></span><span>kapukaya.dev</span></div>
-    <div class="boot__body">
-      <div class="boot__line"><span class="boot__p">PS C:\kapukaya&gt;</span> <span class="boot__cmd" data-type="dotnet run --project Kapukaya"></span><span class="boot__caret"></span></div>
-      <div class="boot__out"><b>[ok]</b> Masaüstü, web ve konsol modülleri yüklendi</div>
-      <div class="boot__out"><b>[ok]</b> Projeler ve referanslar hazırlandı</div>
-      <div class="boot__out"><b>[ok]</b> Bağlantı kuruldu: kapukaya.dev</div>
-      <div class="boot__out boot__hi">Hoş geldiniz.</div>
-      <div class="boot__progress"><i></i></div>
-    </div>
-  </div>
-</div>
-<script src="/assets/js/boot.js"></script>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="/assets/js/boot.js?v=20261006"></script>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="k-header">
   <div class="k-header__inner">
@@ -69,10 +57,27 @@
   </div>
 </header>
 <main id="icerik">
-<section class="notice-page"><div class="wrap">
-<p class="big">404</p><h1>Bu sayfa bulunamadı.</h1>
-<p>Aradığınız sayfa taşınmış veya kaldırılmış olabilir. Ana sayfadan devam edebilir ya da iletişim formunu kullanabilirsiniz.</p>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn btn--primary" href="/">Ana sayfaya dön</a><a class="btn btn--ghost" href="/#iletisim">İletişime geç</a></div></div></section>
+<section class="bsod" data-bsod>
+  <div class="bsod__in">
+    <p class="bsod__face" aria-hidden="true">:(</p>
+    <h1>Bu sayfa bir sorunla karşılaştı ve bulunamadı.</h1>
+    <p class="bsod__lead">Aradığınız adres taşınmış, silinmiş ya da hiç var olmamış olabilir. Hata bilgileri toplanıyor, ardından devam etmeniz için birkaç seçenek sunulacak.</p>
+    <p class="bsod__pct" aria-live="polite"><span data-bsod-pct>100</span>% tamamlandı</p>
+    <div class="bsod__row">
+      <span class="bsod__qr" data-bsod-qr aria-hidden="true"></span>
+      <div class="bsod__meta">
+        <p>Bu hata hakkında endişelenmeyin; sitenin geri kalanı sorunsuz çalışıyor.</p>
+        <p>Durdurma kodu: <b>PAGE_NOT_FOUND (404)</b></p>
+        <p>Başarısız olan adres: <code data-bsod-url>/</code></p>
+      </div>
+    </div>
+    <div class="bsod__act" data-bsod-act>
+      <a class="bsod__btn bsod__btn--main" href="/">Ana sayfaya dön</a>
+      <a class="bsod__btn" href="/#iletisim">İletişime geç</a>
+      <a class="bsod__btn" href="/blog/" data-bsod-search>Sitede ara</a>
+    </div>
+  </div>
+</section>
 </main>
 <footer class="k-footer">
   <div class="k-footer__inner">
@@ -105,6 +110,7 @@
     <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="privacy.html">Gizlilik</a><a href="kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="guvenlik.html">Güvenlik</a></nav>
   </div>
 </footer>
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v=20261006" defer></script>
+<script src="/assets/js/bsod.js?v=20261006" defer></script>
 </body>
 </html>
