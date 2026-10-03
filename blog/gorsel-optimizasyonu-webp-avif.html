@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma | Furkan Kapukaya</title>
+<meta name="description" content="Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261007"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma | Furkan Kapukaya">
+<meta property="og:description" content="Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.">
+<meta property="og:url" content="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma | Furkan Kapukaya">
+<meta name="twitter:description" content="Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-05-16">
+<meta property="article:modified_time" content="2026-05-16">
+<meta property="article:section" content="Web Tasarım ve Geliştirme">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma", "description": "Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.", "url": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html", "mainEntityOfPage": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html", "datePublished": "2026-05-16", "dateModified": "2026-05-16", "inLanguage": "tr", "articleSection": "Web Tasarım ve Geliştirme", "wordCount": 352, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "görsel optimizasyonu, webp, avif, resim sıkıştırma, lazy loading, srcset"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Web Tasarım ve Geliştirme", "item": "https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html"}, {"@type": "ListItem", "position": 4, "name": "Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma", "item": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Alt metin (alt) ne işe yarar?", "acceptedAnswer": {"@type": "Answer", "text": "Görme engelli kullanıcıların ekran okuyucularla görseli anlamasını sağlar ve arama motorlarına görselin içeriği hakkında bilgi verir. Süs amaçlı görsellerde boş bırakılabilir."}}, {"@type": "Question", "name": "Sıkıştırma görsel kalitesini bozar mı?", "acceptedAnswer": {"@type": "Answer", "text": "Uygun ayarlarla gözle fark edilmeyecek kadar az kayıpla çok büyük boyut kazancı sağlanır."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261007"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-05-16">16 Mayıs 2026</time><span>2 dk okuma</span></div>
+    <h1>Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma</h1>
+    <p class="page-hero__lead">Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Çoğu web sayfasında en fazla veriyi görseller oluşturur. Telefonla çekilmiş birkaç megabaytlık bir fotoğraf, sayfanın açılışını saniyelerce geciktirebilir. İyi haber şu: görsel optimizasyonu, en hızlı sonuç veren hız iyileştirmelerinden biridir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#dogru-format">Doğru format</a></li><li><a href="#dogru-boyut">Doğru boyut</a></li><li><a href="#tembel-yukleme-lazy-loading">Tembel yükleme (lazy loading)</a></li><li><a href="#genislik-ve-yukseklik-belirtin">Genişlik ve yükseklik belirtin</a></li><li><a href="#animasyonlar-icin-video">Animasyonlar için video</a></li><li><a href="#telif-hakkini-unutmayin">Telif hakkını unutmayın</a></li><li><a href="#kontrol-listesi">Kontrol listesi</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="dogru-format">Doğru format</h2>
+<ul>
+<li><strong>WebP:</strong> Günümüz tarayıcılarının tamamına yakınında desteklenir; JPEG ve PNG'ye göre genellikle belirgin şekilde daha küçük dosyalar üretir.</li>
+<li><strong>AVIF:</strong> Çoğu durumda WebP'den de iyi sıkıştırma sağlar; modern tarayıcılarda geniş destek bulunur.</li>
+<li><strong>SVG:</strong> Logo, ikon ve çizimler için idealdir; her boyutta nettir.</li>
+<li><strong>PNG:</strong> Şeffaflık gereken ve sıkıştırma kaybının istenmediği özel durumlar için.</li>
+</ul>
+<h2 id="dogru-boyut">Doğru boyut</h2>
+<p>Ekranda 600 piksel genişliğinde gösterilecek bir görseli 4000 piksel olarak yüklemek gereksizdir. <code>srcset</code> ve <code>sizes</code> özellikleri ile tarayıcı, ekrana uygun boyuttaki görseli seçer.</p>
+<h2 id="tembel-yukleme-lazy-loading">Tembel yükleme (lazy loading)</h2>
+<p>Sayfanın alt kısımlarındaki görseller <code>loading=&quot;lazy&quot;</code> ile ancak ziyaretçi o bölüme yaklaştığında yüklenir. Ancak ilk ekranda görünen ana görsele lazy loading uygulanmamalıdır; bu, sayfanın en büyük içeriğinin geç görünmesine yol açar.</p>
+<h2 id="genislik-ve-yukseklik-belirtin">Genişlik ve yükseklik belirtin</h2>
+<p><code>width</code> ve <code>height</code> değerleri verilen görseller için tarayıcı yer ayırır; böylece görsel yüklenince sayfa kaymaz.</p>
+<h2 id="animasyonlar-icin-video">Animasyonlar için video</h2>
+<p>Uzun animasyonlu GIF veya animasyonlu görseller çok büyük olabilir. Aynı içeriği kısa, sessiz bir video olarak sunmak dosya boyutunu çoğu zaman onda birine indirir.</p>
+<h2 id="telif-hakkini-unutmayin">Telif hakkını unutmayın</h2>
+<p>İnternette bulunan her görsel serbestçe kullanılamaz. Kendi çektiğiniz fotoğrafları, lisansını aldığınız stok görselleri veya kullanım şartları açıkça izin veren kaynakları tercih edin. Lisans koşullarını (atıf gerekip gerekmediği, ticari kullanım izni) kayıt altında tutun.</p>
+<h2 id="kontrol-listesi">Kontrol listesi</h2>
+<ol>
+<li>Fotoğrafları WebP veya AVIF'e dönüştürün.</li>
+<li>Görseli gösterileceği en büyük boyuta göre küçültün.</li>
+<li>Alt kısımdaki görsellere lazy loading ekleyin.</li>
+<li>Her görsele genişlik, yükseklik ve anlamlı bir alt metin verin.</li>
+<li>Görsellerin kullanım hakkını belgeleyin.</li>
+</ol>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Alt metin (alt) ne işe yarar?</h3>
+<p>Görme engelli kullanıcıların ekran okuyucularla görseli anlamasını sağlar ve arama motorlarına görselin içeriği hakkında bilgi verir. Süs amaçlı görsellerde boş bırakılabilir.</p>
+<h3>Sıkıştırma görsel kalitesini bozar mı?</h3>
+<p>Uygun ayarlarla gözle fark edilmeyecek kadar az kayıpla çok büyük boyut kazancı sağlanır.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Doğru format, doğru boyut ve doğru yükleme stratejisi; sayfalarınızı hissedilir şekilde hızlandırır. Daha fazlası için <a href="web-sitesi-hizlandirma.html">web sitesi hızlandırma</a> rehberimize göz atabilirsiniz.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html" aria-current="page">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="web" data-search="web sitesi yaptirmak ne kadar tutar 2026 maliyet rehberi web sitesi fiyatlarini belirleyen tasarim sayfa sayisi altyapi icerik hosting ve bakim kalemlerini 2026 kosullariyla aciklayan rehber. web tasarim ve gelistirme web sitesi fiyatlari web sitesi yaptirmak kurumsal web sitesi maliyeti web tasarim ucreti"><a href="../blog/web-sitesi-yaptirma-maliyeti.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>4 dk</span></span><h3>Web Sitesi Yaptırmak Ne Kadar Tutar? 2026 Maliyet Rehberi</h3><p>Web sitesi fiyatlarını belirleyen tasarım, sayfa sayısı, altyapı, içerik, hosting ve bakım kalemlerini 2026 koşullarıyla açıklayan rehber.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="web" data-search="mobil uyumlu web sitesi nedir responsive tasarimin 2026 kurallari mobil uyumlu responsive web sitesinin ne oldugu mobile first indekslemenin seo ya etkisi ve telefonda iyi deneyim icin uygulanabilir kurallar. web tasarim ve gelistirme mobil uyumlu web sitesi responsive tasarim mobile first mobil seo"><a href="../blog/mobil-uyumlu-web-sitesi.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Mobil Uyumlu Web Sitesi Nedir? Responsive Tasarımın 2026 Kuralları</h3><p>Mobil uyumlu (responsive) web sitesinin ne olduğu, mobile-first indekslemenin SEO&#x27;ya etkisi ve telefonda iyi deneyim için uygulanabilir kurallar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="web" data-search="hazir site altyapisi mi ozel yazilim mi dogru secim rehberi hazir icerik yonetim sistemi site kurucu veya ozel yazilim arasinda secim yaparken maliyet esneklik guvenlik ve sahiplik acisindan karsilastirma. web tasarim ve gelistirme hazir web sitesi ozel yazilim web sitesi cms karsilastirma site kurucu mu ozel yazilim mi"><a href="../blog/hazir-altyapi-mi-ozel-yazilim-mi.html"><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Hazır Site Altyapısı mı, Özel Yazılım mı? Doğru Seçim Rehberi</h3><p>Hazır içerik yönetim sistemi, site kurucu veya özel yazılım arasında seçim yaparken maliyet, esneklik, güvenlik ve sahiplik açısından karşılaştırma.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261007" defer></script>
+</body>
+</html>

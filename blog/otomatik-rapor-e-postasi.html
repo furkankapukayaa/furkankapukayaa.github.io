@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor | Furkan Kapukaya</title>
+<meta name="description" content="Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261007"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor | Furkan Kapukaya">
+<meta property="og:description" content="Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor | Furkan Kapukaya">
+<meta name="twitter:description" content="Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-08-23">
+<meta property="article:modified_time" content="2026-08-23">
+<meta property="article:section" content="Otomasyon ve Entegrasyon">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor", "description": "Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.", "url": "https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html", "mainEntityOfPage": "https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html", "datePublished": "2026-08-23", "dateModified": "2026-08-23", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 297, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "otomatik rapor, rapor e-postası, otomatik excel rapor, yönetici raporu, raporlama otomasyonu"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor", "item": "https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Rapor yerine dashboard yeterli değil mi?", "acceptedAnswer": {"@type": "Answer", "text": "Dashboard'a bakmak için hatırlamak gerekir; rapor ise bilgiyi kişiye getirir. İkisi birbirini tamamlar."}}, {"@type": "Question", "name": "Rapor WhatsApp'tan gönderilebilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Resmî WhatsApp Business Platform ile mümkün olabilir; ancak kurallara ve onaylı şablonlara uyulmalıdır. Bkz. WhatsApp Business API."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261007"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-08-23">23 Ağustos 2026</time><span>2 dk okuma</span></div>
+    <h1>Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor</h1>
+    <p class="page-hero__lead">Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Birçok işletmede her sabah biri bilgisayarı açar, farklı sistemlerden veri çeker, Excel'de birleştirir ve yöneticiye gönderir. Bu iş her gün yarım saat veya daha fazla sürebilir. Otomatik rapor sistemi, aynı raporu her sabah belirlenen saatte, hatasız şekilde hazırlayıp gönderir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#neler-raporlanabilir">Neler raporlanabilir?</a></li><li><a href="#rapor-formati">Rapor formatı</a></li><li><a href="#iyi-raporun-ozellikleri">İyi raporun özellikleri</a></li><li><a href="#teknik-yapi">Teknik yapı</a></li><li><a href="#guvenlik-ve-gizlilik">Güvenlik ve gizlilik</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="neler-raporlanabilir">Neler raporlanabilir?</h2>
+<ul>
+<li><strong>Satış:</strong> Dünkü ciro, sipariş sayısı, en çok satan ürünler.</li>
+<li><strong>Stok:</strong> Kritik seviyedeki ürünler, uzun süredir hareketsiz stoklar.</li>
+<li><strong>Finans:</strong> Vadesi gelen alacaklar ve ödemeler.</li>
+<li><strong>Operasyon:</strong> Bekleyen siparişler, geciken işler, servis kayıtları.</li>
+<li><strong>Web sitesi:</strong> Dünkü form talepleri ve ziyaret özetleri.</li>
+</ul>
+<h2 id="rapor-formati">Rapor formatı</h2>
+<ol>
+<li><strong>E-posta gövdesinde özet:</strong> Telefonda hızla okunabilecek birkaç kritik rakam.</li>
+<li><strong>Ek dosya:</strong> Ayrıntı isteyenler için Excel veya PDF.</li>
+<li><strong>Bağlantı:</strong> Daha fazla ayrıntı için <a href="yonetim-paneli-dashboard.html">yönetim paneline</a> giden bağlantı.</li>
+</ol>
+<h2 id="iyi-raporun-ozellikleri">İyi raporun özellikleri</h2>
+<ul>
+<li>Karşılaştırma içerir: dün, geçen hafta aynı gün, aylık hedef.</li>
+<li>Dikkat gerektiren durumları öne çıkarır: &quot;3 üründe stok kritik&quot;.</li>
+<li>Alıcıya göre özelleşir: şube müdürü kendi şubesini görür.</li>
+<li>Kısa tutulur; okunmayan rapor işe yaramaz.</li>
+</ul>
+<h2 id="teknik-yapi">Teknik yapı</h2>
+<p>Genellikle şu adımlardan oluşur:</p>
+<ol>
+<li>Zamanlanmış görev belirlenen saatte çalışır. Bkz. <a href="zamanlanmis-gorevler-otomasyon.html">zamanlanmış görevler</a>.</li>
+<li>Veriler veritabanından veya API'lerden toplanır.</li>
+<li>Hesaplamalar yapılır, Excel/PDF dosyası oluşturulur.</li>
+<li>E-posta, kurumsal e-posta hizmeti üzerinden gönderilir.</li>
+<li>Gönderim sonucu kayıt altına alınır.</li>
+</ol>
+<h2 id="guvenlik-ve-gizlilik">Güvenlik ve gizlilik</h2>
+<ul>
+<li>Raporlar hassas finansal ve kişisel veri içerebilir; yalnızca yetkili kişilere gönderilmelidir.</li>
+<li>Müşteri adı ve telefonu gibi kişisel veriler raporda gerçekten gerekli değilse yer almamalıdır.</li>
+<li>Gönderim için kullanılan e-posta hesabının güvenliği sağlanmalı; SPF, DKIM ve DMARC ayarları yapılmalıdır.</li>
+</ul>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Rapor yerine dashboard yeterli değil mi?</h3>
+<p>Dashboard'a bakmak için hatırlamak gerekir; rapor ise bilgiyi kişiye getirir. İkisi birbirini tamamlar.</p>
+<h3>Rapor WhatsApp'tan gönderilebilir mi?</h3>
+<p>Resmî WhatsApp Business Platform ile mümkün olabilir; ancak kurallara ve onaylı şablonlara uyulmalıdır. Bkz. <a href="whatsapp-business-api-entegrasyonu.html">WhatsApp Business API</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Otomatik rapor, her sabah işletmenin nabzını yöneticinin cebine getirir. İşletmenize özel rapor otomasyonu için <a href="../index.html#iletisim">teklif isteyebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html" aria-current="page">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="sms entegrasyonu randevu siparis ve dogrulama mesajlarini otomatiklestirmek isletme yazilimlarina sms entegrasyonu bilgilendirme ve ticari ileti ayrimi iys kontrolu baslik originator kullanimi tek kullanimlik dogrulama kodlari ve maliyet yonetimi. otomasyon ve entegrasyon sms entegrasyonu toplu sms api sms hatirlatma otp sms iys sms"><a href="../blog/sms-entegrasyonu-isletmeler.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SMS Entegrasyonu: Randevu, Sipariş ve Doğrulama Mesajlarını Otomatikleştirmek</h3><p>İşletme yazılımlarına SMS entegrasyonu, bilgilendirme ve ticari ileti ayrımı, İYS kontrolü, başlık (originator) kullanımı, tek kullanımlık doğrulama kodları ve maliyet yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="barkod okuyucu ve etiket yazdirma otomasyonu barkod okuyucu urun verisi ve etiket yazici entegrasyonlarinin isletme sureclerine nasil baglanacagini inceleyin. otomasyon ve entegrasyon"><a href="../blog/barkod-etiket-yazdirma-otomasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Barkod Okuyucu ve Etiket Yazdırma Otomasyonu</h3><p>Barkod okuyucu, ürün verisi ve etiket yazıcı entegrasyonlarının işletme süreçlerine nasıl bağlanacağını inceleyin.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="rpa nedir yazilim robotlariyla ekran uzerinden otomasyon robotik surec otomasyonunun rpa ne oldugu api entegrasyonundan farki uygun kullanim alanlari kirilganlik riski guvenlik ve lisans konulari ile dogru otomasyon yonteminin secimi. otomasyon ve entegrasyon rpa nedir robotik surec otomasyonu yazilim robotu ekran otomasyonu rpa ve api farki"><a href="../blog/rpa-nedir.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon</h3><p>Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261007" defer></script>
+</body>
+</html>

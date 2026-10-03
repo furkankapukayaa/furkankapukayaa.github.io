@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç | Furkan Kapukaya</title>
+<meta name="description" content="E-ticaret sitelerinde kargo firmalarının API&#x27;leriyle gönderi oluşturma, barkod etiketi, takip numarası, müşteri bilgilendirme ve iade kargosunun otomatik yönetimi.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261007"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç | Furkan Kapukaya">
+<meta property="og:description" content="E-ticaret sitelerinde kargo firmalarının API&#x27;leriyle gönderi oluşturma, barkod etiketi, takip numarası, müşteri bilgilendirme ve iade kargosunun otomatik yönetimi.">
+<meta property="og:url" content="https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç | Furkan Kapukaya">
+<meta name="twitter:description" content="E-ticaret sitelerinde kargo firmalarının API&#x27;leriyle gönderi oluşturma, barkod etiketi, takip numarası, müşteri bilgilendirme ve iade kargosunun otomatik yönetimi.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-02">
+<meta property="article:modified_time" content="2026-09-02">
+<meta property="article:section" content="E-ticaret ve Ödeme">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç", "description": "E-ticaret sitelerinde kargo firmalarının API'leriyle gönderi oluşturma, barkod etiketi, takip numarası, müşteri bilgilendirme ve iade kargosunun otomatik yönetimi.", "url": "https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html", "mainEntityOfPage": "https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html", "datePublished": "2026-09-02", "dateModified": "2026-09-02", "inLanguage": "tr", "articleSection": "E-ticaret ve Ödeme", "wordCount": 299, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "kargo entegrasyonu, kargo api, kargo takip, e-ticaret kargo, gönderi barkodu"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "E-ticaret ve Ödeme", "item": "https://kapukaya.dev/blog/kategori/e-ticaret-odeme.html"}, {"@type": "ListItem", "position": 4, "name": "Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç", "item": "https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kargo entegrasyonu için kargo firmasıyla anlaşma gerekir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Genellikle evet. API erişimi çoğunlukla kurumsal müşteri sözleşmesiyle birlikte verilir."}}, {"@type": "Question", "name": "Pazaryeri siparişleri de aynı sistemden kargolanabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Pazaryerinin kendi kargo anlaşması varsa onun kurallarına uyulur; kendi anlaşmanızla gönderim yapıyorsanız tek sistemden yönetmek mümkündür."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261007"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a><time datetime="2026-09-02">2 Eylül 2026</time><span>2 dk okuma</span></div>
+    <h1>Kargo Entegrasyonu: Siparişten Teslimata Otomatik Süreç</h1>
+    <p class="page-hero__lead">E-ticaret sitelerinde kargo firmalarının API&#x27;leriyle gönderi oluşturma, barkod etiketi, takip numarası, müşteri bilgilendirme ve iade kargosunun otomatik yönetimi.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Günde birkaç siparişte kargo bilgilerini elle girmek mümkündür. Ancak sipariş sayısı arttıkça her gönderi için adres kopyalamak, etiket yazmak ve takip numarasını müşteriye iletmek ciddi zaman alır ve hataya açıktır.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#kargo-entegrasyonu-neler-yapar">Kargo entegrasyonu neler yapar?</a></li><li><a href="#calisma-sekli">Çalışma şekli</a></li><li><a href="#birden-fazla-kargo-firmasi">Birden fazla kargo firması</a></li><li><a href="#musteri-bilgilendirme">Müşteri bilgilendirme</a></li><li><a href="#depo-tarafi">Depo tarafı</a></li><li><a href="#hata-yonetimi">Hata yönetimi</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="kargo-entegrasyonu-neler-yapar">Kargo entegrasyonu neler yapar?</h2>
+<ul>
+<li>Sipariş onaylandığında kargo firmasına gönderi kaydı otomatik açılır.</li>
+<li>Gönderi barkodu ve etiket, depo yazıcısından basılır.</li>
+<li>Takip numarası siparişe kaydedilir ve müşteriye iletilir.</li>
+<li>Kargo durumu (yolda, dağıtımda, teslim edildi) düzenli olarak güncellenir.</li>
+<li>İade kargoları için kod oluşturulur.</li>
+</ul>
+<h2 id="calisma-sekli">Çalışma şekli</h2>
+<p>Kargo firmalarının çoğu kurumsal müşterilerine API veya web servis desteği sunar. Entegrasyon, e-ticaret sitesi veya sipariş yönetim yazılımı ile kargo firmasının sistemi arasında güvenli bir bağlantı kurar. Durum güncellemeleri için <a href="webhook-nedir.html">webhook</a> veya düzenli sorgulama yöntemleri kullanılabilir.</p>
+<h2 id="birden-fazla-kargo-firmasi">Birden fazla kargo firması</h2>
+<p>Bölgeye, ağırlığa veya müşteri tercihine göre farklı kargo firmalarıyla çalışmak avantajlı olabilir. Bu durumda yazılımın kural tabanlı seçim yapabilmesi işi kolaylaştırır:</p>
+<ol>
+<li>Belirli bölgeler için belirli firma.</li>
+<li>Ağır gönderiler için farklı anlaşma.</li>
+<li>Müşterinin ödeme sırasında seçtiği firma.</li>
+</ol>
+<h2 id="musteri-bilgilendirme">Müşteri bilgilendirme</h2>
+<p>&quot;Siparişiniz kargoya verildi&quot; mesajı ve takip bağlantısı, &quot;kargom nerede?&quot; sorularını belirgin şekilde azaltır. Bu mesajlar bilgilendirme amaçlıdır; kampanya eklenmemesine dikkat edilmelidir. Bkz. <a href="iys-ticari-elektronik-ileti.html">İYS</a>.</p>
+<h2 id="depo-tarafi">Depo tarafı</h2>
+<p>Barkodlu ürün okutma ile paketleme kontrolü, yanlış ürün gönderilmesini önler. Bkz. <a href="barkod-etiket-yazdirma-otomasyonu.html">barkod ve etiket yazdırma otomasyonu</a>.</p>
+<h2 id="hata-yonetimi">Hata yönetimi</h2>
+<p>Kargo sistemine erişilemediğinde siparişin kaybolmaması, sıraya alınıp tekrar denenmesi gerekir. Entegrasyonların sessizce hata vermesi, en tehlikeli durumdur; hatalar mutlaka raporlanmalıdır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Kargo entegrasyonu için kargo firmasıyla anlaşma gerekir mi?</h3>
+<p>Genellikle evet. API erişimi çoğunlukla kurumsal müşteri sözleşmesiyle birlikte verilir.</p>
+<h3>Pazaryeri siparişleri de aynı sistemden kargolanabilir mi?</h3>
+<p>Pazaryerinin kendi kargo anlaşması varsa onun kurallarına uyulur; kendi anlaşmanızla gönderim yapıyorsanız tek sistemden yönetmek mümkündür.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Kargo entegrasyonu, siparişin son kilometresini otomatik hale getirir. Sitenize veya sipariş yazılımınıza kargo entegrasyonu için <a href="../index.html#iletisim">destek alabilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html" aria-current="page">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="eticaret" data-search="e ticaret sitesi kurmak baslamadan once bilinmesi gerekenler e ticaret sitesi kurmadan once altyapi secimi odeme ve kargo entegrasyonlari yasal metinler urun icerikleri operasyon surecleri ve maliyet kalemleri uzerine kapsamli baslangic rehberi. e ticaret ve odeme e ticaret sitesi kurmak online satis sitesi e ticaret altyapisi internetten satis e ticaret baslangic"><a href="../blog/e-ticaret-sitesi-kurmak.html"><span class="post__meta"><span>E-ticaret ve Ödeme</span><span>2 dk</span></span><h3>E-ticaret Sitesi Kurmak: Başlamadan Önce Bilinmesi Gerekenler</h3><p>E-ticaret sitesi kurmadan önce altyapı seçimi, ödeme ve kargo entegrasyonları, yasal metinler, ürün içerikleri, operasyon süreçleri ve maliyet kalemleri üzerine kapsamlı başlangıç rehberi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="eticaret" data-search="urun sayfasi seo e ticarette aramalardan satis getirmek e ticaret urun sayfalarinda ozgun aciklama baslik yapisi urun yapisal verisi gorseller varyantlar stokta olmayan urunler ve kategori sayfalari icin uygulanabilir seo onerileri. e ticaret ve odeme urun sayfasi seo e ticaret seo urun aciklamasi yazma product schema kategori sayfasi seo"><a href="../blog/urun-sayfasi-seo.html"><span class="post__meta"><span>E-ticaret ve Ödeme</span><span>2 dk</span></span><h3>Ürün Sayfası SEO: E-ticarette Aramalardan Satış Getirmek</h3><p>E-ticaret ürün sayfalarında özgün açıklama, başlık yapısı, ürün yapısal verisi, görseller, varyantlar, stokta olmayan ürünler ve kategori sayfaları için uygulanabilir SEO önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="eticaret" data-search="sepet terk orani nasil dusurulur odeme adiminda kaybedilen satislar e ticaret sitelerinde musterilerin sepeti terk etme nedenleri odeme adimlarini sadelestirme surpriz maliyetler misafir alisveris guven unsurlari ve hatirlatma e postalarinin dogru kullanimi. e ticaret ve odeme sepet terk orani odeme sayfasi optimizasyonu checkout e ticaret donusum sepet hatirlatma"><a href="../blog/sepet-terk-orani.html"><span class="post__meta"><span>E-ticaret ve Ödeme</span><span>2 dk</span></span><h3>Sepet Terk Oranı Nasıl Düşürülür? Ödeme Adımında Kaybedilen Satışlar</h3><p>E-ticaret sitelerinde müşterilerin sepeti terk etme nedenleri, ödeme adımlarını sadeleştirme, sürpriz maliyetler, misafir alışveriş, güven unsurları ve hatırlatma e-postalarının doğru kullanımı.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261007" defer></script>
+</body>
+</html>

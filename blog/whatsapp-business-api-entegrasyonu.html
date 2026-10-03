@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları | Furkan Kapukaya</title>
+<meta name="description" content="WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261007"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları | Furkan Kapukaya">
+<meta property="og:description" content="WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları | Furkan Kapukaya">
+<meta name="twitter:description" content="WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-06-05">
+<meta property="article:modified_time" content="2026-06-05">
+<meta property="article:section" content="Otomasyon ve Entegrasyon">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları", "description": "WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.", "url": "https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html", "mainEntityOfPage": "https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html", "datePublished": "2026-06-05", "dateModified": "2026-06-05", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 364, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "whatsapp business api, whatsapp entegrasyonu, whatsapp bildirim, whatsapp business platform, whatsapp otomasyon"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları", "item": "https://kapukaya.dev/blog/whatsapp-business-api-entegrasyonu.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mevcut WhatsApp numaramı kullanabilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Mümkündür; ancak numara Business Platform'a taşındığında normal uygulamadaki kullanım şekli değişebilir. Taşımadan önce koşulları dikkatle inceleyin."}}, {"@type": "Question", "name": "Toplu kampanya mesajı gönderebilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Yalnızca izin veren müşterilere, onaylı pazarlama şablonlarıyla ve mevzuata uygun şekilde."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261007"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-06-05">5 Haziran 2026</time><span>2 dk okuma</span></div>
+    <h1>WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları</h1>
+    <p class="page-hero__lead">WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Müşterilerin büyük kısmı WhatsApp'ı her gün kullanıyor. Sipariş bildirimi, randevu hatırlatması veya destek taleplerini WhatsApp üzerinden yürütmek bu yüzden cazip. Ancak bunu doğru ve kurallara uygun yapmak için araçları iyi tanımak gerekir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#whatsapp-business-uygulamasi-ile-api-farki">WhatsApp Business uygulaması ile API farkı</a></li><li><a href="#temel-kurallar">Temel kurallar</a></li><li><a href="#kullanim-alanlari">Kullanım alanları</a></li><li><a href="#resmi-olmayan-araclardan-uzak-durun">Resmî olmayan araçlardan uzak durun</a></li><li><a href="#ticari-ileti-ve-kvkk">Ticari ileti ve KVKK</a></li><li><a href="#entegrasyon-nasil-kurulur">Entegrasyon nasıl kurulur?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="whatsapp-business-uygulamasi-ile-api-farki">WhatsApp Business uygulaması ile API farkı</h2>
+<ul>
+<li><strong>WhatsApp Business uygulaması:</strong> Küçük işletmeler için ücretsiz mobil uygulama. Katalog, hazır cevaplar ve etiketler sunar; ancak otomasyon ve yazılım entegrasyonu için tasarlanmamıştır.</li>
+<li><strong>WhatsApp Business Platform (API):</strong> Meta'nın orta ve büyük ölçekli kullanım için sunduğu resmî altyapı. Yazılımınızla entegre çalışır; bildirimler otomatik gönderilebilir, birden fazla temsilci aynı numarayı kullanabilir.</li>
+</ul>
+<h2 id="temel-kurallar">Temel kurallar</h2>
+<ol>
+<li><strong>İzin:</strong> Müşteriye işletme tarafından mesaj başlatılabilmesi için müşterinin WhatsApp üzerinden mesaj almayı kabul etmiş olması gerekir.</li>
+<li><strong>Onaylı şablonlar:</strong> İşletmenin başlattığı mesajlar, önceden onaylanmış şablonlarla gönderilir.</li>
+<li><strong>Müşteri hizmetleri penceresi:</strong> Müşteri size yazdıktan sonra belirli bir süre içinde serbest metinle cevap verebilirsiniz.</li>
+<li><strong>Ücretlendirme:</strong> Mesaj türüne ve ülkeye göre ücretlendirme yapılır; güncel fiyatları Meta'nın resmî sayfalarından kontrol edin.</li>
+</ol>
+<h2 id="kullanim-alanlari">Kullanım alanları</h2>
+<ul>
+<li>Sipariş onayı ve kargo bildirimi</li>
+<li>Randevu hatırlatma ve onay</li>
+<li>Ödeme hatırlatması</li>
+<li>Destek talebi ve canlı temsilci aktarımı</li>
+<li>Teknik servis durum bildirimi. Bkz. <a href="teknik-servis-takip-programi.html">teknik servis programı</a>.</li>
+</ul>
+<h2 id="resmi-olmayan-araclardan-uzak-durun">Resmî olmayan araçlardan uzak durun</h2>
+<p>Bilgisayardaki WhatsApp oturumunu ele geçirerek toplu mesaj gönderen gayriresmî araçlar WhatsApp'ın kullanım koşullarına aykırıdır ve numaranın kalıcı olarak engellenmesine yol açabilir. Ayrıca müşteri verilerinin bu araçlarla paylaşılması güvenlik ve KVKK riski taşır.</p>
+<h2 id="ticari-ileti-ve-kvkk">Ticari ileti ve KVKK</h2>
+<p>Kampanya ve tanıtım mesajları, WhatsApp üzerinden de olsa ticari elektronik ileti kapsamında değerlendirilebilir; izin gerekir. Bkz. <a href="iys-ticari-elektronik-ileti.html">İYS</a>. Telefon numaraları ve mesaj içerikleri kişisel veridir; aydınlatma metninde bu kanal belirtilmelidir.</p>
+<h2 id="entegrasyon-nasil-kurulur">Entegrasyon nasıl kurulur?</h2>
+<p>Meta'nın doğrudan sunduğu bulut API'si veya resmî iş ortağı sağlayıcılar üzerinden işletme hesabı doğrulanır, numara bağlanır ve şablonlar onaya gönderilir. Ardından yazılımınız olaylar gerçekleştiğinde ilgili şablonla mesaj gönderir; gelen mesajlar ise <a href="webhook-nedir.html">webhook</a> ile sisteminize ulaşır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Mevcut WhatsApp numaramı kullanabilir miyim?</h3>
+<p>Mümkündür; ancak numara Business Platform'a taşındığında normal uygulamadaki kullanım şekli değişebilir. Taşımadan önce koşulları dikkatle inceleyin.</p>
+<h3>Toplu kampanya mesajı gönderebilir miyim?</h3>
+<p>Yalnızca izin veren müşterilere, onaylı pazarlama şablonlarıyla ve mevzuata uygun şekilde.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>WhatsApp, doğru kurgulandığında güçlü bir müşteri iletişim kanalıdır. Kurallara uygun bir entegrasyon için <a href="../index.html#iletisim">destek alabilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html" aria-current="page">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="zamanlanmis gorevler konsol uygulamalariyla gece calisan otomasyonlar windows gorev zamanlayici linux cron ve arka plan servisleriyle duzenli calisan otomasyonlar kurmak loglama hata bildirimi yeniden deneme ve guvenli yapilandirma onerileri. otomasyon ve entegrasyon zamanlanmis gorev task scheduler cron konsol uygulamasi otomatik calisan program"><a href="../blog/zamanlanmis-gorevler-otomasyon.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Zamanlanmış Görevler: Konsol Uygulamalarıyla Gece Çalışan Otomasyonlar</h3><p>Windows Görev Zamanlayıcı, Linux cron ve arka plan servisleriyle düzenli çalışan otomasyonlar kurmak, loglama, hata bildirimi, yeniden deneme ve güvenli yapılandırma önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="sftp ile otomatik dosya aktarimi tedarikci ve banka dosyalarini islemek tedarikci fiyat listeleri banka ekstreleri ve siparis dosyalarinin sftp uzerinden guvenli ve otomatik aktarimi ftp ile farki dosya dogrulama arsivleme ve hata yonetimi. otomasyon ve entegrasyon sftp otomasyon dosya aktarimi ftp sftp farki otomatik dosya isleme edi dosya"><a href="../blog/sftp-dosya-aktarimi-otomasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SFTP ile Otomatik Dosya Aktarımı: Tedarikçi ve Banka Dosyalarını İşlemek</h3><p>Tedarikçi fiyat listeleri, banka ekstreleri ve sipariş dosyalarının SFTP üzerinden güvenli ve otomatik aktarımı, FTP ile farkı, dosya doğrulama, arşivleme ve hata yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="google sheets entegrasyonu tablolari yazilimlariniza baglamak google e tablolar i web formlari isletme yazilimlari ve raporlarla api uzerinden entegre etmek hangi durumlarda yeterli oldugu sinirlari ve veritabanina gecis zamani. otomasyon ve entegrasyon google sheets entegrasyonu google e tablolar api form verisi tabloya sheets otomasyon tablo entegrasyonu"><a href="../blog/google-sheets-entegrasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Google Sheets Entegrasyonu: Tabloları Yazılımlarınıza Bağlamak</h3><p>Google E-Tablolar&#x27;ı web formları, işletme yazılımları ve raporlarla API üzerinden entegre etmek, hangi durumlarda yeterli olduğu, sınırları ve veritabanına geçiş zamanı.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261007" defer></script>
+</body>
+</html>

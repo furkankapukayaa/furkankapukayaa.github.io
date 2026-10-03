@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon | Furkan Kapukaya</title>
+<meta name="description" content="Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261007"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/rpa-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/rpa-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/rpa-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon | Furkan Kapukaya">
+<meta property="og:description" content="Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.">
+<meta property="og:url" content="https://kapukaya.dev/blog/rpa-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon | Furkan Kapukaya">
+<meta name="twitter:description" content="Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="article:published_time" content="2026-09-10">
+<meta property="article:modified_time" content="2026-09-10">
+<meta property="article:section" content="Otomasyon ve Entegrasyon">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon", "description": "Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.", "url": "https://kapukaya.dev/blog/rpa-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/rpa-nedir.html", "datePublished": "2026-09-10", "dateModified": "2026-09-10", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 323, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "rpa nedir, robotik süreç otomasyonu, yazılım robotu, ekran otomasyonu, rpa ve api farkı"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon", "item": "https://kapukaya.dev/blog/rpa-nedir.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "RPA için programlama bilmek gerekir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Görsel araçlarla basit robotlar kodlamadan hazırlanabilir; ancak hata yönetimi ve sürdürülebilirlik için teknik bilgi gerekir."}}, {"@type": "Question", "name": "Yapay zekâ RPA'yı değiştiriyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Yapay zekâ ajanları ekranları daha esnek yorumlayabiliyor; bu da RPA'yı daha dayanıklı hale getirebilir. Ancak güvenlik ve denetim gereksinimleri aynen geçerlidir. Bkz. yapay zekâ ajanları."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261007"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-09-10">10 Eylül 2026</time><span>2 dk okuma</span></div>
+    <h1>RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon</h1>
+    <p class="page-hero__lead">Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p><strong>RPA (Robotic Process Automation, Robotik Süreç Otomasyonu)</strong>, bir yazılım robotunun insan gibi ekrana bakarak tıklama, yazma, kopyalama ve yapıştırma işlemlerini yapmasıdır. Özellikle API'si olmayan eski sistemlerde tekrar eden işleri otomatikleştirmek için kullanılır.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#rpa-nasil-calisir">RPA nasıl çalışır?</a></li><li><a href="#api-entegrasyonundan-farki">API entegrasyonundan farkı</a></li><li><a href="#uygun-kullanim-alanlari">Uygun kullanım alanları</a></li><li><a href="#riskler">Riskler</a></li><li><a href="#rpa-yerine-ozel-entegrasyon">RPA yerine özel entegrasyon</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="rpa-nasil-calisir">RPA nasıl çalışır?</h2>
+<p>Robot, bir uygulamanın veya web sayfasının arayüzündeki alanları tanır ve önceden tanımlanmış adımları uygular: sisteme giriş yap, rapor ekranını aç, tarihi seç, dosyayı indir, dosyayı başka bir sisteme yükle.</p>
+<h2 id="api-entegrasyonundan-farki">API entegrasyonundan farkı</h2>
+<ul>
+<li><strong>API entegrasyonu:</strong> Sistemler veriyi doğrudan ve yapılandırılmış şekilde alışverişi yapar. Hızlı, güvenilir ve ekran değişikliklerinden etkilenmez.</li>
+<li><strong>RPA:</strong> Arayüz üzerinden çalışır. Ekranın tasarımı değiştiğinde robot bozulabilir.</li>
+</ul>
+<p>Genel kural: <strong>API varsa API kullanın.</strong> RPA, başka yol olmadığında veya kısa vadeli bir köprü olarak değerlendirilmelidir.</p>
+<h2 id="uygun-kullanim-alanlari">Uygun kullanım alanları</h2>
+<ol>
+<li>API sunmayan eski masaüstü programlarından veri almak.</li>
+<li>Kurum portallarından düzenli rapor indirmek (kullanım koşulları izin veriyorsa).</li>
+<li>Birden fazla eski sistem arasında veri taşımak.</li>
+<li>Geçiş dönemlerinde eski ve yeni sistemi paralel çalıştırmak.</li>
+</ol>
+<h2 id="riskler">Riskler</h2>
+<ul>
+<li><strong>Kırılganlık:</strong> Arayüz güncellemeleri robotu durdurabilir; bakım ihtiyacı yüksektir.</li>
+<li><strong>Güvenlik:</strong> Robot genellikle bir kullanıcı hesabıyla çalışır. Bu hesabın yetkileri sınırlandırılmalı, parolası güvenli saklanmalıdır.</li>
+<li><strong>Kullanım koşulları:</strong> Bazı web siteleri ve platformlar otomatik erişimi kullanım koşullarında yasaklar. Robotun erişeceği sistemlerin koşullarına uyulmalıdır.</li>
+<li><strong>Lisans:</strong> Ticari RPA platformları genellikle robot başına lisanslanır; maliyet hesabına dahil edilmelidir.</li>
+</ul>
+<h2 id="rpa-yerine-ozel-entegrasyon">RPA yerine özel entegrasyon</h2>
+<p>Birçok durumda RPA yerine:</p>
+<ul>
+<li>Eski sistemin veritabanından doğrudan okuma,</li>
+<li>Sistemin dışa aktardığı dosyaların otomatik işlenmesi,</li>
+<li>Küçük bir ara API yazılması</li>
+</ul>
+<p>daha sağlam ve ekonomik çözümler olabilir. Bkz. <a href="is-sureci-otomasyonu.html">iş süreci otomasyonu</a>.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>RPA için programlama bilmek gerekir mi?</h3>
+<p>Görsel araçlarla basit robotlar kodlamadan hazırlanabilir; ancak hata yönetimi ve sürdürülebilirlik için teknik bilgi gerekir.</p>
+<h3>Yapay zekâ RPA'yı değiştiriyor mu?</h3>
+<p>Yapay zekâ ajanları ekranları daha esnek yorumlayabiliyor; bu da RPA'yı daha dayanıklı hale getirebilir. Ancak güvenlik ve denetim gereksinimleri aynen geçerlidir. Bkz. <a href="yapay-zeka-ajanlari-isletmeler.html">yapay zekâ ajanları</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>RPA güçlü bir araçtır ama her sorunun cevabı değildir. Doğru otomasyon yöntemini seçmek için <a href="../index.html#iletisim">destek alabilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html" aria-current="page">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="sms entegrasyonu randevu siparis ve dogrulama mesajlarini otomatiklestirmek isletme yazilimlarina sms entegrasyonu bilgilendirme ve ticari ileti ayrimi iys kontrolu baslik originator kullanimi tek kullanimlik dogrulama kodlari ve maliyet yonetimi. otomasyon ve entegrasyon sms entegrasyonu toplu sms api sms hatirlatma otp sms iys sms"><a href="../blog/sms-entegrasyonu-isletmeler.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SMS Entegrasyonu: Randevu, Sipariş ve Doğrulama Mesajlarını Otomatikleştirmek</h3><p>İşletme yazılımlarına SMS entegrasyonu, bilgilendirme ve ticari ileti ayrımı, İYS kontrolü, başlık (originator) kullanımı, tek kullanımlık doğrulama kodları ve maliyet yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="otomatik rapor e postasi yoneticilere her sabah hazir rapor satis stok finans ve operasyon verilerinden otomatik rapor olusturup e posta excel veya pdf olarak gonderen sistemlerin kurgusu icerik secimi ve guvenlik onerileri. otomasyon ve entegrasyon otomatik rapor rapor e postasi otomatik excel rapor yonetici raporu raporlama otomasyonu"><a href="../blog/otomatik-rapor-e-postasi.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Otomatik Rapor E-postası: Yöneticilere Her Sabah Hazır Rapor</h3><p>Satış, stok, finans ve operasyon verilerinden otomatik rapor oluşturup e-posta, Excel veya PDF olarak gönderen sistemlerin kurgusu, içerik seçimi ve güvenlik önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="barkod okuyucu ve etiket yazdirma otomasyonu barkod okuyucu urun verisi ve etiket yazici entegrasyonlarinin isletme sureclerine nasil baglanacagini inceleyin. otomasyon ve entegrasyon"><a href="../blog/barkod-etiket-yazdirma-otomasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Barkod Okuyucu ve Etiket Yazdırma Otomasyonu</h3><p>Barkod okuyucu, ürün verisi ve etiket yazıcı entegrasyonlarının işletme süreçlerine nasıl bağlanacağını inceleyin.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261007" defer></script>
+</body>
+</html>
