@@ -35,7 +35,8 @@
     var layout = {
       desk:  [11, 4, 60, 88], web: [37, 8, 59, 84], panel: [15, 5, 63, 88],
       term:  [30, 14, 56, 68], ext: [33, 5, 56, 88], note: [21, 11, 46, 76],
-      bin:   [26, 16, 50, 62]
+      bin:   [26, 16, 50, 62],
+      refs:  [20, 9, 58, 74], blogapp: [34, 6, 52, 80]
     };
     var wins = {}, z = 10;
     pc.querySelectorAll('[data-win]').forEach(function (w) {
@@ -581,7 +582,10 @@
       { t: 'Süreç nasıl ilerliyor?', u: 'index.html#surec', k: 'Bölüm', i: 'fa-solid fa-list-check' },
       { t: 'Sık sorulan sorular', u: 'index.html#sss', k: 'Bölüm', i: 'fa-regular fa-circle-question' },
       { t: 'Blog yazıları', u: 'blog/index.html', k: 'Sayfa', i: 'fa-regular fa-newspaper' },
-      { t: 'Hakkımda', u: 'hakkimda.html', k: 'Sayfa', i: 'fa-regular fa-user' }
+      { t: 'Hakkımda', u: 'hakkimda.html', k: 'Sayfa', i: 'fa-regular fa-user' },
+      { t: 'Okuma yolları', u: 'blog/yollar.html', k: 'Sayfa', i: 'fa-solid fa-route' },
+      { t: 'Erişilebilirlik ayarları', u: '#erisilebilirlik', k: 'Ayar', i: 'fa-solid fa-universal-access' },
+      { t: 'Klavye kısayolları', u: '#kisayollar', k: 'Ayar', i: 'fa-regular fa-keyboard' }
     ];
     var icon = { 'Blog': 'fa-regular fa-file-lines', 'Proje': 'fa-solid fa-briefcase', 'Eklenti': 'fa-solid fa-puzzle-piece', 'Sayfa': 'fa-regular fa-file', 'Kategori': 'fa-regular fa-folder' };
     var escH = function (v) { return String(v).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -621,6 +625,12 @@
       if (!terms.length) {
         shown = quick.slice();
         html = '<li class="cmdk__group" aria-hidden="true">Hızlı erişim</li>' + shown.map(row).join('');
+        var saved = []; try { saved = JSON.parse(localStorage.getItem('fk-saved') || '[]'); } catch (e) {}
+        if (saved.length) {
+          var off = shown.length;
+          saved.slice(0, 8).forEach(function (x) { shown.push({ t: x.t, u: 'blog/' + x.s + '.html', k: 'Kaydedilen', i: 'fa-solid fa-bookmark' }); });
+          html += '<li class="cmdk__group" aria-hidden="true">Kaydedilen yazılar</li>' + shown.slice(off).map(function (x, j) { return row(x, off + j); }).join('');
+        }
       } else {
         var pool = quick.concat(items || []);
         var seenU = {};
@@ -654,6 +664,7 @@
     var move = function (d) { if (!shown.length) return; sel = (sel + d + shown.length) % shown.length; mark(); };
     var go = function (x) {
       if (!x) return;
+      if (x.u === '#erisilebilirlik' || x.u === '#kisayollar') { dlg.close(); setTimeout(function () { if (window.FKUI) window.FKUI[x.u === '#erisilebilirlik' ? 'a11y' : 'keys'](); }, 200); return; }
       if (x.u === '#rozetler') { dlg.close(); document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'palet' })); if (window.FKFun) setTimeout(window.FKFun.open, 250); return; }
       var url = base + x.u;
       var here = location.pathname.replace(/index\.html$/, '');
@@ -677,7 +688,7 @@
     };
     document.addEventListener('keydown', function (e) {
       if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); openK(); }
-      else if (e.key === '/' && !e.ctrlKey && !e.metaKey && !/INPUT|TEXTAREA|SELECT/.test((e.target.tagName || '')) && !e.target.isContentEditable) { e.preventDefault(); openK(); }
+      else if (e.key === '/' && !window.__fkKeysOff && !e.ctrlKey && !e.metaKey && !/INPUT|TEXTAREA|SELECT/.test((e.target.tagName || '')) && !e.target.isContentEditable) { e.preventDefault(); openK(); }
     });
     window.FKSearch = { open: openK };
   })();
@@ -685,7 +696,7 @@
   /* Sayfa geçişi (gidiş): site içi bağlantıya tıklanınca konsol tarzı geçiş ekranı açılır,
      ardından yeni sayfaya gidilir. Varış tarafı boot-head.js içindedir. */
   (function () {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-motion');
     var cmdFor = function (u) {
       var path = decodeURIComponent(u.pathname).replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/^\/+|\/+$/g, '');
       return 'PS C:\\kapukaya.dev> cd ' + (path ? '.\\' + path.replace(/\//g, '\\') : '~');

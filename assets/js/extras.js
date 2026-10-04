@@ -282,7 +282,7 @@
   paintHint();
   paintTrophy();
 
-  window.FKFun = { open: openPanel, unlock: unlock, count: function () { return found.length; }, total: SECRETS.length };
+  window.FKFun = { open: openPanel, unlock: unlock, toast: toast, count: function () { return found.length; }, total: SECRETS.length };
 
   /* Geliştirici konsolu mesajı */
   try {
@@ -294,4 +294,107 @@
       return next.length ? next.map(function (s, i) { return (i + 1) + '. ' + s.hint; }).join('\n') : 'Hepsini buldun!';
     };
   } catch (e) {}
+})();
+
+/* ===================================================================
+   Denetim Masası (erişilebilirlik ayarları) ve klavye kısayolları
+   Tercihler bu tarayıcıda saklanır; boot-head.js sayfa çizilmeden uygular.
+   =================================================================== */
+(function () {
+  'use strict';
+  var d = document.documentElement;
+  var load = function () { try { return JSON.parse(localStorage.getItem('fk-a11y') || '{}') || {}; } catch (e) { return {}; } };
+  var save = function (v) { try { localStorage.setItem('fk-a11y', JSON.stringify(v)); } catch (e) {} };
+  var apply = function (v) {
+    if (v.size) d.setAttribute('data-a11y-size', v.size); else d.removeAttribute('data-a11y-size');
+    d.classList.toggle('a11y-contrast', !!v.contrast);
+    d.classList.toggle('a11y-links', !!v.links);
+    d.classList.toggle('a11y-motion', !!v.motion);
+    window.__fkKeysOff = v.keys === false;
+  };
+  var mkDialog = function (cls, label) {
+    var dl = document.createElement('dialog');
+    dl.className = 'fx-panel ' + cls;
+    dl.setAttribute('aria-label', label);
+    document.body.appendChild(dl);
+    dl.addEventListener('click', function (e) { if (e.target === dl || e.target.closest('[data-x]')) dl.close(); });
+    return dl;
+  };
+  var show = function (dl) { if (typeof dl.showModal === 'function') dl.showModal(); else dl.setAttribute('open', ''); };
+
+  /* --- Denetim Masası --- */
+  var cp = null;
+  var paintCp = function () {
+    var v = load();
+    var sw = function (k, label, desc) {
+      return '<label class="cp-row"><span><b>' + label + '</b><small>' + desc + '</small></span><input type="checkbox" class="cp-sw" data-k="' + k + '"' + ((k === 'keys' ? v.keys !== false : !!v[k]) ? ' checked' : '') + '></label>';
+    };
+    cp.innerHTML = '<div class="fx-panel__box"><div class="fx-panel__bar"><span><i class="fa-solid fa-sliders" aria-hidden="true"></i> Denetim Masası › Erişilebilirlik</span><button type="button" data-x aria-label="Kapat">&#10005;</button></div><div class="fx-panel__body">' +
+      '<div class="cp-row cp-row--stack"><span><b>Yazı boyutu</b><small>Tüm sayfayı büyütür.</small></span><div class="cp-seg" role="group" aria-label="Yazı boyutu">' +
+      [['', 'Normal'], ['1', 'Büyük'], ['2', 'Çok büyük']].map(function (o) { var on = String(v.size || '') === o[0]; return '<button type="button" data-size="' + o[0] + '" aria-pressed="' + on + '"' + (on ? ' class="is-on"' : '') + '>' + o[1] + '</button>'; }).join('') + '</div></div>' +
+      sw('contrast', 'Yüksek kontrast', 'Soluk yazıları ve çizgileri belirginleştirir.') +
+      sw('links', 'Bağlantıların altını çiz', 'Metin içindeki bağlantıları ayırt etmeyi kolaylaştırır.') +
+      sw('motion', 'Hareketleri azalt', 'Animasyonları, açılış ekranını ve sayfa geçişlerini kapatır.') +
+      sw('keys', 'Tek tuşlu kısayollar', '"/" ve "?" kısayollarını açar veya kapatır.') +
+      '<div class="cp-foot"><button type="button" class="cp-link" data-cp-keys><i class="fa-regular fa-keyboard" aria-hidden="true"></i>Klavye kısayolları</button><button type="button" class="cp-link" data-cp-reset>Varsayılanlara dön</button></div>' +
+      '<p class="cp-note">Ayarlar yalnızca bu tarayıcıda saklanır. İşletim sisteminizdeki "hareketi azalt" tercihi de otomatik olarak dikkate alınır.</p></div></div>';
+  };
+  var openCp = function () {
+    if (!cp) {
+      cp = mkDialog('cp', 'Erişilebilirlik ayarları');
+      cp.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-size]');
+        if (b) { var v = load(); v.size = b.dataset.size || undefined; save(v); apply(v); paintCp(); cp.querySelector('[data-size="' + b.dataset.size + '"]').focus(); }
+        if (e.target.closest('[data-cp-reset]')) { save({}); apply({}); paintCp(); }
+        if (e.target.closest('[data-cp-keys]')) { cp.close(); openKeys(); }
+      });
+      cp.addEventListener('change', function (e) {
+        var c = e.target.closest('[data-k]'); if (!c) return;
+        var v = load(); v[c.dataset.k] = c.checked; if (c.dataset.k === 'keys' && c.checked) delete v.keys;
+        save(v); apply(v);
+      });
+    }
+    paintCp(); show(cp);
+  };
+
+  /* --- Klavye kısayolları --- */
+  var kp = null;
+  var openKeys = function () {
+    var home = !!document.querySelector('[data-pc]');
+    var mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    var rows = [
+      [mac ? '⌘ K' : 'Ctrl K', 'Sitede ara (yazı, proje, sayfa)'],
+      ['/', 'Sitede ara' + (window.__fkKeysOff ? ' (kapalı)' : '')],
+      ['?', 'Bu listeyi aç' + (window.__fkKeysOff ? ' (kapalı)' : '')],
+      ['Esc', 'Açık pencereyi veya menüyü kapat']
+    ];
+    if (home) rows.push(['Alt Tab', 'Sanal bilgisayarda pencereler arasında geç'], [mac ? '⌘ S' : 'Ctrl S', 'Proje notunu teklif formuna aktar']);
+    if (!kp) {
+      kp = mkDialog('kp', 'Klavye kısayolları');
+      kp.addEventListener('click', function (e) { if (e.target.closest('[data-kp-cp]')) { kp.close(); openCp(); } });
+    }
+    kp.innerHTML = '<div class="fx-panel__box"><div class="fx-panel__bar"><span>PS C:\\kapukaya.dev&gt; kisayollar --listele</span><button type="button" data-x aria-label="Kapat">&#10005;</button></div><div class="fx-panel__body"><table class="kp-table"><tbody>' +
+      rows.map(function (r) { return '<tr><td>' + r[0].split(' ').map(function (k) { return '<kbd>' + k + '</kbd>'; }).join(' ') + '</td><td>' + r[1] + '</td></tr>'; }).join('') +
+      '</tbody></table><p class="cp-note">Tek tuşlu kısayolları <button type="button" class="cp-link" data-kp-cp>Denetim Masası</button>\'ndan kapatabilirsiniz. Bu sitede klavyeyle bulunabilecek bir sürpriz de var.</p></div></div>';
+    show(kp);
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== '?' || window.__fkKeysOff || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target;
+    if (t && (/INPUT|TEXTAREA|SELECT/.test(t.tagName) || t.isContentEditable)) return;
+    if (document.querySelector('dialog[open]')) return;
+    e.preventDefault(); openKeys();
+  });
+
+  /* Alt bilgide erişilebilirlik bağlantısı (çerez tercihlerinin yanında) */
+  var legal = document.querySelector('.k-footer__legal');
+  if (legal) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = 'Erişilebilirlik';
+    b.addEventListener('click', openCp);
+    legal.appendChild(b);
+  }
+  window.FKUI = { a11y: openCp, keys: openKeys };
 })();

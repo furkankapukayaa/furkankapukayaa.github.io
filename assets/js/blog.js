@@ -2,10 +2,63 @@
    geri bildirim ve paylaşım. Yalnızca blog yazılarında yüklenir. */
 (function () {
   'use strict';
+  var get = function (k) { try { return JSON.parse(localStorage.getItem(k) || '[]'); } catch (e) { return []; } };
+  var put = function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  var bar10 = function (n, t) { var f = Math.round(n / t * 6); return '[' + new Array(f + 1).join('█') + new Array(6 - f + 1).join('░') + '] ' + n + '/' + t; };
+
+  /* Okuma yolları sayfası: okunan adımları işaretle */
+  var readList = get('fk-read');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-path-card]'), function (card) {
+    var items = card.querySelectorAll('[data-step]'), n = 0;
+    Array.prototype.forEach.call(items, function (li) { var r = readList.indexOf(li.dataset.step) !== -1; li.classList.toggle('is-read', r); if (r) n++; });
+    var pr = card.querySelector('[data-path-prog]');
+    if (pr) pr.textContent = bar10(n, items.length);
+    card.classList.toggle('is-done', n === items.length);
+  });
+
   var article = document.querySelector('.prose');
   if (!article) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var slug = location.pathname.split('/').pop().replace(/\.html$/, '') || 'yazi';
+
+  /* Okunan yazı kaydı ve okuma yolu kutusu */
+  var markRead = function () {
+    var l = get('fk-read');
+    if (l.indexOf(slug) === -1) { l.push(slug); put('fk-read', l); }
+    paintPath();
+  };
+  var pbox = document.querySelector('.path-box');
+  var paintPath = function () {
+    if (!pbox) return;
+    var steps = pbox.dataset.steps.split(' '), l = get('fk-read');
+    var n = steps.filter(function (x) { return l.indexOf(x) !== -1; }).length;
+    pbox.querySelector('[data-path-fill]').style.width = (n / steps.length * 100) + '%';
+    pbox.querySelector('[data-path-txt]').textContent = n + ' / ' + steps.length + ' yazı okundu';
+  };
+  paintPath();
+
+  /* Kaydet: yazı bu tarayıcıda saklanır, Ctrl+K paletinde listelenir */
+  var saveBtn = document.querySelector('[data-save]');
+  if (saveBtn) {
+    var h1 = document.querySelector('h1');
+    var paintSave = function () {
+      var on = get('fk-saved').some(function (x) { return x.s === slug; });
+      saveBtn.classList.toggle('is-on', on);
+      saveBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      saveBtn.querySelector('i').className = (on ? 'fa-solid' : 'fa-regular') + ' fa-bookmark';
+      saveBtn.querySelector('span').textContent = on ? 'Kaydedildi' : 'Kaydet';
+    };
+    saveBtn.hidden = false;
+    paintSave();
+    saveBtn.addEventListener('click', function () {
+      var l = get('fk-saved'), i = -1;
+      l.forEach(function (x, k) { if (x.s === slug) i = k; });
+      if (i === -1) { l.unshift({ s: slug, t: h1 ? h1.textContent : document.title }); l = l.slice(0, 50); } else l.splice(i, 1);
+      put('fk-saved', l);
+      paintSave();
+      if (window.FKFun && window.FKFun.toast) window.FKFun.toast(i === -1 ? '<b>Yazı kaydedildi.</b> Kaydettiklerinize Ctrl+K ile ulaşabilirsiniz.' : 'Kayıt kaldırıldı.', '<i class="fa-solid fa-bookmark"></i>');
+    });
+  }
 
   /* 1) Okuma ilerleme çubuğu */
   var bar = document.createElement('div');
@@ -174,7 +227,7 @@
   /* Yazının sonuna kadar okuyan biri gizli bir rozet kazanır (extras.js) */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (en) {
-      if (en[0].isIntersecting) { io.disconnect(); document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'okur' })); }
+      if (en[0].isIntersecting) { io.disconnect(); markRead(); document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'okur' })); }
     });
     io.observe(box);
   }

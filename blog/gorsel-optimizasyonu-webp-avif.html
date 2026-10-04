@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261008"></script>
+<script src="../assets/js/boot-head.js?v=20261009"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html">
@@ -39,9 +39,10 @@
 <link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261009">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma", "description": "Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.", "url": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html", "mainEntityOfPage": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html", "datePublished": "2026-05-16", "dateModified": "2026-05-16", "inLanguage": "tr", "articleSection": "Web Tasarım ve Geliştirme", "wordCount": 352, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/gorsel-optimizasyonu-webp-avif.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "görsel optimizasyonu, webp, avif, resim sıkıştırma, lazy loading, srcset"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Web Tasarım ve Geliştirme", "item": "https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html"}, {"@type": "ListItem", "position": 4, "name": "Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma", "item": "https://kapukaya.dev/blog/gorsel-optimizasyonu-webp-avif.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Alt metin (alt) ne işe yarar?", "acceptedAnswer": {"@type": "Answer", "text": "Görme engelli kullanıcıların ekran okuyucularla görseli anlamasını sağlar ve arama motorlarına görselin içeriği hakkında bilgi verir. Süs amaçlı görsellerde boş bırakılabilir."}}, {"@type": "Question", "name": "Sıkıştırma görsel kalitesini bozar mı?", "acceptedAnswer": {"@type": "Answer", "text": "Uygun ayarlarla gözle fark edilmeyecek kadar az kayıpla çok büyük boyut kazancı sağlanır."}}]}</script>
@@ -49,7 +50,7 @@
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true"></div>
-<script src="../assets/js/boot.js?v=20261008"></script>
+<script src="../assets/js/boot.js?v=20261009"></script>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="k-header">
   <div class="k-header__inner">
@@ -66,7 +67,7 @@
 <section class="page-hero article-hero article-hero--web">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></nav>
-    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-05-16">16 Mayıs 2026</time><span>2 dk okuma</span></div>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-05-16">16 Mayıs 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
     <h1>Web İçin Görsel Optimizasyonu: WebP, AVIF ve Doğru Boyutlandırma</h1>
     <p class="page-hero__lead">Web sitesindeki görselleri WebP ve AVIF formatları, doğru boyutlandırma, srcset, lazy loading ve sıkıştırma ile hızlandırmanın yolları ve görsel telif hakkına dikkat edilmesi gerekenler.</p>
   </div>
@@ -164,8 +165,8 @@
     <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261008" defer></script>
-<script src="../assets/js/blog.js?v=20261008" defer></script>
-<script src="../assets/js/extras.js?v=20261008" defer></script>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261009" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261008"></script>
+<script src="../assets/js/boot-head.js?v=20261009"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/rpa-nedir.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/rpa-nedir.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/rpa-nedir.html">
@@ -39,9 +39,10 @@
 <link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261009">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon", "description": "Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.", "url": "https://kapukaya.dev/blog/rpa-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/rpa-nedir.html", "datePublished": "2026-09-10", "dateModified": "2026-09-10", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 323, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/rpa-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "rpa nedir, robotik süreç otomasyonu, yazılım robotu, ekran otomasyonu, rpa ve api farkı"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon", "item": "https://kapukaya.dev/blog/rpa-nedir.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "RPA için programlama bilmek gerekir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Görsel araçlarla basit robotlar kodlamadan hazırlanabilir; ancak hata yönetimi ve sürdürülebilirlik için teknik bilgi gerekir."}}, {"@type": "Question", "name": "Yapay zekâ RPA'yı değiştiriyor mu?", "acceptedAnswer": {"@type": "Answer", "text": "Yapay zekâ ajanları ekranları daha esnek yorumlayabiliyor; bu da RPA'yı daha dayanıklı hale getirebilir. Ancak güvenlik ve denetim gereksinimleri aynen geçerlidir. Bkz. yapay zekâ ajanları."}}]}</script>
@@ -49,7 +50,7 @@
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true"></div>
-<script src="../assets/js/boot.js?v=20261008"></script>
+<script src="../assets/js/boot.js?v=20261009"></script>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="k-header">
   <div class="k-header__inner">
@@ -66,7 +67,7 @@
 <section class="page-hero article-hero article-hero--otomasyon">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
-    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-09-10">10 Eylül 2026</time><span>2 dk okuma</span></div>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-09-10">10 Eylül 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
     <h1>RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon</h1>
     <p class="page-hero__lead">Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.</p>
   </div>
@@ -169,8 +170,8 @@
     <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261008" defer></script>
-<script src="../assets/js/blog.js?v=20261008" defer></script>
-<script src="../assets/js/extras.js?v=20261008" defer></script>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261009" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
 </body>
 </html>
