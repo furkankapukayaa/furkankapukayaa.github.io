@@ -1872,3 +1872,8 @@ html.is-rainbow .btn--primary, html.is-rainbow .k-brand__mark, html.is-rainbow .
 .health__act { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; }
 @media (max-width: 860px) { .health { grid-template-columns: 1fr; } .health__res { position: static; } .health__list li { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { .tools__panel:not([hidden]), .quiz-res, .sector-pick, .hero__lead.is-swap { animation: none; } }
+
+/* Paylaşım alanı düzenlemesi */
+.post-end { grid-template-columns: 1fr; }
+.post-end__share .post-end__btns { align-items: center; }
+.share-native { min-height: 40px; padding: 8px 16px; gap: 8px; }

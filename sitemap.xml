@@ -16,13 +16,13 @@
   <url><loc>https://kapukaya.dev/projeler/metrekare-gayrimenkul.html</loc><lastmod>2026-09-27</lastmod></url>
   <url><loc>https://kapukaya.dev/projeler/olivia-hair-mansion.html</loc><lastmod>2026-09-27</lastmod></url>
   <url><loc>https://kapukaya.dev/projeler/pro-markalar.html</loc><lastmod>2026-09-27</lastmod></url>
-  <url><loc>https://kapukaya.dev/blog/</loc><lastmod>2026-10-02</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/seo-dijital-pazarlama.html</loc><lastmod>2026-09-01</lastmod></url>
-  <url><loc>https://kapukaya.dev/blog/kategori/isletme-yazilimlari.html</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/kategori/isletme-yazilimlari.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/e-ticaret-odeme.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html</loc><lastmod>2026-09-10</lastmod></url>
-  <url><loc>https://kapukaya.dev/blog/kategori/csharp-dotnet.html</loc><lastmod>2026-09-23</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/kategori/csharp-dotnet.html</loc><lastmod>2026-10-03</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/backend-api-veritabani.html</loc><lastmod>2026-09-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/guvenlik-kvkk.html</loc><lastmod>2026-09-30</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kategori/yapay-zeka.html</loc><lastmod>2026-10-01</lastmod></url>
@@ -30,6 +30,7 @@
   <url><loc>https://kapukaya.dev/blog/301-yonlendirme-site-tasima.html</loc><lastmod>2026-04-16</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/3d-secure-nedir.html</loc><lastmod>2026-04-13</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/ab-yapay-zeka-yasasi.html</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/abonelik-tekrarlayan-odeme.html</loc><lastmod>2026-08-28</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/ai-coding-agent-nedir.html</loc><lastmod>2026-06-20</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/alan-adi-hosting-secimi.html</loc><lastmod>2026-09-18</lastmod></url>
@@ -51,13 +52,16 @@
   <url><loc>https://kapukaya.dev/blog/ci-cd-github-actions.html</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/cok-dilli-web-sitesi.html</loc><lastmod>2026-07-19</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html</loc><lastmod>2026-07-29</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/cok-subeli-isletmeler-yerel-seo.html</loc><lastmod>2026-04-25</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/com-tr-alan-adi.html</loc><lastmod>2026-06-25</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/core-web-vitals-nedir.html</loc><lastmod>2026-07-13</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/crm-nedir.html</loc><lastmod>2026-06-11</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/csharp-14-yenilikleri.html</loc><lastmod>2026-08-03</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/csharp-async-await-nedir.html</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/csharp-linq-rehberi.html</loc><lastmod>2026-08-06</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/csharp-nullable-reference-types.html</loc><lastmod>2026-10-03</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/csharp-record-tipleri.html</loc><lastmod>2026-07-06</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/depo-yonetim-sistemi-wms.html</loc><lastmod>2026-08-17</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/dijital-erisilebilirlik-genelgesi.html</loc><lastmod>2026-06-02</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/docker-nedir.html</loc><lastmod>2026-08-16</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/donusum-orani-optimizasyonu.html</loc><lastmod>2026-08-27</lastmod></url>
@@ -66,7 +70,9 @@
   <url><loc>https://kapukaya.dev/blog/dotnet-birim-testi-xunit.html</loc><lastmod>2026-09-14</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/dotnet-dependency-injection.html</loc><lastmod>2026-06-12</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/dotnet-loglama.html</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/dotnet-yapilandirma-options-secrets.html</loc><lastmod>2026-05-11</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/e-fatura-e-arsiv-entegrasyonu.html</loc><lastmod>2026-07-27</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/e-ihracat-baslangic.html</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/e-imza-kep-nedir.html</loc><lastmod>2026-08-07</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/e-ticaret-kargo-entegrasyonu.html</loc><lastmod>2026-09-02</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/e-ticaret-sitesi-kurmak.html</loc><lastmod>2026-08-29</lastmod></url>
@@ -75,6 +81,7 @@
   <url><loc>https://kapukaya.dev/blog/entity-framework-core-nedir.html</loc><lastmod>2026-09-05</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/erp-nedir-kobi.html</loc><lastmod>2026-07-15</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/etbis-kaydi.html</loc><lastmod>2026-05-08</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/excel-rapor-otomasyonu.html</loc><lastmod>2026-04-30</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/excelden-ozel-yazilima-gecis.html</loc><lastmod>2026-07-25</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/fidye-yazilimi-korunma.html</loc><lastmod>2026-08-01</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/freelance-yazilim-hizmeti.html</loc><lastmod>2026-07-12</lastmod></url>
@@ -90,6 +97,7 @@
   <url><loc>https://kapukaya.dev/blog/hazir-altyapi-mi-ozel-yazilim-mi.html</loc><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/http-guvenlik-basliklari.html</loc><lastmod>2026-07-31</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/ic-linkleme-stratejisi.html</loc><lastmod>2026-04-21</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/idempotency-nedir.html</loc><lastmod>2026-04-23</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/iki-faktorlu-dogrulama.html</loc><lastmod>2026-06-19</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/iletisim-formu-spam-onleme.html</loc><lastmod>2026-07-22</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/is-sureci-otomasyonu.html</loc><lastmod>2026-07-21</lastmod></url>
@@ -97,11 +105,14 @@
   <url><loc>https://kapukaya.dev/blog/iys-ticari-elektronik-ileti.html</loc><lastmod>2026-08-02</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/junior-dotnet-yol-haritasi.html</loc><lastmod>2026-06-17</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/jwt-kimlik-dogrulama.html</loc><lastmod>2026-05-04</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/kaynak-kod-sahipligi.html</loc><lastmod>2026-09-24</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kobi-dijital-donusum-yol-haritasi.html</loc><lastmod>2026-05-29</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kobi-siber-guvenlik-kontrol-listesi.html</loc><lastmod>2026-05-18</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kuafor-salon-yonetim-programi.html</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kurumsal-blog-icerik-takvimi.html</loc><lastmod>2026-04-07</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html</loc><lastmod>2026-09-25</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kurumsal-web-sitesi-nasil-yapilir.html</loc><lastmod>2026-10-02</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/kvkk-ilgili-kisi-basvurusu.html</loc><lastmod>2026-05-21</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kvkk-uyumlu-web-sitesi.html</loc><lastmod>2026-06-22</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kvkk-veri-ihlali-bildirimi.html</loc><lastmod>2026-07-23</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/kvkk-yurt-disina-veri-aktarimi.html</loc><lastmod>2026-05-24</lastmod></url>
@@ -110,6 +121,7 @@
   <url><loc>https://kapukaya.dev/blog/masaustu-otomasyon-sistemleri.html</loc><lastmod>2026-07-05</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/mcp-yazilim-gelistirme.html</loc><lastmod>2026-05-12</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/mesafeli-satis-cayma-hakki.html</loc><lastmod>2026-05-15</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html</loc><lastmod>2026-08-22</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/meta-title-description-yazma.html</loc><lastmod>2026-08-11</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/mobil-uyumlu-web-sitesi.html</loc><lastmod>2026-05-05</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/musteri-sadakat-programi.html</loc><lastmod>2026-09-12</lastmod></url>
@@ -124,8 +136,10 @@
   <url><loc>https://kapukaya.dev/blog/otomatik-rapor-e-postasi.html</loc><lastmod>2026-08-23</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/owasp-top-10-web-guvenligi.html</loc><lastmod>2026-07-03</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/ozel-yazilim-maliyeti.html</loc><lastmod>2026-08-25</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/pagespeed-insights-nasil-okunur.html</loc><lastmod>2026-05-22</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/passkey-nedir.html</loc><lastmod>2026-09-20</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/pazaryeri-entegrasyonu.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/pdf-teklif-fatura-otomasyonu.html</loc><lastmod>2026-05-10</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/personel-vardiya-takip-programi.html</loc><lastmod>2026-04-29</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/postgresql-mi-sql-server-mi.html</loc><lastmod>2026-09-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/prompt-yazma-rehberi.html</loc><lastmod>2026-08-05</lastmod></url>
@@ -137,6 +151,7 @@
   <url><loc>https://kapukaya.dev/blog/rest-api-nedir.html</loc><lastmod>2026-04-19</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/rpa-nedir.html</loc><lastmod>2026-09-10</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/seo-nedir-rehber.html</loc><lastmod>2026-06-23</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/seo-uyumlu-blog-yazisi-nasil-yazilir.html</loc><lastmod>2026-05-02</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/sepet-terk-orani.html</loc><lastmod>2026-09-26</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/sftp-dosya-aktarimi-otomasyonu.html</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/siber-guvenlik-kanunu-7545.html</loc><lastmod>2026-09-07</lastmod></url>
@@ -149,8 +164,10 @@
   <url><loc>https://kapukaya.dev/blog/stok-takip-programi-secimi.html</loc><lastmod>2026-09-11</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/teknik-seo-kontrol-listesi.html</loc><lastmod>2026-04-27</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/teknik-servis-takip-programi.html</loc><lastmod>2026-05-25</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/uretim-takip-programi.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/urun-sayfasi-seo.html</loc><lastmod>2026-09-16</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/vektor-veritabani-nedir.html</loc><lastmod>2026-04-22</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/verbis-kaydi-nedir.html</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/veritabani-normalizasyon.html</loc><lastmod>2026-07-09</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/veritabani-yedekleme-stratejisi.html</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/web-erisilebilirlik-wcag.html</loc><lastmod>2026-04-10</lastmod></url>
@@ -174,11 +191,14 @@
   <url><loc>https://kapukaya.dev/blog/yapay-zeka-halusinasyon.html</loc><lastmod>2026-06-30</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yapay-zeka-icerik-telif.html</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yapay-zeka-musteri-destegi.html</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/yapay-zeka-toplanti-notlari.html</loc><lastmod>2026-05-27</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yapay-zeka-ve-kvkk.html</loc><lastmod>2026-04-17</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/yapay-zeka-veri-analizi.html</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yapay-zeka-yazilim-gelistirme-2026.html</loc><lastmod>2026-05-06</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yapisal-veri-schema-nedir.html</loc><lastmod>2026-08-20</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yazilim-bakim-destek-sozlesmesi.html</loc><lastmod>2026-04-28</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yazilim-kabul-testi.html</loc><lastmod>2026-09-03</lastmod></url>
+  <url><loc>https://kapukaya.dev/blog/yazilim-projesi-butce-planlama.html</loc><lastmod>2026-08-24</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yazilim-projesi-teklif-isteme.html</loc><lastmod>2026-09-27</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yazilim-projesinde-kapsam-kaymasi.html</loc><lastmod>2026-09-28</lastmod></url>
   <url><loc>https://kapukaya.dev/blog/yerel-llm-calistirma.html</loc><lastmod>2026-07-02</lastmod></url>

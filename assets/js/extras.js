@@ -33,22 +33,23 @@
       var c = document.getElementById('iletisim');
       if (c) { e.preventDefault(); c.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
     });
-    var contact = document.getElementById('iletisim'), footer = document.querySelector('.k-footer');
+    var contact = document.getElementById('iletisim'), footer = document.querySelector('.k-footer'), postEnd = document.querySelector('.post-end');
     var hideFor = { contact: false, footer: false };
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
-        en.forEach(function (x) { hideFor[x.target === contact ? 'contact' : 'footer'] = x.isIntersecting; });
+        en.forEach(function (x) { hideFor[x.target === contact ? 'contact' : x.target === postEnd ? 'share' : 'footer'] = x.isIntersecting; });
         decide();
       }, { threshold: 0.05 });
       if (contact) io.observe(contact);
       if (footer) io.observe(footer);
+      if (postEnd) io.observe(postEnd);
     }
     var typing = false;
     document.addEventListener('focusin', function (e) { typing = /INPUT|TEXTAREA|SELECT/.test(e.target.tagName); decide(); });
     document.addEventListener('focusout', function () { typing = false; setTimeout(decide, 50); });
     var decide = function () {
       var consent = document.querySelector('.consent:not([hidden])');
-      var show = window.scrollY > 380 && !hideFor.contact && !hideFor.footer && !typing && !(consent && consent.offsetParent);
+      var show = window.scrollY > 380 && !hideFor.contact && !hideFor.footer && !hideFor.share && !typing && !(consent && consent.offsetParent);
       bar.classList.toggle('is-on', show);
     };
     window.addEventListener('scroll', function () { requestAnimationFrame(decide); }, { passive: true });

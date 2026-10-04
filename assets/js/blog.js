@@ -101,11 +101,15 @@
       '<button type="button" class="btn btn--ghost" data-fb-v="0"><i class="fa-regular fa-thumbs-down" aria-hidden="true"></i>Pek değil</button></div>' +
       '<p class="post-end__msg" role="status" aria-live="polite"></p></div>' +
     '<div class="post-end__share"><p class="post-end__q">Paylaşın</p><div class="post-end__btns">' +
-      '<a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=' + enc(url) + '" aria-label="LinkedIn\'de paylaş"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>' +
-      '<a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=' + enc(url) + '&text=' + enc(title) + '" aria-label="X\'te paylaş"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>' +
-      '<a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=' + enc(title + ' ' + url) + '" aria-label="WhatsApp ile gönder"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>' +
+      (navigator.share ? '<button type="button" class="btn btn--primary share-native" data-share-native><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Paylaş</button>' : '') +
+      '<a class="share-btn" data-share="whatsapp" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text=' + enc(title + ' ' + url) + '" aria-label="WhatsApp ile gönder"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>' +
+      '<a class="share-btn" data-share="linkedin" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=' + enc(url) + '" aria-label="LinkedIn\'de paylaş"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>' +
+      '<a class="share-btn" data-share="x" target="_blank" rel="noopener" href="https://x.com/intent/post?url=' + enc(url) + '&text=' + enc(title) + '" aria-label="X\'te paylaş"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>' +
+      '<a class="share-btn" data-share="facebook" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + enc(url) + '" aria-label="Facebook\'ta paylaş"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>' +
+      '<a class="share-btn" data-share="telegram" target="_blank" rel="noopener" href="https://t.me/share/url?url=' + enc(url) + '&text=' + enc(title) + '" aria-label="Telegram ile gönder"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>' +
+      '<a class="share-btn" data-share="email" href="mailto:?subject=' + enc(title) + '&body=' + enc(title + '\n\n' + url) + '" aria-label="E-posta ile gönder"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>' +
       '<button type="button" class="share-btn" data-copy-link aria-label="Bağlantıyı kopyala"><i class="fa-solid fa-link" aria-hidden="true"></i></button>' +
-    '</div></div>';
+    '</div><p class="post-end__msg" data-share-msg role="status" aria-live="polite"></p></div>';
   article.insertBefore(box, note || null);
   var msg = box.querySelector('.post-end__msg'), key = 'fk-fb:' + slug;
   var show = function (v) {
@@ -123,12 +127,49 @@
       if (typeof window.gtag === 'function') { try { window.gtag('event', 'yazi_geri_bildirim', { yazi: slug, faydali: v === '1' }); } catch (e) {} }
     });
   });
-  box.querySelector('[data-copy-link]').addEventListener('click', function (e) {
-    var b = e.currentTarget;
-    if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () {
-      b.classList.add('is-done'); b.querySelector('i').className = 'fa-solid fa-check';
-      setTimeout(function () { b.classList.remove('is-done'); b.querySelector('i').className = 'fa-solid fa-link'; }, 1600);
-    }, function () {});
+  /* Paylaşım: telefonda yerel paylaşım menüsü, masaüstünde küçük pencere, her durumda çalışan kopyalama */
+  var shareMsg = box.querySelector('[data-share-msg]');
+  var say = function (t) { shareMsg.textContent = t; clearTimeout(say._t); say._t = setTimeout(function () { shareMsg.textContent = ''; }, 3500); };
+  var copyText = function (text) {
+    var fallback = function () {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove();
+      return ok ? Promise.resolve() : Promise.reject();
+    };
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(fallback);
+    return fallback();
+  };
+  var track = function (kanal) { if (typeof window.gtag === 'function') { try { window.gtag('event', 'share', { method: kanal, item_id: slug }); } catch (e) {} } };
+  var copyBtn = box.querySelector('[data-copy-link]');
+  copyBtn.addEventListener('click', function () {
+    copyText(url).then(function () {
+      copyBtn.classList.add('is-done'); copyBtn.querySelector('i').className = 'fa-solid fa-check';
+      say('Bağlantı kopyalandı.');
+      setTimeout(function () { copyBtn.classList.remove('is-done'); copyBtn.querySelector('i').className = 'fa-solid fa-link'; }, 1800);
+      track('kopyala');
+    }, function () {
+      window.prompt('Bağlantıyı kopyalayın:', url);
+    });
+  });
+  var nat = box.querySelector('[data-share-native]');
+  if (nat) nat.addEventListener('click', function () {
+    navigator.share({ title: title, text: title, url: url }).then(function () { track('yerel'); }, function () {});
+  });
+  box.querySelectorAll('a[data-share]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var k = a.dataset.share;
+      track(k);
+      if (k === 'email') return;
+      /* Geniş ekranda ortalanmış küçük bir pencere; engellenirse bağlantı normal şekilde yeni sekmede açılır */
+      if (window.matchMedia('(min-width: 761px)').matches && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        var w = 600, h = 640, l = Math.max(0, (screen.width - w) / 2), t = Math.max(0, (screen.height - h) / 2);
+        var win = window.open(a.href, 'fk-share', 'width=' + w + ',height=' + h + ',left=' + l + ',top=' + t);
+        if (win) { try { win.opener = null; } catch (err) {} e.preventDefault(); }
+      }
+    });
   });
   /* Yazının sonuna kadar okuyan biri gizli bir rozet kazanır (extras.js) */
   if ('IntersectionObserver' in window) {

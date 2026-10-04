@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak | Furkan Kapukaya</title>
+<meta name="description" content="Mesaj kuyruklarının mantığı, senkron ve asenkron iletişim farkı, kullanım alanları, en az bir kez teslim, ölü mektup kuyruğu, RabbitMQ ve bulut seçenekleri ile lisans notları.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261008"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak | Furkan Kapukaya">
+<meta property="og:description" content="Mesaj kuyruklarının mantığı, senkron ve asenkron iletişim farkı, kullanım alanları, en az bir kez teslim, ölü mektup kuyruğu, RabbitMQ ve bulut seçenekleri ile lisans notları.">
+<meta property="og:url" content="https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/mesaj-kuyrugu-nedir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak | Furkan Kapukaya">
+<meta name="twitter:description" content="Mesaj kuyruklarının mantığı, senkron ve asenkron iletişim farkı, kullanım alanları, en az bir kez teslim, ölü mektup kuyruğu, RabbitMQ ve bulut seçenekleri ile lisans notları.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/mesaj-kuyrugu-nedir.jpg">
+<meta property="article:published_time" content="2026-08-22">
+<meta property="article:modified_time" content="2026-08-22">
+<meta property="article:section" content="Backend, API ve Veritabanı">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak", "description": "Mesaj kuyruklarının mantığı, senkron ve asenkron iletişim farkı, kullanım alanları, en az bir kez teslim, ölü mektup kuyruğu, RabbitMQ ve bulut seçenekleri ile lisans notları.", "url": "https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html", "datePublished": "2026-08-22", "dateModified": "2026-08-22", "inLanguage": "tr", "articleSection": "Backend, API ve Veritabanı", "wordCount": 364, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/mesaj-kuyrugu-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "mesaj kuyruğu, message queue, rabbitmq, asenkron işlem, kuyruk sistemi"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Backend, API ve Veritabanı", "item": "https://kapukaya.dev/blog/kategori/backend-api-veritabani.html"}, {"@type": "ListItem", "position": 4, "name": "Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak", "item": "https://kapukaya.dev/blog/mesaj-kuyrugu-nedir.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kuyruk kullanınca veriler kaybolabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Doğru yapılandırılmış kalıcı kuyruklar mesajları güvenle saklar. Önemli olan, tüketicinin mesajı başarıyla işledikten sonra onaylamasıdır."}}, {"@type": "Question", "name": ".NET ile hangi kütüphaneler kullanılır?", "acceptedAnswer": {"@type": "Answer", "text": "Kuyruk sistemlerinin resmî .NET istemcileri ve üzerlerine kurulu daha üst seviye kütüphaneler bulunur. Kütüphanelerin lisanslarını da seçim sırasında kontrol edin."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261008"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--backend">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a><time datetime="2026-08-22">22 Ağustos 2026</time><span>2 dk okuma</span></div>
+    <h1>Mesaj Kuyruğu Nedir? Uygulamaları Birbirinden Bağımsız Çalıştırmak</h1>
+    <p class="page-hero__lead">Mesaj kuyruklarının mantığı, senkron ve asenkron iletişim farkı, kullanım alanları, en az bir kez teslim, ölü mektup kuyruğu, RabbitMQ ve bulut seçenekleri ile lisans notları.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Bir sipariş geldiğinde fatura kesmek, stok düşmek, kargo kaydı açmak ve müşteriye e-posta göndermek gerekiyor. Bunların hepsini kullanıcı beklerken tek seferde yapmak hem yavaştır hem de birinde hata olursa tüm işlem çöker. <strong>Mesaj kuyrukları</strong>, bu işleri birbirinden ayırır.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#temel-mantik">Temel mantık</a></li><li><a href="#faydalari">Faydaları</a></li><li><a href="#kullanim-alanlari">Kullanım alanları</a></li><li><a href="#onemli-kavramlar">Önemli kavramlar</a></li><li><a href="#secenekler">Seçenekler</a></li><li><a href="#ne-zaman-gerekmez">Ne zaman gerekmez?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="temel-mantik">Temel mantık</h2>
+<ul>
+<li><strong>Üretici (producer):</strong> &quot;Sipariş oluşturuldu&quot; mesajını kuyruğa bırakır ve işine devam eder.</li>
+<li><strong>Kuyruk:</strong> Mesajı güvenle saklar.</li>
+<li><strong>Tüketici (consumer):</strong> Mesajı alır ve işler: fatura, kargo, e-posta.</li>
+</ul>
+<p>Kullanıcı siparişin alındığını anında görür; diğer işler arka planda yürür.</p>
+<h2 id="faydalari">Faydaları</h2>
+<ol>
+<li><strong>Hız:</strong> Kullanıcı yavaş işlemleri beklemez.</li>
+<li><strong>Dayanıklılık:</strong> E-posta servisi geçici olarak çökse bile mesajlar kuyrukta bekler, servis düzelince işlenir.</li>
+<li><strong>Ölçeklenebilirlik:</strong> Yoğun dönemlerde tüketici sayısı artırılabilir.</li>
+<li><strong>Bağımsızlık:</strong> Sistemler birbirinin iç yapısını bilmeden haberleşir.</li>
+</ol>
+<h2 id="kullanim-alanlari">Kullanım alanları</h2>
+<ul>
+<li>Sipariş sonrası işlemler</li>
+<li>Toplu e-posta ve SMS gönderimi. Bkz. <a href="sms-entegrasyonu-isletmeler.html">SMS entegrasyonu</a>.</li>
+<li>Rapor ve PDF oluşturma. Bkz. <a href="pdf-teklif-fatura-otomasyonu.html">PDF belge otomasyonu</a>.</li>
+<li>Pazaryeri ve stok senkronizasyonu. Bkz. <a href="cok-kanalli-stok-senkronizasyonu.html">stok senkronizasyonu</a>.</li>
+<li>Görsel ve belge işleme</li>
+</ul>
+<h2 id="onemli-kavramlar">Önemli kavramlar</h2>
+<h3>En az bir kez teslim</h3>
+<p>Çoğu kuyruk sistemi, mesajın kaybolmamasını garanti etmek için aynı mesajı birden fazla kez teslim edebilir. Bu yüzden tüketiciler <a href="idempotency-nedir.html">idempotent</a> yazılmalıdır.</p>
+<h3>Ölü mektup kuyruğu</h3>
+<p>Defalarca denenip işlenemeyen mesajlar ayrı bir kuyruğa alınır. Böylece hatalı bir mesaj tüm sistemi tıkamaz ve sonradan incelenebilir.</p>
+<h3>Sıralama</h3>
+<p>Bazı işlerde mesajların sırası önemlidir. Kuyruk seçimi ve tasarım bu ihtiyaca göre yapılmalıdır.</p>
+<h2 id="secenekler">Seçenekler</h2>
+<ul>
+<li><strong>RabbitMQ:</strong> Yaygın kullanılan, açık kaynaklı (Mozilla Public License 2.0) bir mesaj aracısı.</li>
+<li><strong>Bulut kuyrukları:</strong> Bulut sağlayıcılarının yönetilen kuyruk hizmetleri; kurulum ve bakım yükü yoktur.</li>
+<li><strong>Veritabanı tabanlı kuyruk:</strong> Küçük ölçekli sistemlerde mevcut veritabanında basit bir iş tablosu bile yeterli olabilir.</li>
+<li><strong>Redis:</strong> Basit kuyruk ihtiyaçları için kullanılabilir; lisans notları için <a href="redis-cache-nedir.html">Redis yazımıza</a> bakın.</li>
+</ul>
+<h2 id="ne-zaman-gerekmez">Ne zaman gerekmez?</h2>
+<p>Tek bir uygulama ve az sayıda arka plan işi için kuyruk eklemek gereksiz karmaşıklık getirebilir. .NET'te basit arka plan işleri için <a href="dotnet-background-service.html">BackgroundService</a> çoğu zaman yeterlidir.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Kuyruk kullanınca veriler kaybolabilir mi?</h3>
+<p>Doğru yapılandırılmış kalıcı kuyruklar mesajları güvenle saklar. Önemli olan, tüketicinin mesajı başarıyla işledikten sonra onaylamasıdır.</p>
+<h3>.NET ile hangi kütüphaneler kullanılır?</h3>
+<p>Kuyruk sistemlerinin resmî .NET istemcileri ve üzerlerine kurulu daha üst seviye kütüphaneler bulunur. Kütüphanelerin lisanslarını da seçim sırasında kontrol edin.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Mesaj kuyrukları, büyüyen sistemlerde hızı ve dayanıklılığı birlikte sağlar. Mimari değerlendirme için <a href="../index.html#iletisim">iletişime geçebilirsiniz</a>.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html" aria-current="page">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="backend" data-search="rate limiting nedir api ve formlari kotuye kullanima karsi korumak rate limiting in amaci sabit pencere kayan pencere ve token bucket algoritmalari asp.net core daki yerlesik sinirlayicilar giris ve form korumasinda kullanim ve dogru limit belirleme. backend api ve veritabani rate limiting istek sinirlama api koruma token bucket asp.net core rate limiter"><a href="../blog/rate-limiting-nedir.html"><span class="post__cover post__cover--backend"><img src="../assets/images/blog/thumb/rate-limiting-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>2 dk</span></span><h3>Rate Limiting Nedir? API ve Formları Kötüye Kullanıma Karşı Korumak</h3><p>Rate limiting&#x27;in amacı, sabit pencere, kayan pencere ve token bucket algoritmaları, ASP.NET Core&#x27;daki yerleşik sınırlayıcılar, giriş ve form korumasında kullanım ve doğru limit belirleme.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="backend" data-search="docker nedir yazilimcilar ve isletmeler icin konteyner rehberi docker ve konteyner kavrami sanal makineden farki dockerfile ve imaj .net uygulamalarini konteynere almak docker compose ile gelistirme ortami ve docker desktop lisans notu. backend api ve veritabani docker nedir konteyner dockerfile docker compose .net docker"><a href="../blog/docker-nedir.html"><span class="post__cover post__cover--backend"><img src="../assets/images/blog/thumb/docker-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>2 dk</span></span><h3>Docker Nedir? Yazılımcılar ve İşletmeler İçin Konteyner Rehberi</h3><p>Docker ve konteyner kavramı, sanal makineden farkı, Dockerfile ve imaj, .NET uygulamalarını konteynere almak, docker compose ile geliştirme ortamı ve Docker Desktop lisans notu.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="backend" data-search="ci cd nedir github actions ile otomatik test ve dagitim surekli entegrasyon ve surekli dagitim kavramlari github actions ile .net projesinde otomatik derleme test yayin ve gizli bilgi yonetimi icin pratik baslangic rehberi. backend api ve veritabani ci cd nedir github actions surekli entegrasyon otomatik dagitim .net ci pipeline"><a href="../blog/ci-cd-github-actions.html"><span class="post__cover post__cover--backend"><img src="../assets/images/blog/thumb/ci-cd-github-actions.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Backend, API ve Veritabanı</span><span>2 dk</span></span><h3>CI/CD Nedir? GitHub Actions ile Otomatik Test ve Dağıtım</h3><p>Sürekli entegrasyon ve sürekli dağıtım kavramları, GitHub Actions ile .NET projesinde otomatik derleme, test, yayın ve gizli bilgi yönetimi için pratik başlangıç rehberi.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261008" defer></script>
+<script src="../assets/js/blog.js?v=20261008" defer></script>
+<script src="../assets/js/extras.js?v=20261008" defer></script>
+</body>
+</html>

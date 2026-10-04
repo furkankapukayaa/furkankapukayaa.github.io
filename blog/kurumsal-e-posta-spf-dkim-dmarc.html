@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC | Furkan Kapukaya</title>
+<meta name="description" content="Alan adınızla kurumsal e-posta kullanmanın faydaları, SPF, DKIM ve DMARC kayıtlarının ne işe yaradığı, e-postaların spam klasörüne düşmesini önleme ve sahte e-postalara karşı koruma.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261008"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC | Furkan Kapukaya">
+<meta property="og:description" content="Alan adınızla kurumsal e-posta kullanmanın faydaları, SPF, DKIM ve DMARC kayıtlarının ne işe yaradığı, e-postaların spam klasörüne düşmesini önleme ve sahte e-postalara karşı koruma.">
+<meta property="og:url" content="https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/kurumsal-e-posta-spf-dkim-dmarc.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC | Furkan Kapukaya">
+<meta name="twitter:description" content="Alan adınızla kurumsal e-posta kullanmanın faydaları, SPF, DKIM ve DMARC kayıtlarının ne işe yaradığı, e-postaların spam klasörüne düşmesini önleme ve sahte e-postalara karşı koruma.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/kurumsal-e-posta-spf-dkim-dmarc.jpg">
+<meta property="article:published_time" content="2026-09-25">
+<meta property="article:modified_time" content="2026-09-25">
+<meta property="article:section" content="Web Tasarım ve Geliştirme">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC", "description": "Alan adınızla kurumsal e-posta kullanmanın faydaları, SPF, DKIM ve DMARC kayıtlarının ne işe yaradığı, e-postaların spam klasörüne düşmesini önleme ve sahte e-postalara karşı koruma.", "url": "https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html", "mainEntityOfPage": "https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html", "datePublished": "2026-09-25", "dateModified": "2026-09-25", "inLanguage": "tr", "articleSection": "Web Tasarım ve Geliştirme", "wordCount": 377, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/kurumsal-e-posta-spf-dkim-dmarc.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "kurumsal e-posta, alan adlı e-posta, spf dkim dmarc, e-posta spam sorunu, mail ayarları"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Web Tasarım ve Geliştirme", "item": "https://kapukaya.dev/blog/kategori/web-tasarim-gelistirme.html"}, {"@type": "ListItem", "position": 4, "name": "Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC", "item": "https://kapukaya.dev/blog/kurumsal-e-posta-spf-dkim-dmarc.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Ücretsiz e-posta adresi kullanmak sorun mu?", "acceptedAnswer": {"@type": "Answer", "text": "Teknik olarak çalışır; ancak güven, marka ve hesap sahipliği açısından kurumsal adres çok daha uygundur."}}, {"@type": "Question", "name": "DMARC'ı hemen \"reddet\" moduna almalı mıyım?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Önce izleme modunda başlayıp tüm meşru göndericilerin doğru ayarlandığından emin olmak gerekir; aksi halde kendi e-postalarınız da reddedilebilir."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261008"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--web">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a><time datetime="2026-09-25">25 Eylül 2026</time><span>2 dk okuma</span></div>
+    <h1>Kurumsal E-posta Adresi: Alan Adlı E-posta, SPF, DKIM ve DMARC</h1>
+    <p class="page-hero__lead">Alan adınızla kurumsal e-posta kullanmanın faydaları, SPF, DKIM ve DMARC kayıtlarının ne işe yaradığı, e-postaların spam klasörüne düşmesini önleme ve sahte e-postalara karşı koruma.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>&quot;firmaadi@gmail.com&quot; yerine &quot;info@firmaadi.com.tr&quot; adresinden yazmak, müşteride ilk andan itibaren daha profesyonel bir izlenim bırakır. Ancak kurumsal e-postanın asıl önemi görünüşten öte: doğru ayarlanmadığında e-postalarınız spam klasörüne düşebilir veya başkaları sizin adınıza sahte e-posta gönderebilir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#kurumsal-e-postanin-faydalari">Kurumsal e-postanın faydaları</a></li><li><a href="#spf-dkim-ve-dmarc-nedir">SPF, DKIM ve DMARC nedir?</a></li><li><a href="#neden-artik-daha-onemli">Neden artık daha önemli?</a></li><li><a href="#adim-adim">Adım adım</a></li><li><a href="#web-sitesi-formlari">Web sitesi formları</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="kurumsal-e-postanin-faydalari">Kurumsal e-postanın faydaları</h2>
+<ul>
+<li>Güven ve marka tutarlılığı.</li>
+<li>Çalışan ayrıldığında hesap ve yazışmalar işletmede kalır.</li>
+<li>Ortak adresler: teklif@, destek@, muhasebe@.</li>
+<li>Alan adınız üzerinde tam kontrol.</li>
+</ul>
+<h2 id="spf-dkim-ve-dmarc-nedir">SPF, DKIM ve DMARC nedir?</h2>
+<p>Bu üç ayar, alan adınızın DNS kayıtlarına eklenir ve alıcı sunuculara &quot;bu e-posta gerçekten bu alan adından mı geliyor?&quot; sorusunun cevabını verir.</p>
+<h3>SPF</h3>
+<p>Alan adınız adına hangi sunucuların e-posta gönderebileceğini listeler. E-posta hizmetinizin yanında web sitenizin form bildirimi veya bülten aracı gibi başka göndericiler de varsa, onlar da eklenmelidir.</p>
+<h3>DKIM</h3>
+<p>Gönderilen e-postalara dijital bir imza ekler. Alıcı, imzayı alan adınızdaki açık anahtarla doğrular; e-postanın yolda değiştirilmediği anlaşılır.</p>
+<h3>DMARC</h3>
+<p>SPF ve DKIM doğrulamasından geçemeyen e-postalara ne yapılacağını söyler: izle, spam klasörüne at veya reddet. Ayrıca raporlar sayesinde alan adınız adına kimlerin e-posta göndermeye çalıştığını görürsünüz.</p>
+<h2 id="neden-artik-daha-onemli">Neden artık daha önemli?</h2>
+<p>Büyük e-posta sağlayıcıları, özellikle toplu gönderim yapan alan adlarından SPF, DKIM ve DMARC ayarlarını zorunlu tutmaya başladı. Ayarları eksik alan adlarının e-postaları spam klasörüne düşebilir veya reddedilebilir. Bu ayarlar aynı zamanda <a href="oltalama-phishing-farkindalik.html">oltalama saldırılarında</a> alan adınızın taklit edilmesini zorlaştırır.</p>
+<h2 id="adim-adim">Adım adım</h2>
+<ol>
+<li>Kurumsal e-posta hizmetini seçin ve alan adınızı doğrulayın.</li>
+<li>MX kayıtlarını hizmetin verdiği değerlere göre ayarlayın.</li>
+<li>SPF kaydını ekleyin; tüm gönderici hizmetleri dahil edin.</li>
+<li>DKIM anahtarını oluşturup DNS'e ekleyin.</li>
+<li>DMARC'ı önce yalnızca izleme modunda başlatın, raporları inceleyin, sonra kademeli olarak sıkılaştırın.</li>
+<li>Tüm hesaplarda <a href="iki-faktorlu-dogrulama.html">iki faktörlü doğrulama</a> açın.</li>
+</ol>
+<h2 id="web-sitesi-formlari">Web sitesi formları</h2>
+<p>Web sitenizin iletişim formu e-postaları farklı bir hizmet üzerinden gönderiyorsa, o hizmet de SPF ve DKIM ayarlarına eklenmelidir. Aksi halde gelen talep bildirimleri sizin kutunuzda bile spam'e düşebilir.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Ücretsiz e-posta adresi kullanmak sorun mu?</h3>
+<p>Teknik olarak çalışır; ancak güven, marka ve hesap sahipliği açısından kurumsal adres çok daha uygundur.</p>
+<h3>DMARC'ı hemen &quot;reddet&quot; moduna almalı mıyım?</h3>
+<p>Hayır. Önce izleme modunda başlayıp tüm meşru göndericilerin doğru ayarlandığından emin olmak gerekir; aksi halde kendi e-postalarınız da reddedilebilir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Doğru ayarlanmış kurumsal e-posta, hem güven verir hem de e-postalarınızın hedefe ulaşmasını sağlar. Alan adı ve e-posta altyapısı için <a href="alan-adi-hosting-secimi.html">alan adı ve hosting seçimi</a> yazımıza da bakabilirsiniz.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html" aria-current="page">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="web" data-search="kurumsal web sitesi nasil yapilir kurumsal web sitesinde guven mobil uyumluluk performans icerik mimarisi ve donusum odakli tasarim. web tasarim ve gelistirme"><a href="../blog/kurumsal-web-sitesi-nasil-yapilir.html"><span class="post__cover post__cover--web"><img src="../assets/images/blog/thumb/kurumsal-web-sitesi-nasil-yapilir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>2 dk</span></span><h3>Kurumsal Web Sitesi Nasıl Yapılır?</h3><p>Kurumsal web sitesinde güven, mobil uyumluluk, performans, içerik mimarisi ve dönüşüm odaklı tasarım.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="web" data-search="alan adi ve hosting nasil secilir baslangic rehberi alan adi secerken uzanti ve isim kurallari hosting turleri paylasimli vps bulut statik ve saglayici secerken dikkat edilmesi gereken noktalar. web tasarim ve gelistirme alan adi secimi hosting nedir domain nasil alinir vps mi paylasimli hosting mi"><a href="../blog/alan-adi-hosting-secimi.html"><span class="post__cover post__cover--web"><img src="../assets/images/blog/thumb/alan-adi-hosting-secimi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>3 dk</span></span><h3>Alan Adı ve Hosting Nasıl Seçilir? Başlangıç Rehberi</h3><p>Alan adı seçerken uzantı ve isim kuralları, hosting türleri (paylaşımlı, VPS, bulut, statik) ve sağlayıcı seçerken dikkat edilmesi gereken noktalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="web" data-search="pwa progressive web app nedir isletmeler icin avantajlari progressive web app in ne oldugu ana ekrana eklenebilme cevrimdisi calisma ve bildirim ozellikleri mobil uygulamayla farklari ve hangi isletmeler icin uygun oldugu. web tasarim ve gelistirme pwa nedir progressive web app web uygulamasi ana ekrana ekle service worker"><a href="../blog/pwa-nedir.html"><span class="post__cover post__cover--web"><img src="../assets/images/blog/thumb/pwa-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Web Tasarım ve Geliştirme</span><span>2 dk</span></span><h3>PWA (Progressive Web App) Nedir? İşletmeler İçin Avantajları</h3><p>Progressive Web App&#x27;in ne olduğu, ana ekrana eklenebilme, çevrimdışı çalışma ve bildirim özellikleri, mobil uygulamayla farkları ve hangi işletmeler için uygun olduğu.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261008" defer></script>
+<script src="../assets/js/blog.js?v=20261008" defer></script>
+<script src="../assets/js/extras.js?v=20261008" defer></script>
+</body>
+</html>
