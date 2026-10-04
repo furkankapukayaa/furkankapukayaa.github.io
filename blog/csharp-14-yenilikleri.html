@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261007"></script>
+<script src="../assets/js/boot-head.js?v=20261008"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/csharp-14-yenilikleri.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/csharp-14-yenilikleri.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/csharp-14-yenilikleri.html">
@@ -22,15 +22,15 @@
 <meta property="og:title" content="C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası | Furkan Kapukaya">
 <meta property="og:description" content=".NET 10 ile gelen C# 14&#x27;ün öne çıkan özellikleri; extension members, field anahtar kelimesi, null-conditional atama, span dönüşümleri ve lambda parametre değiştiricileri örneklerle.">
 <meta property="og:url" content="https://kapukaya.dev/blog/csharp-14-yenilikleri.html">
-<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/csharp-14-yenilikleri.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta property="og:image:alt" content="C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@furkankapukayaa">
 <meta name="twitter:title" content="C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası | Furkan Kapukaya">
 <meta name="twitter:description" content=".NET 10 ile gelen C# 14&#x27;ün öne çıkan özellikleri; extension members, field anahtar kelimesi, null-conditional atama, span dönüşümleri ve lambda parametre değiştiricileri örneklerle.">
-<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/csharp-14-yenilikleri.jpg">
 <meta property="article:published_time" content="2026-08-03">
 <meta property="article:modified_time" content="2026-08-03">
 <meta property="article:section" content="C# ve .NET">
@@ -40,16 +40,16 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası", "description": ".NET 10 ile gelen C# 14'ün öne çıkan özellikleri; extension members, field anahtar kelimesi, null-conditional atama, span dönüşümleri ve lambda parametre değiştiricileri örneklerle.", "url": "https://kapukaya.dev/blog/csharp-14-yenilikleri.html", "mainEntityOfPage": "https://kapukaya.dev/blog/csharp-14-yenilikleri.html", "datePublished": "2026-08-03", "dateModified": "2026-08-03", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 330, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "c# 14 yenilikleri, extension members, field keyword, null conditional assignment, .net 10 c#"}</script>
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası", "description": ".NET 10 ile gelen C# 14'ün öne çıkan özellikleri; extension members, field anahtar kelimesi, null-conditional atama, span dönüşümleri ve lambda parametre değiştiricileri örneklerle.", "url": "https://kapukaya.dev/blog/csharp-14-yenilikleri.html", "mainEntityOfPage": "https://kapukaya.dev/blog/csharp-14-yenilikleri.html", "datePublished": "2026-08-03", "dateModified": "2026-08-03", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 330, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/csharp-14-yenilikleri.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "c# 14 yenilikleri, extension members, field keyword, null conditional assignment, .net 10 c#"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "C# ve .NET", "item": "https://kapukaya.dev/blog/kategori/csharp-dotnet.html"}, {"@type": "ListItem", "position": 4, "name": "C# 14 Yenilikleri: Extension Members, field Anahtar Kelimesi ve Daha Fazlası", "item": "https://kapukaya.dev/blog/csharp-14-yenilikleri.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mevcut kodum C# 14 ile bozulur mu?", "acceptedAnswer": {"@type": "Answer", "text": "Yeni özellikler genellikle geriye dönük uyumludur. Ancak field gibi yeni bağlamsal anahtar kelimeler, aynı adlı mevcut değişkenlerle nadiren çakışabilir; derleyici bu durumda uyarı verir."}}, {"@type": "Question", "name": "C# 14 için .NET 10 şart mı?", "acceptedAnswer": {"@type": "Answer", "text": "Varsayılan olarak C# 14, .NET 10 hedefleyen projelerde kullanılır. Eski hedeflerde dil sürümünü zorlamak önerilmez."}}]}</script>
 <script src="../assets/js/analytics.js" defer></script>
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true"></div>
-<script src="../assets/js/boot.js?v=20261007"></script>
+<script src="../assets/js/boot.js?v=20261008"></script>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="k-header">
   <div class="k-header__inner">
@@ -63,7 +63,7 @@
 </header>
 <main id="icerik">
 
-<section class="page-hero article-hero">
+<section class="page-hero article-hero article-hero--dotnet">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></nav>
     <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-08-03">3 Ağustos 2026</time><span>2 dk okuma</span></div>
@@ -140,7 +140,7 @@ if (siparisler.IsEmpty) { ... }</code></pre>
 <section class="section">
   <div class="wrap">
     <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post" data-cat="dotnet" data-search="c# linq rehberi where select groupby ve performans ipuclari c# linq sorgularinin temel operatorleri ertelenmis calistirma entity framework ile kullanimi sik yapilan performans hatalari ve ornek kodlar. c# ve .net c# linq linq nedir linq ornekleri linq performans groupby"><a href="../blog/csharp-linq-rehberi.html"><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# LINQ Rehberi: Where, Select, GroupBy ve Performans İpuçları</h3><p>C# LINQ sorgularının temel operatörleri, ertelenmiş çalıştırma, Entity Framework ile kullanımı, sık yapılan performans hataları ve örnek kodlar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="blazor nedir c# ile web arayuzu gelistirme rehberi blazor un calisma modelleri bilesen yapisi avantajlari sinirlamalari ve is uygulamalari ile yonetim panelleri icin ne zaman tercih edilmesi gerektigi. c# ve .net blazor nedir blazor server blazor webassembly c# web arayuzu"><a href="../blog/blazor-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>Blazor Nedir? C# ile Web Arayüzü Geliştirme Rehberi</h3><p>Blazor&#x27;un çalışma modelleri, bileşen yapısı, avantajları, sınırlamaları ve iş uygulamaları ile yönetim panelleri için ne zaman tercih edilmesi gerektiği.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# record tipleri ne zaman class yerine record kullanilmali c# record ve record struct tiplerinin deger esitligi degismezlik with ifadesi dto ve domain modellerinde kullanimi ile class tan farklari ve dikkat edilmesi gerekenler. c# ve .net c# record record struct deger esitligi immutable c# with expression"><a href="../blog/csharp-record-tipleri.html"><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>C# Record Tipleri: Ne Zaman class Yerine record Kullanılmalı?</h3><p>C# record ve record struct tiplerinin değer eşitliği, değişmezlik, with ifadesi, DTO ve domain modellerinde kullanımı ile class&#x27;tan farkları ve dikkat edilmesi gerekenler.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <ul class="posts"><li class="post" data-cat="dotnet" data-search="c# linq rehberi where select groupby ve performans ipuclari c# linq sorgularinin temel operatorleri ertelenmis calistirma entity framework ile kullanimi sik yapilan performans hatalari ve ornek kodlar. c# ve .net c# linq linq nedir linq ornekleri linq performans groupby"><a href="../blog/csharp-linq-rehberi.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-linq-rehberi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# LINQ Rehberi: Where, Select, GroupBy ve Performans İpuçları</h3><p>C# LINQ sorgularının temel operatörleri, ertelenmiş çalıştırma, Entity Framework ile kullanımı, sık yapılan performans hataları ve örnek kodlar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="blazor nedir c# ile web arayuzu gelistirme rehberi blazor un calisma modelleri bilesen yapisi avantajlari sinirlamalari ve is uygulamalari ile yonetim panelleri icin ne zaman tercih edilmesi gerektigi. c# ve .net blazor nedir blazor server blazor webassembly c# web arayuzu"><a href="../blog/blazor-nedir.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/blazor-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>Blazor Nedir? C# ile Web Arayüzü Geliştirme Rehberi</h3><p>Blazor&#x27;un çalışma modelleri, bileşen yapısı, avantajları, sınırlamaları ve iş uygulamaları ile yönetim panelleri için ne zaman tercih edilmesi gerektiği.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# record tipleri ne zaman class yerine record kullanilmali c# record ve record struct tiplerinin deger esitligi degismezlik with ifadesi dto ve domain modellerinde kullanimi ile class tan farklari ve dikkat edilmesi gerekenler. c# ve .net c# record record struct deger esitligi immutable c# with expression"><a href="../blog/csharp-record-tipleri.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-record-tipleri.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>C# Record Tipleri: Ne Zaman class Yerine record Kullanılmalı?</h3><p>C# record ve record struct tiplerinin değer eşitliği, değişmezlik, with ifadesi, DTO ve domain modellerinde kullanımı ile class&#x27;tan farkları ve dikkat edilmesi gerekenler.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
     <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </section>
@@ -177,6 +177,8 @@ if (siparisler.IsEmpty) { ... }</code></pre>
     <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261007" defer></script>
+<script src="../assets/js/site.js?v=20261008" defer></script>
+<script src="../assets/js/blog.js?v=20261008" defer></script>
+<script src="../assets/js/extras.js?v=20261008" defer></script>
 </body>
 </html>

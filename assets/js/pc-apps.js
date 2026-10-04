@@ -458,7 +458,7 @@
     var C = {
       yardim: function () {
         print('Kullanılabilir komutlar:');
-        [['dotnet run', 'Stok senkronizasyonunu yeniden çalıştırır'], ['stok', 'Kritik seviyedeki ürünleri listeler'], ['rapor', 'Günlük özet raporu gösterir'], ['dir', 'Proje klasöründeki dosyaları listeler'], ['type Program.cs', 'Uygulamanın giriş noktasını gösterir'], ['hizmetler', 'Geliştirdiğim uygulama türleri'], ['iletisim', 'Teklif formuna geçer'], ['tarih', 'Tarih ve saati yazar'], ['cls', 'Ekranı temizler'], ['exit', 'Konsolu kapatır']]
+        [['dotnet run', 'Stok senkronizasyonunu yeniden çalıştırır'], ['stok', 'Kritik seviyedeki ürünleri listeler'], ['rapor', 'Günlük özet raporu gösterir'], ['dir', 'Proje klasöründeki dosyaları listeler'], ['type Program.cs', 'Uygulamanın giriş noktasını gösterir'], ['hizmetler', 'Geliştirdiğim uygulama türleri'], ['iletisim', 'Teklif formuna geçer'], ['tarih', 'Tarih ve saati yazar'], ['sirlar', 'Sitedeki gizli sürprizler hakkında ipucu'], ['cls', 'Ekranı temizler'], ['exit', 'Konsolu kapatır']]
           .forEach(function (c) { print('  <y>' + (c[0] + '                 ').slice(0, 17) + '</y>' + c[1]); });
       },
       run: function () {
@@ -513,9 +513,26 @@
       whoami: function () { print('kapukaya\\furkan  (Yazılım geliştirici, İstanbul)'); },
       cls: function () { qsa('.t-line:not(.t-in)', body).forEach(function (l) { l.remove(); }); },
       exit: function () { P.close('term'); },
-      sudo: function () { print('Bu bir Windows makinesi. Yine de yetkiniz tam: yeni bir proje için <u>iletisim</u> yazın.'); }
+      sudo: function () { print('Bu bir Windows makinesi. Yine de yetkiniz tam: yeni bir proje için <u>iletisim</u> yazın.'); },
+      furkan: function () {
+        later([
+          ['<y>Gizli komut bulundu.</y>', '', 260],
+          ['  ███████╗██╗  ██╗', 't-code', 60],
+          ['  ██╔════╝██║ ██╔╝', 't-code', 60],
+          ['  █████╗  █████╔╝ ', 't-code', 60],
+          ['  ██╔══╝  ██╔═██╗ ', 't-code', 60],
+          ['  ██║     ██║  ██╗', 't-code', 60],
+          ['Merhaba, ben Furkan. Bu konsolu siz bulasınız diye yazdım. <g>Rozet kazanıldı.</g>', '', 0]
+        ], 120, function () { document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'konsol' })); });
+      },
+      sirlar: function () {
+        var n = window.FKFun ? window.FKFun.count() : 0, t = window.FKFun ? window.FKFun.total : 8;
+        print('Bu sitede ' + t + ' gizli sürpriz var. Bulunan: <y>' + n + '</y>.');
+        print('İpucu: Bu konsolda bile bir tanesi saklı. Komut, sitenin sahibinin adı.');
+        if (window.FKFun) print('Tüm ipuçları için sayfanın en altındaki <u>sihirli değnek</u> satırına tıklayın.');
+      }
     };
-    var alias = { help: 'yardim', '?': 'yardim', yardim: 'yardim', run: 'run', 'dotnet': 'run', senkron: 'run', stok: 'stok', rapor: 'rapor', dir: 'dir', ls: 'dir', type: 'type', cat: 'type', hizmetler: 'hizmetler', iletisim: 'iletisim', teklif: 'iletisim', contact: 'iletisim', tarih: 'tarih', date: 'tarih', whoami: 'whoami', cls: 'cls', clear: 'cls', temizle: 'cls', exit: 'exit', cikis: 'exit', sudo: 'sudo' };
+    var alias = { help: 'yardim', '?': 'yardim', yardim: 'yardim', run: 'run', 'dotnet': 'run', senkron: 'run', stok: 'stok', rapor: 'rapor', dir: 'dir', ls: 'dir', type: 'type', cat: 'type', hizmetler: 'hizmetler', iletisim: 'iletisim', teklif: 'iletisim', contact: 'iletisim', tarih: 'tarih', date: 'tarih', whoami: 'whoami', cls: 'cls', clear: 'cls', temizle: 'cls', exit: 'exit', cikis: 'exit', sudo: 'sudo', furkan: 'furkan', sirlar: 'sirlar', surpriz: 'sirlar', gizli: 'sirlar' };
     var exec = function (raw) {
       var cmd = raw.trim();
       print(PROMPT + '<u>' + esc(cmd) + '</u>', 't-p');
@@ -755,6 +772,7 @@
         list.innerHTML = '';
         note.textContent = 'Geri Dönüşüm Kutusu boş. Dağınık Excel dosyalarına veda ettiniz.';
         refresh();
+        document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'bin' }));
       }, reduce ? 0 : 420 + items.length * 60);
     });
     P._binReset = function () { list.innerHTML = ORIG; note.textContent = NOTE; refresh(); };
@@ -958,6 +976,7 @@
       off.hidden = true;
       off.className = 'pc-off';
       if (P._binReset) P._binReset();
+      document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'restart' }));
       if (!P.narrow()) P.open('web', false);
       P.open('desk', true);
     }, reduce ? 200 : 1400);

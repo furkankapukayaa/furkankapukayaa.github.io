@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261007"></script>
+<script src="../assets/js/boot-head.js?v=20261008"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/webhook-nedir.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/webhook-nedir.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/webhook-nedir.html">
@@ -22,15 +22,15 @@
 <meta property="og:title" content="Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi | Furkan Kapukaya">
 <meta property="og:description" content="Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.">
 <meta property="og:url" content="https://kapukaya.dev/blog/webhook-nedir.html">
-<meta property="og:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/webhook-nedir.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Furkan Kapukaya, işletmelere özel yazılım çözümleri">
+<meta property="og:image:alt" content="Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@furkankapukayaa">
 <meta name="twitter:title" content="Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi | Furkan Kapukaya">
 <meta name="twitter:description" content="Webhook&#x27;un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.">
-<meta name="twitter:image" content="https://kapukaya.dev/assets/images/og-image.png">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/webhook-nedir.jpg">
 <meta property="article:published_time" content="2026-04-20">
 <meta property="article:modified_time" content="2026-04-20">
 <meta property="article:section" content="Otomasyon ve Entegrasyon">
@@ -40,16 +40,16 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261007">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi", "description": "Webhook'un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.", "url": "https://kapukaya.dev/blog/webhook-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/webhook-nedir.html", "datePublished": "2026-04-20", "dateModified": "2026-04-20", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 522, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/og-image.png", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "webhook nedir, webhook örneği, webhook güvenliği, api bildirim"}</script>
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261008">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261008">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi", "description": "Webhook'un ne olduğu, API sorgulamadan farkı, ödeme ve sipariş senaryoları, imza doğrulama, tekrar deneme, idempotency ve güvenli webhook alıcısı yazma.", "url": "https://kapukaya.dev/blog/webhook-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/webhook-nedir.html", "datePublished": "2026-04-20", "dateModified": "2026-04-20", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 522, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/webhook-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "webhook nedir, webhook örneği, webhook güvenliği, api bildirim"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "Webhook Nedir? Sistemler Arası Anlık Bildirim Rehberi", "item": "https://kapukaya.dev/blog/webhook-nedir.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Webhook ulaşmazsa ne olur?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu sağlayıcı belirli aralıklarla tekrar dener. Yine de kritik süreçlerde, belirli aralıklarla çalışan bir kontrol görevi ile eksik kalan olayları API üzerinden tamamlamak güvenli bir yedek yöntemdir."}}, {"@type": "Question", "name": "Webhook endpoint'i gizli tutulmalı mı?", "acceptedAnswer": {"@type": "Answer", "text": "URL'nin tahmin edilmesi zor olması faydalıdır ama güvenlik için yeterli değildir. Asıl koruma imza doğrulamasıdır."}}]}</script>
 <script src="../assets/js/analytics.js" defer></script>
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true"></div>
-<script src="../assets/js/boot.js?v=20261007"></script>
+<script src="../assets/js/boot.js?v=20261008"></script>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header class="k-header">
   <div class="k-header__inner">
@@ -63,7 +63,7 @@
 </header>
 <main id="icerik">
 
-<section class="page-hero article-hero">
+<section class="page-hero article-hero article-hero--otomasyon">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
     <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-04-20">20 Nisan 2026</time><span>3 dk okuma</span></div>
@@ -155,7 +155,7 @@
 <section class="section">
   <div class="wrap">
     <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="zamanlanmis gorevler konsol uygulamalariyla gece calisan otomasyonlar windows gorev zamanlayici linux cron ve arka plan servisleriyle duzenli calisan otomasyonlar kurmak loglama hata bildirimi yeniden deneme ve guvenli yapilandirma onerileri. otomasyon ve entegrasyon zamanlanmis gorev task scheduler cron konsol uygulamasi otomatik calisan program"><a href="../blog/zamanlanmis-gorevler-otomasyon.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Zamanlanmış Görevler: Konsol Uygulamalarıyla Gece Çalışan Otomasyonlar</h3><p>Windows Görev Zamanlayıcı, Linux cron ve arka plan servisleriyle düzenli çalışan otomasyonlar kurmak, loglama, hata bildirimi, yeniden deneme ve güvenli yapılandırma önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="whatsapp business api entegrasyonu kurallar ve kullanim alanlari whatsapp business uygulamasi ile whatsapp business platform api farki onayli mesaj sablonlari musteri izni siparis ve randevu bildirimleri ve resmi olmayan araclarin riskleri. otomasyon ve entegrasyon whatsapp business api whatsapp entegrasyonu whatsapp bildirim whatsapp business platform whatsapp otomasyon"><a href="../blog/whatsapp-business-api-entegrasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları</h3><p>WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="sftp ile otomatik dosya aktarimi tedarikci ve banka dosyalarini islemek tedarikci fiyat listeleri banka ekstreleri ve siparis dosyalarinin sftp uzerinden guvenli ve otomatik aktarimi ftp ile farki dosya dogrulama arsivleme ve hata yonetimi. otomasyon ve entegrasyon sftp otomasyon dosya aktarimi ftp sftp farki otomatik dosya isleme edi dosya"><a href="../blog/sftp-dosya-aktarimi-otomasyonu.html"><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SFTP ile Otomatik Dosya Aktarımı: Tedarikçi ve Banka Dosyalarını İşlemek</h3><p>Tedarikçi fiyat listeleri, banka ekstreleri ve sipariş dosyalarının SFTP üzerinden güvenli ve otomatik aktarımı, FTP ile farkı, dosya doğrulama, arşivleme ve hata yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="zamanlanmis gorevler konsol uygulamalariyla gece calisan otomasyonlar windows gorev zamanlayici linux cron ve arka plan servisleriyle duzenli calisan otomasyonlar kurmak loglama hata bildirimi yeniden deneme ve guvenli yapilandirma onerileri. otomasyon ve entegrasyon zamanlanmis gorev task scheduler cron konsol uygulamasi otomatik calisan program"><a href="../blog/zamanlanmis-gorevler-otomasyon.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/zamanlanmis-gorevler-otomasyon.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>Zamanlanmış Görevler: Konsol Uygulamalarıyla Gece Çalışan Otomasyonlar</h3><p>Windows Görev Zamanlayıcı, Linux cron ve arka plan servisleriyle düzenli çalışan otomasyonlar kurmak, loglama, hata bildirimi, yeniden deneme ve güvenli yapılandırma önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="whatsapp business api entegrasyonu kurallar ve kullanim alanlari whatsapp business uygulamasi ile whatsapp business platform api farki onayli mesaj sablonlari musteri izni siparis ve randevu bildirimleri ve resmi olmayan araclarin riskleri. otomasyon ve entegrasyon whatsapp business api whatsapp entegrasyonu whatsapp bildirim whatsapp business platform whatsapp otomasyon"><a href="../blog/whatsapp-business-api-entegrasyonu.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/whatsapp-business-api-entegrasyonu.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>WhatsApp Business API Entegrasyonu: Kurallar ve Kullanım Alanları</h3><p>WhatsApp Business uygulaması ile WhatsApp Business Platform (API) farkı, onaylı mesaj şablonları, müşteri izni, sipariş ve randevu bildirimleri ve resmî olmayan araçların riskleri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="sftp ile otomatik dosya aktarimi tedarikci ve banka dosyalarini islemek tedarikci fiyat listeleri banka ekstreleri ve siparis dosyalarinin sftp uzerinden guvenli ve otomatik aktarimi ftp ile farki dosya dogrulama arsivleme ve hata yonetimi. otomasyon ve entegrasyon sftp otomasyon dosya aktarimi ftp sftp farki otomatik dosya isleme edi dosya"><a href="../blog/sftp-dosya-aktarimi-otomasyonu.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/sftp-dosya-aktarimi-otomasyonu.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SFTP ile Otomatik Dosya Aktarımı: Tedarikçi ve Banka Dosyalarını İşlemek</h3><p>Tedarikçi fiyat listeleri, banka ekstreleri ve sipariş dosyalarının SFTP üzerinden güvenli ve otomatik aktarımı, FTP ile farkı, dosya doğrulama, arşivleme ve hata yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
     <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </section>
@@ -192,6 +192,8 @@
     <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261007" defer></script>
+<script src="../assets/js/site.js?v=20261008" defer></script>
+<script src="../assets/js/blog.js?v=20261008" defer></script>
+<script src="../assets/js/extras.js?v=20261008" defer></script>
 </body>
 </html>

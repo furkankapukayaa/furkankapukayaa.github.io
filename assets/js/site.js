@@ -635,6 +635,7 @@
           terms.forEach(function (t) { if (nt.indexOf(t) === 0) sc += 3; else if (nt.indexOf(t) !== -1) sc += 2; });
           return { x: x, s: sc };
         }).sort(function (a, b) { return b.s - a.s; }).slice(0, 9).map(function (o) { return o.x; });
+        if (/(^| )(surpriz|gizli|sir|sirlar|rozet|furkan)/.test(norm(q))) shown.unshift({ t: 'Gizli sürprizler ve rozetler', u: '#rozetler', k: 'Sürpriz', i: 'fa-solid fa-wand-magic-sparkles', d: 'Bu sitede saklı sürprizleri keşfedin' });
         shown.push({ t: '“' + q + '” için blogda ara', u: 'blog/index.html?q=' + encodeURIComponent(q), k: 'Arama', i: 'fa-solid fa-magnifying-glass' });
         html = shown.map(row).join('');
         if (shown.length === 1) html = '<li class="cmdk__empty" aria-hidden="true">Başlıklarda eşleşme bulunamadı. Blog yazılarının içinde aramak için Enter’a basın.</li>' + html;
@@ -653,6 +654,7 @@
     var move = function (d) { if (!shown.length) return; sel = (sel + d + shown.length) % shown.length; mark(); };
     var go = function (x) {
       if (!x) return;
+      if (x.u === '#rozetler') { dlg.close(); document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'palet' })); if (window.FKFun) setTimeout(window.FKFun.open, 250); return; }
       var url = base + x.u;
       var here = location.pathname.replace(/index\.html$/, '');
       var target = new URL(url, location.href);
