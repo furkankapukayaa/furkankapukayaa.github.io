@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak | Furkan Kapukaya</title>
+<meta name="description" content="Gözlemlenebilirliğin üç temel sinyali olan log, metrik ve dağıtık izleme (trace); OpenTelemetry standardı, korelasyon kimliği, .NET uygulamalarında uygulanması ve doğru alarm kurma.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak | Furkan Kapukaya">
+<meta property="og:description" content="Gözlemlenebilirliğin üç temel sinyali olan log, metrik ve dağıtık izleme (trace); OpenTelemetry standardı, korelasyon kimliği, .NET uygulamalarında uygulanması ve doğru alarm kurma.">
+<meta property="og:url" content="https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/gozlemlenebilirlik-observability.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak | Furkan Kapukaya">
+<meta name="twitter:description" content="Gözlemlenebilirliğin üç temel sinyali olan log, metrik ve dağıtık izleme (trace); OpenTelemetry standardı, korelasyon kimliği, .NET uygulamalarında uygulanması ve doğru alarm kurma.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/gozlemlenebilirlik-observability.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Sunucu, Bulut ve DevOps">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak", "description": "Gözlemlenebilirliğin üç temel sinyali olan log, metrik ve dağıtık izleme (trace); OpenTelemetry standardı, korelasyon kimliği, .NET uygulamalarında uygulanması ve doğru alarm kurma.", "url": "https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html", "mainEntityOfPage": "https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Sunucu, Bulut ve DevOps", "wordCount": 420, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/gozlemlenebilirlik-observability.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "gözlemlenebilirlik, observability, opentelemetry, dağıtık izleme, metrik, log yönetimi"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Sunucu, Bulut ve DevOps", "item": "https://kapukaya.dev/blog/kategori/sunucu-bulut-devops.html"}, {"@type": "ListItem", "position": 4, "name": "Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak", "item": "https://kapukaya.dev/blog/gozlemlenebilirlik-observability.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Küçük bir uygulama için bu kadarı gerekli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Yapılandırılmış loglar ve birkaç temel metrik her uygulama için faydalıdır. Dağıtık izleme, birden çok servis veya dış entegrasyon olduğunda değerini gösterir."}}, {"@type": "Question", "name": "Log verisi çok yer kaplamaz mı?", "acceptedAnswer": {"@type": "Answer", "text": "Kaplar. Log seviyelerini doğru ayarlamak, gereksiz ayrıntıyı canlıda kapatmak ve saklama süresi belirlemek maliyeti kontrol altında tutar."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--devops">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Gözlemlenebilirlik (Observability): Log, Metrik ve İz ile Sistemi Anlamak</h1>
+    <p class="page-hero__lead">Gözlemlenebilirliğin üç temel sinyali olan log, metrik ve dağıtık izleme (trace); OpenTelemetry standardı, korelasyon kimliği, .NET uygulamalarında uygulanması ve doğru alarm kurma.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>İzleme (monitoring) &quot;sistem çalışıyor mu?&quot; sorusunu cevaplar. Gözlemlenebilirlik ise daha zor bir soruya cevap arar: &quot;<strong>Neden</strong> böyle davranıyor?&quot; Kullanıcı &quot;ödeme sayfası bazen çok yavaş&quot; dediğinde, sorunun veritabanında mı, ödeme sağlayıcısında mı yoksa kodda mı olduğunu tahmin etmeden bulabilmektir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#uc-temel-sinyal">Üç temel sinyal</a></li><li><a href="#korelasyon-kimligi">Korelasyon kimliği</a></li><li><a href="#opentelemetry">OpenTelemetry</a></li><li><a href="#iyi-alarmlar">İyi alarmlar</a></li><li><a href="#kisisel-veriler-ve-loglar">Kişisel veriler ve loglar</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="uc-temel-sinyal">Üç temel sinyal</h2>
+<h3>Loglar</h3>
+<p>Belirli bir anda ne olduğunu anlatan kayıtlardır. Yapılandırılmış loglar (sabit metin yerine alanlar) aranabilir ve filtrelenebilir:</p>
+<pre><code class="language-csharp">logger.LogInformation(&quot;Sipariş oluşturuldu {SiparisId} {Tutar}&quot;, siparis.Id, siparis.Tutar);</code></pre>
+<p>Ayrıntılı uygulama için bkz. <a href="dotnet-loglama.html">.NET'te loglama</a>.</p>
+<h3>Metrikler</h3>
+<p>Zaman içindeki sayısal ölçümlerdir: dakikadaki istek sayısı, hata oranı, yanıt süresi, kuyruk uzunluğu. Ucuzdur, uzun süre saklanabilir ve alarm kurmak için idealdir.</p>
+<h3>İzler (traces)</h3>
+<p>Tek bir isteğin sistem içindeki yolculuğunu adım adım gösterir: API'ye geldi, veritabanında 40 ms, kargo servisinde 900 ms, yanıt döndü. Birden çok servisin bulunduğu sistemlerde yavaşlığın kaynağını bulmanın en etkili yoludur.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Sinyal</th><th>Sorduğu soru</th><th>Örnek</th></tr></thead>
+<tbody>
+<tr><td>Log</td><td>Ne oldu?</td><td>&quot;Ödeme reddedildi, kod 51&quot;</td></tr>
+<tr><td>Metrik</td><td>Ne kadar, ne sıklıkla?</td><td>Hata oranı %3'e çıktı</td></tr>
+<tr><td>İz</td><td>Nerede zaman harcandı?</td><td>Kargo API çağrısı 1,2 sn</td></tr>
+</tbody></table></div>
+<h2 id="korelasyon-kimligi">Korelasyon kimliği</h2>
+<p>Bir isteğe ait tüm logların ortak bir kimlik taşıması, dağınık kayıtları birleştirmenin anahtarıdır. Kullanıcıya gösterilen hata mesajında bu kimliğin yer alması, destek sürecinde ilgili kayıtları saniyeler içinde bulmayı sağlar. Bkz. <a href="hata-yonetimi-exception.html">hata yönetimi</a>.</p>
+<h2 id="opentelemetry">OpenTelemetry</h2>
+<p>OpenTelemetry, log, metrik ve izleri toplamak için sağlayıcıdan bağımsız açık bir standarttır. Uygulamanızı bir kez enstrümante edersiniz; verileri istediğiniz araca gönderebilirsiniz. Bu, belirli bir izleme ürününe bağımlılığı azaltır.</p>
+<p>.NET, OpenTelemetry ile birinci sınıf entegrasyona sahiptir. ASP.NET Core, HttpClient ve EF Core gibi bileşenler izleri otomatik üretir. Geliştirme ortamında bu verileri görselleştirmek için <a href="aspire-nedir.html">Aspire</a> panosu oldukça pratiktir.</p>
+<h2 id="iyi-alarmlar">İyi alarmlar</h2>
+<p>Alarm kurarken nedenlere değil <strong>belirtilere</strong> odaklanın:</p>
+<ul>
+<li>&quot;İşlemci %80&quot; yerine &quot;ödeme isteklerinin %5'inden fazlası hata veriyor&quot;</li>
+<li>&quot;Bellek yüksek&quot; yerine &quot;sayfa yanıt süresinin %95'lik dilimi 2 saniyeyi aştı&quot;</li>
+</ul>
+<p>Kullanıcıyı etkileyen durumlar için uyarı, diğerleri için pano yeterlidir. Temel erişilebilirlik izlemesi için bkz. <a href="uptime-izleme-monitoring.html">uptime izleme</a>.</p>
+<h2 id="kisisel-veriler-ve-loglar">Kişisel veriler ve loglar</h2>
+<p>Loglara parola, kart bilgisi, kimlik numarası gibi verilerin yazılmaması gerekir. Log saklama süresi belirlenmeli ve bu süre KVKK politikalarıyla uyumlu olmalıdır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Küçük bir uygulama için bu kadarı gerekli mi?</h3>
+<p>Yapılandırılmış loglar ve birkaç temel metrik her uygulama için faydalıdır. Dağıtık izleme, birden çok servis veya dış entegrasyon olduğunda değerini gösterir.</p>
+<h3>Log verisi çok yer kaplamaz mı?</h3>
+<p>Kaplar. Log seviyelerini doğru ayarlamak, gereksiz ayrıntıyı canlıda kapatmak ve saklama süresi belirlemek maliyeti kontrol altında tutar.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Gözlemlenebilirlik, sorunları tahminle değil veriyle çözmeyi sağlar. Log, metrik ve izleri ortak bir standartla toplamak; hatayı bulma süresini saatlerden dakikalara indirir.</p><aside class="path-box" data-path="guvenilir-yayin-surecleri" data-steps="ortam-ayrimi-dev-test-prod ci-cd-github-actions sifir-kesintili-dagitim gozlemlenebilirlik-observability veritabani-yedekleme-stratejisi felaket-kurtarma-plani" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 4 / 6</p><b><a href="yollar.html#guvenilir-yayin-surecleri">Güvenilir yayın süreçleri</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="veritabani-yedekleme-stratejisi.html">Sonraki adım: Veritabanı Yedekleme Stratejisi: 3-2-1 Kuralı ve Geri Yükleme Testi <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html" aria-current="page">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="devops" data-search="uptime izleme ve uyari siteniz coktugunde ilk siz bilin web sitesi ve uygulamalar icin erisilebilirlik izleme ssl ve alan adi suresi takibi saglik kontrol uclari sunucu kaynak izleme uyari kanallari ve uyari yorgunlugundan kacinma. sunucu bulut ve devops uptime izleme site coktu mu sunucu izleme monitoring ssl suresi takibi health check"><a href="../blog/uptime-izleme-monitoring.html"><span class="post__cover post__cover--devops"><img src="../assets/images/blog/thumb/uptime-izleme-monitoring.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Sunucu, Bulut ve DevOps</span><span>3 dk</span></span><h3>Uptime İzleme ve Uyarı: Siteniz Çöktüğünde İlk Siz Bilin</h3><p>Web sitesi ve uygulamalar için erişilebilirlik izleme, SSL ve alan adı süresi takibi, sağlık kontrol uçları, sunucu kaynak izleme, uyarı kanalları ve uyarı yorgunluğundan kaçınma.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="devops" data-search="gelistirme test ve canli ortam ayrimi neden ve nasil yazilim projelerinde gelistirme dev test staging ve canli prod ortamlarinin amaci yapilandirma ayrimi test verisi ve kvkk surum akisi ve kucuk ekipler icin pratik kurulum. sunucu bulut ve devops ortam ayrimi staging ortami test ortami canli ortam dev test prod yapilandirma yonetimi"><a href="../blog/ortam-ayrimi-dev-test-prod.html"><span class="post__cover post__cover--devops"><img src="../assets/images/blog/thumb/ortam-ayrimi-dev-test-prod.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Sunucu, Bulut ve DevOps</span><span>3 dk</span></span><h3>Geliştirme, Test ve Canlı Ortam Ayrımı: Neden ve Nasıl?</h3><p>Yazılım projelerinde geliştirme (dev), test/staging ve canlı (prod) ortamlarının amacı, yapılandırma ayrımı, test verisi ve KVKK, sürüm akışı ve küçük ekipler için pratik kurulum.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search=".net te loglama ilogger yapilandirilmis loglar ve iyi uygulamalar .net te ilogger ile loglama log seviyeleri yapilandirilmis loglama kisisel verilerin loglardan uzak tutulmasi log saklama ve izleme araclariyla entegrasyon. c# ve .net .net loglama ilogger structured logging log seviyeleri uygulama izleme"><a href="../blog/dotnet-loglama.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/dotnet-loglama.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>.NET&#x27;te Loglama: ILogger, Yapılandırılmış Loglar ve İyi Uygulamalar</h3><p>.NET&#x27;te ILogger ile loglama, log seviyeleri, yapılandırılmış loglama, kişisel verilerin loglardan uzak tutulması, log saklama ve izleme araçlarıyla entegrasyon.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

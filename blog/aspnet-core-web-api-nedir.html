@@ -42,8 +42,8 @@
 <link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261009">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ASP.NET Core Web API Nedir?", "description": "ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.", "url": "https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html", "datePublished": "2026-06-26", "dateModified": "2026-06-26", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 374, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/aspnet-core-web-api-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ASP.NET Core Web API Nedir?", "description": "ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.", "url": "https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html", "datePublished": "2026-06-26", "dateModified": "2026-06-26", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 165, "timeRequired": "PT1M", "image": "https://kapukaya.dev/assets/images/blog/og/aspnet-core-web-api-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "C# ve .NET", "item": "https://kapukaya.dev/blog/kategori/csharp-dotnet.html"}, {"@type": "ListItem", "position": 4, "name": "ASP.NET Core Web API Nedir?", "item": "https://kapukaya.dev/blog/aspnet-core-web-api-nedir.html"}]}</script>
 <script src="../assets/js/analytics.js" defer></script>
 </head>
@@ -66,14 +66,14 @@
 <section class="page-hero article-hero article-hero--dotnet">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></nav>
-    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-06-26">26 Haziran 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-06-26">26 Haziran 2026</time><span>1 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
     <h1>ASP.NET Core Web API Nedir?</h1>
     <p class="page-hero__lead">ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.</p>
   </div>
 </section>
 <div class="wrap article-layout">
   <article class="prose">
-<p>ASP.NET Core Web API; web uygulamaları, mobil uygulamalar, masaüstü yazılımlar ve diğer sistemler tarafından tüketilebilen HTTP servisleri geliştirmek için kullanılan bir framework'tür.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#temel-yapi">Temel yapı</a></li><li><a href="#controller">Controller</a></li><li><a href="#dependency-injection">Dependency Injection</a></li><li><a href="#veritabani-ve-entity-framework-core">Veritabanı ve Entity Framework Core</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav><h2 id="temel-yapi">Temel yapı</h2><p>Bakımı kolay bir API genellikle HTTP ile ilgili sorumlulukları iş mantığından ayırır. Controller'lar istekleri karşılar, servisler iş kurallarını içerir ve veri erişim katmanı veritabanıyla iletişim kurar.</p><h2 id="controller">Controller</h2><p>Controller endpoint'leri tanımlar ve HTTP girdisini uygulama işlemlerine dönüştürür. Tüm iş kurallarının toplandığı bir yer olmak yerine kendi sorumluluğuna odaklanmalıdır.</p><h2 id="dependency-injection">Dependency Injection</h2><p>ASP.NET Core yerleşik dependency injection desteğine sahiptir. Servisleri kaydetmek ve abstraction'ları inject etmek bileşenlerin test edilmesini ve gerektiğinde değiştirilmesini kolaylaştırır.</p><pre><code>builder.Services.AddScoped&lt;IProductService, ProductService&gt;();</code></pre><h2 id="veritabani-ve-entity-framework-core">Veritabanı ve Entity Framework Core</h2><p>Veri erişimi için EF Core kullanılabilir. Veritabanı sorumluluklarını servis veya repository sınırının arkasında tutmak, büyük uygulamaların bakımını kolaylaştırabilir.</p><h2 id="sonuc">Sonuç</h2><p>İyi bir Web API yalnızca JSON döndürmekten ibaret değildir. Net sorumluluklar, validation, hata yönetimi, authentication ve tutarlı HTTP semantiği de en az bunun kadar önemlidir.</p><p><strong>Not:</strong> Bu içerik genel teknik bilgilendirme amacıyla hazırlanmıştır. Üretim projelerinde kullanılan teknoloji ve mimari, projenin ihtiyaçlarına göre değerlendirilmelidir.</p>
+<p>ASP.NET Core Web API; web uygulamaları, mobil uygulamalar, masaüstü yazılımlar ve diğer sistemler tarafından tüketilebilen HTTP servisleri geliştirmek için kullanılan bir framework'tür.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#temel-yapi">Temel yapı</a></li><li><a href="#controller">Controller</a></li><li><a href="#dependency-injection">Dependency Injection</a></li><li><a href="#veritabani-ve-entity-framework-core">Veritabanı ve Entity Framework Core</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav><h2 id="temel-yapi">Temel yapı</h2><p>Bakımı kolay bir API genellikle HTTP ile ilgili sorumlulukları iş mantığından ayırır. Controller'lar istekleri karşılar, servisler iş kurallarını içerir ve veri erişim katmanı veritabanıyla iletişim kurar.</p><h2 id="controller">Controller</h2><p>Controller endpoint'leri tanımlar ve HTTP girdisini uygulama işlemlerine dönüştürür. Tüm iş kurallarının toplandığı bir yer olmak yerine kendi sorumluluğuna odaklanmalıdır.</p><h2 id="dependency-injection">Dependency Injection</h2><p>ASP.NET Core yerleşik dependency injection desteğine sahiptir. Servisleri kaydetmek ve abstraction'ları inject etmek bileşenlerin test edilmesini ve gerektiğinde değiştirilmesini kolaylaştırır.</p><pre><code>builder.Services.AddScoped&lt;IProductService, ProductService&gt;();</code></pre><h2 id="veritabani-ve-entity-framework-core">Veritabanı ve Entity Framework Core</h2><p>Veri erişimi için EF Core kullanılabilir. Veritabanı sorumluluklarını servis veya repository sınırının arkasında tutmak, büyük uygulamaların bakımını kolaylaştırabilir.</p><h2 id="sonuc">Sonuç</h2><p>İyi bir Web API yalnızca JSON döndürmekten ibaret değildir. Net sorumluluklar, validation, hata yönetimi, authentication ve tutarlı HTTP semantiği de en az bunun kadar önemlidir.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
   </article>
   <aside class="article-aside">
     <div class="aside-card">
@@ -88,75 +88,15 @@
     </div>
     <div class="aside-card">
       <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
   </aside>
 </div>
 <section class="section">
   <div class="wrap">
     <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post"><a href="../blog/entity-framework-core-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>Entity Framework Core Nedir?</h3><p>.NET uygulamalarında DbContext, migrations ve Entity Framework Core rolünü anlaşılır şekilde öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/aspnet-core-performans-optimizasyonu.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>ASP.NET Core Uygulamalarında Performans Optimizasyonu</h3><p>Caching, async I/O, sorgu optimizasyonu, logging ve response sürelerini iyileştirmek için uygulanabilir yöntemler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/dotnet-10-yenilikleri.html"><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>.NET 10 ve C# 14 ile Gelen Yenilikler: Geçiş Rehberi</h3><p>.NET 10 LTS sürümünün destek süresi, C# 14 dil özellikleri, performans ve ASP.NET Core yenilikleri ile mevcut projeleri güncellerken izlenecek adımlar.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
-    <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-  </div>
-</section>
-
-</main>
-<footer class="k-footer">
-  <div class="k-footer__inner">
-    <div>
-      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
-      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
-      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
-      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
-    </div>
-    <div>
-      <h2>Site</h2>
-      <ul>
-        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
-        <li><a href="../index.html#isler">İşler</a></li>
-        <li><a href="../hakkimda.html">Hakkımda</a></li>
-        <li><a href="../blog/index.html">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>İletişim</h2>
-      <ul>
-        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
-        <li><a href="../index.html#iletisim">Teklif formu</a></li>
-        <li>İstanbul, Türkiye</li>
-      </ul>
-    </div>
-  </div>
-  <div class="k-footer__bottom">
-    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
-  </div>
-</footer>
-<script src="../assets/js/site.js?v=20261006" defer></script>
-</body>
-</html><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
-  </article>
-  <aside class="article-aside">
-    <div class="aside-card">
-      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
-      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
-      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <div class="aside-card aside-card--cta">
-      <b>Bir projeniz mi var?</b>
-      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
-      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
-    </div>
-    <div class="aside-card">
-      <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
-    </div>
-  </aside>
-</div>
-<section class="section">
-  <div class="wrap">
-    <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post" data-cat="dotnet" data-search="wpf ve mvvm nedir masaustu uygulamalarda duzenli mimari wpf de mvvm deseninin model view ve viewmodel katmanlari veri baglama komutlar communitytoolkit.mvvm ile kod azaltma ve test edilebilir masaustu uygulama gelistirme. c# ve .net wpf mvvm mvvm nedir wpf data binding communitytoolkit mvvm masaustu uygulama mimarisi"><a href="../blog/wpf-mvvm-nedir.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/wpf-mvvm-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>WPF ve MVVM Nedir? Masaüstü Uygulamalarda Düzenli Mimari</h3><p>WPF&#x27;de MVVM deseninin Model, View ve ViewModel katmanları, veri bağlama, komutlar, CommunityToolkit.Mvvm ile kod azaltma ve test edilebilir masaüstü uygulama geliştirme.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# record tipleri ne zaman class yerine record kullanilmali c# record ve record struct tiplerinin deger esitligi degismezlik with ifadesi dto ve domain modellerinde kullanimi ile class tan farklari ve dikkat edilmesi gerekenler. c# ve .net c# record record struct deger esitligi immutable c# with expression"><a href="../blog/csharp-record-tipleri.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-record-tipleri.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>C# Record Tipleri: Ne Zaman class Yerine record Kullanılmalı?</h3><p>C# record ve record struct tiplerinin değer eşitliği, değişmezlik, with ifadesi, DTO ve domain modellerinde kullanımı ile class&#x27;tan farkları ve dikkat edilmesi gerekenler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# async await nedir c# icinde task async ve await ile asenkron programlamanin pratik temellerini ogrenin. c# ve .net"><a href="../blog/csharp-async-await-nedir.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-async-await-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>C# Async/Await Nedir?</h3><p>C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <ul class="posts"><li class="post" data-cat="dotnet" data-search="asp.net core minimal api ile hizli web servisi gelistirme minimal api nin ne oldugu controller yaklasimindan farki endpoint gruplama dogrulama openapi kimlik dogrulama ve proje yapisi onerileri. c# ve .net minimal api asp.net core minimal api .net web api c# api gelistirme"><a href="../blog/aspnet-core-minimal-api.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/aspnet-core-minimal-api.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme</h3><p>Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="asp.net core middleware istek isleme hattini anlamak asp.net core da middleware kavrami istek hattinin calisma sirasi yerlesik middleware ler ozel middleware yazma siralama hatalari ve filtrelerle farki. c# ve .net asp.net core middleware request pipeline ozel middleware middleware sirasi use run map asp.net core istek hatti"><a href="../blog/aspnet-core-middleware.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/aspnet-core-middleware.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>ASP.NET Core Middleware: İstek İşleme Hattını Anlamak</h3><p>ASP.NET Core&#x27;da middleware kavramı, istek hattının çalışma sırası, yerleşik middleware&#x27;ler, özel middleware yazma, sıralama hataları ve filtrelerle farkı.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="asp.net core health checks uygulamanin sagligini olcmek asp.net core saglik kontrollerinin kurulumu liveness ve readiness ayrimi veritabani ve dis servis kontrolleri ozel kontrol yazma guvenlik ve izleme araclariyla kullanim. c# ve .net asp.net core health checks saglik kontrolu liveness readiness health endpoint uygulama izleme"><a href="../blog/aspnet-core-health-checks.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/aspnet-core-health-checks.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>ASP.NET Core Health Checks: Uygulamanın Sağlığını Ölçmek</h3><p>ASP.NET Core sağlık kontrollerinin kurulumu; liveness ve readiness ayrımı, veritabanı ve dış servis kontrolleri, özel kontrol yazma, güvenlik ve izleme araçlarıyla kullanım.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
     <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </section>
@@ -194,7 +134,7 @@
   </div>
 </footer>
 <script src="../assets/js/site.js?v=20261009" defer></script>
-<script src="../assets/js/blog.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
 <script src="../assets/js/extras.js?v=20261009" defer></script>
 </body>
 </html>

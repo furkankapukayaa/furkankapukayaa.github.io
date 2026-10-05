@@ -42,8 +42,8 @@
 <link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261009">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "C# Async/Await Nedir?", "description": "C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.", "url": "https://kapukaya.dev/blog/csharp-async-await-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/csharp-async-await-nedir.html", "datePublished": "2026-06-14", "dateModified": "2026-06-14", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 370, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/csharp-async-await-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "C# Async/Await Nedir?", "description": "C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.", "url": "https://kapukaya.dev/blog/csharp-async-await-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/csharp-async-await-nedir.html", "datePublished": "2026-06-14", "dateModified": "2026-06-14", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 164, "timeRequired": "PT1M", "image": "https://kapukaya.dev/assets/images/blog/og/csharp-async-await-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "C# ve .NET", "item": "https://kapukaya.dev/blog/kategori/csharp-dotnet.html"}, {"@type": "ListItem", "position": 4, "name": "C# Async/Await Nedir?", "item": "https://kapukaya.dev/blog/csharp-async-await-nedir.html"}]}</script>
 <script src="../assets/js/analytics.js" defer></script>
 </head>
@@ -66,7 +66,7 @@
 <section class="page-hero article-hero article-hero--dotnet">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></nav>
-    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-06-14">14 Haziran 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-06-14">14 Haziran 2026</time><span>1 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
     <h1>C# Async/Await Nedir?</h1>
     <p class="page-hero__lead">C# içinde Task, async ve await ile asenkron programlamanın pratik temellerini öğrenin.</p>
   </div>
@@ -77,7 +77,7 @@
 {
     var response = await httpClient.GetStringAsync(url);
     return response;
-}</code></pre><h2 id="nerede-kullanilir">Nerede kullanılır?</h2><ul><li>Veritabanı işlemleri</li><li>HTTP/API istekleri</li><li>Dosya işlemleri</li><li>Diğer I/O ağırlıklı işler</li></ul><p>Async kod özellikle web uygulamalarında kullanışlıdır; çünkü thread'lerin I/O beklerken boşta tutulması gerekmez.</p><h2 id="dikkat-edilmesi-gerekenler">Dikkat edilmesi gerekenler</h2><p>Async kullanmak CPU ağırlıklı işleri otomatik olarak hızlandırmaz. Asenkron bir akış mümkünken kodu <code>.Result</code> veya <code>.Wait()</code> ile bloklamaktan kaçının.</p><p><strong>Not:</strong> Bu içerik genel teknik bilgilendirme amacıyla hazırlanmıştır. Üretim projelerinde kullanılan teknoloji ve mimari, projenin ihtiyaçlarına göre değerlendirilmelidir.</p>
+}</code></pre><h2 id="nerede-kullanilir">Nerede kullanılır?</h2><ul><li>Veritabanı işlemleri</li><li>HTTP/API istekleri</li><li>Dosya işlemleri</li><li>Diğer I/O ağırlıklı işler</li></ul><p>Async kod özellikle web uygulamalarında kullanışlıdır; çünkü thread'lerin I/O beklerken boşta tutulması gerekmez.</p><h2 id="dikkat-edilmesi-gerekenler">Dikkat edilmesi gerekenler</h2><p>Async kullanmak CPU ağırlıklı işleri otomatik olarak hızlandırmaz. Asenkron bir akış mümkünken kodu <code>.Result</code> veya <code>.Wait()</code> ile bloklamaktan kaçının.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
   </article>
   <aside class="article-aside">
     <div class="aside-card">
@@ -92,75 +92,15 @@
     </div>
     <div class="aside-card">
       <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
   </aside>
 </div>
 <section class="section">
   <div class="wrap">
     <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post"><a href="../blog/aspnet-core-web-api-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>ASP.NET Core Web API Nedir?</h3><p>ASP.NET Core Web API, controller, dependency injection, servis katmanı ve veri erişimi için pratik bir giriş.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/entity-framework-core-nedir.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>Entity Framework Core Nedir?</h3><p>.NET uygulamalarında DbContext, migrations ve Entity Framework Core rolünü anlaşılır şekilde öğrenin.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/aspnet-core-performans-optimizasyonu.html"><span class="post__meta"><span>C# ve .NET</span><span>1 dk</span></span><h3>ASP.NET Core Uygulamalarında Performans Optimizasyonu</h3><p>Caching, async I/O, sorgu optimizasyonu, logging ve response sürelerini iyileştirmek için uygulanabilir yöntemler.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
-    <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-  </div>
-</section>
-
-</main>
-<footer class="k-footer">
-  <div class="k-footer__inner">
-    <div>
-      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
-      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
-      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
-      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
-    </div>
-    <div>
-      <h2>Site</h2>
-      <ul>
-        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
-        <li><a href="../index.html#isler">İşler</a></li>
-        <li><a href="../hakkimda.html">Hakkımda</a></li>
-        <li><a href="../blog/index.html">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>İletişim</h2>
-      <ul>
-        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
-        <li><a href="../index.html#iletisim">Teklif formu</a></li>
-        <li>İstanbul, Türkiye</li>
-      </ul>
-    </div>
-  </div>
-  <div class="k-footer__bottom">
-    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
-  </div>
-</footer>
-<script src="../assets/js/site.js?v=20261006" defer></script>
-</body>
-</html><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
-  </article>
-  <aside class="article-aside">
-    <div class="aside-card">
-      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
-      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
-      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <div class="aside-card aside-card--cta">
-      <b>Bir projeniz mi var?</b>
-      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
-      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
-    </div>
-    <div class="aside-card">
-      <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
-    </div>
-  </aside>
-</div>
-<section class="section">
-  <div class="wrap">
-    <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post" data-cat="dotnet" data-search=".net te dependency injection servis omurleri ve sik yapilan hatalar .net te bagimlilik enjeksiyonunun mantigi singleton scoped ve transient servis omurleri constructor injection keyed services ve kacinilmasi gereken yaygin hatalar. c# ve .net dependency injection .net di singleton scoped transient servis omru asp.net core di"><a href="../blog/dotnet-dependency-injection.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/dotnet-dependency-injection.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>.NET&#x27;te Dependency Injection: Servis Ömürleri ve Sık Yapılan Hatalar</h3><p>.NET&#x27;te bağımlılık enjeksiyonunun mantığı, Singleton, Scoped ve Transient servis ömürleri, constructor injection, keyed services ve kaçınılması gereken yaygın hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="asp.net core minimal api ile hizli web servisi gelistirme minimal api nin ne oldugu controller yaklasimindan farki endpoint gruplama dogrulama openapi kimlik dogrulama ve proje yapisi onerileri. c# ve .net minimal api asp.net core minimal api .net web api c# api gelistirme"><a href="../blog/aspnet-core-minimal-api.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/aspnet-core-minimal-api.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>ASP.NET Core Minimal API ile Hızlı Web Servisi Geliştirme</h3><p>Minimal API&#x27;nin ne olduğu, controller yaklaşımından farkı, endpoint gruplama, doğrulama, OpenAPI, kimlik doğrulama ve proje yapısı önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search=".net 10 ve c# 14 ile gelen yenilikler gecis rehberi .net 10 lts surumunun destek suresi c# 14 dil ozellikleri performans ve asp.net core yenilikleri ile mevcut projeleri guncellerken izlenecek adimlar. c# ve .net .net 10 c# 14 yenilikleri .net 10 lts dotnet guncelleme"><a href="../blog/dotnet-10-yenilikleri.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/dotnet-10-yenilikleri.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>4 dk</span></span><h3>.NET 10 ve C# 14 ile Gelen Yenilikler: Geçiş Rehberi</h3><p>.NET 10 LTS sürümünün destek süresi, C# 14 dil özellikleri, performans ve ASP.NET Core yenilikleri ile mevcut projeleri güncellerken izlenecek adımlar.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <ul class="posts"><li class="post" data-cat="dotnet" data-search="c# generics tur guvenli ve tekrar kullanilabilir kod yazmak c# generics kavrami generic sinif ve metotlar kisitlamalar where kovaryans ve kontravaryans generic math ve generics kullanirken sik yapilan hatalar. c# ve .net c# generics generic sinif generic metot where kisitlamasi kovaryans generic math"><a href="../blog/csharp-generics.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-generics.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# Generics: Tür Güvenli ve Tekrar Kullanılabilir Kod Yazmak</h3><p>C# generics kavramı, generic sınıf ve metotlar, kısıtlamalar (where), kovaryans ve kontravaryans, generic math ve generics kullanırken sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# pattern matching switch ifadeleri ve desenlerle okunabilir kod c# pattern matching ozellikleri is ve switch ifadeleri tip ozellik iliskisel mantiksal ve liste desenleri ile is kurallarini daha kisa ve okunabilir yazma ornekleri. c# ve .net c# pattern matching switch expression property pattern list pattern c# desen esleme is ifadesi"><a href="../blog/csharp-pattern-matching.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-pattern-matching.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# Pattern Matching: switch İfadeleri ve Desenlerle Okunabilir Kod</h3><p>C# pattern matching özellikleri; is ve switch ifadeleri, tip, özellik, ilişkisel, mantıksal ve liste desenleri ile iş kurallarını daha kısa ve okunabilir yazma örnekleri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c# koleksiyonlari list dictionary hashset ve dogru secim .net koleksiyon turlerinin karsilastirmasi list array dictionary hashset queue stack eszamanli koleksiyonlar salt okunur ve frozen koleksiyonlar ile performans acisindan dogru secim. c# ve .net c# koleksiyonlar list dictionary hashset c# hangi koleksiyon frozendictionary concurrentdictionary koleksiyon performansi"><a href="../blog/csharp-koleksiyon-secimi.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-koleksiyon-secimi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# Koleksiyonları: List, Dictionary, HashSet ve Doğru Seçim</h3><p>.NET koleksiyon türlerinin karşılaştırması; List, Array, Dictionary, HashSet, Queue, Stack, eşzamanlı koleksiyonlar, salt okunur ve Frozen koleksiyonlar ile performans açısından doğru seçim.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
     <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </section>
@@ -198,7 +138,7 @@
   </div>
 </footer>
 <script src="../assets/js/site.js?v=20261009" defer></script>
-<script src="../assets/js/blog.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
 <script src="../assets/js/extras.js?v=20261009" defer></script>
 </body>
 </html>

@@ -42,8 +42,8 @@
 <link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261009">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AI ile Kod Yazarken Güvenlik ve Kod Kalitesi", "description": "AI tarafından üretilen kodu doğrulama, secret yönetimi, test, code review ve güvenlik kontrolleri için pratik yaklaşım.", "url": "https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html", "mainEntityOfPage": "https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html", "datePublished": "2026-10-01", "dateModified": "2026-10-01", "inLanguage": "tr", "articleSection": "Yapay Zekâ", "wordCount": 351, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/ai-ile-kod-yazarken-guvenlik.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "AI ile Kod Yazarken Güvenlik ve Kod Kalitesi", "description": "AI tarafından üretilen kodu doğrulama, secret yönetimi, test, code review ve güvenlik kontrolleri için pratik yaklaşım.", "url": "https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html", "mainEntityOfPage": "https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html", "datePublished": "2026-10-01", "dateModified": "2026-10-01", "inLanguage": "tr", "articleSection": "Yapay Zekâ", "wordCount": 120, "timeRequired": "PT1M", "image": "https://kapukaya.dev/assets/images/blog/og/ai-ile-kod-yazarken-guvenlik.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": ""}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Yapay Zekâ", "item": "https://kapukaya.dev/blog/kategori/yapay-zeka.html"}, {"@type": "ListItem", "position": 4, "name": "AI ile Kod Yazarken Güvenlik ve Kod Kalitesi", "item": "https://kapukaya.dev/blog/ai-ile-kod-yazarken-guvenlik.html"}]}</script>
 <script src="../assets/js/analytics.js" defer></script>
 </head>
@@ -66,14 +66,14 @@
 <section class="page-hero article-hero article-hero--ai">
   <div class="wrap">
     <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></nav>
-    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a><time datetime="2026-10-01">1 Ekim 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a><time datetime="2026-10-01">1 Ekim 2026</time><span>1 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
     <h1>AI ile Kod Yazarken Güvenlik ve Kod Kalitesi</h1>
     <p class="page-hero__lead">AI tarafından üretilen kodu doğrulama, secret yönetimi, test, code review ve güvenlik kontrolleri için pratik yaklaşım.</p>
   </div>
 </section>
 <div class="wrap article-layout">
   <article class="prose">
-<p>AI ile kod üretmek hız kazandırabilir ancak üretilen kodun güvenli ve doğru olduğu otomatik olarak kabul edilmemelidir. Özellikle backend, authentication, ödeme ve veri erişimi gibi alanlarda insan kontrolü gerekir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#secret-paylasmayin">Secret paylaşmayın</a></li><li><a href="#test-ve-review">Test ve review</a></li><li><a href="#yetki-sinirlari">Yetki sınırları</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav><h2 id="secret-paylasmayin">Secret paylaşmayın</h2><p>API key, connection string, access token veya müşteri verilerini promptlara doğrudan koymak yerine güvenli secret yönetimi kullanılmalıdır.</p><h2 id="test-ve-review">Test ve review</h2><p>AI tarafından yazılan kod normal kod gibi test edilmelidir. Unit test, integration test, static analysis ve code review birlikte kullanılabilir.</p><h2 id="yetki-sinirlari">Yetki sınırları</h2><p>Agentlara mümkün olan en az yetkiyi vermek, production sistemlerine doğrudan erişimi sınırlamak ve kritik değişiklikleri onay akışına bağlamak daha güvenli bir yaklaşımdır.</p><h2 id="sonuc">Sonuç</h2><p>AI destekli geliştirmede kaliteyi belirleyen şey sadece modelin gücü değil, çevresine kurduğunuz mühendislik guardrail'leridir.</p><p><strong>Not:</strong> Bu içerik genel teknik bilgilendirme amacıyla hazırlanmıştır. Üretim projelerinde kullanılan teknoloji ve mimari, projenin ihtiyaçlarına göre değerlendirilmelidir.</p>
+<p>AI ile kod üretmek hız kazandırabilir ancak üretilen kodun güvenli ve doğru olduğu otomatik olarak kabul edilmemelidir. Özellikle backend, authentication, ödeme ve veri erişimi gibi alanlarda insan kontrolü gerekir.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#secret-paylasmayin">Secret paylaşmayın</a></li><li><a href="#test-ve-review">Test ve review</a></li><li><a href="#yetki-sinirlari">Yetki sınırları</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav><h2 id="secret-paylasmayin">Secret paylaşmayın</h2><p>API key, connection string, access token veya müşteri verilerini promptlara doğrudan koymak yerine güvenli secret yönetimi kullanılmalıdır.</p><h2 id="test-ve-review">Test ve review</h2><p>AI tarafından yazılan kod normal kod gibi test edilmelidir. Unit test, integration test, static analysis ve code review birlikte kullanılabilir.</p><h2 id="yetki-sinirlari">Yetki sınırları</h2><p>Agentlara mümkün olan en az yetkiyi vermek, production sistemlerine doğrudan erişimi sınırlamak ve kritik değişiklikleri onay akışına bağlamak daha güvenli bir yaklaşımdır.</p><h2 id="sonuc">Sonuç</h2><p>AI destekli geliştirmede kaliteyi belirleyen şey sadece modelin gücü değil, çevresine kurduğunuz mühendislik guardrail'leridir.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
   </article>
   <aside class="article-aside">
     <div class="aside-card">
@@ -88,75 +88,15 @@
     </div>
     <div class="aside-card">
       <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html" aria-current="page">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html" aria-current="page">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
     </div>
   </aside>
 </div>
 <section class="section">
   <div class="wrap">
     <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post"><a href="../blog/isletmelerde-yapay-zeka-kullanimi.html"><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>İşletmeler Yapay Zekâyı Nasıl Kullanabilir? 12 Pratik Kullanım Alanı</h3><p>Küçük ve orta ölçekli işletmelerin müşteri hizmetleri, içerik, belge işleme, raporlama ve iç süreçlerde yapay zekâyı güvenli ve verimli kullanma yolları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/web-sitesine-chatbot-ekleme.html"><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>Web Sitesine Yapay Zekâ Destekli Chatbot Eklemek: Rehber</h3><p>Web sitesi için yapay zekâ destekli sohbet asistanının kurgusu, bilgi kaynağı, sınırlar, insan desteğine devir, güvenlik, KVKK ve performans önerileri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post"><a href="../blog/rag-nedir.html"><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>RAG Nedir? Yapay Zekâyı Kendi Belgelerinizle Konuşturmak</h3><p>Retrieval-Augmented Generation (RAG) yaklaşımının çalışma mantığı, embedding ve vektör arama, belge hazırlığı, kaynak gösterme ve iş uygulamalarında kullanım.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
-    <div class="section__foot"><a class="link-more" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-  </div>
-</section>
-
-</main>
-<footer class="k-footer">
-  <div class="k-footer__inner">
-    <div>
-      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
-      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
-      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
-      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
-    </div>
-    <div>
-      <h2>Site</h2>
-      <ul>
-        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
-        <li><a href="../index.html#isler">İşler</a></li>
-        <li><a href="../hakkimda.html">Hakkımda</a></li>
-        <li><a href="../blog/index.html">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>İletişim</h2>
-      <ul>
-        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
-        <li><a href="../index.html#iletisim">Teklif formu</a></li>
-        <li>İstanbul, Türkiye</li>
-      </ul>
-    </div>
-  </div>
-  <div class="k-footer__bottom">
-    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
-  </div>
-</footer>
-<script src="../assets/js/site.js?v=20261006" defer></script>
-</body>
-</html><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
-  </article>
-  <aside class="article-aside">
-    <div class="aside-card">
-      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
-      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
-      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <div class="aside-card aside-card--cta">
-      <b>Bir projeniz mi var?</b>
-      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
-      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
-    </div>
-    <div class="aside-card">
-      <b class="aside-title">Kategoriler</b>
-      <ul class="aside-cats"><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html" aria-current="page">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
-    </div>
-  </aside>
-</div>
-<section class="section">
-  <div class="wrap">
-    <div class="section__head"><h2>İlgili yazılar</h2></div>
-    <ul class="posts"><li class="post" data-cat="ai" data-search="yapay zeka ile musteri destegi neleri otomatiklestirmeli neleri degil musteri hizmetlerinde yapay zeka kullanimi sik sorulan sorularin otomatik cevaplanmasi talep siniflandirma temsilci asistani insan destegine devir olcum ve musteri guveni. yapay zeka yapay zeka musteri destegi ai musteri hizmetleri destek chatbot talep siniflandirma canli destek ai"><a href="../blog/yapay-zeka-musteri-destegi.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/yapay-zeka-musteri-destegi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>2 dk</span></span><h3>Yapay Zekâ ile Müşteri Desteği: Neleri Otomatikleştirmeli, Neleri Değil?</h3><p>Müşteri hizmetlerinde yapay zekâ kullanımı, sık sorulan soruların otomatik cevaplanması, talep sınıflandırma, temsilci asistanı, insan desteğine devir, ölçüm ve müşteri güveni.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="llms.txt nedir web sitenizi yapay zeka asistanlarina tanitin llms.txt dosyasinin amaci formati robots.txt ve sitemap.xml ile farki ornek icerik sinirlamalari ve yapay zeka botlari icin genel oneriler. yapay zeka llms.txt nedir llms.txt ornegi yapay zeka botlari robots.txt ai geo"><a href="../blog/llms-txt-nedir.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/llms-txt-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>llms.txt Nedir? Web Sitenizi Yapay Zekâ Asistanlarına Tanıtın</h3><p>llms.txt dosyasının amacı, formatı, robots.txt ve sitemap.xml ile farkı, örnek içerik, sınırlamaları ve yapay zekâ botları için genel öneriler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="ab yapay zeka yasasi turk sirketleri icin guncel takvim ve yukumlulukler ab yapay zeka yasasi nin risk temelli yapisi yururlukteki yasaklar ve genel amacli model kurallari dijital omnibus ile ertelenen yuksek riskli sistem yukumlulukleri ve ab ye hizmet veren turk sirketlerinin yapmasi gerekenler. yapay zeka ab yapay zeka yasasi ai act dijital omnibus yuksek riskli yapay zeka yapay zeka mevzuati"><a href="../blog/ab-yapay-zeka-yasasi.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/ab-yapay-zeka-yasasi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>AB Yapay Zekâ Yasası: Türk Şirketleri İçin Güncel Takvim ve Yükümlülükler</h3><p>AB Yapay Zekâ Yasası&#x27;nın risk temelli yapısı, yürürlükteki yasaklar ve genel amaçlı model kuralları, Dijital Omnibus ile ertelenen yüksek riskli sistem yükümlülükleri ve AB&#x27;ye hizmet veren Türk şirketlerinin yapması gerekenler.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <ul class="posts"><li class="post" data-cat="ai" data-search="prompt injection nedir yapay zeka uygulamalarinda guvenlik riski prompt injection saldirisinin dogrudan ve dolayli turleri yapay zeka ajanlarinda veri sizdirma ve yetkisiz islem riskleri en az yetki insan onayi ve cikti dogrulama gibi savunma katmanlari. yapay zeka prompt injection yapay zeka guvenligi llm guvenligi dolayli prompt injection ai ajan guvenligi owasp llm"><a href="../blog/prompt-injection-nedir.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/prompt-injection-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>Prompt Injection Nedir? Yapay Zekâ Uygulamalarında Güvenlik Riski</h3><p>Prompt injection saldırısının doğrudan ve dolaylı türleri, yapay zekâ ajanlarında veri sızdırma ve yetkisiz işlem riskleri, en az yetki, insan onayı ve çıktı doğrulama gibi savunma katmanları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="isletmede ilk yapay zeka projesi dogru kullanim senaryosunu secmek isletmelerde yapay zeka projesine baslarken kullanim senaryosu secimi etki ve uygulanabilirlik degerlendirmesi veri hazirligi pilot proje basari olcutleri ve sik yapilan hatalar. yapay zeka yapay zeka projesi ai kullanim senaryosu yapay zeka pilot proje isletmede yapay zeka ai yatirimi yapay zeka basari olcutu"><a href="../blog/yapay-zeka-projesi-baslatma.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/yapay-zeka-projesi-baslatma.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>İşletmede İlk Yapay Zekâ Projesi: Doğru Kullanım Senaryosunu Seçmek</h3><p>İşletmelerde yapay zekâ projesine başlarken kullanım senaryosu seçimi, etki ve uygulanabilirlik değerlendirmesi, veri hazırlığı, pilot proje, başarı ölçütleri ve sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="yapay zeka api maliyetleri token hesabi ve optimizasyon yollari yapay zeka api lerinin token bazli fiyatlandirmasi girdi ve cikti token maliyeti aylik maliyet tahmini model secimi istem onbellegi toplu isleme ve maliyeti dusurmenin pratik yollari. yapay zeka yapay zeka api maliyeti token fiyatlandirma llm maliyeti prompt caching model secimi ai maliyet optimizasyonu"><a href="../blog/yapay-zeka-maliyeti-token.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/yapay-zeka-maliyeti-token.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>Yapay Zekâ API Maliyetleri: Token Hesabı ve Optimizasyon Yolları</h3><p>Yapay zekâ API&#x27;lerinin token bazlı fiyatlandırması, girdi ve çıktı token maliyeti, aylık maliyet tahmini, model seçimi, istem önbelleği, toplu işleme ve maliyeti düşürmenin pratik yolları.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
     <div class="section__foot"><a class="link-more" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
   </div>
 </section>
@@ -194,7 +134,7 @@
   </div>
 </footer>
 <script src="../assets/js/site.js?v=20261009" defer></script>
-<script src="../assets/js/blog.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
 <script src="../assets/js/extras.js?v=20261009" defer></script>
 </body>
 </html>

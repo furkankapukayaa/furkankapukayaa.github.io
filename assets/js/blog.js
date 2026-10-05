@@ -27,13 +27,16 @@
     if (l.indexOf(slug) === -1) { l.push(slug); put('fk-read', l); }
     paintPath();
   };
-  var pbox = document.querySelector('.path-box');
+  /* Bir yazı birden fazla okuma yolunda olabilir: her kutuyu ayrı boya */
+  var pboxes = Array.prototype.slice.call(document.querySelectorAll('.path-box'));
   var paintPath = function () {
-    if (!pbox) return;
-    var steps = pbox.dataset.steps.split(' '), l = get('fk-read');
-    var n = steps.filter(function (x) { return l.indexOf(x) !== -1; }).length;
-    pbox.querySelector('[data-path-fill]').style.width = (n / steps.length * 100) + '%';
-    pbox.querySelector('[data-path-txt]').textContent = n + ' / ' + steps.length + ' yazı okundu';
+    var l = get('fk-read');
+    pboxes.forEach(function (pbox) {
+      var steps = pbox.dataset.steps.split(' ');
+      var n = steps.filter(function (x) { return l.indexOf(x) !== -1; }).length;
+      pbox.querySelector('[data-path-fill]').style.width = (n / steps.length * 100) + '%';
+      pbox.querySelector('[data-path-txt]').textContent = n + ' / ' + steps.length + ' yazı okundu';
+    });
   };
   paintPath();
 
