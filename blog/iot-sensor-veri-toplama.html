@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi | Furkan Kapukaya</title>
+<meta name="description" content="Nesnelerin interneti (IoT) ile sıcaklık, nem, enerji ve makine verilerinin toplanması; sensör türleri, bağlantı seçenekleri, MQTT, veri depolama, uyarılar ve IoT cihaz güvenliği.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/iot-sensor-veri-toplama.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/iot-sensor-veri-toplama.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/iot-sensor-veri-toplama.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi | Furkan Kapukaya">
+<meta property="og:description" content="Nesnelerin interneti (IoT) ile sıcaklık, nem, enerji ve makine verilerinin toplanması; sensör türleri, bağlantı seçenekleri, MQTT, veri depolama, uyarılar ve IoT cihaz güvenliği.">
+<meta property="og:url" content="https://kapukaya.dev/blog/iot-sensor-veri-toplama.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/iot-sensor-veri-toplama.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi | Furkan Kapukaya">
+<meta name="twitter:description" content="Nesnelerin interneti (IoT) ile sıcaklık, nem, enerji ve makine verilerinin toplanması; sensör türleri, bağlantı seçenekleri, MQTT, veri depolama, uyarılar ve IoT cihaz güvenliği.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/iot-sensor-veri-toplama.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Otomasyon ve Entegrasyon">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi", "description": "Nesnelerin interneti (IoT) ile sıcaklık, nem, enerji ve makine verilerinin toplanması; sensör türleri, bağlantı seçenekleri, MQTT, veri depolama, uyarılar ve IoT cihaz güvenliği.", "url": "https://kapukaya.dev/blog/iot-sensor-veri-toplama.html", "mainEntityOfPage": "https://kapukaya.dev/blog/iot-sensor-veri-toplama.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 398, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/iot-sensor-veri-toplama.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "iot nedir, sensör veri toplama, sıcaklık takibi, mqtt, makine izleme, iot güvenliği"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi", "item": "https://kapukaya.dev/blog/iot-sensor-veri-toplama.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mevcut makinelerden veri alınabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Birçok makine veri çıkışı sunar; sunmayanlar için akım sensörü gibi harici çözümlerle çalışma durumu ölçülebilir."}}, {"@type": "Question", "name": "Veriler ne kadar süre saklanmalı?", "acceptedAnswer": {"@type": "Answer", "text": "Denetim ve analiz ihtiyacına göre. Ayrıntılı veri kısa süre, özetlenmiş veri uzun süre saklanarak depolama maliyeti dengelenebilir."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--otomasyon">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-10-05">5 Ekim 2026</time><span>2 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Sensörlerden Veri Toplama: Küçük İşletmeler İçin IoT Rehberi</h1>
+    <p class="page-hero__lead">Nesnelerin interneti (IoT) ile sıcaklık, nem, enerji ve makine verilerinin toplanması; sensör türleri, bağlantı seçenekleri, MQTT, veri depolama, uyarılar ve IoT cihaz güvenliği.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Soğuk hava deposunun sıcaklığı gece yükseldiyse, bunu sabah bozulan ürünlerle mi öğrenmek istersiniz yoksa anında telefonunuza gelen bir uyarıyla mı? Nesnelerin interneti (IoT), fiziksel dünyadaki ölçümleri yazılıma taşır. Artık uygun maliyetli sensörlerle küçük işletmeler de bu imkândan yararlanabiliyor.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#kullanim-ornekleri">Kullanım örnekleri</a></li><li><a href="#bir-iot-sisteminin-parcalari">Bir IoT sisteminin parçaları</a></li><li><a href="#baglanti-secimi">Bağlantı seçimi</a></li><li><a href="#uyarilar-ve-raporlar">Uyarılar ve raporlar</a></li><li><a href="#guvenlik-en-zayif-halka">Güvenlik: En zayıf halka</a></li><li><a href="#kucuk-baslamak">Küçük başlamak</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="kullanim-ornekleri">Kullanım örnekleri</h2>
+<ul>
+<li><strong>Soğuk zincir:</strong> Buzdolabı, depo ve araç sıcaklığı takibi; eşik aşılınca uyarı.</li>
+<li><strong>Enerji izleme:</strong> Makine veya bina bazında elektrik tüketimi; israfın tespiti.</li>
+<li><strong>Makine durumu:</strong> Çalışma süresi, duruşlar, üretim adedi. Bkz. <a href="uretim-takip-programi.html">üretim takip programı</a>.</li>
+<li><strong>Ortam koşulları:</strong> Sunucu odası, arşiv veya sera için nem ve sıcaklık.</li>
+<li><strong>Doluluk:</strong> Tank seviyesi, depo raf doluluğu.</li>
+</ul>
+<h2 id="bir-iot-sisteminin-parcalari">Bir IoT sisteminin parçaları</h2>
+<ol>
+<li><strong>Sensör ve cihaz:</strong> Ölçümü yapar.</li>
+<li><strong>Bağlantı:</strong> Wi-Fi, mobil ağ, LoRaWAN gibi düşük güçlü uzun menzilli ağlar veya kablolu bağlantı.</li>
+<li><strong>İletim protokolü:</strong> Hafif ve güvenilir mesajlaşma için yaygın standart <strong>MQTT</strong>'dir; cihazlar bir aracı sunucuya (broker) mesaj yayınlar, uygulamalar abone olur.</li>
+<li><strong>Depolama:</strong> Zaman serisi verisi için uygun bir veritabanı veya mevcut SQL veritabanında iyi tasarlanmış tablolar.</li>
+<li><strong>Uygulama:</strong> Panel, raporlar ve uyarılar.</li>
+</ol>
+<h2 id="baglanti-secimi">Bağlantı seçimi</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Seçenek</th><th>Uygun durum</th></tr></thead>
+<tbody>
+<tr><td>Wi-Fi</td><td>Ofis veya atölye içi, prize yakın cihazlar</td></tr>
+<tr><td>Mobil ağ</td><td>Araçlar, dağınık lokasyonlar</td></tr>
+<tr><td>LoRaWAN benzeri ağlar</td><td>Pille uzun süre çalışan, az veri gönderen sensörler</td></tr>
+<tr><td>Kablolu / endüstriyel protokoller</td><td>Makineler ve üretim hatları</td></tr>
+</tbody></table></div>
+<h2 id="uyarilar-ve-raporlar">Uyarılar ve raporlar</h2>
+<p>Ham veri değil, <strong>aksiyon alınabilir bilgi</strong> hedeflenmelidir:</p>
+<ul>
+<li>Eşik aşımında SMS veya mesaj bildirimi (<a href="sms-entegrasyonu-isletmeler.html">SMS entegrasyonu</a>)</li>
+<li>Sensör belirli süre veri göndermediğinde &quot;cihaz sessiz&quot; uyarısı</li>
+<li>Günlük ve aylık özet raporlar (<a href="yonetim-paneli-dashboard.html">yönetim paneli</a>)</li>
+<li>Denetimler için geçmiş kayıtların dışa aktarılması</li>
+</ul>
+<h2 id="guvenlik-en-zayif-halka">Güvenlik: En zayıf halka</h2>
+<p>IoT cihazları, siber saldırılarda sıkça hedef alınır:</p>
+<ol>
+<li>Varsayılan parolaları mutlaka değiştirin.</li>
+<li>Cihazları ana iş ağından ayrı bir ağ bölümüne koyun.</li>
+<li>Üretici güncellemelerini takip edin; güncelleme almayan cihazlardan kaçının.</li>
+<li>İletişimi şifreleyin (MQTT için TLS).</li>
+<li>Cihazları doğrudan internete açmayın.</li>
+</ol>
+<p>Genel önlemler için bkz. <a href="kobi-siber-guvenlik-kontrol-listesi.html">KOBİ siber güvenlik kontrol listesi</a>.</p>
+<h2 id="kucuk-baslamak">Küçük başlamak</h2>
+<p>Tek bir kritik noktayla (örneğin soğuk depo) başlamak, değeri hızla göstermenin ve deneyim kazanmanın en iyi yoludur. Başarılı olursa sistem kademeli olarak genişletilir.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Mevcut makinelerden veri alınabilir mi?</h3>
+<p>Birçok makine veri çıkışı sunar; sunmayanlar için akım sensörü gibi harici çözümlerle çalışma durumu ölçülebilir.</p>
+<h3>Veriler ne kadar süre saklanmalı?</h3>
+<p>Denetim ve analiz ihtiyacına göre. Ayrıntılı veri kısa süre, özetlenmiş veri uzun süre saklanarak depolama maliyeti dengelenebilir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>IoT, görünmeyen fiziksel süreçleri ölçülebilir ve uyarı verebilir hale getirir. Küçük bir pilot proje, güvenlik önlemleri ve aksiyon odaklı uyarılarla işletmenize hızlı bir değer sağlayabilir.</p><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html" aria-current="page">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="web scraping web sitelerinden otomatik veri toplamanin kurallari web scraping in ne oldugu kullanim alanlari hukuki ve etik sinirlar robots.txt kullanim kosullari kisisel veriler teknik yaklasimlar ve once api aramanin onemi. otomasyon ve entegrasyon web scraping veri kazima otomatik veri toplama fiyat takibi scraping yasal mi robots.txt"><a href="../blog/web-scraping-veri-toplama.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/web-scraping-veri-toplama.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>3 dk</span></span><h3>Web Scraping: Web Sitelerinden Otomatik Veri Toplamanın Kuralları</h3><p>Web scraping&#x27;in ne olduğu, kullanım alanları, hukuki ve etik sınırlar, robots.txt, kullanım koşulları, kişisel veriler, teknik yaklaşımlar ve önce API aramanın önemi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="guvenlik" data-search="kobi ler icin siber guvenlik kontrol listesi 15 temel adim kucuk ve orta olcekli isletmelerin hesap guvenligi yedekleme guncellemeler cihaz yonetimi e-posta guvenligi calisan farkindaligi ve olay mudahalesi icin uygulayabilecegi temel siber guvenlik adimlari. guvenlik ve kvkk kobi siber guvenlik siber guvenlik kontrol listesi kucuk isletme guvenlik bilgi guvenligi isletme guvenlik onlemleri"><a href="../blog/kobi-siber-guvenlik-kontrol-listesi.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/kobi-siber-guvenlik-kontrol-listesi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>2 dk</span></span><h3>KOBİ&#x27;ler İçin Siber Güvenlik Kontrol Listesi: 15 Temel Adım</h3><p>Küçük ve orta ölçekli işletmelerin hesap güvenliği, yedekleme, güncellemeler, cihaz yönetimi, e-posta güvenliği, çalışan farkındalığı ve olay müdahalesi için uygulayabileceği temel siber güvenlik adımları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="sms entegrasyonu randevu siparis ve dogrulama mesajlarini otomatiklestirmek isletme yazilimlarina sms entegrasyonu bilgilendirme ve ticari ileti ayrimi iys kontrolu baslik originator kullanimi tek kullanimlik dogrulama kodlari ve maliyet yonetimi. otomasyon ve entegrasyon sms entegrasyonu toplu sms api sms hatirlatma otp sms iys sms"><a href="../blog/sms-entegrasyonu-isletmeler.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/sms-entegrasyonu-isletmeler.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>SMS Entegrasyonu: Randevu, Sipariş ve Doğrulama Mesajlarını Otomatikleştirmek</h3><p>İşletme yazılımlarına SMS entegrasyonu, bilgilendirme ve ticari ileti ayrımı, İYS kontrolü, başlık (originator) kullanımı, tek kullanımlık doğrulama kodları ve maliyet yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

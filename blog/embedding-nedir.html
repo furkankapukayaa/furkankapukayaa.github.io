@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek | Furkan Kapukaya</title>
+<meta name="description" content="Embedding (vektör temsili) kavramı, anlamsal benzerlik, kosinüs benzerliği, anlamsal arama, öneri, sınıflandırma ve kümeleme gibi kullanım alanları ile model seçimi ve maliyet ipuçları.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/embedding-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/embedding-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/embedding-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek | Furkan Kapukaya">
+<meta property="og:description" content="Embedding (vektör temsili) kavramı, anlamsal benzerlik, kosinüs benzerliği, anlamsal arama, öneri, sınıflandırma ve kümeleme gibi kullanım alanları ile model seçimi ve maliyet ipuçları.">
+<meta property="og:url" content="https://kapukaya.dev/blog/embedding-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/embedding-nedir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek | Furkan Kapukaya">
+<meta name="twitter:description" content="Embedding (vektör temsili) kavramı, anlamsal benzerlik, kosinüs benzerliği, anlamsal arama, öneri, sınıflandırma ve kümeleme gibi kullanım alanları ile model seçimi ve maliyet ipuçları.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/embedding-nedir.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Yapay Zekâ">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek", "description": "Embedding (vektör temsili) kavramı, anlamsal benzerlik, kosinüs benzerliği, anlamsal arama, öneri, sınıflandırma ve kümeleme gibi kullanım alanları ile model seçimi ve maliyet ipuçları.", "url": "https://kapukaya.dev/blog/embedding-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/embedding-nedir.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Yapay Zekâ", "wordCount": 443, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/embedding-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "embedding nedir, vektör temsili, anlamsal arama, semantic search, kosinüs benzerliği, metin benzerliği"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Yapay Zekâ", "item": "https://kapukaya.dev/blog/kategori/yapay-zeka.html"}, {"@type": "ListItem", "position": 4, "name": "Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek", "item": "https://kapukaya.dev/blog/embedding-nedir.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Embedding ile LLM aynı şey mi?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Embedding modeli metni vektöre çevirir; LLM ise metin üretir. RAG gibi sistemlerde ikisi birlikte çalışır."}}, {"@type": "Question", "name": "Kendi sunucumda embedding üretebilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Açık kaynak embedding modelleri yerel olarak çalıştırılabilir; bu, hassas verilerin dışarı çıkmamasını sağlar. Bkz. yerel LLM."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--ai">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Embedding Nedir? Metni Anlamına Göre Sayılarla Temsil Etmek</h1>
+    <p class="page-hero__lead">Embedding (vektör temsili) kavramı, anlamsal benzerlik, kosinüs benzerliği, anlamsal arama, öneri, sınıflandırma ve kümeleme gibi kullanım alanları ile model seçimi ve maliyet ipuçları.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>&quot;Kargom nerede?&quot; ile &quot;siparişim hâlâ gelmedi&quot; cümlelerinde ortak kelime neredeyse yoktur; ama anlamları çok yakındır. Klasik kelime aramaları bu iki cümleyi ilişkilendiremez. Embedding, metni anlamını yansıtan bir sayı dizisine çevirerek bilgisayarların &quot;anlamca yakınlığı&quot; ölçmesini sağlar.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#embedding-nedir">Embedding nedir?</a></li><li><a href="#benzerlik-nasil-olculur">Benzerlik nasıl ölçülür?</a></li><li><a href="#kullanim-alanlari">Kullanım alanları</a></li><li><a href="#nasil-saklanir">Nasıl saklanır?</a></li><li><a href="#pratik-ipuclari">Pratik ipuçları</a></li><li><a href="#gizlilik-notu">Gizlilik notu</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="embedding-nedir">Embedding nedir?</h2>
+<p>Embedding, bir metnin (kelime, cümle veya paragraf) yüzlerce ya da binlerce sayıdan oluşan bir <strong>vektöre</strong> dönüştürülmüş halidir. Bu sayılar tek tek anlam taşımaz; ama birlikte, metnin çok boyutlu bir uzaydaki konumunu belirler. Anlamca benzer metinler bu uzayda birbirine yakın düşer.</p>
+<p>Basit bir benzetme: Şehirleri enlem ve boylamla iki sayıyla temsil edersiniz; birbirine yakın şehirlerin sayıları da yakındır. Embedding aynı fikri anlam için ve çok daha fazla boyutla uygular.</p>
+<h2 id="benzerlik-nasil-olculur">Benzerlik nasıl ölçülür?</h2>
+<p>İki vektör arasındaki yakınlık genellikle <strong>kosinüs benzerliği</strong> ile hesaplanır: iki vektörün yönü ne kadar benzerse sonuç 1'e o kadar yakındır. &quot;Kargom nerede?&quot; sorusunun embedding'i, &quot;teslimat süresi&quot; konulu destek makalesinin embedding'ine yakın çıkar.</p>
+<h2 id="kullanim-alanlari">Kullanım alanları</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Uygulama</th><th>Nasıl?</th></tr></thead>
+<tbody>
+<tr><td>Anlamsal arama</td><td>Sorgu ve belgelerin embedding'lerini karşılaştırıp en yakınları getirmek</td></tr>
+<tr><td>RAG</td><td>Yapay zekâya soru sorulmadan önce ilgili belge parçalarını bulmak (<a href="rag-nedir.html">RAG nedir</a>)</td></tr>
+<tr><td>Benzer içerik önerisi</td><td>&quot;Bu yazıyı okuyanlar şunları da okudu&quot;</td></tr>
+<tr><td>Sınıflandırma</td><td>Destek taleplerini konularına göre otomatik yönlendirmek</td></tr>
+<tr><td>Kümeleme</td><td>Müşteri yorumlarını benzer şikâyet gruplarına ayırmak</td></tr>
+<tr><td>Mükerrer tespiti</td><td>Aynı anlama gelen farklı yazılmış kayıtları bulmak</td></tr>
+</tbody></table></div>
+<h2 id="nasil-saklanir">Nasıl saklanır?</h2>
+<p>Az sayıda belge için embedding'leri bellekte veya normal bir veritabanında tutmak yeterlidir. Yüz binlerce veya milyonlarca belgede hızlı benzerlik araması için <strong>vektör veritabanları</strong> veya PostgreSQL'in vektör eklentisi gibi çözümler kullanılır. Bkz. <a href="vektor-veritabani-nedir.html">vektör veritabanı</a>.</p>
+<h2 id="pratik-ipuclari">Pratik ipuçları</h2>
+<ol>
+<li><strong>Aynı modeli kullanın:</strong> Sorgu ve belgeler aynı embedding modeliyle üretilmelidir; farklı modellerin vektörleri karşılaştırılamaz.</li>
+<li><strong>Türkçe performansını test edin:</strong> Çok dilli modellerin Türkçe başarısı farklıdır; kendi verinizle küçük bir test yapın.</li>
+<li><strong>Parçalayın:</strong> Uzun belgeleri anlamlı bölümlere ayırarak (başlık ve paragraf sınırlarında) embedding'leyin.</li>
+<li><strong>Karma arama:</strong> Anlamsal arama ile klasik kelime aramasını birleştirmek; ürün kodu, fatura numarası gibi kesin terimlerde daha iyi sonuç verir.</li>
+<li><strong>Maliyet:</strong> Embedding üretimi genellikle metin üretiminden çok daha ucuzdur; belgeler bir kez işlenir, yalnızca değişenler güncellenir.</li>
+</ol>
+<h2 id="gizlilik-notu">Gizlilik notu</h2>
+<p>Embedding'ler metnin kendisi olmasa da içerik hakkında bilgi taşır ve bazı durumlarda metne dair çıkarımlar yapılabilir. Kişisel veri içeren belgelerin embedding'leri de aynı özenle korunmalıdır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Embedding ile LLM aynı şey mi?</h3>
+<p>Hayır. Embedding modeli metni vektöre çevirir; LLM ise metin üretir. RAG gibi sistemlerde ikisi birlikte çalışır.</p>
+<h3>Kendi sunucumda embedding üretebilir miyim?</h3>
+<p>Evet. Açık kaynak embedding modelleri yerel olarak çalıştırılabilir; bu, hassas verilerin dışarı çıkmamasını sağlar. Bkz. <a href="yerel-llm-calistirma.html">yerel LLM</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Embedding, bilgisayarlara kelimeleri değil anlamları karşılaştırma yeteneği kazandırır. Arama, öneri ve sınıflandırma gibi işlerde sessizce büyük fark yaratan bu teknik, işletmelerin kendi verileriyle yapay zekâ uygulamaları kurmasının da temelidir.</p><aside class="path-box" data-path="yapay-zekayi-anlamak" data-steps="llm-nasil-calisir embedding-nedir rag-nedir yapay-zeka-maliyeti-token prompt-injection-nedir ai-coding-agent-nedir" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 2 / 6</p><b><a href="yollar.html#yapay-zekayi-anlamak">Yapay zekâyı içeriden anlamak</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="rag-nedir.html">Sonraki adım: RAG Nedir? Yapay Zekâyı Kendi Belgelerinizle Konuşturmak <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html" aria-current="page">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="ai" data-search="vektor veritabani nedir anlamsal arama ve yapay zeka uygulamalari embedding ve vektor kavramlari vektor veritabanlarinin calisma mantigi anlamsal arama rag ile iliskisi ayri vektor veritabani ile mevcut veritabaninin vektor ozelliklerini kullanma karsilastirmasi. yapay zeka vektor veritabani vector database embedding anlamsal arama semantic search"><a href="../blog/vektor-veritabani-nedir.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/vektor-veritabani-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>2 dk</span></span><h3>Vektör Veritabanı Nedir? Anlamsal Arama ve Yapay Zekâ Uygulamaları</h3><p>Embedding ve vektör kavramları, vektör veritabanlarının çalışma mantığı, anlamsal arama, RAG ile ilişkisi, ayrı vektör veritabanı ile mevcut veritabanının vektör özelliklerini kullanma karşılaştırması.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="rag nedir yapay zekayi kendi belgelerinizle konusturmak retrieval-augmented generation rag yaklasiminin calisma mantigi embedding ve vektor arama belge hazirligi kaynak gosterme ve is uygulamalarinda kullanim. yapay zeka rag nedir retrieval augmented generation vektor veritabani embedding kurumsal yapay zeka"><a href="../blog/rag-nedir.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/rag-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>RAG Nedir? Yapay Zekâyı Kendi Belgelerinizle Konuşturmak</h3><p>Retrieval-Augmented Generation (RAG) yaklaşımının çalışma mantığı, embedding ve vektör arama, belge hazırlığı, kaynak gösterme ve iş uygulamalarında kullanım.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="ai" data-search="buyuk dil modelleri llm nasil calisir token baglam ve olasilik chatgpt claude ve gemini gibi buyuk dil modellerinin temel calisma mantigi token sonraki kelime tahmini egitim asamalari baglam penceresi sicaklik ayari ve modellerin guclu ve zayif yanlari. yapay zeka llm nasil calisir buyuk dil modeli token nedir baglam penceresi yapay zeka nasil calisir transformer"><a href="../blog/llm-nasil-calisir.html"><span class="post__cover post__cover--ai"><img src="../assets/images/blog/thumb/llm-nasil-calisir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yapay Zekâ</span><span>3 dk</span></span><h3>Büyük Dil Modelleri (LLM) Nasıl Çalışır? Token, Bağlam ve Olasılık</h3><p>ChatGPT, Claude ve Gemini gibi büyük dil modellerinin temel çalışma mantığı; token, sonraki kelime tahmini, eğitim aşamaları, bağlam penceresi, sıcaklık ayarı ve modellerin güçlü ve zayıf yanları.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/yapay-zeka.html">Yapay Zekâ kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

@@ -458,7 +458,7 @@
     var C = {
       yardim: function () {
         print('Kullanılabilir komutlar:');
-        [['dotnet run', 'Stok senkronizasyonunu yeniden çalıştırır'], ['stok', 'Kritik seviyedeki ürünleri listeler'], ['rapor', 'Günlük özet raporu gösterir'], ['dir', 'Proje klasöründeki dosyaları listeler'], ['type Program.cs', 'Uygulamanın giriş noktasını gösterir'], ['hizmetler', 'Geliştirdiğim uygulama türleri'], ['iletisim', 'Teklif formuna geçer'], ['tarih', 'Tarih ve saati yazar'], ['cls', 'Ekranı temizler'], ['exit', 'Konsolu kapatır']]
+        [['dotnet run', 'Stok senkronizasyonunu yeniden çalıştırır'], ['stok', 'Kritik seviyedeki ürünleri listeler'], ['rapor', 'Günlük özet raporu gösterir'], ['dir', 'Proje klasöründeki dosyaları listeler'], ['type Program.cs', 'Uygulamanın giriş noktasını gösterir'], ['hizmetler', 'Geliştirdiğim uygulama türleri'], ['iletisim', 'Teklif formuna geçer'], ['tarih', 'Tarih ve saati yazar'], ['sirlar', 'Sitedeki gizli sürprizler hakkında ipucu'], ['cls', 'Ekranı temizler'], ['exit', 'Konsolu kapatır']]
           .forEach(function (c) { print('  <y>' + (c[0] + '                 ').slice(0, 17) + '</y>' + c[1]); });
       },
       run: function () {
@@ -513,9 +513,26 @@
       whoami: function () { print('kapukaya\\furkan  (Yazılım geliştirici, İstanbul)'); },
       cls: function () { qsa('.t-line:not(.t-in)', body).forEach(function (l) { l.remove(); }); },
       exit: function () { P.close('term'); },
-      sudo: function () { print('Bu bir Windows makinesi. Yine de yetkiniz tam: yeni bir proje için <u>iletisim</u> yazın.'); }
+      sudo: function () { print('Bu bir Windows makinesi. Yine de yetkiniz tam: yeni bir proje için <u>iletisim</u> yazın.'); },
+      furkan: function () {
+        later([
+          ['<y>Gizli komut bulundu.</y>', '', 260],
+          ['  ███████╗██╗  ██╗', 't-code', 60],
+          ['  ██╔════╝██║ ██╔╝', 't-code', 60],
+          ['  █████╗  █████╔╝ ', 't-code', 60],
+          ['  ██╔══╝  ██╔═██╗ ', 't-code', 60],
+          ['  ██║     ██║  ██╗', 't-code', 60],
+          ['Merhaba, ben Furkan. Bu konsolu siz bulasınız diye yazdım. <g>Rozet kazanıldı.</g>', '', 0]
+        ], 120, function () { document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'konsol' })); });
+      },
+      sirlar: function () {
+        var n = window.FKFun ? window.FKFun.count() : 0, t = window.FKFun ? window.FKFun.total : 8;
+        print('Bu sitede ' + t + ' gizli sürpriz var. Bulunan: <y>' + n + '</y>.');
+        print('İpucu: Bu konsolda bile bir tanesi saklı. Komut, sitenin sahibinin adı.');
+        if (window.FKFun) print('Tüm ipuçları için sayfanın en altındaki <u>sihirli değnek</u> satırına tıklayın.');
+      }
     };
-    var alias = { help: 'yardim', '?': 'yardim', yardim: 'yardim', run: 'run', 'dotnet': 'run', senkron: 'run', stok: 'stok', rapor: 'rapor', dir: 'dir', ls: 'dir', type: 'type', cat: 'type', hizmetler: 'hizmetler', iletisim: 'iletisim', teklif: 'iletisim', contact: 'iletisim', tarih: 'tarih', date: 'tarih', whoami: 'whoami', cls: 'cls', clear: 'cls', temizle: 'cls', exit: 'exit', cikis: 'exit', sudo: 'sudo' };
+    var alias = { help: 'yardim', '?': 'yardim', yardim: 'yardim', run: 'run', 'dotnet': 'run', senkron: 'run', stok: 'stok', rapor: 'rapor', dir: 'dir', ls: 'dir', type: 'type', cat: 'type', hizmetler: 'hizmetler', iletisim: 'iletisim', teklif: 'iletisim', contact: 'iletisim', tarih: 'tarih', date: 'tarih', whoami: 'whoami', cls: 'cls', clear: 'cls', temizle: 'cls', exit: 'exit', cikis: 'exit', sudo: 'sudo', furkan: 'furkan', sirlar: 'sirlar', surpriz: 'sirlar', gizli: 'sirlar' };
     var exec = function (raw) {
       var cmd = raw.trim();
       print(PROMPT + '<u>' + esc(cmd) + '</u>', 't-p');
@@ -755,10 +772,85 @@
         list.innerHTML = '';
         note.textContent = 'Geri Dönüşüm Kutusu boş. Dağınık Excel dosyalarına veda ettiniz.';
         refresh();
+        document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'bin' }));
       }, reduce ? 0 : 420 + items.length * 60);
     });
     P._binReset = function () { list.innerHTML = ORIG; note.textContent = NOTE; refresh(); };
     refresh();
+  })();
+
+  /* =====================================================================
+     7b) Referanslar klasörü: ana sayfadaki proje kartlarından beslenir
+     ===================================================================== */
+  (function () {
+    var win = P.wins.refs;
+    if (!win) return;
+    var body = qs('[data-refs]', win), back = qs('[data-refs-back]', win), path = qs('[data-refs-path]', win), count = qs('[data-refs-count]', win);
+    var items = qsa('.works .work').map(function (w) {
+      var meta = qsa('.work__meta span', w).map(function (x) { return x.textContent; });
+      var img = qs('img', w);
+      return { t: (qs('h3', w) || {}).textContent || '', type: meta[0] || '', year: meta[1] || '', d: (qs('.work__body p', w) || {}).textContent || '', href: w.getAttribute('href'), img: img ? img.getAttribute('src') : '' };
+    });
+    var list = function () {
+      path.textContent = 'C:\\Referanslar';
+      back.disabled = true;
+      count.textContent = items.length + ' klasör';
+      body.innerHTML = '<ul class="e-grid">' + items.map(function (x, i) {
+        return '<li><button type="button" class="e-item" data-i="' + i + '"><span class="e-folder" aria-hidden="true"><i class="fa-solid fa-folder"></i></span><span class="e-name">' + esc(x.t) + '</span><small>' + esc(x.type) + '</small></button></li>';
+      }).join('') + '</ul>';
+    };
+    var open = function (i) {
+      var x = items[i];
+      path.textContent = 'C:\\Referanslar\\' + x.t;
+      back.disabled = false;
+      count.textContent = x.type + (x.year ? ', ' + x.year : '');
+      body.innerHTML = '<div class="e-detail is-in">' + (x.img ? '<div class="e-logo"><img src="' + esc(x.img) + '" alt="" loading="lazy"></div>' : '') +
+        '<div class="e-info"><h4>' + esc(x.t) + '</h4><p class="e-meta">' + esc(x.type) + (x.year ? ', ' + esc(x.year) : '') + '</p><p>' + esc(x.d) + '</p>' +
+        '<a class="w-btn" href="' + esc(x.href) + '">Proje sayfasını aç <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div>';
+      var a = qs('.w-btn', body); if (a) a.focus({ preventScroll: true });
+    };
+    body.addEventListener('dblclick', function (e) { var b = e.target.closest('[data-i]'); if (b) open(+b.dataset.i); });
+    body.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-i]');
+      if (!b) return;
+      qsa('.e-item', body).forEach(function (x) { x.classList.toggle('is-sel', x === b); });
+      if (P.narrow() || e.detail === 0) open(+b.dataset.i);   /* dokunmatik ekranda ve klavyede tek dokunuş yeter */
+    });
+    back.addEventListener('click', function () { list(); var f = qs('.e-item', body); if (f) f.focus({ preventScroll: true }); });
+    list();
+  })();
+
+  /* =====================================================================
+     7c) Blog.exe: son yazılar ve okuma yolları (ilk açılışta yüklenir)
+     ===================================================================== */
+  (function () {
+    var win = P.wins.blogapp;
+    if (!win) return;
+    var body = qs('[data-blogapp]', win), data = null, tab = 'son';
+    var readList = function () { try { return JSON.parse(localStorage.getItem('fk-read') || '[]'); } catch (e) { return []; } };
+    var draw = function () {
+      if (!data) return;
+      qsa('[data-ba]', win).forEach(function (b) { var on = b.dataset.ba === tab; b.classList.toggle('is-on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      var r = readList();
+      if (tab === 'son') {
+        body.innerHTML = '<ul class="ba-list">' + data.posts.map(function (x) {
+          return '<li><a href="blog/' + x.s + '.html"><small>' + esc(x.c) + ', ' + esc(x.d) + '</small><b>' + esc(x.t) + '</b><span>' + x.m + ' dk okuma' + (r.indexOf(x.s) !== -1 ? ' <em>okundu</em>' : '') + '</span></a></li>';
+        }).join('') + '</ul>';
+      } else {
+        body.innerHTML = '<ul class="ba-paths">' + data.paths.map(function (p) {
+          var n = p.steps.filter(function (x) { return r.indexOf(x.s) !== -1; }).length, nxt = p.steps.filter(function (x) { return r.indexOf(x.s) === -1; })[0];
+          var f = Math.round(n / p.steps.length * 10);
+          return '<li><a href="blog/yollar.html#' + p.id + '"><b>' + esc(p.t) + '</b><code>[' + new Array(f + 1).join('█') + new Array(10 - f + 1).join('░') + '] ' + n + '/' + p.steps.length + '</code><small>' + (nxt ? 'Sıradaki: ' + esc(nxt.t) : 'Tamamlandı') + '</small></a></li>';
+        }).join('') + '</ul>';
+      }
+    };
+    var load = function () {
+      if (data || !window.fetch) return;
+      fetch('assets/data/blog-latest.json').then(function (r) { return r.json(); }).then(function (j) { data = j; draw(); })
+        .catch(function () { body.innerHTML = '<p class="ba-empty">Yazılar yüklenemedi. <a href="blog/index.html">Bloga gidin</a>.</p>'; });
+    };
+    qsa('[data-ba]', win).forEach(function (b) { b.addEventListener('click', function () { tab = b.dataset.ba; draw(); }); });
+    new MutationObserver(function () { if (!win.hidden) { load(); draw(); } }).observe(win, { attributes: true, attributeFilter: ['hidden'] });
   })();
 
   /* =====================================================================
@@ -958,6 +1050,7 @@
       off.hidden = true;
       off.className = 'pc-off';
       if (P._binReset) P._binReset();
+      document.dispatchEvent(new CustomEvent('fk:secret', { detail: 'restart' }));
       if (!P.narrow()) P.open('web', false);
       P.open('desk', true);
     }, reduce ? 200 : 1400);

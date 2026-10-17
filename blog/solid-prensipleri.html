@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>SOLID Prensipleri: Örneklerle Anlaşılır Rehber | Furkan Kapukaya</title>
+<meta name="description" content="Nesne yönelimli tasarımın beş temel ilkesi SOLID: tek sorumluluk, açık-kapalı, Liskov, arayüz ayrımı ve bağımlılıkların tersine çevrilmesi; C# örnekleri ve aşırıya kaçmadan uygulama.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/solid-prensipleri.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/solid-prensipleri.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/solid-prensipleri.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="SOLID Prensipleri: Örneklerle Anlaşılır Rehber | Furkan Kapukaya">
+<meta property="og:description" content="Nesne yönelimli tasarımın beş temel ilkesi SOLID: tek sorumluluk, açık-kapalı, Liskov, arayüz ayrımı ve bağımlılıkların tersine çevrilmesi; C# örnekleri ve aşırıya kaçmadan uygulama.">
+<meta property="og:url" content="https://kapukaya.dev/blog/solid-prensipleri.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/solid-prensipleri.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SOLID Prensipleri: Örneklerle Anlaşılır Rehber">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="SOLID Prensipleri: Örneklerle Anlaşılır Rehber | Furkan Kapukaya">
+<meta name="twitter:description" content="Nesne yönelimli tasarımın beş temel ilkesi SOLID: tek sorumluluk, açık-kapalı, Liskov, arayüz ayrımı ve bağımlılıkların tersine çevrilmesi; C# örnekleri ve aşırıya kaçmadan uygulama.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/solid-prensipleri.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Yazılım Mimarisi ve Temiz Kod">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "SOLID Prensipleri: Örneklerle Anlaşılır Rehber", "description": "Nesne yönelimli tasarımın beş temel ilkesi SOLID: tek sorumluluk, açık-kapalı, Liskov, arayüz ayrımı ve bağımlılıkların tersine çevrilmesi; C# örnekleri ve aşırıya kaçmadan uygulama.", "url": "https://kapukaya.dev/blog/solid-prensipleri.html", "mainEntityOfPage": "https://kapukaya.dev/blog/solid-prensipleri.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Yazılım Mimarisi ve Temiz Kod", "wordCount": 424, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/solid-prensipleri.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "solid prensipleri, single responsibility, open closed, liskov substitution, interface segregation, dependency inversion"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Yazılım Mimarisi ve Temiz Kod", "item": "https://kapukaya.dev/blog/kategori/yazilim-mimarisi-temiz-kod.html"}, {"@type": "ListItem", "position": 4, "name": "SOLID Prensipleri: Örneklerle Anlaşılır Rehber", "item": "https://kapukaya.dev/blog/solid-prensipleri.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "SOLID sadece nesne yönelimli dillerde mi geçerli?", "acceptedAnswer": {"@type": "Answer", "text": "İsimleri nesne yönelimli dünyadan gelir; ancak tek sorumluluk ve bağımlılıkları soyutlama gibi fikirler fonksiyonel programlamada da karşılık bulur."}}, {"@type": "Question", "name": "Mevcut bir projeye SOLID nasıl uygulanır?", "acceptedAnswer": {"@type": "Answer", "text": "Tümünü baştan yazarak değil; değiştirdiğiniz kodu adım adım iyileştirerek. Bkz. refactoring."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--mimari">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>SOLID Prensipleri: Örneklerle Anlaşılır Rehber</h1>
+    <p class="page-hero__lead">Nesne yönelimli tasarımın beş temel ilkesi SOLID: tek sorumluluk, açık-kapalı, Liskov, arayüz ayrımı ve bağımlılıkların tersine çevrilmesi; C# örnekleri ve aşırıya kaçmadan uygulama.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>SOLID, nesne yönelimli yazılım tasarımının beş temel ilkesinin baş harflerinden oluşur. Yirmi yılı aşkın süredir mülakatların, kod incelemelerinin ve mimari tartışmaların ortak dilidir. Amacı tek bir cümleyle özetlenebilir: <strong>değişikliğe kolay uyum sağlayan kod.</strong></p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#s-tek-sorumluluk-single-responsibility">S: Tek Sorumluluk (Single Responsibility)</a></li><li><a href="#o-acik-kapali-open-closed">O: Açık-Kapalı (Open/Closed)</a></li><li><a href="#l-liskov-un-yerine-gecme-ilkesi">L: Liskov'un Yerine Geçme İlkesi</a></li><li><a href="#i-arayuz-ayrimi-interface-segregation">I: Arayüz Ayrımı (Interface Segregation)</a></li><li><a href="#d-bagimliliklarin-tersine-cevrilmesi-dependency-inversion">D: Bağımlılıkların Tersine Çevrilmesi (Dependency Inversion)</a></li><li><a href="#asiriya-kacmamak">Aşırıya kaçmamak</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="s-tek-sorumluluk-single-responsibility">S: Tek Sorumluluk (Single Responsibility)</h2>
+<p>Bir sınıfın değişmek için yalnızca bir nedeni olmalıdır. Hem fatura hesaplayan, hem PDF üreten, hem de e-posta gönderen bir sınıf; üç farklı nedenle değişir.</p>
+<pre><code class="language-csharp">public class FaturaHesaplayici { /* tutar ve vergi */ }
+public class FaturaPdfUretici  { /* belge */ }
+public class FaturaGonderici   { /* e-posta */ }</code></pre>
+<h2 id="o-acik-kapali-open-closed">O: Açık-Kapalı (Open/Closed)</h2>
+<p>Kod, genişlemeye açık ama değişikliğe kapalı olmalıdır. Yeni bir kargo firması eklemek için mevcut ve çalışan kodu değil, yeni bir sınıf eklemek yeterli olmalıdır.</p>
+<pre><code class="language-csharp">public interface IKargoFirmasi { decimal UcretHesapla(Paket paket); }
+public class ArasKargo : IKargoFirmasi { /* ... */ }
+public class YeniKargo : IKargoFirmasi { /* yalnızca eklenir */ }</code></pre>
+<h2 id="l-liskov-un-yerine-gecme-ilkesi">L: Liskov'un Yerine Geçme İlkesi</h2>
+<p>Bir alt sınıf, üst sınıfın kullanıldığı her yerde sorunsuz çalışmalıdır. Üst sınıfın sözünü bozan, örneğin &quot;Kaydet&quot; çağrıldığında hata fırlatan bir alt sınıf bu ilkeyi ihlal eder. Klasik örnek: matematiksel olarak her kare bir dikdörtgendir, ama genişliği ve yüksekliği bağımsız değiştirilebilen bir <code>Dikdortgen</code> sınıfından <code>Kare</code> türetmek beklenmedik davranışlara yol açar.</p>
+<h2 id="i-arayuz-ayrimi-interface-segregation">I: Arayüz Ayrımı (Interface Segregation)</h2>
+<p>İstemciler kullanmadıkları metotlara bağımlı olmamalıdır. Yirmi metotlu dev bir arayüz yerine, amaca özel küçük arayüzler tercih edilir: <code>IOkunabilir</code>, <code>IYazilabilir</code> gibi.</p>
+<h2 id="d-bagimliliklarin-tersine-cevrilmesi-dependency-inversion">D: Bağımlılıkların Tersine Çevrilmesi (Dependency Inversion)</h2>
+<p>Üst seviye iş mantığı, alt seviye ayrıntılara (veritabanı, SMTP, dosya sistemi) değil soyutlamalara bağlı olmalıdır.</p>
+<pre><code class="language-csharp">public class SiparisServisi(ISiparisDeposu depo, IBildirimGonderici bildirim)
+{
+    public async Task OnaylaAsync(int id)
+    {
+        var siparis = await depo.GetirAsync(id);
+        siparis.Onayla();
+        await depo.KaydetAsync(siparis);
+        await bildirim.GonderAsync(siparis.MusteriId, &quot;Siparişiniz onaylandı.&quot;);
+    }
+}</code></pre>
+<p>Bu yapı sayesinde testte gerçek veritabanı yerine sahte bir depo kullanılabilir. .NET'te bu bağımlılıkların nasıl yönetildiği <a href="dotnet-dependency-injection.html">dependency injection</a> yazısında anlatılıyor.</p>
+<h2 id="asiriya-kacmamak">Aşırıya kaçmamak</h2>
+<p>SOLID bir araçtır, amaç değil. Her sınıf için bir arayüz yazmak, iki satırlık işleri beş dosyaya bölmek okunabilirliği düşürür. Küçük ve değişmeyecek kodda ilkeleri gevşek uygulamak, <a href="dry-kiss-yagni.html">KISS ve YAGNI</a> ile uyumludur. İlkeleri en çok, sık değişen ve birden fazla kişinin dokunduğu kodda uygulayın.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>SOLID sadece nesne yönelimli dillerde mi geçerli?</h3>
+<p>İsimleri nesne yönelimli dünyadan gelir; ancak tek sorumluluk ve bağımlılıkları soyutlama gibi fikirler fonksiyonel programlamada da karşılık bulur.</p>
+<h3>Mevcut bir projeye SOLID nasıl uygulanır?</h3>
+<p>Tümünü baştan yazarak değil; değiştirdiğiniz kodu adım adım iyileştirerek. Bkz. <a href="refactoring-nedir.html">refactoring</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>SOLID, kodu değişime hazırlamanın beş pratik yoludur. Bu ilkeleri ölçülü uygulamak, yeni özelliklerin eski özellikleri bozmadan eklenebildiği bir kod tabanı sağlar.</p><aside class="path-box" data-path="temiz-kod-yolculugu" data-steps="temiz-kod-clean-code isimlendirme-kurallari dry-kiss-yagni solid-prensipleri refactoring-nedir code-review-rehberi" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 4 / 6</p><b><a href="yollar.html#temiz-kod-yolculugu">Temiz kod yolculuğu</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="refactoring-nedir.html">Sonraki adım: Refactoring Nedir? Davranışı Bozmadan Kodu İyileştirmek <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html" aria-current="page">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="mimari" data-search="dry kiss ve yagni yazilimda sadeligin uc ilkesi tekrar etme dry basit tut kiss ve ihtiyacin olmayani yapma yagni ilkelerinin anlami ornekleri yanlis uygulanmalari ve birbirleriyle dengesi. yazilim mimarisi ve temiz kod dry prensibi kiss prensibi yagni yazilim prensipleri gereksiz karmasiklik"><a href="../blog/dry-kiss-yagni.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/dry-kiss-yagni.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>2 dk</span></span><h3>DRY, KISS ve YAGNI: Yazılımda Sadeliğin Üç İlkesi</h3><p>Tekrar etme (DRY), basit tut (KISS) ve ihtiyacın olmayanı yapma (YAGNI) ilkelerinin anlamı, örnekleri, yanlış uygulanmaları ve birbirleriyle dengesi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="mimari" data-search="refactoring nedir davranisi bozmadan kodu iyilestirmek refactoring in tanimi ne zaman yapilmasi gerektigi kod kokulari guvenli refactoring adimlari testlerin rolu ve buyuk yeniden yazim rewrite yerine kucuk adimlarin avantaji. yazilim mimarisi ve temiz kod refactoring nedir kod iyilestirme code smell kod kokusu yeniden yazim"><a href="../blog/refactoring-nedir.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/refactoring-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>3 dk</span></span><h3>Refactoring Nedir? Davranışı Bozmadan Kodu İyileştirmek</h3><p>Refactoring&#x27;in tanımı, ne zaman yapılması gerektiği, kod kokuları, güvenli refactoring adımları, testlerin rolü ve büyük yeniden yazım (rewrite) yerine küçük adımların avantajı.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="mimari" data-search="temiz kod clean code nedir okunabilir kodun 10 kurali temiz kodun ne oldugu neden onemli oldugu ve kucuk fonksiyonlar anlamli isimler tek sorumluluk yorum kullanimi ve test gibi okunabilir kodun 10 pratik kurali. yazilim mimarisi ve temiz kod temiz kod clean code okunabilir kod kod kalitesi iyi kod yazma"><a href="../blog/temiz-kod-clean-code.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/temiz-kod-clean-code.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>3 dk</span></span><h3>Temiz Kod (Clean Code) Nedir? Okunabilir Kodun 10 Kuralı</h3><p>Temiz kodun ne olduğu, neden önemli olduğu ve küçük fonksiyonlar, anlamlı isimler, tek sorumluluk, yorum kullanımı ve test gibi okunabilir kodun 10 pratik kuralı.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

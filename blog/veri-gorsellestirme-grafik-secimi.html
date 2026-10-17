@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Veri Görselleştirme: Doğru Grafik Nasıl Seçilir? | Furkan Kapukaya</title>
+<meta name="description" content="Hangi veri için hangi grafiğin kullanılacağı; çubuk, çizgi, pasta, dağılım ve tablo seçimi, yanıltıcı grafiklerden kaçınma, renk kullanımı ve yönetici raporlarında görselleştirme ilkeleri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Veri Görselleştirme: Doğru Grafik Nasıl Seçilir? | Furkan Kapukaya">
+<meta property="og:description" content="Hangi veri için hangi grafiğin kullanılacağı; çubuk, çizgi, pasta, dağılım ve tablo seçimi, yanıltıcı grafiklerden kaçınma, renk kullanımı ve yönetici raporlarında görselleştirme ilkeleri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/veri-gorsellestirme-grafik-secimi.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Veri Görselleştirme: Doğru Grafik Nasıl Seçilir?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Veri Görselleştirme: Doğru Grafik Nasıl Seçilir? | Furkan Kapukaya">
+<meta name="twitter:description" content="Hangi veri için hangi grafiğin kullanılacağı; çubuk, çizgi, pasta, dağılım ve tablo seçimi, yanıltıcı grafiklerden kaçınma, renk kullanımı ve yönetici raporlarında görselleştirme ilkeleri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/veri-gorsellestirme-grafik-secimi.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Veri ve Raporlama">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Veri Görselleştirme: Doğru Grafik Nasıl Seçilir?", "description": "Hangi veri için hangi grafiğin kullanılacağı; çubuk, çizgi, pasta, dağılım ve tablo seçimi, yanıltıcı grafiklerden kaçınma, renk kullanımı ve yönetici raporlarında görselleştirme ilkeleri.", "url": "https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html", "mainEntityOfPage": "https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Veri ve Raporlama", "wordCount": 423, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/veri-gorsellestirme-grafik-secimi.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "veri görselleştirme, grafik seçimi, çubuk grafik, çizgi grafik, pasta grafik, dashboard tasarımı"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Veri ve Raporlama", "item": "https://kapukaya.dev/blog/kategori/veri-raporlama.html"}, {"@type": "ListItem", "position": 4, "name": "Veri Görselleştirme: Doğru Grafik Nasıl Seçilir?", "item": "https://kapukaya.dev/blog/veri-gorsellestirme-grafik-secimi.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hangi araçla grafik hazırlamalıyım?", "acceptedAnswer": {"@type": "Answer", "text": "Excel ve Google E-Tablolar çoğu ihtiyaç için yeterlidir. Düzenli ve çok kullanıcılı raporlar için iş zekâsı araçları veya özel panel yazılımları tercih edilir."}}, {"@type": "Question", "name": "Tablo mu grafik mi?", "acceptedAnswer": {"@type": "Answer", "text": "Okuyucu kesin değerlere bakacaksa tablo, eğilimi ve karşılaştırmayı görecekse grafik kullanın. Çoğu raporda ikisi birlikte kullanılır."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--veri">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Veri Görselleştirme: Doğru Grafik Nasıl Seçilir?</h1>
+    <p class="page-hero__lead">Hangi veri için hangi grafiğin kullanılacağı; çubuk, çizgi, pasta, dağılım ve tablo seçimi, yanıltıcı grafiklerden kaçınma, renk kullanımı ve yönetici raporlarında görselleştirme ilkeleri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Aynı veri, yanlış grafikle gösterildiğinde anlaşılmaz, hatta yanıltıcı hale gelir. Doğru grafik ise okuyucunun saniyeler içinde ana mesajı görmesini sağlar. Grafik seçimi bir zevk meselesi değil, <strong>hangi soruya cevap verdiğinizle</strong> ilgili bir karardır.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#soruya-gore-grafik">Soruya göre grafik</a></li><li><a href="#cubuk-grafik">Çubuk grafik</a></li><li><a href="#cizgi-grafik">Çizgi grafik</a></li><li><a href="#pasta-grafik-hakkinda">Pasta grafik hakkında</a></li><li><a href="#yaniltici-grafiklerden-kacinin">Yanıltıcı grafiklerden kaçının</a></li><li><a href="#renk-ve-sadelik">Renk ve sadelik</a></li><li><a href="#yonetici-panelleri-icin-ilkeler">Yönetici panelleri için ilkeler</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="soruya-gore-grafik">Soruya göre grafik</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Soru</th><th>Uygun grafik</th></tr></thead>
+<tbody>
+<tr><td>Zaman içinde nasıl değişti?</td><td>Çizgi grafik</td></tr>
+<tr><td>Kategoriler arasında karşılaştırma</td><td>Yatay veya dikey çubuk grafik</td></tr>
+<tr><td>Bütünün parçaları (az sayıda kategori)</td><td>Yığılmış çubuk; dikkatle pasta</td></tr>
+<tr><td>İki değişken arasındaki ilişki</td><td>Dağılım (scatter) grafiği</td></tr>
+<tr><td>Dağılım nasıl?</td><td>Histogram</td></tr>
+<tr><td>Tek bir sayının hedefe göre durumu</td><td>Büyük sayı ve hedef karşılaştırması</td></tr>
+<tr><td>Kesin değerler gerekiyor</td><td>Tablo</td></tr>
+</tbody></table></div>
+<h2 id="cubuk-grafik">Çubuk grafik</h2>
+<p>Kategorileri karşılaştırmak için en güvenilir grafiktir. Kategori isimleri uzunsa yatay çubuk kullanın ve çubukları büyükten küçüğe sıralayın. Çubuk grafiğin değer ekseni <strong>sıfırdan başlamalıdır</strong>; aksi halde küçük farklar devasa görünür.</p>
+<h2 id="cizgi-grafik">Çizgi grafik</h2>
+<p>Zaman serileri için idealdir: aylık ciro, günlük ziyaretçi. Aynı grafikte en fazla 3-4 çizgi bulunmalı; daha fazlası &quot;spagetti&quot; etkisi yaratır. Geçen yılın aynı dönemini kesik çizgiyle göstermek, mevsimselliği anlamayı kolaylaştırır.</p>
+<h2 id="pasta-grafik-hakkinda">Pasta grafik hakkında</h2>
+<p>İnsan gözü açıları ve alanları karşılaştırmakta zorlanır. Pasta grafik yalnızca:</p>
+<ul>
+<li>2-4 kategori varsa</li>
+<li>Mesaj &quot;bütünün yarısından fazlası&quot; gibi basitse</li>
+</ul>
+<p>işe yarar. Diğer durumlarda sıralı çubuk grafik daha net bilgi verir. Üç boyutlu pasta grafikler ise neredeyse her zaman yanıltıcıdır.</p>
+<h2 id="yaniltici-grafiklerden-kacinin">Yanıltıcı grafiklerden kaçının</h2>
+<ul>
+<li>Sıfırdan başlamayan çubuk eksenleri</li>
+<li>Farklı ölçekli iki eksenin aynı grafikte rastgele kullanılması</li>
+<li>Seçici tarih aralıkları (yalnızca iyi görünen dönemi göstermek)</li>
+<li>Anlamsız 3D efektler ve gölgeler</li>
+</ul>
+<h2 id="renk-ve-sadelik">Renk ve sadelik</h2>
+<ul>
+<li>Bir rengi vurgu için kullanın; geri kalanı gri tonlarında kalsın.</li>
+<li>Kırmızı-yeşil ayrımına dayanan grafikler renk körlüğü olan kişilerde okunamaz; şekil veya etiketle destekleyin. Bkz. <a href="web-erisilebilirlik-wcag.html">web erişilebilirliği</a>.</li>
+<li>Gereksiz ızgara çizgilerini, efektleri ve açıklamaları kaldırın.</li>
+<li>Grafiğin başlığı bir etiket değil, <strong>mesaj</strong> olsun: &quot;Satışlar&quot; yerine &quot;Eylülde satışlar %12 arttı&quot;.</li>
+</ul>
+<h2 id="yonetici-panelleri-icin-ilkeler">Yönetici panelleri için ilkeler</h2>
+<ol>
+<li>En önemli göstergeler sol üstte ve büyük.</li>
+<li>Her sayının yanında bir karşılaştırma (hedef, geçen ay, geçen yıl).</li>
+<li>Ayrıntıya inmek isteyen için tıklanabilir derinlik.</li>
+<li>Tek ekrana sığan sade bir yerleşim.</li>
+</ol>
+<p>Ayrıntılar için bkz. <a href="yonetim-paneli-dashboard.html">yönetim paneli tasarımı</a>. Hangi göstergelerin panele girmesi gerektiği ise <a href="kpi-nedir-isletme.html">KPI</a> yazısında anlatılıyor.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Hangi araçla grafik hazırlamalıyım?</h3>
+<p>Excel ve Google E-Tablolar çoğu ihtiyaç için yeterlidir. Düzenli ve çok kullanıcılı raporlar için iş zekâsı araçları veya özel panel yazılımları tercih edilir.</p>
+<h3>Tablo mu grafik mi?</h3>
+<p>Okuyucu kesin değerlere bakacaksa tablo, eğilimi ve karşılaştırmayı görecekse grafik kullanın. Çoğu raporda ikisi birlikte kullanılır.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>İyi bir grafik, tek bir soruya net bir cevap verir. Soruyla başlamak, doğru grafik türünü seçmek ve gereksiz süsü atmak; verinin hikâyesini herkesin anlayacağı hale getirir.</p><aside class="path-box" data-path="veriyle-karar-vermek" data-steps="veri-odakli-karar-verme kpi-nedir-isletme veri-temizligi excel-pivot-tablo veri-gorsellestirme-grafik-secimi yonetim-paneli-dashboard" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 5 / 6</p><b><a href="yollar.html#veriyle-karar-vermek">Veriyle karar vermek</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="yonetim-paneli-dashboard.html">Sonraki adım: İşletmeler İçin Yönetim Paneli (Dashboard) Nasıl Tasarlanır? <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html" aria-current="page">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="veri" data-search="kpi nedir isletmeler icin dogru performans gostergelerini secmek anahtar performans gostergelerinin kpi tanimi iyi bir kpi in ozellikleri oncu ve gecikmeli gostergeler sektorlere gore ornek kpi lar ve kpi takibinde sik yapilan hatalar. veri ve raporlama kpi nedir anahtar performans gostergesi kpi ornekleri oncu gosterge isletme performans olcumu"><a href="../blog/kpi-nedir-isletme.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/kpi-nedir-isletme.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>KPI Nedir? İşletmeler İçin Doğru Performans Göstergelerini Seçmek</h3><p>Anahtar performans göstergelerinin (KPI) tanımı, iyi bir KPI&#x27;ın özellikleri, öncü ve gecikmeli göstergeler, sektörlere göre örnek KPI&#x27;lar ve KPI takibinde sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="veri" data-search="veri temizligi kirli veriyle dogru karar verilmez mukerrer kayitlar tutarsiz yazimlar eksik alanlar ve hatali formatlar gibi kirli veri sorunlari veri temizleme adimlari dogrulama kurallari ve verinin bastan temiz girilmesini saglayan yontemler. veri ve raporlama veri temizligi mukerrer kayit veri kalitesi kirli veri veri dogrulama excel veri temizleme"><a href="../blog/veri-temizligi.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/veri-temizligi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>Veri Temizliği: Kirli Veriyle Doğru Karar Verilmez</h3><p>Mükerrer kayıtlar, tutarsız yazımlar, eksik alanlar ve hatalı formatlar gibi kirli veri sorunları; veri temizleme adımları, doğrulama kuralları ve verinin baştan temiz girilmesini sağlayan yöntemler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="isletme" data-search="isletmeler icin yonetim paneli dashboard nasil tasarlanir yoneticilerin tek ekranda isletmenin durumunu gormesini saglayan dashboard tasariminda dogru metrikleri secme veri kaynaklarini birlestirme gorsellestirme ve yetkilendirme onerileri. isletme yazilimlari yonetim paneli dashboard tasarimi isletme raporlama kpi paneli yonetici raporu"><a href="../blog/yonetim-paneli-dashboard.html"><span class="post__cover post__cover--isletme"><img src="../assets/images/blog/thumb/yonetim-paneli-dashboard.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>İşletme Yazılımları</span><span>2 dk</span></span><h3>İşletmeler İçin Yönetim Paneli (Dashboard) Nasıl Tasarlanır?</h3><p>Yöneticilerin tek ekranda işletmenin durumunu görmesini sağlayan dashboard tasarımında doğru metrikleri seçme, veri kaynaklarını birleştirme, görselleştirme ve yetkilendirme önerileri.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

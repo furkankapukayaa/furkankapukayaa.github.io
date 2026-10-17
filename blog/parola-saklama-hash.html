@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2 | Furkan Kapukaya</title>
+<meta name="description" content="Kullanıcı parolalarının güvenli saklanması; şifreleme ile hash farkı, salt, yavaş hash algoritmaları Argon2, bcrypt ve PBKDF2, eski sistemlerden geçiş ve parola politikası önerileri.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/parola-saklama-hash.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/parola-saklama-hash.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/parola-saklama-hash.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2 | Furkan Kapukaya">
+<meta property="og:description" content="Kullanıcı parolalarının güvenli saklanması; şifreleme ile hash farkı, salt, yavaş hash algoritmaları Argon2, bcrypt ve PBKDF2, eski sistemlerden geçiş ve parola politikası önerileri.">
+<meta property="og:url" content="https://kapukaya.dev/blog/parola-saklama-hash.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/parola-saklama-hash.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2 | Furkan Kapukaya">
+<meta name="twitter:description" content="Kullanıcı parolalarının güvenli saklanması; şifreleme ile hash farkı, salt, yavaş hash algoritmaları Argon2, bcrypt ve PBKDF2, eski sistemlerden geçiş ve parola politikası önerileri.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/parola-saklama-hash.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Güvenlik ve KVKK">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2", "description": "Kullanıcı parolalarının güvenli saklanması; şifreleme ile hash farkı, salt, yavaş hash algoritmaları Argon2, bcrypt ve PBKDF2, eski sistemlerden geçiş ve parola politikası önerileri.", "url": "https://kapukaya.dev/blog/parola-saklama-hash.html", "mainEntityOfPage": "https://kapukaya.dev/blog/parola-saklama-hash.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Güvenlik ve KVKK", "wordCount": 471, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/parola-saklama-hash.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "parola saklama, password hashing, argon2, bcrypt, pbkdf2, salt nedir"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Güvenlik ve KVKK", "item": "https://kapukaya.dev/blog/kategori/guvenlik-kvkk.html"}, {"@type": "ListItem", "position": 4, "name": "Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2", "item": "https://kapukaya.dev/blog/parola-saklama-hash.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "\"Parolamı unuttum\" diyen kullanıcıya parolasını gönderebilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Hayır. Doğru saklanmış parola geri getirilemez; kullanıcıya süreli ve tek kullanımlık bir sıfırlama bağlantısı gönderilmelidir."}}, {"@type": "Question", "name": "Parolalara ek olarak \"pepper\" kullanmalı mıyım?", "acceptedAnswer": {"@type": "Answer", "text": "Veritabanı dışında saklanan gizli bir değer ek koruma sağlayabilir; ancak anahtar yönetimini karmaşıklaştırır ve temel önlemlerin yerine geçmez."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--guvenlik">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Parolalar Nasıl Saklanmalı? Hash, Salt ve Argon2</h1>
+    <p class="page-hero__lead">Kullanıcı parolalarının güvenli saklanması; şifreleme ile hash farkı, salt, yavaş hash algoritmaları Argon2, bcrypt ve PBKDF2, eski sistemlerden geçiş ve parola politikası önerileri.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Veri sızıntıları kaçınılmaz bir risk olarak kabul edildiğinde asıl soru şudur: Veritabanınız çalınırsa saldırgan kullanıcı parolalarını elde edebilir mi? Doğru saklanan parolalar, sızıntıdan sonra bile pratikte kırılamaz. Yanlış saklananlar ise dakikalar içinde açığa çıkar ve kullanıcıların başka sitelerdeki hesaplarını da tehlikeye atar.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#asla-yapilmamasi-gerekenler">Asla yapılmaması gerekenler</a></li><li><a href="#hash-ve-salt">Hash ve salt</a></li><li><a href="#yavas-hash-algoritmalari">Yavaş hash algoritmaları</a></li><li><a href="#net-te-pratik-yol">.NET'te pratik yol</a></li><li><a href="#eski-sistemden-gecis">Eski sistemden geçiş</a></li><li><a href="#parola-politikasi">Parola politikası</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="asla-yapilmamasi-gerekenler">Asla yapılmaması gerekenler</h2>
+<ul>
+<li>Parolayı <strong>düz metin</strong> saklamak</li>
+<li>Parolayı geri çözülebilir şekilde <strong>şifrelemek</strong> (anahtar çalınırsa tüm parolalar açılır)</li>
+<li>MD5 veya SHA-256 gibi <strong>hızlı hash</strong> fonksiyonlarını tek başına kullanmak</li>
+</ul>
+<p>Hızlı hash fonksiyonları veri bütünlüğü için tasarlanmıştır; modern donanımla saniyede milyarlarca deneme yapılabilir.</p>
+<h2 id="hash-ve-salt">Hash ve salt</h2>
+<p><strong>Hash</strong>, tek yönlü bir dönüşümdür: parolayı hash'e çevirmek kolaydır, hash'ten parolaya dönmek mümkün değildir. Giriş sırasında kullanıcının girdiği parola tekrar hash'lenir ve karşılaştırılır.</p>
+<p><strong>Salt</strong>, her kullanıcı için rastgele üretilen ve parolaya eklenen değerdir. Aynı parolayı kullanan iki kullanıcının hash'leri farklı olur; önceden hesaplanmış hash tablolarıyla toplu kırma imkânsızlaşır. Salt gizli değildir, hash ile birlikte saklanır.</p>
+<h2 id="yavas-hash-algoritmalari">Yavaş hash algoritmaları</h2>
+<p>Parola için kasıtlı olarak yavaş ve ayarlanabilir maliyetli algoritmalar kullanılır:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Algoritma</th><th>Not</th></tr></thead>
+<tbody>
+<tr><td>Argon2id</td><td>Güncel öneriler arasında ilk tercih; bellek kullanımıyla donanım saldırılarına dirençli</td></tr>
+<tr><td>bcrypt</td><td>Yaygın ve olgun; parola uzunluğu sınırına dikkat</td></tr>
+<tr><td>scrypt</td><td>Bellek yoğun, iyi bir alternatif</td></tr>
+<tr><td>PBKDF2</td><td>Standartlara uyum gerektiren ortamlarda; yüksek tekrar sayısıyla kullanılmalı</td></tr>
+</tbody></table></div>
+<p>Maliyet parametreleri, sunucunuzda tek bir doğrulamanın makul bir sürede (yaklaşık birkaç yüz milisaniye altında) tamamlanacağı şekilde ayarlanmalı ve donanım geliştikçe artırılmalıdır.</p>
+<h2 id="net-te-pratik-yol">.NET'te pratik yol</h2>
+<p>Kendi kriptografik kodunuzu yazmayın. ASP.NET Core Identity'nin parola hash'leyicisi PBKDF2 kullanır, salt'ı ve sürüm bilgisini otomatik yönetir; bağımsız kullanım için <code>PasswordHasher&lt;T&gt;</code> sınıfı da mevcuttur. Argon2 için olgun ve bakımı yapılan kütüphaneler tercih edilmelidir.</p>
+<pre><code class="language-csharp">var hasher = new PasswordHasher&lt;Kullanici&gt;();
+string hash = hasher.HashPassword(kullanici, parola);
+var sonuc = hasher.VerifyHashedPassword(kullanici, hash, girilenParola);
+// SuccessRehashNeeded dönerse parola yeni parametrelerle tekrar hash'lenip kaydedilir</code></pre>
+<h2 id="eski-sistemden-gecis">Eski sistemden geçiş</h2>
+<p>MD5 veya SHA ile saklanmış parolalarınız varsa kullanıcıları zorla sıfırlamak yerine:</p>
+<ol>
+<li>Mevcut hızlı hash'i yeni yavaş algoritmayla <strong>sarmalayın</strong> (hemen koruma sağlar).</li>
+<li>Kullanıcı bir sonraki girişinde parolasını doğrulayıp doğrudan yeni algoritmayla kaydedin.</li>
+</ol>
+<h2 id="parola-politikasi">Parola politikası</h2>
+<ul>
+<li>Uzunluk, karmaşıklıktan daha önemlidir: en az 12 karakter iyi bir hedeftir.</li>
+<li>Periyodik zorunlu değişiklik, kullanıcıları zayıf varyasyonlara iter; yalnızca sızıntı şüphesinde değiştirtin.</li>
+<li>Bilinen sızdırılmış parolaları reddedin.</li>
+<li>Uzun parolalara ve <a href="sifre-yoneticisi.html">şifre yöneticisi</a> kullanımına izin verin (yapıştırmayı engellemeyin).</li>
+<li>Mümkünse <a href="iki-faktorlu-dogrulama.html">iki faktörlü doğrulama</a> ve <a href="passkey-nedir.html">passkey</a> sunun.</li>
+<li>Giriş denemelerini sınırlayın (<a href="rate-limiting-nedir.html">rate limiting</a>).</li>
+</ul>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>&quot;Parolamı unuttum&quot; diyen kullanıcıya parolasını gönderebilir miyim?</h3>
+<p>Hayır. Doğru saklanmış parola geri getirilemez; kullanıcıya süreli ve tek kullanımlık bir sıfırlama bağlantısı gönderilmelidir.</p>
+<h3>Parolalara ek olarak &quot;pepper&quot; kullanmalı mıyım?</h3>
+<p>Veritabanı dışında saklanan gizli bir değer ek koruma sağlayabilir; ancak anahtar yönetimini karmaşıklaştırır ve temel önlemlerin yerine geçmez.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Parolaları yavaş, salt'lı ve güncel bir algoritmayla saklamak; bir veri sızıntısının kullanıcılarınız için felakete dönüşmesini önler. Hazır ve denenmiş kütüphaneleri kullanmak, bu işi doğru yapmanın en güvenli yoludur.</p><aside class="path-box" data-path="guvenli-web-uygulamasi" data-steps="owasp-top-10-web-guvenligi sql-injection-onleme xss-nedir csrf-nedir parola-saklama-hash http-guvenlik-basliklari" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 5 / 6</p><b><a href="yollar.html#guvenli-web-uygulamasi">Güvenli web uygulaması</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="http-guvenlik-basliklari.html">Sonraki adım: HTTP Güvenlik Başlıkları: CSP, HSTS ve Diğerleri <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html" aria-current="page">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="guvenlik" data-search="sifre yoneticisi nedir isletmeler icin guvenli parola aliskanligi sifre yoneticilerinin nasil calistigi faydalari ekip ici parola paylasimi ana parola ve iki faktorlu dogrulama secim kriterleri ve calisan ayrilirken erisim yonetimi. guvenlik ve kvkk sifre yoneticisi parola yoneticisi guvenli parola parola paylasimi ekip sifre yonetimi password manager"><a href="../blog/sifre-yoneticisi.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/sifre-yoneticisi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>Şifre Yöneticisi Nedir? İşletmeler İçin Güvenli Parola Alışkanlığı</h3><p>Şifre yöneticilerinin nasıl çalıştığı, faydaları, ekip içi parola paylaşımı, ana parola ve iki faktörlü doğrulama, seçim kriterleri ve çalışan ayrılırken erişim yönetimi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="guvenlik" data-search="xss cross-site scripting nedir web uygulamalarinda nasil onlenir siteler arasi betik calistirma xss saldirisinin turleri oturum calma gibi sonuclari cikti kodlama razor ve modern catilarin korumasi content security policy httponly cerezler ve zengin metin guvenligi. guvenlik ve kvkk xss nedir cross site scripting xss onleme stored xss content security policy html encode"><a href="../blog/xss-nedir.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/xss-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>XSS (Cross-Site Scripting) Nedir? Web Uygulamalarında Nasıl Önlenir?</h3><p>Siteler arası betik çalıştırma (XSS) saldırısının türleri, oturum çalma gibi sonuçları, çıktı kodlama, Razor ve modern çatıların koruması, Content Security Policy, HttpOnly çerezler ve zengin metin güvenliği.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="guvenlik" data-search="csrf nedir siteler arasi istek sahteciligine karsi korunma cross-site request forgery csrf saldirisinin calisma mantigi ornek senaryo anti-forgery token samesite cerezler asp.net core korumasi api lerde durum ve sik yapilan hatalar. guvenlik ve kvkk csrf nedir cross site request forgery anti forgery token samesite cookie csrf korumasi asp.net core antiforgery"><a href="../blog/csrf-nedir.html"><span class="post__cover post__cover--guvenlik"><img src="../assets/images/blog/thumb/csrf-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Güvenlik ve KVKK</span><span>3 dk</span></span><h3>CSRF Nedir? Siteler Arası İstek Sahteciliğine Karşı Korunma</h3><p>Cross-Site Request Forgery (CSRF) saldırısının çalışma mantığı, örnek senaryo, anti-forgery token, SameSite çerezler, ASP.NET Core koruması, API&#x27;lerde durum ve sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>

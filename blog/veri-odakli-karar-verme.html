@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi | Furkan Kapukaya</title>
+<meta name="description" content="İşletmelerde veriye dayalı karar kültürünün nasıl kurulacağı; doğru soruyu sormak, veri kaynaklarını belirlemek, ölçüm hataları, korelasyon ve nedensellik farkı ve küçük adımlarla başlama.">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261009"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/veri-odakli-karar-verme.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/veri-odakli-karar-verme.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/veri-odakli-karar-verme.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi | Furkan Kapukaya">
+<meta property="og:description" content="İşletmelerde veriye dayalı karar kültürünün nasıl kurulacağı; doğru soruyu sormak, veri kaynaklarını belirlemek, ölçüm hataları, korelasyon ve nedensellik farkı ve küçük adımlarla başlama.">
+<meta property="og:url" content="https://kapukaya.dev/blog/veri-odakli-karar-verme.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/veri-odakli-karar-verme.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi | Furkan Kapukaya">
+<meta name="twitter:description" content="İşletmelerde veriye dayalı karar kültürünün nasıl kurulacağı; doğru soruyu sormak, veri kaynaklarını belirlemek, ölçüm hataları, korelasyon ve nedensellik farkı ve küçük adımlarla başlama.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/veri-odakli-karar-verme.jpg">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:section" content="Veri ve Raporlama">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261009">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261010">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi", "description": "İşletmelerde veriye dayalı karar kültürünün nasıl kurulacağı; doğru soruyu sormak, veri kaynaklarını belirlemek, ölçüm hataları, korelasyon ve nedensellik farkı ve küçük adımlarla başlama.", "url": "https://kapukaya.dev/blog/veri-odakli-karar-verme.html", "mainEntityOfPage": "https://kapukaya.dev/blog/veri-odakli-karar-verme.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Veri ve Raporlama", "wordCount": 430, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/veri-odakli-karar-verme.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "veriye dayalı karar, veri odaklı yönetim, işletme analitiği, veri kültürü, korelasyon nedensellik"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Veri ve Raporlama", "item": "https://kapukaya.dev/blog/kategori/veri-raporlama.html"}, {"@type": "ListItem", "position": 4, "name": "Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi", "item": "https://kapukaya.dev/blog/veri-odakli-karar-verme.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Küçük bir işletme için veri analizi gerekli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, ama karmaşık araçlar gerekmez. Düzenli tutulan satış kayıtları ve basit bir tablo bile önemli içgörüler sağlar."}}, {"@type": "Question", "name": "Yapay zekâ veri analizinde yardımcı olabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Olabilir; veriye doğal dille soru sormak ve ilk analizleri hızlandırmak için faydalıdır. Sonuçların mutlaka kontrol edilmesi gerekir. Bkz. yapay zekâ ile veri analizi."}}]}</script>
+<script src="../assets/js/analytics.js" defer></script>
+</head>
+<body>
+<div class="boot" id="boot" aria-hidden="true"></div>
+<script src="../assets/js/boot.js?v=20261009"></script>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../index.html" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../index.html#hizmetler">Hizmetler</a><a href="../index.html#isler">İşler</a><a href="../index.html#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/index.html" aria-current="page">Blog</a><a class="k-nav__cta" href="../index.html#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--veri">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../index.html">Ana sayfa</a> / <a href="../blog/index.html">Blog</a> / <a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a><time datetime="2026-10-05">5 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Veriye Dayalı Karar Verme: Sezgiden Ölçüme Geçiş Rehberi</h1>
+    <p class="page-hero__lead">İşletmelerde veriye dayalı karar kültürünün nasıl kurulacağı; doğru soruyu sormak, veri kaynaklarını belirlemek, ölçüm hataları, korelasyon ve nedensellik farkı ve küçük adımlarla başlama.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>&quot;Bu ay satışlar düştü, galiba kampanya işe yaramadı.&quot; &quot;Müşteriler yeni ürünü sevdi gibi.&quot; İşletmelerde kararların büyük kısmı hâlâ izlenimlere dayanır. Sezgi değerlidir; ama ölçümle desteklenmediğinde pahalı hatalara yol açabilir. Veriye dayalı karar vermek, sezgiyi atmak değil, onu sınamaktır.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#dogru-soruyla-baslayin">Doğru soruyla başlayın</a></li><li><a href="#veri-nereden-gelir">Veri nereden gelir?</a></li><li><a href="#dort-basamakli-olgunluk">Dört basamaklı olgunluk</a></li><li><a href="#sik-yapilan-hatalar">Sık yapılan hatalar</a></li><li><a href="#kucuk-adimlarla-baslamak">Küçük adımlarla başlamak</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+<h2 id="dogru-soruyla-baslayin">Doğru soruyla başlayın</h2>
+<p>Veri toplamaya değil, cevap aradığınız soruya odaklanın:</p>
+<ul>
+<li>Kötü soru: &quot;Satış verilerimizi analiz edelim.&quot;</li>
+<li>İyi soru: &quot;Geçen yıl alışveriş yapıp bu yıl gelmeyen müşteriler kimler ve ne kadar ciro temsil ediyorlar?&quot;</li>
+</ul>
+<p>İyi bir soru; belirli, ölçülebilir ve bir kararla bağlantılıdır. Cevap ne çıkarsa çıksın, bir sonraki adımınızı değiştirebilmelidir.</p>
+<h2 id="veri-nereden-gelir">Veri nereden gelir?</h2>
+<p>Çoğu işletmenin elinde düşündüğünden fazla veri vardır:</p>
+<ul>
+<li>Satış ve fatura kayıtları (muhasebe, <a href="on-muhasebe-programi-secimi.html">ön muhasebe programı</a>)</li>
+<li>Stok hareketleri</li>
+<li>Web sitesi ve kampanya verileri (<a href="ga4-temel-kurulum.html">GA4</a>)</li>
+<li>Müşteri kayıtları ve iletişim geçmişi (<a href="crm-nedir.html">CRM</a>)</li>
+<li>Randevu, servis ve destek kayıtları</li>
+</ul>
+<p>Sorun genellikle verinin yokluğu değil, farklı sistemlere dağılmış ve tutarsız olmasıdır. Bu yüzden ilk iş çoğu zaman <a href="veri-temizligi.html">veri temizliğidir</a>.</p>
+<h2 id="dort-basamakli-olgunluk">Dört basamaklı olgunluk</h2>
+<ol>
+<li><strong>Ne oldu?</strong> Raporlama: geçen ay ne kadar sattık?</li>
+<li><strong>Neden oldu?</strong> Analiz: hangi ürün grubu, hangi bölge düştü?</li>
+<li><strong>Ne olacak?</strong> Tahmin: önümüzdeki üç ayda ne bekliyoruz? Bkz. <a href="satis-tahmini-forecast.html">satış tahmini</a>.</li>
+<li><strong>Ne yapmalıyız?</strong> Öneri: hangi müşteriye hangi teklifi sunmalıyız?</li>
+</ol>
+<p>Çoğu işletme için birinci ve ikinci basamağı güvenilir hale getirmek bile büyük fark yaratır.</p>
+<h2 id="sik-yapilan-hatalar">Sık yapılan hatalar</h2>
+<ul>
+<li><strong>Korelasyonu nedensellik sanmak:</strong> Dondurma satışı ile güneş kremi satışı birlikte artar; biri diğerine yol açmaz, ikisinin de nedeni yazdır.</li>
+<li><strong>Ortalamaya aldanmak:</strong> Ortalama sepet tutarı, birkaç büyük siparişle şişebilir; medyan daha gerçekçi olabilir.</li>
+<li><strong>Küçük örneklemle karar vermek:</strong> On müşterilik bir denemeden genel sonuç çıkarmak riskli. Bkz. <a href="ab-testi-nedir.html">A/B testi</a>.</li>
+<li><strong>Gösteriş metrikleri:</strong> Takipçi sayısı, sayfa görüntülenmesi gibi iyi hissettiren ama karara katkısı olmayan sayılar.</li>
+<li><strong>Ölçümü hedef haline getirmek:</strong> Bir ölçü hedef olduğunda insanlar ölçüyü yönetmeye başlar, işi değil.</li>
+</ul>
+<h2 id="kucuk-adimlarla-baslamak">Küçük adımlarla başlamak</h2>
+<ol>
+<li>İşletmenin sağlığını gösteren 5-7 temel göstergeyi seçin. Bkz. <a href="kpi-nedir-isletme.html">KPI nedir</a>.</li>
+<li>Bu göstergeleri haftalık olarak aynı formatta izleyin.</li>
+<li>Her toplantıda bir karar için &quot;bunu hangi veriyle destekliyoruz?&quot; diye sorun.</li>
+<li>Elle hazırlanan raporları otomatikleştirin. Bkz. <a href="otomatik-rapor-e-postasi.html">otomatik rapor e-postası</a>.</li>
+<li>Göstergeleri tek bir <a href="yonetim-paneli-dashboard.html">yönetim panelinde</a> toplayın.</li>
+</ol>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Küçük bir işletme için veri analizi gerekli mi?</h3>
+<p>Evet, ama karmaşık araçlar gerekmez. Düzenli tutulan satış kayıtları ve basit bir tablo bile önemli içgörüler sağlar.</p>
+<h3>Yapay zekâ veri analizinde yardımcı olabilir mi?</h3>
+<p>Olabilir; veriye doğal dille soru sormak ve ilk analizleri hızlandırmak için faydalıdır. Sonuçların mutlaka kontrol edilmesi gerekir. Bkz. <a href="yapay-zeka-veri-analizi.html">yapay zekâ ile veri analizi</a>.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Veriye dayalı karar vermek bir araç değil, bir alışkanlıktır. Doğru soruyu sormak, temiz veriyle çalışmak ve sonuçları düzenli izlemek; işletmenin daha az tahmin, daha çok bilgiyle büyümesini sağlar.</p><aside class="path-box" data-path="veriyle-karar-vermek" data-steps="veri-odakli-karar-verme kpi-nedir-isletme veri-temizligi excel-pivot-tablo veri-gorsellestirme-grafik-secimi yonetim-paneli-dashboard" aria-label="Okuma yolu"><p class="path-box__k"><i class="fa-solid fa-route" aria-hidden="true"></i>Okuma yolu, adım 1 / 6</p><b><a href="yollar.html#veriyle-karar-vermek">Veriyle karar vermek</a></b><div class="path-box__bar" aria-hidden="true"><i data-path-fill></i></div><small data-path-txt></small><a class="path-box__next" href="kpi-nedir-isletme.html">Sonraki adım: KPI Nedir? İşletmeler İçin Doğru Performans Göstergelerini Seçmek <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır, yayımlandığı tarihteki bilgilere dayanır; kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../index.html#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html" aria-current="page">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="veri" data-search="veri temizligi kirli veriyle dogru karar verilmez mukerrer kayitlar tutarsiz yazimlar eksik alanlar ve hatali formatlar gibi kirli veri sorunlari veri temizleme adimlari dogrulama kurallari ve verinin bastan temiz girilmesini saglayan yontemler. veri ve raporlama veri temizligi mukerrer kayit veri kalitesi kirli veri veri dogrulama excel veri temizleme"><a href="../blog/veri-temizligi.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/veri-temizligi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>Veri Temizliği: Kirli Veriyle Doğru Karar Verilmez</h3><p>Mükerrer kayıtlar, tutarsız yazımlar, eksik alanlar ve hatalı formatlar gibi kirli veri sorunları; veri temizleme adımları, doğrulama kuralları ve verinin baştan temiz girilmesini sağlayan yöntemler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="veri" data-search="kpi nedir isletmeler icin dogru performans gostergelerini secmek anahtar performans gostergelerinin kpi tanimi iyi bir kpi in ozellikleri oncu ve gecikmeli gostergeler sektorlere gore ornek kpi lar ve kpi takibinde sik yapilan hatalar. veri ve raporlama kpi nedir anahtar performans gostergesi kpi ornekleri oncu gosterge isletme performans olcumu"><a href="../blog/kpi-nedir-isletme.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/kpi-nedir-isletme.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>KPI Nedir? İşletmeler İçin Doğru Performans Göstergelerini Seçmek</h3><p>Anahtar performans göstergelerinin (KPI) tanımı, iyi bir KPI&#x27;ın özellikleri, öncü ve gecikmeli göstergeler, sektörlere göre örnek KPI&#x27;lar ve KPI takibinde sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="isletme" data-search="isletmeler icin yonetim paneli dashboard nasil tasarlanir yoneticilerin tek ekranda isletmenin durumunu gormesini saglayan dashboard tasariminda dogru metrikleri secme veri kaynaklarini birlestirme gorsellestirme ve yetkilendirme onerileri. isletme yazilimlari yonetim paneli dashboard tasarimi isletme raporlama kpi paneli yonetici raporu"><a href="../blog/yonetim-paneli-dashboard.html"><span class="post__cover post__cover--isletme"><img src="../assets/images/blog/thumb/yonetim-paneli-dashboard.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>İşletme Yazılımları</span><span>2 dk</span></span><h3>İşletmeler İçin Yönetim Paneli (Dashboard) Nasıl Tasarlanır?</h3><p>Yöneticilerin tek ekranda işletmenin durumunu görmesini sağlayan dashboard tasarımında doğru metrikleri seçme, veri kaynaklarını birleştirme, görselleştirme ve yetkilendirme önerileri.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../index.html"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../index.html#hizmetler">Hizmetler</a></li>
+        <li><a href="../index.html#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../index.html#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261009" defer></script>
+<script src="../assets/js/blog.js?v=20261010" defer></script>
+<script src="../assets/js/extras.js?v=20261009" defer></script>
+</body>
+</html>
