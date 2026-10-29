@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="google-adsense-account" content="ca-pub-1772204959473379">
+<title>Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari | Furkan Kapukaya</title>
+<meta name="description" content="Modüler monolit mimarisinin tanımı, klasik monolit ve mikroservislerden farkı, modül sınırlarını belirleme, modüller arası iletişim, veritabanı ayrımı, .NET&#x27;te örnek proje yapısı ve gerektiğinde mikroservise geçiş.">
+<meta name="keywords" content="modüler monolit, modular monolith, monolit mi mikroservis mi, yazılım mimarisi 2026, bounded context, .net modüler mimari, mikroservis geçişi">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261030"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/moduler-monolit-nedir.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/moduler-monolit-nedir.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/moduler-monolit-nedir.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari | Furkan Kapukaya">
+<meta property="og:description" content="Modüler monolit mimarisinin tanımı, klasik monolit ve mikroservislerden farkı, modül sınırlarını belirleme, modüller arası iletişim, veritabanı ayrımı, .NET&#x27;te örnek proje yapısı ve gerektiğinde mikroservise geçiş.">
+<meta property="og:url" content="https://kapukaya.dev/blog/moduler-monolit-nedir.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/moduler-monolit-nedir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari | Furkan Kapukaya">
+<meta name="twitter:description" content="Modüler monolit mimarisinin tanımı, klasik monolit ve mikroservislerden farkı, modül sınırlarını belirleme, modüller arası iletişim, veritabanı ayrımı, .NET&#x27;te örnek proje yapısı ve gerektiğinde mikroservise geçiş.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/moduler-monolit-nedir.jpg">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:section" content="Yazılım Mimarisi ve Temiz Kod">
+<meta property="article:tag" content="ModülerMonolit">
+<meta property="article:tag" content="YazılımMimarisi">
+<meta property="article:tag" content="Mikroservis">
+<meta property="article:tag" content="DDD">
+<meta property="article:tag" content="dotnet">
+<meta property="article:tag" content="TemizMimari">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261030">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari", "description": "Modüler monolit mimarisinin tanımı, klasik monolit ve mikroservislerden farkı, modül sınırlarını belirleme, modüller arası iletişim, veritabanı ayrımı, .NET'te örnek proje yapısı ve gerektiğinde mikroservise geçiş.", "url": "https://kapukaya.dev/blog/moduler-monolit-nedir.html", "mainEntityOfPage": "https://kapukaya.dev/blog/moduler-monolit-nedir.html", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "inLanguage": "tr", "articleSection": "Yazılım Mimarisi ve Temiz Kod", "wordCount": 595, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/moduler-monolit-nedir.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "modüler monolit, modular monolith, monolit mi mikroservis mi, yazılım mimarisi 2026, bounded context, .net modüler mimari, mikroservis geçişi"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Yazılım Mimarisi ve Temiz Kod", "item": "https://kapukaya.dev/blog/kategori/yazilim-mimarisi-temiz-kod.html"}, {"@type": "ListItem", "position": 4, "name": "Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari", "item": "https://kapukaya.dev/blog/moduler-monolit-nedir.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Modüler monolit küçük projeler için gereksiz mi?", "acceptedAnswer": {"@type": "Answer", "text": "Çok küçük projelerde fazladan yapı gereksiz olabilir. Ancak birkaç iş alanı içeren ve yıllarca geliştirilecek bir uygulamada baştan modül sınırı koymak ileride büyük zaman kazandırır."}}, {"@type": "Question", "name": "Mevcut klasik monolitimi modüler hale getirebilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, aşamalı olarak. Önce iş alanlarını belirleyin, sonra en bağımsız alanı ayrı bir modüle taşıyın ve sınırlarını testlerle koruyun. Bkz. refactoring."}}, {"@type": "Question", "name": "Tek veritabanı performans sorunu yaratmaz mı?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu iş uygulaması için iyi tasarlanmış tek veritabanı yeterlidir. Performans sorunları genellikle mimariden değil, sorgu ve indeks tasarımından kaynaklanır."}}]}</script>
+<script src="../assets/js/analytics.js?v=20261030" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../#hizmetler">Hizmetler</a><a href="../#isler">İşler</a><a href="../#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/" aria-current="page">Blog</a><a class="k-nav__cta" href="../#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--mimari">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../">Ana sayfa</a> / <a href="../blog/">Blog</a> / <a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a><time datetime="2026-10-30">30 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>Modüler Monolit Nedir? Mikroservise Geçmeden Ölçeklenebilir Mimari</h1>
+    <p class="page-hero__lead">Modüler monolit mimarisinin tanımı, klasik monolit ve mikroservislerden farkı, modül sınırlarını belirleme, modüller arası iletişim, veritabanı ayrımı, .NET&#x27;te örnek proje yapısı ve gerektiğinde mikroservise geçiş.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Son on yılda pek çok ekip, büyüyen uygulamalarını mikroservislere bölmeye çalıştı. Bir kısmı başarılı oldu; bir kısmı ise dağıtık sistemlerin karmaşıklığı, ağ hataları ve operasyon yüküyle boğuştu. 2025 ve 2026'da yazılım mimarisi tartışmalarının sık geçen kavramı bu yüzden <strong>modüler monolit</strong> oldu: Tek bir uygulama olarak dağıtılan, ama içeride net sınırlarla ayrılmış modüllerden oluşan bir mimari. Bu yazıda modüler monolitin ne olduğunu ve nasıl kurulduğunu anlatıyoruz. Genel karşılaştırma için <a href="monolit-mi-mikroservis-mi.html">monolit mi mikroservis mi</a> yazımıza bakabilirsiniz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#uc-mimarinin-karsilastirmasi">Üç mimarinin karşılaştırması</a></li><li><a href="#modul-sinirlarini-belirlemek">Modül sınırlarını belirlemek</a></li><li><a href="#temel-kurallar">Temel kurallar</a></li><li><a href="#net-te-ornek-proje-yapisi">.NET'te örnek proje yapısı</a></li><li><a href="#ne-zaman-mikroservise-gecilir">Ne zaman mikroservise geçilir?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+
+<h2 id="uc-mimarinin-karsilastirmasi">Üç mimarinin karşılaştırması</h2>
+<ul>
+<li><strong>Klasik monolit:</strong> Tek uygulama, tek veritabanı; ama içeride her şey her şeye erişebilir. Zamanla "büyük çamur topu"na dönüşme riski taşır.</li>
+<li><strong>Mikroservisler:</strong> Her servis ayrı uygulama, ayrı dağıtım, genellikle ayrı veritabanı. Bağımsız ölçeklenme sağlar; ama ağ, izleme ve veri tutarlılığı karmaşıklığı getirir.</li>
+<li><strong>Modüler monolit:</strong> Tek dağıtım, tek süreç; ama modüller birbirinin içine yalnızca tanımlı arayüzler üzerinden erişebilir. Mikroservislerin düzenini, monolitin sadeliğiyle birleştirir.</li>
+</ul>
+<h2 id="modul-sinirlarini-belirlemek">Modül sınırlarını belirlemek</h2>
+<p>Modüller teknik katmanlara (Controller, Service, Repository) göre değil, <strong>iş alanlarına</strong> göre ayrılır. Domain-Driven Design'daki "bounded context" kavramı burada yol göstericidir. Bkz. <a href="domain-driven-design-giris.html">DDD'ye giriş</a>. Örneğin bir B2B sipariş sisteminde modüller şöyle olabilir:</p>
+<ol>
+<li><strong>Katalog:</strong> Ürünler, kategoriler, fiyat listeleri</li>
+<li><strong>Siparişler:</strong> Sepet, sipariş, onay akışı</li>
+<li><strong>Cari ve Tahsilat:</strong> Müşteri, bakiye, ödemeler</li>
+<li><strong>Stok:</strong> Depo, rezervasyon, sevkiyat</li>
+<li><strong>Bildirimler:</strong> E-posta, SMS, uygulama içi bildirim</li>
+</ol>
+<p>İyi bir sınırın işareti: Bir modülde yapılan değişiklik, diğer modüllerin iç yapısını bilmeyi gerektirmez.</p>
+<h2 id="temel-kurallar">Temel kurallar</h2>
+<h3>1. Her modülün dışa açık bir yüzü olsun</h3>
+<p>Modüller birbirinin iç sınıflarını değil, yalnızca yayımlanmış arayüzlerini veya sözleşmelerini (contracts) kullanır. .NET'te bunu her modülü ayrı proje yapıp iç sınıfları <code>internal</code> işaretleyerek zorlayabilirsiniz.</p>
+<h3>2. Veriyi paylaşmayın, sahiplenin</h3>
+<p>Tek bir veritabanı kullanılsa bile her modülün kendi şeması veya tablo öneki olsun; başka bir modülün tablosuna doğrudan sorgu yazılmasın. Bu kural, gelecekte bir modülü ayrı bir servise taşımayı mümkün kılar.</p>
+<h3>3. Modüller arası iletişim</h3>
+<ul>
+<li><strong>Senkron:</strong> Bir modül diğerinin arayüzünü doğrudan çağırır. Basit ve hızlı.</li>
+<li><strong>Olaylar:</strong> "Sipariş onaylandı" gibi olaylar süreç içi bir olay yayıncısı ile duyurulur; Stok ve Bildirimler modülleri bu olaya tepki verir. Böylece Siparişler modülü diğerlerini tanımak zorunda kalmaz. Güvenilirlik için outbox deseni ve <a href="mesaj-kuyrugu-nedir.html">mesaj kuyruğu</a> düşünülebilir.</li>
+</ul>
+<h3>4. Mimari testlerle sınırları koruyun</h3>
+<p>Kurallar yalnızca belgede kalırsa birkaç ay içinde ihlal edilir. NetArchTest veya ArchUnitNET gibi kütüphanelerle "Siparişler modülü, Stok modülünün iç namespace'lerine referans veremez" gibi testler yazılabilir.</p>
+<h2 id="net-te-ornek-proje-yapisi">.NET'te örnek proje yapısı</h2>
+<pre><code>src/
+  Host/                      # ASP.NET Core giriş noktası
+  Modules/
+    Catalog/
+      Catalog.Contracts/     # Dışa açık arayüz ve DTO'lar
+      Catalog.Core/          # İç mantık (internal)
+    Orders/
+      Orders.Contracts/
+      Orders.Core/
+  Shared/
+    BuildingBlocks/          # Ortak altyapı: olay yayıncısı, loglama</code></pre>
+<p>Bu yapı, <a href="katmanli-mimari-clean-architecture.html">temiz mimari</a> ilkeleriyle birlikte kullanılabilir: Her modül kendi içinde katmanlı olabilir.</p>
+<h2 id="ne-zaman-mikroservise-gecilir">Ne zaman mikroservise geçilir?</h2>
+<p>Modüler monolit, mikroservise geçişi zorunlu kılmaz; ama kolaylaştırır. Bir modülü ayrı servise çıkarmayı düşündüren durumlar:</p>
+<ul>
+<li>Modülün yükü diğerlerinden çok farklıysa ve ayrı ölçeklenmesi gerekiyorsa.</li>
+<li>Modül farklı bir ekip tarafından, farklı bir hızda geliştiriliyorsa.</li>
+<li>Farklı bir teknoloji veya çalışma ortamı gerektiriyorsa.</li>
+</ul>
+<p>Bu durumların hiçbiri yoksa, tek dağıtım biriminin sadeliği çoğu ekip için en büyük avantajdır.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Modüler monolit küçük projeler için gereksiz mi?</h3>
+<p>Çok küçük projelerde fazladan yapı gereksiz olabilir. Ancak birkaç iş alanı içeren ve yıllarca geliştirilecek bir uygulamada baştan modül sınırı koymak ileride büyük zaman kazandırır.</p>
+<h3>Mevcut klasik monolitimi modüler hale getirebilir miyim?</h3>
+<p>Evet, aşamalı olarak. Önce iş alanlarını belirleyin, sonra en bağımsız alanı ayrı bir modüle taşıyın ve sınırlarını testlerle koruyun. Bkz. <a href="refactoring-nedir.html">refactoring</a>.</p>
+<h3>Tek veritabanı performans sorunu yaratmaz mı?</h3>
+<p>Çoğu iş uygulaması için iyi tasarlanmış tek veritabanı yeterlidir. Performans sorunları genellikle mimariden değil, sorgu ve indeks tasarımından kaynaklanır.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Modüler monolit, "mikroservis mi, monolit mi" ikileminde çoğu işletme yazılımı için en dengeli cevap. Sınırları net modüllerle başlayın, ihtiyaç doğduğunda tek tek ayırın. Uygulamanızın mimarisini birlikte değerlendirmek için <a href="../#iletisim">bize ulaşın</a>.</p>
+<ul class="tags art-tags" aria-label="Etiketler"><li>#ModülerMonolit</li><li>#YazılımMimarisi</li><li>#Mikroservis</li><li>#DDD</li><li>#dotnet</li><li>#TemizMimari</li></ul><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır ve yayımlandığı tarihteki (Ekim 2026) bilgilere dayanır; mevzuat, fiyat ve ürün özellikleri değişebilir. Kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html" aria-current="page">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="mimari" data-search="monolit mi mikroservis mi dogru mimari karari monolit ve mikroservis mimarilerinin karsilastirmasi mikroservislerin gizli maliyetleri moduler monolit yaklasimi ve kucuk ile orta olcekli projeler icin gercekci oneriler yazilim mimarisi ve temiz kod monolit mimari mikroservis nedir moduler monolit mikroservis ne zaman yazilim mimarisi secimi"><a href="../blog/monolit-mi-mikroservis-mi.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/monolit-mi-mikroservis-mi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>2 dk</span></span><h3>Monolit mi Mikroservis mi? Doğru Mimari Kararı</h3><p>Monolit ve mikroservis mimarilerinin karşılaştırması, mikroservislerin gizli maliyetleri, modüler monolit yaklaşımı ve küçük ile orta ölçekli projeler için gerçekçi öneriler.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="mimari" data-search="domain driven design a giris is dilini koda tasimak domain driven design ddd yaklasiminin temel kavramlari ortak dil bounded context entity value object aggregate ve domain event hangi projelerde faydali oldugu yazilim mimarisi ve temiz kod domain driven design ddd nedir bounded context aggregate value object ubiquitous language"><a href="../blog/domain-driven-design-giris.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/domain-driven-design-giris.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>3 dk</span></span><h3>Domain-Driven Design&#x27;a Giriş: İş Dilini Koda Taşımak</h3><p>Domain-Driven Design (DDD) yaklaşımının temel kavramları; ortak dil, bounded context, entity, value object, aggregate ve domain event; hangi projelerde faydalı olduğu.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="mimari" data-search="yazilim dokumantasyonu readme den mimari karar kayitlarina adr yazilim projelerinde hangi dokumantasyonun gercekten ise yaradigi iyi bir readme kurulum rehberi mimari karar kayitlari adr api dokumantasyonu ve dokumani guncel tutma yontemleri yazilim mimarisi ve temiz kod yazilim dokumantasyonu readme nasil yazilir adr nedir mimari karar kaydi teknik dokumantasyon"><a href="../blog/yazilim-dokumantasyonu-adr.html"><span class="post__cover post__cover--mimari"><img src="../assets/images/blog/thumb/yazilim-dokumantasyonu-adr.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Yazılım Mimarisi ve Temiz Kod</span><span>3 dk</span></span><h3>Yazılım Dokümantasyonu: README&#x27;den Mimari Karar Kayıtlarına (ADR)</h3><p>Yazılım projelerinde hangi dokümantasyonun gerçekten işe yaradığı; iyi bir README, kurulum rehberi, mimari karar kayıtları (ADR), API dokümantasyonu ve dokümanı güncel tutma yöntemleri.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261030" defer></script>
+<script src="../assets/js/blog.js?v=20261030" defer></script>
+<script src="../assets/js/ads.js?v=20261030" defer></script>
+<script src="../assets/js/extras.js?v=20261030" defer></script>
+</body>
+</html>

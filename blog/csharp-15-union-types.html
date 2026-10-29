@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="google-adsense-account" content="ca-pub-1772204959473379">
+<title>C# 15 Union Types: Discriminated Union&#x27;lar Sonunda C#&#x27;ta, Örneklerle Anlatım | Furkan Kapukaya</title>
+<meta name="description" content="C# 15 ile gelen union types özelliğinin sözdizimi, switch ifadeleriyle eksiksiz desen eşleme, null ve varsayılan değer davranışı, OneOf gibi kütüphanelerden geçiş, sonuç tipleri ve JSON serileştirme konusunda dikkat edilecekler.">
+<meta name="keywords" content="c# 15 union types, c# discriminated union, c# union, .net 11 union types, oneof alternatifi, result pattern c#, closed hierarchies c#, pattern matching">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261030"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/csharp-15-union-types.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/csharp-15-union-types.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/csharp-15-union-types.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="C# 15 Union Types: Discriminated Union&#x27;lar Sonunda C#&#x27;ta, Örneklerle Anlatım | Furkan Kapukaya">
+<meta property="og:description" content="C# 15 ile gelen union types özelliğinin sözdizimi, switch ifadeleriyle eksiksiz desen eşleme, null ve varsayılan değer davranışı, OneOf gibi kütüphanelerden geçiş, sonuç tipleri ve JSON serileştirme konusunda dikkat edilecekler.">
+<meta property="og:url" content="https://kapukaya.dev/blog/csharp-15-union-types.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/csharp-15-union-types.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="C# 15 Union Types: Discriminated Union&#x27;lar Sonunda C#&#x27;ta, Örneklerle Anlatım">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="C# 15 Union Types: Discriminated Union&#x27;lar Sonunda C#&#x27;ta, Örneklerle Anlatım | Furkan Kapukaya">
+<meta name="twitter:description" content="C# 15 ile gelen union types özelliğinin sözdizimi, switch ifadeleriyle eksiksiz desen eşleme, null ve varsayılan değer davranışı, OneOf gibi kütüphanelerden geçiş, sonuç tipleri ve JSON serileştirme konusunda dikkat edilecekler.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/csharp-15-union-types.jpg">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:section" content="C# ve .NET">
+<meta property="article:tag" content="CSharp">
+<meta property="article:tag" content="CSharp15">
+<meta property="article:tag" content="UnionTypes">
+<meta property="article:tag" content="dotnet">
+<meta property="article:tag" content="NET11">
+<meta property="article:tag" content="FonksiyonelProgramlama">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261030">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "C# 15 Union Types: Discriminated Union'lar Sonunda C#'ta, Örneklerle Anlatım", "description": "C# 15 ile gelen union types özelliğinin sözdizimi, switch ifadeleriyle eksiksiz desen eşleme, null ve varsayılan değer davranışı, OneOf gibi kütüphanelerden geçiş, sonuç tipleri ve JSON serileştirme konusunda dikkat edilecekler.", "url": "https://kapukaya.dev/blog/csharp-15-union-types.html", "mainEntityOfPage": "https://kapukaya.dev/blog/csharp-15-union-types.html", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "inLanguage": "tr", "articleSection": "C# ve .NET", "wordCount": 642, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/csharp-15-union-types.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "c# 15 union types, c# discriminated union, c# union, .net 11 union types, oneof alternatifi, result pattern c#, closed hierarchies c#, pattern matching"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "C# ve .NET", "item": "https://kapukaya.dev/blog/kategori/csharp-dotnet.html"}, {"@type": "ListItem", "position": 4, "name": "C# 15 Union Types: Discriminated Union'lar Sonunda C#'ta, Örneklerle Anlatım", "item": "https://kapukaya.dev/blog/csharp-15-union-types.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Union types için .NET 11 şart mı?", "acceptedAnswer": {"@type": "Answer", "text": "Evet, özellik C# 15 ile geliyor ve .NET 11 SDK'sı gerektiriyor. .NET 11 RC sürümüyle önizleme ayarı olmadan kullanılabiliyor."}}, {"@type": "Question", "name": "Union ile soyut sınıf arasındaki fark ne?", "acceptedAnswer": {"@type": "Answer", "text": "Soyut sınıf açık bir hiyerarşidir; başka derlemeler yeni alt türler ekleyebilir. Union ise kapalı bir kümedir; tüm durumlar tanımda bellidir ve derleyici bunu denetleyebilir."}}, {"@type": "Question", "name": "Entity Framework ile union kullanabilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Veritabanı eşlemesi için doğrudan desteğin kapsamını EF Core sürüm notlarından kontrol edin. Genellikle union'lar iş mantığı ve servis katmanında kullanılır, veritabanında klasik tablolar korunur."}}]}</script>
+<script src="../assets/js/analytics.js?v=20261030" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../#hizmetler">Hizmetler</a><a href="../#isler">İşler</a><a href="../#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/" aria-current="page">Blog</a><a class="k-nav__cta" href="../#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--dotnet">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../">Ana sayfa</a> / <a href="../blog/">Blog</a> / <a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a><time datetime="2026-10-30">30 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>C# 15 Union Types: Discriminated Union&#x27;lar Sonunda C#&#x27;ta, Örneklerle Anlatım</h1>
+    <p class="page-hero__lead">C# 15 ile gelen union types özelliğinin sözdizimi, switch ifadeleriyle eksiksiz desen eşleme, null ve varsayılan değer davranışı, OneOf gibi kütüphanelerden geçiş, sonuç tipleri ve JSON serileştirme konusunda dikkat edilecekler.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>F#, TypeScript, Rust ve Kotlin gibi dillerde yıllardır bulunan <strong>union (birleşim) türleri</strong>, C# geliştiricilerinin en çok istediği özelliklerden biriydi. "Bu değer ya bir <code>Kedi</code>, ya bir <code>Köpek</code>, ya da bir <code>Kuş</code> olabilir; başka bir şey olamaz" demenin dil düzeyinde temiz bir yolu yoktu. Geliştiriciler bunun için soyut sınıf hiyerarşileri veya OneOf gibi kütüphaneler kullanıyordu. <strong>C# 15</strong> ile, yani .NET 11 ile birlikte bu özellik dile eklendi. Bu yazıda union types'ı örneklerle anlatıyoruz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#temel-sozdizimi">Temel sözdizimi</a></li><li><a href="#desen-esleme-ile-kullanim">Desen eşleme ile kullanım</a></li><li><a href="#varsayilan-deger-ve-null">Varsayılan değer ve null</a></li><li><a href="#gercek-hayattan-kullanim-sonuc-tipi">Gerçek hayattan kullanım: Sonuç tipi</a></li><li><a href="#kapali-hiyerarsiler-closed-hierarchies">Kapalı hiyerarşiler (closed hierarchies)</a></li><li><a href="#oneof-ve-benzeri-kutuphanelerden-gecis">OneOf ve benzeri kütüphanelerden geçiş</a></li><li><a href="#json-serilestirme-konusunda-dikkat">JSON serileştirme konusunda dikkat</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+
+<h2 id="temel-sozdizimi">Temel sözdizimi</h2>
+<p>Microsoft'un .NET blogunda paylaşılan örneğe göre bir union şöyle tanımlanır:</p>
+<pre><code>public record class Cat(string Name);
+public record class Dog(string Name);
+public record class Bird(string Name);
+
+public union Pet(Cat, Dog, Bird);</code></pre>
+<p><code>Pet</code> türündeki bir değişken yalnızca <code>Cat</code>, <code>Dog</code> veya <code>Bird</code> değerlerinden birini taşıyabilir.</p>
+<h2 id="desen-esleme-ile-kullanim">Desen eşleme ile kullanım</h2>
+<pre><code>string name = pet switch
+{
+    Dog d => d.Name,
+    Cat c => c.Name,
+    Bird b => b.Name,
+};</code></pre>
+<p>Asıl güç burada: Derleyici union'ın tüm durumlarını bildiği için switch ifadesinde bir durumu unutursanız uyarı verebilir. Yarın <code>Pet</code>'e yeni bir tür eklendiğinde, onu ele almayan her switch ifadesi derleme sırasında görünür hale gelir. <a href="csharp-pattern-matching.html">Pattern matching</a> özelliklerini zaten kullanıyorsanız union'lar bunu bir adım ileri taşıyor.</p>
+<h2 id="varsayilan-deger-ve-null">Varsayılan değer ve null</h2>
+<p>Bir union değişkeninin varsayılan değeri (<code>default</code>) hiçbir durumu taşımayabilir. Bu durumda switch ifadesine bir <code>null</code> kolu eklemek gerekir:</p>
+<pre><code>Pet pet = default;
+
+var description = pet switch
+{
+    Dog d => d.Name,
+    Cat c => c.Name,
+    Bird b => b.Name,
+    null => "evcil hayvan yok",
+};</code></pre>
+<p><a href="csharp-nullable-reference-types.html">Nullable reference types</a> açık olan projelerde bu davranışa dikkat edin.</p>
+<h2 id="gercek-hayattan-kullanim-sonuc-tipi">Gerçek hayattan kullanım: Sonuç tipi</h2>
+<p>Union'ların en yaygın kullanım alanlarından biri, bir işlemin başarılı veya başarısız sonucunu istisna (exception) fırlatmadan ifade etmektir:</p>
+<pre><code>public record class Basarili(Siparis Siparis);
+public record class StokYok(string UrunKodu);
+public record class OdemeReddedildi(string Neden);
+
+public union SiparisSonucu(Basarili, StokYok, OdemeReddedildi);
+
+IResult Yanit(SiparisSonucu sonuc) => sonuc switch
+{
+    Basarili b => Results.Ok(b.Siparis),
+    StokYok s => Results.Conflict($"Stokta yok: {s.UrunKodu}"),
+    OdemeReddedildi o => Results.BadRequest(o.Neden),
+};</code></pre>
+<p>Bu yaklaşım, beklenen iş hatalarını istisnalardan ayırır ve API cevaplarını daha öngörülebilir kılar. Hata yönetimi yaklaşımları için <a href="hata-yonetimi-exception.html">hata yönetimi</a> ve <a href="api-hata-yaniti-problem-details.html">Problem Details</a> yazılarımıza bakabilirsiniz. Sözdizimi ve ayrıntılar sürümler arasında değişebileceğinden kendi projenizde resmî dokümantasyondaki güncel örnekleri esas alın.</p>
+<h2 id="kapali-hiyerarsiler-closed-hierarchies">Kapalı hiyerarşiler (closed hierarchies)</h2>
+<p>C# 15'in bir diğer yeniliği <code>closed</code> düzenleyicisi. Kapalı bir sınıftan yalnızca aynı derleme (assembly) içinde türetme yapılabilir. Böylece klasik sınıf hiyerarşileri de "tüm alt türleri biliniyor" garantisi kazanır ve derleyici eksiksiz desen eşleme denetimi yapabilir. Ortak davranışı olan ve kalıtım gerektiren modellerde kapalı hiyerarşi; yalnızca "şunlardan biri" demek istediğiniz durumlarda union daha uygun bir araçtır.</p>
+<h2 id="oneof-ve-benzeri-kutuphanelerden-gecis">OneOf ve benzeri kütüphanelerden geçiş</h2>
+<ul>
+<li>Yeni kodda dilin kendi union'ını tercih edin; ek bağımlılık ve özel API öğrenme ihtiyacı ortadan kalkar.</li>
+<li>Mevcut kodu bir anda dönüştürmek yerine sınır katmanlarda (servis dönüş tipleri gibi) aşamalı geçin.</li>
+<li>Performansı kritik "sıcak yollarda" kutulama (boxing) ve bellek ayırma davranışını ölçün.</li>
+</ul>
+<h2 id="json-serilestirme-konusunda-dikkat">JSON serileştirme konusunda dikkat</h2>
+<p>Topluluk geri bildirimlerinde, union değerlerinin System.Text.Json ile serileştirildiğinde tür ayırt edici bir alan içermediği için geri okunurken sorun yaşanabileceği dile getirildi. API sınırlarında union'ları doğrudan JSON'a çevirmek yerine, açık bir "tip" alanı içeren veri aktarım nesneleri (DTO) kullanmak şimdilik daha güvenli bir yaklaşım. Kullandığınız sürümdeki güncel davranışı mutlaka test edin.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Union types için .NET 11 şart mı?</h3>
+<p>Evet, özellik C# 15 ile geliyor ve .NET 11 SDK'sı gerektiriyor. .NET 11 RC sürümüyle önizleme ayarı olmadan kullanılabiliyor.</p>
+<h3>Union ile soyut sınıf arasındaki fark ne?</h3>
+<p>Soyut sınıf açık bir hiyerarşidir; başka derlemeler yeni alt türler ekleyebilir. Union ise kapalı bir kümedir; tüm durumlar tanımda bellidir ve derleyici bunu denetleyebilir.</p>
+<h3>Entity Framework ile union kullanabilir miyim?</h3>
+<p>Veritabanı eşlemesi için doğrudan desteğin kapsamını EF Core sürüm notlarından kontrol edin. Genellikle union'lar iş mantığı ve servis katmanında kullanılır, veritabanında klasik tablolar korunur.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Union types, C#'ta hata yönetimi, durum modelleme ve API tasarımını daha güvenli ve okunabilir hale getiriyor. .NET 11'e geçişi planlarken union'ların kodunuzda nerelerde fayda sağlayacağını şimdiden belirleyin. .NET projelerinizde modernizasyon için <a href="../#iletisim">destek alabilirsiniz</a>.</p>
+<ul class="tags art-tags" aria-label="Etiketler"><li>#CSharp</li><li>#CSharp15</li><li>#UnionTypes</li><li>#dotnet</li><li>#NET11</li><li>#FonksiyonelProgramlama</li></ul><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır ve yayımlandığı tarihteki (Ekim 2026) bilgilere dayanır; mevzuat, fiyat ve ürün özellikleri değişebilir. Kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html" aria-current="page">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="dotnet" data-search="c pattern matching switch ifadeleri ve desenlerle okunabilir kod c pattern matching ozellikleri is ve switch ifadeleri tip ozellik iliskisel mantiksal ve liste desenleri ile is kurallarini daha kisa ve okunabilir yazma ornekleri c ve net c pattern matching switch expression property pattern list pattern c desen esleme is ifadesi"><a href="../blog/csharp-pattern-matching.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-pattern-matching.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>3 dk</span></span><h3>C# Pattern Matching: switch İfadeleri ve Desenlerle Okunabilir Kod</h3><p>C# pattern matching özellikleri; is ve switch ifadeleri, tip, özellik, ilişkisel, mantıksal ve liste desenleri ile iş kurallarını daha kısa ve okunabilir yazma örnekleri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="c nullable reference types nullreferenceexception a derleme aninda veda c ta nullable reference types ozelliginin mantigi uyarilarin anlami ve isaretlerinin dogru kullanimi mevcut projelerde kademeli gecis ve sik yapilan hatalar c ve net nullable reference types c null guvenligi nullreferenceexception nullable c null uyarilari"><a href="../blog/csharp-nullable-reference-types.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/csharp-nullable-reference-types.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>C# Nullable Reference Types: NullReferenceException&#x27;a Derleme Anında Veda</h3><p>C#&#x27;ta nullable reference types özelliğinin mantığı, uyarıların anlamı, ? ve ! işaretlerinin doğru kullanımı, mevcut projelerde kademeli geçiş ve sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="dotnet" data-search="net te yapilandirma appsettings options pattern ve gizli bilgiler net uygulamalarinda appsettings json ortam degiskenleri ortam bazli ayarlar options pattern ile tip guvenli yapilandirma ve parola ile api anahtarlarinin guvenli saklanmasi c ve net net configuration appsettings json options pattern user secrets gizli bilgi yonetimi"><a href="../blog/dotnet-yapilandirma-options-secrets.html"><span class="post__cover post__cover--dotnet"><img src="../assets/images/blog/thumb/dotnet-yapilandirma-options-secrets.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>C# ve .NET</span><span>2 dk</span></span><h3>.NET&#x27;te Yapılandırma: appsettings, Options Pattern ve Gizli Bilgiler</h3><p>.NET uygulamalarında appsettings.json, ortam değişkenleri, ortam bazlı ayarlar, Options pattern ile tip güvenli yapılandırma ve parola ile API anahtarlarının güvenli saklanması.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/csharp-dotnet.html">C# ve .NET kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261030" defer></script>
+<script src="../assets/js/blog.js?v=20261030" defer></script>
+<script src="../assets/js/ads.js?v=20261030" defer></script>
+<script src="../assets/js/extras.js?v=20261030" defer></script>
+</body>
+</html>

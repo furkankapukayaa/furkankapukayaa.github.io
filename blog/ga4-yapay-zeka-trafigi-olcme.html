@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="google-adsense-account" content="ca-pub-1772204959473379">
+<title>GA4&#x27;te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri | Furkan Kapukaya</title>
+<meta name="description" content="ChatGPT, Perplexity, Gemini, Copilot ve Claude gibi yapay zekâ asistanlarından gelen ziyaretleri GA4&#x27;te ayrı bir kanal grubunda toplamak, regex tanımı, keşif raporları ve ölçümün sınırları.">
+<meta name="keywords" content="ga4 yapay zeka trafiği, chatgpt referral, ga4 kanal grubu, ai trafiği ölçme, perplexity trafik, llm trafik analizi, google analytics 4 regex">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261030"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="GA4&#x27;te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri | Furkan Kapukaya">
+<meta property="og:description" content="ChatGPT, Perplexity, Gemini, Copilot ve Claude gibi yapay zekâ asistanlarından gelen ziyaretleri GA4&#x27;te ayrı bir kanal grubunda toplamak, regex tanımı, keşif raporları ve ölçümün sınırları.">
+<meta property="og:url" content="https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/ga4-yapay-zeka-trafigi-olcme.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GA4&#x27;te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="GA4&#x27;te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri | Furkan Kapukaya">
+<meta name="twitter:description" content="ChatGPT, Perplexity, Gemini, Copilot ve Claude gibi yapay zekâ asistanlarından gelen ziyaretleri GA4&#x27;te ayrı bir kanal grubunda toplamak, regex tanımı, keşif raporları ve ölçümün sınırları.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/ga4-yapay-zeka-trafigi-olcme.jpg">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:section" content="Veri ve Raporlama">
+<meta property="article:tag" content="GA4">
+<meta property="article:tag" content="GoogleAnalytics">
+<meta property="article:tag" content="AITrafiği">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="VeriAnalizi">
+<meta property="article:tag" content="WebAnalitik">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261030">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "GA4'te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri", "description": "ChatGPT, Perplexity, Gemini, Copilot ve Claude gibi yapay zekâ asistanlarından gelen ziyaretleri GA4'te ayrı bir kanal grubunda toplamak, regex tanımı, keşif raporları ve ölçümün sınırları.", "url": "https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html", "mainEntityOfPage": "https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "inLanguage": "tr", "articleSection": "Veri ve Raporlama", "wordCount": 561, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/ga4-yapay-zeka-trafigi-olcme.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "ga4 yapay zeka trafiği, chatgpt referral, ga4 kanal grubu, ai trafiği ölçme, perplexity trafik, llm trafik analizi, google analytics 4 regex"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Veri ve Raporlama", "item": "https://kapukaya.dev/blog/kategori/veri-raporlama.html"}, {"@type": "ListItem", "position": 4, "name": "GA4'te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri", "item": "https://kapukaya.dev/blog/ga4-yapay-zeka-trafigi-olcme.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Yapay zekâ trafiği ne kadar büyük?", "acceptedAnswer": {"@type": "Answer", "text": "Çoğu site için toplam trafiğin küçük bir kısmıdır; ancak hızla büyüyen ve dönüşüm oranı yüksek olabilen bir kanaldır. Kendi verinize bakmadan genelleme yapmayın."}}, {"@type": "Question", "name": "Regex'i her ay güncellemem gerekir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Her ay değil ama birkaç ayda bir kaynak listesine bakıp yeni platformları eklemek iyi bir alışkanlıktır."}}, {"@type": "Question", "name": "Looker Studio'da da ayrı görebilir miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Özel kanal grubu GA4 bağlayıcısında bir boyut olarak kullanılabilir; ayrıca rapor içinde aynı regex ile hesaplanan alan oluşturabilirsiniz."}}]}</script>
+<script src="../assets/js/analytics.js?v=20261030" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../#hizmetler">Hizmetler</a><a href="../#isler">İşler</a><a href="../#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/" aria-current="page">Blog</a><a class="k-nav__cta" href="../#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--veri">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../">Ana sayfa</a> / <a href="../blog/">Blog</a> / <a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a><time datetime="2026-10-30">30 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>GA4&#x27;te Yapay Zekâ Trafiğini Ölçmek: ChatGPT, Gemini ve Perplexity Ziyaretleri</h1>
+    <p class="page-hero__lead">ChatGPT, Perplexity, Gemini, Copilot ve Claude gibi yapay zekâ asistanlarından gelen ziyaretleri GA4&#x27;te ayrı bir kanal grubunda toplamak, regex tanımı, keşif raporları ve ölçümün sınırları.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p>Yapay zekâ asistanları yalnızca cevap vermiyor; kaynak bağlantılarıyla web sitelerine ziyaretçi de gönderiyor. Bu ziyaretçiler genellikle konuyu zaten araştırmış, karar aşamasına yakın kişilerdir. Ancak GA4 varsayılan ayarlarında bu trafik "Referral" (yönlendirme) kanalı içinde diğer sitelerle karışır. Bu yazıda yapay zekâ kaynaklı trafiği ayrı bir kanal olarak nasıl izleyebileceğinizi adım adım anlatıyoruz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#yapay-zeka-trafigi-ga4-te-nasil-gorunur">Yapay zekâ trafiği GA4'te nasıl görünür?</a></li><li><a href="#adim-1-kaynaklari-kesfedin">Adım 1: Kaynakları keşfedin</a></li><li><a href="#adim-2-ozel-kanal-grubu-olusturun">Adım 2: Özel kanal grubu oluşturun</a></li><li><a href="#adim-3-anlamli-raporlar-hazirlayin">Adım 3: Anlamlı raporlar hazırlayın</a></li><li><a href="#olcumun-sinirlari">Ölçümün sınırları</a></li><li><a href="#sunucu-gunlukleriyle-tamamlamak">Sunucu günlükleriyle tamamlamak</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+
+<h2 id="yapay-zeka-trafigi-ga4-te-nasil-gorunur">Yapay zekâ trafiği GA4'te nasıl görünür?</h2>
+<p>Bir kullanıcı ChatGPT, Perplexity veya Copilot cevabındaki bağlantıya tıkladığında tarayıcı çoğu zaman yönlendiren adresi (referrer) iletir. GA4 bu ziyareti <code>chatgpt.com / referral</code> veya <code>perplexity.ai / referral</code> gibi bir kaynak/aracı olarak kaydeder. Bazı uygulamalar bağlantıya <code>utm_source=chatgpt.com</code> parametresi de ekler. Mobil uygulamalardan gelen bir kısım ziyaret ise yönlendiren bilgisi taşımadığı için "Direct" (doğrudan) olarak görünür.</p>
+<h2 id="adim-1-kaynaklari-kesfedin">Adım 1: Kaynakları keşfedin</h2>
+<p>GA4'te <em>Raporlar &gt; Edinme &gt; Trafik edinme</em> sayfasında birincil boyutu "Oturum kaynağı / aracı" yapın ve arama kutusuna sırasıyla <code>gpt</code>, <code>perplexity</code>, <code>gemini</code>, <code>copilot</code>, <code>claude</code> yazın. Sitenize hangi yapay zekâ kaynaklarından ziyaret geldiğini ve hacmini böylece görürsünüz.</p>
+<h2 id="adim-2-ozel-kanal-grubu-olusturun">Adım 2: Özel kanal grubu oluşturun</h2>
+<ol>
+<li><em>Yönetici &gt; Veri görünümü &gt; Kanal grupları</em> menüsüne gidin.</li>
+<li>Varsayılan kanal grubunu kopyalayarak yeni bir grup oluşturun (örneğin "Kanallar + AI").</li>
+<li>Yeni bir kanal ekleyin: adı <strong>Yapay Zekâ</strong>.</li>
+<li>Koşul olarak "Oturum kaynağı" için "normal ifadeyle eşleşir" seçin ve aşağıdaki gibi bir ifade girin.</li>
+<li>Bu kanalı listede <strong>Referral kanalının üstüne</strong> taşıyın; GA4 kuralları yukarıdan aşağı uygular.</li>
+</ol>
+<p>Örnek normal ifade (regex):</p>
+<pre><code>.*(chatgpt|openai|perplexity|gemini\.google|bard\.google|copilot\.microsoft|claude\.ai|deepseek|meta\.ai|grok|you\.com|phind).*</code></pre>
+<p>Yeni platformlar ortaya çıktıkça bu ifadeyi güncellemeyi unutmayın. Kanal grubu geçmiş verilere de uygulanır, bu yüzden önceki ayları da yeni grupla inceleyebilirsiniz.</p>
+<h2 id="adim-3-anlamli-raporlar-hazirlayin">Adım 3: Anlamlı raporlar hazırlayın</h2>
+<ul>
+<li><strong>Açılış sayfası raporu:</strong> Yapay zekâ ziyaretçileri hangi sayfalara geliyor? Bu sayfalar asistanların sizi hangi konularda kaynak gösterdiğini anlatır.</li>
+<li><strong>Etkileşim ve dönüşüm:</strong> Bu kanalın etkileşim oranını ve form/teklif dönüşümünü organik arama ile karşılaştırın.</li>
+<li><strong>Zaman serisi:</strong> Aylık eğilim, içerik çalışmalarınızın etkisini gösterir.</li>
+</ul>
+<p>GA4 temel kurulumunuz eksikse önce <a href="ga4-temel-kurulum.html">GA4 temel kurulum rehberine</a> göz atın; dönüşüm (anahtar etkinlik) tanımları olmadan kanal karşılaştırması eksik kalır.</p>
+<h2 id="olcumun-sinirlari">Ölçümün sınırları</h2>
+<ol>
+<li><strong>Doğrudan trafiğe karışan ziyaretler:</strong> Uygulama içi tarayıcılar veya kopyalanan bağlantılar referrer taşımaz.</li>
+<li><strong>AI Bakışı ve AI Modu:</strong> Google'ın yapay zekâ özelliklerinden gelen tıklamalar GA4'te genellikle "google / organic" olarak görünür ve ayrıştırılamaz. Bu tıklamalar Search Console verilerine dahildir.</li>
+<li><strong>Çerez onayı:</strong> Analitik çerezleri reddeden ziyaretçiler ölçülmez. Bu, tüm kanallar için geçerli bir eksikliktir.</li>
+<li><strong>Bot trafiği:</strong> Yapay zekâ tarayıcı botları (GPTBot, ClaudeBot vb.) JavaScript çalıştırmadığından genellikle GA4'e düşmez; bot ziyaretlerini görmek için sunucu günlüklerine bakmak gerekir.</li>
+</ol>
+<h2 id="sunucu-gunlukleriyle-tamamlamak">Sunucu günlükleriyle tamamlamak</h2>
+<p>Yapay zekâ botlarının sitenizi ne sıklıkla taradığını görmek için web sunucusu erişim günlüklerinde kullanıcı aracısına (user agent) göre filtreleme yapabilirsiniz. Bot taraması ile insan ziyaretini birlikte değerlendirmek, içeriğinizin yapay zekâ ekosisteminde ne kadar kullanıldığına dair daha bütün bir resim verir. Statik barındırmada (örneğin GitHub Pages) günlüklere erişim olmadığı için bu adım yalnızca kendi sunucunuzda veya CDN raporlarında mümkündür.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>Yapay zekâ trafiği ne kadar büyük?</h3>
+<p>Çoğu site için toplam trafiğin küçük bir kısmıdır; ancak hızla büyüyen ve dönüşüm oranı yüksek olabilen bir kanaldır. Kendi verinize bakmadan genelleme yapmayın.</p>
+<h3>Regex'i her ay güncellemem gerekir mi?</h3>
+<p>Her ay değil ama birkaç ayda bir kaynak listesine bakıp yeni platformları eklemek iyi bir alışkanlıktır.</p>
+<h3>Looker Studio'da da ayrı görebilir miyim?</h3>
+<p>Evet. Özel kanal grubu GA4 bağlayıcısında bir boyut olarak kullanılabilir; ayrıca rapor içinde aynı regex ile hesaplanan alan oluşturabilirsiniz.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>Ölçemediğiniz kanalı geliştiremezsiniz. Yapay zekâ trafiğini ayrı bir kanalda izlemek, içerik stratejinizin yapay zekâ çağında işe yarayıp yaramadığını gösteren en basit adımdır. Analitik ve raporlama kurulumunuz için <a href="../#iletisim">destek alabilirsiniz</a>.</p>
+<ul class="tags art-tags" aria-label="Etiketler"><li>#GA4</li><li>#GoogleAnalytics</li><li>#AITrafiği</li><li>#ChatGPT</li><li>#VeriAnalizi</li><li>#WebAnalitik</li></ul><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır ve yayımlandığı tarihteki (Ekim 2026) bilgilere dayanır; mevzuat, fiyat ve ürün özellikleri değişebilir. Kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html" aria-current="page">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="veri" data-search="musteri yorumlarini yapay zeka ile analiz etmek google pazaryeri ve anket verisi google isletme profili pazaryeri ve anket yorumlarini yapay zeka ile duygu konu ve sikayet basliklarina ayirmak veri toplama kvkk dogruluk kontrolu ve aksiyona donusturme adimlari veri ve raporlama musteri yorumu analizi yapay zeka duygu analizi yorum analizi google yorumlari analiz pazaryeri yorum analizi musteri geri bildirimi sentiment analysis turkce"><a href="../blog/musteri-yorumlarini-yapay-zeka-ile-analiz.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/musteri-yorumlarini-yapay-zeka-ile-analiz.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>Müşteri Yorumlarını Yapay Zekâ ile Analiz Etmek: Google, Pazaryeri ve Anket Verisi</h3><p>Google İşletme Profili, pazaryeri ve anket yorumlarını yapay zekâ ile duygu, konu ve şikâyet başlıklarına ayırmak; veri toplama, KVKK, doğruluk kontrolü ve aksiyona dönüştürme adımları.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="veri" data-search="kohort analizi musterileriniz geri geliyor mu kohort analizinin ne oldugu musteri elde tutma retention tablosunun nasil okundugu e ticaret ve abonelik islerinde kullanimi ve toplam rakamlarin gizledigi sorunlari ortaya cikarma veri ve raporlama kohort analizi cohort analysis musteri elde tutma retention musteri kaybi analizi churn"><a href="../blog/cohort-analizi.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/cohort-analizi.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>Kohort Analizi: Müşterileriniz Geri Geliyor mu?</h3><p>Kohort analizinin ne olduğu, müşteri elde tutma (retention) tablosunun nasıl okunduğu, e-ticaret ve abonelik işlerinde kullanımı ve toplam rakamların gizlediği sorunları ortaya çıkarma.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="veri" data-search="excel pivot tablo rehberi dakikalar icinde ozet rapor hazirlamak excel pivot tablonun ne ise yaradigi verinin pivot icin nasil hazirlanacagi satir sutun deger ve filtre alanlari gruplama dilimleyiciler ve pivot tablolarin sinirlari veri ve raporlama pivot tablo excel pivot nasil yapilir ozet tablo excel raporlama dilimleyici excel veri analizi"><a href="../blog/excel-pivot-tablo.html"><span class="post__cover post__cover--veri"><img src="../assets/images/blog/thumb/excel-pivot-tablo.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Veri ve Raporlama</span><span>3 dk</span></span><h3>Excel Pivot Tablo Rehberi: Dakikalar İçinde Özet Rapor Hazırlamak</h3><p>Excel pivot tablonun ne işe yaradığı, verinin pivot için nasıl hazırlanacağı, satır, sütun, değer ve filtre alanları, gruplama, dilimleyiciler ve pivot tabloların sınırları.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261030" defer></script>
+<script src="../assets/js/blog.js?v=20261030" defer></script>
+<script src="../assets/js/ads.js?v=20261030" defer></script>
+<script src="../assets/js/extras.js?v=20261030" defer></script>
+</body>
+</html>

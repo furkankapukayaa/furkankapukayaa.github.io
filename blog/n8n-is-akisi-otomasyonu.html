@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="google-adsense-account" content="ca-pub-1772204959473379">
+<title>n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları | Furkan Kapukaya</title>
+<meta name="description" content="n8n&#x27;in ne olduğu, Zapier ve Make&#x27;ten farkı, kendi sunucuda kurulum, lisans, yapay zekâ ajanı düğümleri, işletmeler için örnek akışlar, güvenlik ve ne zaman özel yazılıma geçilmesi gerektiği.">
+<meta name="keywords" content="n8n nedir, n8n kurulum, n8n türkçe, zapier alternatifi, iş akışı otomasyonu, n8n yapay zeka ajanı, self hosted otomasyon, workflow automation">
+<meta name="author" content="Furkan Kapukaya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<script src="../assets/js/boot-head.js?v=20261030"></script>
+<link rel="canonical" href="https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html">
+<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html">
+<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Furkan Kapukaya">
+<meta property="og:title" content="n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları | Furkan Kapukaya">
+<meta property="og:description" content="n8n&#x27;in ne olduğu, Zapier ve Make&#x27;ten farkı, kendi sunucuda kurulum, lisans, yapay zekâ ajanı düğümleri, işletmeler için örnek akışlar, güvenlik ve ne zaman özel yazılıma geçilmesi gerektiği.">
+<meta property="og:url" content="https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html">
+<meta property="og:image" content="https://kapukaya.dev/assets/images/blog/og/n8n-is-akisi-otomasyonu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@furkankapukayaa">
+<meta name="twitter:title" content="n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları | Furkan Kapukaya">
+<meta name="twitter:description" content="n8n&#x27;in ne olduğu, Zapier ve Make&#x27;ten farkı, kendi sunucuda kurulum, lisans, yapay zekâ ajanı düğümleri, işletmeler için örnek akışlar, güvenlik ve ne zaman özel yazılıma geçilmesi gerektiği.">
+<meta name="twitter:image" content="https://kapukaya.dev/assets/images/blog/og/n8n-is-akisi-otomasyonu.jpg">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:section" content="Otomasyon ve Entegrasyon">
+<meta property="article:tag" content="n8n">
+<meta property="article:tag" content="Otomasyon">
+<meta property="article:tag" content="NoCode">
+<meta property="article:tag" content="İşAkışı">
+<meta property="article:tag" content="YapayZekaAjanları">
+<meta property="article:tag" content="Zapier">
+<link rel="icon" href="../assets/images/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/images/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/images/icons/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
+<link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=20261030">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları", "description": "n8n'in ne olduğu, Zapier ve Make'ten farkı, kendi sunucuda kurulum, lisans, yapay zekâ ajanı düğümleri, işletmeler için örnek akışlar, güvenlik ve ne zaman özel yazılıma geçilmesi gerektiği.", "url": "https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html", "mainEntityOfPage": "https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "inLanguage": "tr", "articleSection": "Otomasyon ve Entegrasyon", "wordCount": 593, "timeRequired": "PT3M", "image": "https://kapukaya.dev/assets/images/blog/og/n8n-is-akisi-otomasyonu.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "n8n nedir, n8n kurulum, n8n türkçe, zapier alternatifi, iş akışı otomasyonu, n8n yapay zeka ajanı, self hosted otomasyon, workflow automation"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Otomasyon ve Entegrasyon", "item": "https://kapukaya.dev/blog/kategori/otomasyon-entegrasyon.html"}, {"@type": "ListItem", "position": 4, "name": "n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları", "item": "https://kapukaya.dev/blog/n8n-is-akisi-otomasyonu.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "n8n ücretsiz mi?", "acceptedAnswer": {"@type": "Answer", "text": "Kendi sunucunuzda şirket içi kullanım için ücretsiz sürümü bulunur; bulut hizmeti ve kurumsal özellikler ücretlidir. Lisans koşullarını kullanım şeklinize göre kontrol edin."}}, {"@type": "Question", "name": "Kod bilmeden n8n kullanılabilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Basit akışlar kod bilmeden kurulabilir. Veri dönüştürme ve hata yönetimi gerektiren akışlarda temel JavaScript bilgisi işi çok kolaylaştırır."}}, {"@type": "Question", "name": "Zapier'den n8n'e geçmeli miyim?", "acceptedAnswer": {"@type": "Answer", "text": "Görev sayısı yüksekse, veriyi şirket içinde tutmak istiyorsanız veya karmaşık mantık gerekiyorsa n8n avantajlıdır. Az sayıda basit akış için Zapier'in sadeliği yeterli olabilir."}}]}</script>
+<script src="../assets/js/analytics.js?v=20261030" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="k-header">
+  <div class="k-header__inner">
+    <a class="k-brand" href="../" aria-label="Furkan Kapukaya, ana sayfa">
+      <span class="k-brand__mark" aria-hidden="true">FK</span>
+      <span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span>
+    </a>
+    <button class="k-menu-btn" type="button" aria-expanded="false" aria-controls="k-nav" aria-label="Menüyü aç"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    <nav class="k-nav" id="k-nav" aria-label="Ana menü"><a href="../#hizmetler">Hizmetler</a><a href="../#isler">İşler</a><a href="../#surec">Süreç</a><a href="../hakkimda.html">Hakkımda</a><a href="../blog/" aria-current="page">Blog</a><a class="k-nav__cta" href="../#iletisim">Teklif isteyin</a></nav>
+  </div>
+</header>
+<main id="icerik">
+
+<section class="page-hero article-hero article-hero--otomasyon">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Konum"><a href="../">Ana sayfa</a> / <a href="../blog/">Blog</a> / <a href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a></nav>
+    <div class="art-meta"><a class="art-cat" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon</a><time datetime="2026-10-30">30 Ekim 2026</time><span>3 dk okuma</span><button type="button" class="art-save" data-save hidden><i class="fa-regular fa-bookmark" aria-hidden="true"></i><span>Kaydet</span></button></div>
+    <h1>n8n ile İş Akışı Otomasyonu: Kendi Sunucunuzda Zapier Alternatifi ve Yapay Zekâ Ajanları</h1>
+    <p class="page-hero__lead">n8n&#x27;in ne olduğu, Zapier ve Make&#x27;ten farkı, kendi sunucuda kurulum, lisans, yapay zekâ ajanı düğümleri, işletmeler için örnek akışlar, güvenlik ve ne zaman özel yazılıma geçilmesi gerektiği.</p>
+  </div>
+</section>
+<div class="wrap article-layout">
+  <article class="prose">
+<p><strong>n8n</strong>, uygulamaları ve servisleri görsel bir editörde birbirine bağlayarak iş akışları oluşturmanızı sağlayan bir otomasyon aracıdır. Zapier ve Make ile aynı problemi çözer; ama en büyük farkı, <strong>kendi sunucunuzda çalıştırılabilmesi</strong> ve gerektiğinde akışın içine kod yazılabilmesidir. Son dönemde yapay zekâ ajanı düğümleriyle birlikte popülerliği hızla arttı. Bu yazıda n8n'in işletmeler için ne zaman doğru seçim olduğunu anlatıyoruz. Genel karşılaştırma için <a href="no-code-otomasyon-araclari.html">no-code otomasyon araçları</a> yazımıza da bakabilirsiniz.</p><nav class="toc" aria-label="İçindekiler"><details open><summary>İçindekiler</summary><ol><li><a href="#n8n-in-one-cikan-ozellikleri">n8n'in öne çıkan özellikleri</a></li><li><a href="#lisans-konusuna-dikkat">Lisans konusuna dikkat</a></li><li><a href="#isletmeler-icin-ornek-akislar">İşletmeler için örnek akışlar</a></li><li><a href="#kendi-sunucuda-kurulum-icin-oneriler">Kendi sunucuda kurulum için öneriler</a></li><li><a href="#yapay-zeka-ajanlariyla-kullanim">Yapay zekâ ajanlarıyla kullanım</a></li><li><a href="#ne-zaman-ozel-yazilima-gecmeli">Ne zaman özel yazılıma geçmeli?</a></li><li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li><li><a href="#sonuc">Sonuç</a></li></ol></details></nav>
+
+<h2 id="n8n-in-one-cikan-ozellikleri">n8n'in öne çıkan özellikleri</h2>
+<ul>
+<li><strong>Görsel akış editörü:</strong> Tetikleyici, işlem ve koşul düğümlerini sürükleyip bağlarsınız.</li>
+<li><strong>Yüzlerce hazır entegrasyon:</strong> Google Sheets, Gmail, Slack, veritabanları, HTTP istekleri, webhook'lar.</li>
+<li><strong>Kod düğümü:</strong> JavaScript veya Python ile veri dönüştürme.</li>
+<li><strong>Yapay zekâ düğümleri:</strong> Dil modellerine bağlanma, sınıflandırma, özetleme ve araç kullanabilen ajanlar.</li>
+<li><strong>Kendi sunucuda çalıştırma:</strong> Docker ile kendi sunucunuza kurulabilir; veriler şirket dışına çıkmaz.</li>
+</ul>
+<h2 id="lisans-konusuna-dikkat">Lisans konusuna dikkat</h2>
+<p>n8n kaynak kodu açık olsa da klasik anlamda bir açık kaynak lisansıyla değil, "Sustainable Use License" adlı kendi lisansıyla dağıtılır. Şirket içi otomasyonlar için kendi sunucunuzda kullanmak genellikle serbesttir; ancak n8n'i müşterilerinize ücretli bir hizmet olarak sunmak veya ürününüzün içine gömmek gibi kullanımlar ticari lisans gerektirebilir. Güncel lisans koşullarını resmî sitesinden kontrol edin. Lisans türleri hakkında genel bilgi için <a href="acik-kaynak-lisanslari.html">açık kaynak lisansları</a> yazımıza bakabilirsiniz.</p>
+<h2 id="isletmeler-icin-ornek-akislar">İşletmeler için örnek akışlar</h2>
+<ol>
+<li><strong>Teklif formu → CRM → bildirim:</strong> Web sitesindeki form gönderildiğinde müşteri bilgisini Google Sheets veya CRM'e yazar, satış ekibine mesaj atar, müşteriye otomatik teşekkür e-postası gönderir.</li>
+<li><strong>Günlük satış özeti:</strong> Her sabah 08.00'de veritabanından dünkü satışları çeker, özet tabloyu yöneticilere e-postayla gönderir. Bkz. <a href="otomatik-rapor-e-postasi.html">otomatik rapor e-postası</a>.</li>
+<li><strong>Fatura e-postalarını işleme:</strong> Muhasebe adresine gelen PDF faturaları alır, yapay zekâ ile alanları çıkarır, onay için bir tabloya ekler.</li>
+<li><strong>Müşteri yorumu takibi:</strong> Yeni yorumları toplar, duygu analizini yapar, olumsuz yorumları sorumlu kişiye iletir. Bkz. <a href="musteri-yorumlarini-yapay-zeka-ile-analiz.html">yorum analizi</a>.</li>
+<li><strong>Stok uyarısı:</strong> Kritik seviyenin altına düşen ürünleri satın alma ekibine bildirir.</li>
+</ol>
+<h2 id="kendi-sunucuda-kurulum-icin-oneriler">Kendi sunucuda kurulum için öneriler</h2>
+<ul>
+<li>Docker Compose ile kurun ve verileri kalıcı bir veritabanında (PostgreSQL) tutun. Bkz. <a href="docker-compose-rehberi.html">Docker Compose rehberi</a>.</li>
+<li>Arayüzü HTTPS ve güçlü kimlik doğrulama olmadan internete açmayın; mümkünse VPN veya IP kısıtlaması kullanın.</li>
+<li>API anahtarlarını n8n'in kimlik bilgisi (credentials) yöneticisinde saklayın, akışların içine düz metin yazmayın.</li>
+<li>Düzenli yedek alın ve güncellemeleri takip edin.</li>
+<li>Akışlarda hata durumunda bildirim gönderen bir hata akışı tanımlayın.</li>
+</ul>
+<h2 id="yapay-zeka-ajanlariyla-kullanim">Yapay zekâ ajanlarıyla kullanım</h2>
+<p>n8n'in ajan düğümleri, bir dil modeline araç olarak başka düğümleri (veritabanı sorgusu, HTTP isteği, e-posta gönderme) verebilmenizi sağlar. Örneğin "müşteri sipariş durumunu sorarsa veritabanına bak, cevapla" diyen bir destek ajanı kurulabilir. Ancak ajanlara yazma ve gönderme yetkisi verirken dikkatli olun: Onay adımı, sınırlı yetki ve kayıt tutma şart. <a href="prompt-injection-nedir.html">Prompt injection</a> riski burada da geçerli.</p>
+<h2 id="ne-zaman-ozel-yazilima-gecmeli">Ne zaman özel yazılıma geçmeli?</h2>
+<ul>
+<li>Akışlar o kadar karmaşıklaştıysa ki kimse ne yaptığını anlayamıyorsa.</li>
+<li>Saniyede çok sayıda olay işlemek gerekiyorsa.</li>
+<li>Akış, işletmenin çekirdek süreci haline geldiyse ve sürüm kontrolü, test ve kod incelemesi gerektiriyorsa.</li>
+<li>ERP'ye yazma gibi kritik işlemler yapılıyorsa ve hata toleransı düşükse.</li>
+</ul>
+<p>Bu durumlarda n8n'de kanıtlanmış akışı bir <a href="dotnet-background-service.html">arka plan servisine</a> veya <a href="zamanlanmis-gorevler-otomasyon.html">zamanlanmış göreve</a> dönüştürmek sağlıklı bir yoldur.</p>
+<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+<h3>n8n ücretsiz mi?</h3>
+<p>Kendi sunucunuzda şirket içi kullanım için ücretsiz sürümü bulunur; bulut hizmeti ve kurumsal özellikler ücretlidir. Lisans koşullarını kullanım şeklinize göre kontrol edin.</p>
+<h3>Kod bilmeden n8n kullanılabilir mi?</h3>
+<p>Basit akışlar kod bilmeden kurulabilir. Veri dönüştürme ve hata yönetimi gerektiren akışlarda temel JavaScript bilgisi işi çok kolaylaştırır.</p>
+<h3>Zapier'den n8n'e geçmeli miyim?</h3>
+<p>Görev sayısı yüksekse, veriyi şirket içinde tutmak istiyorsanız veya karmaşık mantık gerekiyorsa n8n avantajlıdır. Az sayıda basit akış için Zapier'in sadeliği yeterli olabilir.</p>
+<h2 id="sonuc">Sonuç</h2>
+<p>n8n, kendi sunucusunda esnek otomasyon isteyen işletmeler için güçlü bir araç. Doğru güvenlik önlemleri ve net sınırlarla kullanıldığında tekrar eden işleri ciddi ölçüde azaltır. n8n kurulumu veya otomasyonlarınızı özel yazılıma dönüştürmek için <a href="../#iletisim">bizimle iletişime geçin</a>.</p>
+<ul class="tags art-tags" aria-label="Etiketler"><li>#n8n</li><li>#Otomasyon</li><li>#NoCode</li><li>#İşAkışı</li><li>#YapayZekaAjanları</li><li>#Zapier</li></ul><aside class="ai-note" role="note"><i class="fa-solid fa-robot" aria-hidden="true"></i><p><strong>Dipnot:</strong> Bu yazı yapay zekâ tarafından yazılmıştır. İçerik genel bilgilendirme amaçlıdır ve yayımlandığı tarihteki (Ekim 2026) bilgilere dayanır; mevzuat, fiyat ve ürün özellikleri değişebilir. Kendi projenizde uygulamadan önce güncel resmî kaynaklarla ve gerektiğinde bir uzmanla doğrulayınız.</p></aside>
+  </article>
+  <aside class="article-aside">
+    <div class="aside-card">
+      <div class="aside-author"><img decoding="async" src="../assets/images/my-avatar.webp" alt="" width="48" height="48"><span><b>Furkan Kapukaya</b><small>Yazılım geliştirici</small></span></div>
+      <p>C# ve .NET ile işletmelere özel masaüstü, web ve konsol uygulamaları geliştiren yazılım geliştirici.</p>
+      <a class="link-more" href="../hakkimda.html">Hakkımda <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="aside-card aside-card--cta">
+      <b>Bir projeniz mi var?</b>
+      <p>İhtiyacınızı paylaşın; size özel bir teklif hazırlansın.</p>
+      <a class="btn btn--primary" href="../#iletisim">Teklif isteyin</a>
+    </div>
+    <div class="aside-card">
+      <b class="aside-title">Kategoriler</b>
+      <ul class="aside-cats"><li><a href="../blog/kategori/dijital-temeller.html">Dijital Temeller</a></li><li><a href="../blog/kategori/web-tasarim-gelistirme.html">Web Tasarım ve Geliştirme</a></li><li><a href="../blog/kategori/seo-dijital-pazarlama.html">SEO ve Dijital Pazarlama</a></li><li><a href="../blog/kategori/isletme-yazilimlari.html">İşletme Yazılımları</a></li><li><a href="../blog/kategori/e-ticaret-odeme.html">E-ticaret ve Ödeme</a></li><li><a href="../blog/kategori/otomasyon-entegrasyon.html" aria-current="page">Otomasyon ve Entegrasyon</a></li><li><a href="../blog/kategori/veri-raporlama.html">Veri ve Raporlama</a></li><li><a href="../blog/kategori/csharp-dotnet.html">C# ve .NET</a></li><li><a href="../blog/kategori/backend-api-veritabani.html">Backend, API ve Veritabanı</a></li><li><a href="../blog/kategori/yazilim-mimarisi-temiz-kod.html">Yazılım Mimarisi ve Temiz Kod</a></li><li><a href="../blog/kategori/sunucu-bulut-devops.html">Sunucu, Bulut ve DevOps</a></li><li><a href="../blog/kategori/guvenlik-kvkk.html">Güvenlik ve KVKK</a></li><li><a href="../blog/kategori/yapay-zeka.html">Yapay Zekâ</a></li><li><a href="../blog/kategori/proje-sureci-kariyer.html">Proje Süreci ve Kariyer</a></li></ul>
+      <a class="link-more aside-all" href="../blog/kategoriler.html">Tüm kategoriler <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </aside>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section__head"><h2>İlgili yazılar</h2></div>
+    <ul class="posts"><li class="post" data-cat="otomasyon" data-search="no code otomasyon araclari ne zaman yeterli ne zaman ozel kod zapier make ve n8n gibi kodsuz otomasyon araclarinin avantajlari ve sinirlari maliyet hata yonetimi veri guvenligi kvkk ve ozel yazilima gecis zamaninin isaretleri otomasyon ve entegrasyon no code otomasyon zapier make n8n kodsuz otomasyon is akisi otomasyonu"><a href="../blog/no-code-otomasyon-araclari.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/no-code-otomasyon-araclari.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>3 dk</span></span><h3>No-code Otomasyon Araçları: Ne Zaman Yeterli, Ne Zaman Özel Kod?</h3><p>Zapier, Make ve n8n gibi kodsuz otomasyon araçlarının avantajları ve sınırları; maliyet, hata yönetimi, veri güvenliği, KVKK ve özel yazılıma geçiş zamanının işaretleri.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="rpa nedir yazilim robotlariyla ekran uzerinden otomasyon robotik surec otomasyonunun rpa ne oldugu api entegrasyonundan farki uygun kullanim alanlari kirilganlik riski guvenlik ve lisans konulari ile dogru otomasyon yonteminin secimi otomasyon ve entegrasyon rpa nedir robotik surec otomasyonu yazilim robotu ekran otomasyonu rpa ve api farki"><a href="../blog/rpa-nedir.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/rpa-nedir.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>RPA Nedir? Yazılım Robotlarıyla Ekran Üzerinden Otomasyon</h3><p>Robotik süreç otomasyonunun (RPA) ne olduğu, API entegrasyonundan farkı, uygun kullanım alanları, kırılganlık riski, güvenlik ve lisans konuları ile doğru otomasyon yönteminin seçimi.</p><span class="post__more">Yazıyı oku</span></a></li><li class="post" data-cat="otomasyon" data-search="is sureci otomasyonu hangi isler otomatiklestirilmeli isletmelerde tekrar eden isleri belirleme otomasyon icin uygun surecleri secme geri donus hesabi entegrasyon yontemleri ve otomasyon projelerinde sik yapilan hatalar otomasyon ve entegrasyon is sureci otomasyonu surec otomasyonu otomasyon yazilimi tekrar eden isler isletme otomasyonu"><a href="../blog/is-sureci-otomasyonu.html"><span class="post__cover post__cover--otomasyon"><img src="../assets/images/blog/thumb/is-sureci-otomasyonu.webp" alt="" width="600" height="315" loading="lazy" decoding="async"></span><span class="post__meta"><span>Otomasyon ve Entegrasyon</span><span>2 dk</span></span><h3>İş Süreci Otomasyonu: Hangi İşler Otomatikleştirilmeli?</h3><p>İşletmelerde tekrar eden işleri belirleme, otomasyon için uygun süreçleri seçme, geri dönüş hesabı, entegrasyon yöntemleri ve otomasyon projelerinde sık yapılan hatalar.</p><span class="post__more">Yazıyı oku</span></a></li></ul>
+    <div class="section__foot"><a class="link-more" href="../blog/kategori/otomasyon-entegrasyon.html">Otomasyon ve Entegrasyon kategorisindeki tüm yazılar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+  </div>
+</section>
+
+</main>
+<footer class="k-footer">
+  <div class="k-footer__inner">
+    <div>
+      <a class="k-brand" href="../"><span class="k-brand__mark" aria-hidden="true">FK</span><span><span class="k-brand__name">Furkan Kapukaya</span><span class="k-brand__role">Yazılım geliştirme</span></span></a>
+      <p class="k-footer__slogan">Fikirden, her gün kullanılan yazılıma.</p>
+      <p>Masaüstü, web ve konsol uygulamalarıyla işletmelerin günlük süreçlerini kolaylaştıran, sade ve güvenilir yazılım çözümleri.</p>
+      <div class="k-footer__social"><a href="https://www.linkedin.com/in/furkankapukayaa" target="_blank" rel="me noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.instagram.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com/furkankapukayaa" target="_blank" rel="me noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://www.youtube.com/channel/UCwBs0J59FuWuStJIcgFgm5Q" target="_blank" rel="me noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></div>
+    </div>
+    <div>
+      <h2>Site</h2>
+      <ul>
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#isler">İşler</a></li>
+        <li><a href="../hakkimda.html">Hakkımda</a></li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>İletişim</h2>
+      <ul>
+        <li><a href="mailto:info@kapukaya.dev">info@kapukaya.dev</a></li>
+        <li><a href="../#iletisim">Teklif formu</a></li>
+        <li>İstanbul, Türkiye</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-footer__bottom">
+    <span>© <span data-year>2026</span> Furkan Kapukaya</span>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+  </div>
+</footer>
+<script src="../assets/js/site.js?v=20261030" defer></script>
+<script src="../assets/js/blog.js?v=20261030" defer></script>
+<script src="../assets/js/ads.js?v=20261030" defer></script>
+<script src="../assets/js/extras.js?v=20261030" defer></script>
+</body>
+</html>

@@ -2058,3 +2058,7 @@ html.a11y-motion .fx-confetti { display: none !important; }
 .ad-slot:has(ins[data-ad-status="unfilled"]) { display: none; }
 .ad-slot ins.adsbygoogle { min-height: 90px; }
 @media print { .ad-slot, ins.adsbygoogle, .google-auto-placed { display: none !important; } }
+
+/* Yazı sonundaki etiketler (hashtag) */
+.prose ul.art-tags { padding-left: 0; margin: 32px 0 0; }
+.prose ul.art-tags li { margin: 0; color: var(--k-dim); }
