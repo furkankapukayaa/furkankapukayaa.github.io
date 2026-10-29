@@ -1,11 +1,10 @@
-# kapukaya.dev robots.txt — son güncelleme 2026-10-01
+# kapukaya.dev robots.txt — son güncelleme 2026-10-29
 # Tüm içerik arama motorlarına ve yapay zekâ arama/asistan botlarına açıktır.
 # Yapay zekâ için özet: https://kapukaya.dev/llms.txt
 
+# noindex olan sayfalar (teşekkür, 404) taranabilir bırakılır; aksi halde Google noindex etiketini göremez.
 User-agent: *
 Allow: /
-Disallow: /thank-you.html
-Disallow: /blog/BLOG-TEMPLATE.html
 
 # Arama motorları
 User-agent: Googlebot
@@ -15,6 +14,10 @@ User-agent: YandexBot
 User-agent: DuckDuckBot
 User-agent: Applebot
 User-agent: Slurp
+# Google AdSense ve reklam kalite tarayıcıları (* grubunu dikkate almaz, ayrıca yazılmalıdır)
+User-agent: Mediapartners-Google
+User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile
 # Yapay zekâ arama ve asistan botları (AIO / GEO / AEO)
 User-agent: GPTBot
 User-agent: OAI-SearchBot
@@ -37,8 +40,6 @@ User-agent: cohere-ai
 User-agent: YouBot
 User-agent: CCBot
 Allow: /
-Disallow: /thank-you.html
-Disallow: /blog/BLOG-TEMPLATE.html
 
 # Agresif SEO tarayıcıları: sunucu yükünü azaltmak için engellenir
 User-agent: AhrefsBot

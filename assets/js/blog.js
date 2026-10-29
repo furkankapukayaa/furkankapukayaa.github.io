@@ -171,8 +171,8 @@
   var show = function (v) {
     box.querySelectorAll('[data-fb-v]').forEach(function (b) { b.disabled = true; b.classList.toggle('is-on', b.dataset.fbV === v); });
     msg.innerHTML = v === '1'
-      ? 'Teşekkürler! Benzer konularda bir projeniz varsa <a href="../index.html#iletisim">konuşalım</a>.'
-      : 'Teşekkürler. Neyin eksik olduğunu <a href="../index.html#iletisim">yazarsanız</a> yazıyı geliştiririm.';
+      ? 'Teşekkürler! Benzer konularda bir projeniz varsa <a href="../#iletisim">konuşalım</a>.'
+      : 'Teşekkürler. Neyin eksik olduğunu <a href="../#iletisim">yazarsanız</a> yazıyı geliştiririm.';
   };
   try { var prev = localStorage.getItem(key); if (prev) show(prev); } catch (e) {}
   box.querySelectorAll('[data-fb-v]').forEach(function (b) {

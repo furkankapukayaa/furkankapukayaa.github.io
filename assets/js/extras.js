@@ -20,7 +20,7 @@
     bar.className = 'mbar';
     bar.setAttribute('aria-label', 'Hızlı işlemler');
     bar.innerHTML =
-      '<a class="mbar__main" href="' + base + 'index.html#iletisim"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Teklif isteyin</a>' +
+      '<a class="mbar__main" href="' + base + '#iletisim"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Teklif isteyin</a>' +
       '<a class="mbar__ic" href="mailto:info@kapukaya.dev" aria-label="E-posta gönderin"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>' +
       '<button class="mbar__ic" type="button" data-mbar-search aria-label="Sitede ara"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>' +
       '<button class="mbar__ic" type="button" data-mbar-top aria-label="Sayfanın başına dön"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>';
@@ -215,7 +215,7 @@
       if (i >= lines.length || !document.body.contains(ov)) {
         var act = document.createElement('div');
         act.className = 'fx-dev__act';
-        act.innerHTML = '<button type="button" class="btn btn--primary" data-dev-badges><i class="fa-solid fa-trophy" aria-hidden="true"></i>Rozetlerim</button><a class="btn btn--ghost" href="' + base + 'index.html#iletisim">Proje konuşalım</a>';
+        act.innerHTML = '<button type="button" class="btn btn--primary" data-dev-badges><i class="fa-solid fa-trophy" aria-hidden="true"></i>Rozetlerim</button><a class="btn btn--ghost" href="' + base + '#iletisim">Proje konuşalım</a>';
         body.appendChild(act);
         return;
       }
@@ -255,7 +255,7 @@
     }
     clickT = setTimeout(function () {
       var n = clicks; clicks = 0;
-      if (n === 1 && link) { if (window.FKNav) window.FKNav(link.href); else location.href = link.href; }
+      if (n === 1 && link) { location.href = link.href; }
     }, 450);
   }, true);
 

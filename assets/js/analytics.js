@@ -1,9 +1,11 @@
 /* Çerez tercihleri ve Google Analytics (KVKK Çerez Rehberi'ne uygun).
    Analitik çerezler yalnızca açık onaydan sonra yüklenir; onay dilediğiniz zaman geri alınabilir.
+   Reklam tercihi (yalnızca blog yazılarında AdSense) burada saklanır, ads.js tarafından okunur:
+   window.FKConsent.get() → { analytics: bool, ads: bool } ya da henüz seçim yoksa null.
    Bant ve tercih penceresi bu dosya tarafından her sayfaya eklenir. */
 (function () {
   'use strict';
-  var KEY = 'fk-consent', GA = 'G-N2JTL8F60Q', VERSION = 2;
+  var KEY = 'fk-consent', GA = 'G-N2JTL8F60Q', VERSION = 3;
   var src = (document.currentScript && document.currentScript.src) || '';
   var BASE = src ? src.replace(/assets\/js\/analytics\.js.*$/, '') : '/';
 
@@ -11,12 +13,10 @@
     var raw = null;
     try { raw = localStorage.getItem(KEY); } catch (e) { return null; }
     if (!raw) return null;
-    if (raw === 'yes') return { analytics: true };
-    if (raw === 'no') return { analytics: false };
     try { var o = JSON.parse(raw); return (o && o.v === VERSION) ? o : null; } catch (e) { return null; }
   }
-  function save(analytics) {
-    var o = { v: VERSION, analytics: !!analytics, date: new Date().toISOString() };
+  function save(analytics, ads) {
+    var o = { v: VERSION, analytics: !!analytics, ads: !!ads, date: new Date().toISOString() };
     try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
     return o;
   }
@@ -49,7 +49,7 @@
     });
   }
 
-  var banner, dlg, toggle;
+  var banner, dlg, toggle, toggleAds;
   function build() {
     banner = document.getElementById('consent');
     if (banner) banner.parentNode.removeChild(banner);
@@ -60,7 +60,7 @@
     banner.setAttribute('aria-label', 'Çerez tercihi');
     banner.hidden = true;
     banner.innerHTML =
-      '<p>Site, çalışması için gereken yerel depolamayı kullanır. Ziyaret istatistiklerini ölçen analitik çerezler ise yalnızca onay verirseniz çalışır. Ayrıntılar: <a href="' + BASE + 'cerez-politikasi.html">Çerez Politikası</a>.</p>' +
+      '<p>Site, çalışması için gereken yerel depolamayı kullanır. Ziyaret istatistiklerini ölçen analitik çerezler ve blog yazılarındaki reklamların kişiselleştirilmesi yalnızca onay verirseniz çalışır. Ayrıntılar: <a href="' + BASE + 'cerez-politikasi.html">Çerez Politikası</a>.</p>' +
       '<div class="consent__actions">' +
       '<button class="btn btn--ghost" type="button" data-ck="prefs">Tercihler</button>' +
       '<button class="btn btn--soft" type="button" data-ck="no">Tümünü reddet</button>' +
@@ -78,10 +78,12 @@
       '<p>Hangi çerezlerin kullanılacağını aşağıdan seçebilirsiniz. Tercihinizi sayfanın altındaki “Çerez tercihleri” bağlantısından dilediğiniz zaman değiştirebilirsiniz. <a href="' + BASE + 'cerez-politikasi.html">Çerez Politikası</a></p>' +
       '<div class="k-switch-row"><div><b>Zorunlu</b><small>Çerez tercihinizin ve açılış animasyonunun hatırlanması, form kötüye kullanım koruması. Kişisel veri içermez ve cihazınızdan dışarı gönderilmez. Kapatılamaz.</small></div><span class="k-switch"><input type="checkbox" checked disabled aria-label="Zorunlu çerezler, her zaman açık"><span></span></span></div>' +
       '<div class="k-switch-row"><div><b>Analitik</b><small>Google Analytics 4 ile hangi sayfaların ne kadar ziyaret edildiğini ölçer (_ga, _ga_*). IP adresi kısaltılır; reklam ve kişiselleştirme için kullanılmaz. Veriler Google tarafından yurt dışında işlenir.</small></div><span class="k-switch"><input type="checkbox" data-ck-analytics aria-label="Analitik çerezler"><span></span></span></div>' +
+      '<div class="k-switch-row"><div><b>Kişiselleştirilmiş reklam</b><small>Yalnızca blog yazılarında Google AdSense reklamları gösterilir. Açarsanız Google ilgi alanınıza göre reklam seçebilir; kapalıyken reklamlar kişiselleştirilmez. Veriler Google tarafından yurt dışında işlenir.</small></div><span class="k-switch"><input type="checkbox" data-ck-ads aria-label="Kişiselleştirilmiş reklam çerezleri"><span></span></span></div>' +
       '</div>' +
       '<div class="k-modal__foot"><button type="button" class="btn btn--ghost" data-ck="save">Seçimi kaydet</button><button type="button" class="btn btn--primary" data-ck="yes">Tümünü kabul et</button></div>';
     document.body.appendChild(dlg);
     toggle = dlg.querySelector('[data-ck-analytics]');
+    toggleAds = dlg.querySelector('[data-ck-ads]');
     dlg.addEventListener('click', function (e) { if (e.target === dlg) closePrefs(); });
     dlg.addEventListener('close', function () {
       document.documentElement.classList.remove('has-modal');
@@ -91,19 +93,22 @@
   function openPrefs(opener) {
     var st = read();
     toggle.checked = !!(st && st.analytics);
+    toggleAds.checked = !!(st && st.ads);
     dlg._opener = opener || document.activeElement;
     if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
     document.documentElement.classList.add('has-modal');
   }
   function closePrefs() { if (dlg.open) { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); } }
-  function apply(analytics) {
+  function apply(analytics, ads) {
     var before = read();
-    save(analytics);
+    var st = save(analytics, ads);
     banner.hidden = true;
     if (analytics) loadGa();
     else if (before && before.analytics) stopGa();
     closePrefs();
+    try { document.dispatchEvent(new CustomEvent('fk:consent', { detail: st })); } catch (e) {}
   }
+  window.FKConsent = { get: read };
 
   function init() {
     build();
@@ -114,9 +119,9 @@
       var b = e.target.closest('[data-ck]');
       if (b) {
         var a = b.getAttribute('data-ck');
-        if (a === 'yes') apply(true);
-        else if (a === 'no') apply(false);
-        else if (a === 'save') apply(toggle.checked);
+        if (a === 'yes') apply(true, true);
+        else if (a === 'no') apply(false, false);
+        else if (a === 'save') apply(toggle.checked, toggleAds.checked);
         else if (a === 'prefs') openPrefs(b);
         else if (a === 'close') closePrefs();
         return;

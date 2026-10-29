@@ -36,6 +36,7 @@
 - [Olivia Hair Mansion salon yönetim sistemi](https://kapukaya.dev/projeler/olivia-hair-mansion.html): Kuaför salonu için randevu, müşteri, personel ve kasa takibini bir araya getiren salon yönetim programı. (2024)
 - [Metrekare Gayrimenkul kurumsal web sitesi](https://kapukaya.dev/projeler/metrekare-gayrimenkul.html): Emlak ofisi için portföyü sergileyen, telefonda da rahat kullanılan kurumsal tanıtım sitesi. (2025)
 - [Prodent, Prosoll ve Prosense kurumsal web sitesi](https://kapukaya.dev/projeler/pro-markalar.html): Üç markadan oluşan ürün ailesi için ürün gruplarını, satış noktalarını ve iletişim bilgilerini bir arada sunan ortak kurumsal site. (2026)
+- [Emre Gündüz Hair Design online randevu sitesi ve yönetim paneli](https://kapukaya.dev/projeler/emre-gunduz-hair-design.html): Erkek kuaförü için müşterilerin online randevu alıp sorgulayabildiği, randevuyu erteleyip iptal edebildiği web sitesi; randevular e-posta ile müşteriye ve kuaföre gider, takvime eklenir; kuaför admin panelinden randevuları, hizmetleri ve çalışma saatlerini yönetir. PHP, MySQL, JavaScript. Canlı: https://emregunduzhairdesign.com (2026)
 
 ## Ürünler (Chrome eklentileri)
 

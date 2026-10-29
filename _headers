@@ -1,5 +1,5 @@
-# Cloudflare Pages / Netlify kullanılırsa otomatik uygulanır.
-# GitHub Pages bu dosyayı okumaz; o durumda YAYINA-ALMA-REHBERI.md içindeki Cloudflare kurallarını kullanın.
+# Yalnızca Cloudflare Pages / Netlify bu dosyayı okur; GitHub Pages yok sayar (zararsızdır).
+# Not: frame-ancestors 'none' ve X-Frame-Options DENY reklamları etkilemez; reklamlar sizin sayfanızın içinde açılır.
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff

@@ -1987,7 +1987,7 @@ html.a11y-contrast .btn--ghost, html.a11y-contrast .chip, html.a11y-contrast .po
 html.a11y-links main a:not(.btn):not(.chip):not(.post a):not(.work):not(.share-btn), html.a11y-links .k-footer a { text-decoration: underline; text-underline-offset: 3px; }
 html.a11y-links :focus-visible { outline: 3px solid var(--k-accent) !important; outline-offset: 3px !important; }
 html.a11y-motion *, html.a11y-motion *::before, html.a11y-motion *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
-html.a11y-motion .pt, html.a11y-motion .fx-confetti { display: none !important; }
+html.a11y-motion .fx-confetti { display: none !important; }
 
 /* ===== Blog kategori sistemi v2 (2026-10) ===== */
 .article-hero--temel { --cat: hsl(45, 100%, 72%); } .article-hero--veri { --cat: hsl(199, 89%, 62%); }
@@ -2051,3 +2051,10 @@ html.a11y-motion .pt, html.a11y-motion .fx-confetti { display: none !important; 
 .cmap-card .link-more { margin-top: auto; }
 @media (max-width: 860px) { .cmap { grid-template-columns: 1fr; } }
 
+
+/* ============ REKLAM ALANLARI (yalnızca blog yazıları, ads.js) ============ */
+.ad-slot { position: relative; margin: 32px 0; padding: 22px 0 6px; min-height: 120px; border-top: 1px solid var(--k-line); border-bottom: 1px solid var(--k-line); contain: layout; }
+.ad-slot::before { content: "Reklam"; position: absolute; top: 4px; left: 0; color: var(--k-dim); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.ad-slot:has(ins[data-ad-status="unfilled"]) { display: none; }
+.ad-slot ins.adsbygoogle { min-height: 90px; }
+@media print { .ad-slot, ins.adsbygoogle, .google-auto-placed { display: none !important; } }

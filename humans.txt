@@ -6,7 +6,7 @@ LinkedIn: https://www.linkedin.com/in/furkankapukayaa
 GitHub: https://github.com/furkankapukayaa
 
 /* SİTE */
-Son güncelleme: 2026/10/01
+Son güncelleme: 2026/10/29
 Dil: Türkçe
 Yapı: Statik HTML, CSS, JavaScript
 Barındırma: GitHub Pages

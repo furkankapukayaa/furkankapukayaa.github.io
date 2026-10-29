@@ -442,7 +442,7 @@
       if (Date.now() - started < 3000) { fail('Form çok hızlı gönderildi. Bilgilerinizi kontrol edip birkaç saniye sonra tekrar deneyin.'); return; }
       if (recent().length >= 3) { fail('Kısa sürede birden fazla talep gönderdiniz. Lütfen 10 dakika sonra tekrar deneyin veya ' + MAIL + ' adresine yazın.'); return; }
       var log = form.querySelector('[name="consent_log"]');
-      if (log) log.value = 'Aydınlatma Metni: okundu (sürüm 2026-10-01) | Açık rıza (yurt dışı aktarım): verildi | Zaman: ' + new Date().toISOString() + ' | Sayfa: ' + location.href.split('#')[0];
+      if (log) log.value = 'Aydınlatma Metni: okundu (sürüm 2026-10-29) | Açık rıza (yurt dışı aktarım): verildi | Zaman: ' + new Date().toISOString() + ' | Sayfa: ' + location.href.split('#')[0];
 
       var data = new FormData(form);
       var label = submit.textContent;
@@ -576,12 +576,12 @@
     }
     var dlg = null, input, list, items = null, sel = 0, shown = [];
     var quick = [
-      { t: 'Teklif isteyin', u: 'index.html#iletisim', k: 'Eylem', i: 'fa-regular fa-envelope' },
-      { t: 'Hizmetler', u: 'index.html#hizmetler', k: 'Bölüm', i: 'fa-solid fa-layer-group' },
-      { t: 'Referans projeler', u: 'index.html#isler', k: 'Bölüm', i: 'fa-solid fa-briefcase' },
-      { t: 'Süreç nasıl ilerliyor?', u: 'index.html#surec', k: 'Bölüm', i: 'fa-solid fa-list-check' },
-      { t: 'Sık sorulan sorular', u: 'index.html#sss', k: 'Bölüm', i: 'fa-regular fa-circle-question' },
-      { t: 'Blog yazıları', u: 'blog/index.html', k: 'Sayfa', i: 'fa-regular fa-newspaper' },
+      { t: 'Teklif isteyin', u: '#iletisim', k: 'Eylem', i: 'fa-regular fa-envelope' },
+      { t: 'Hizmetler', u: '#hizmetler', k: 'Bölüm', i: 'fa-solid fa-layer-group' },
+      { t: 'Referans projeler', u: '#isler', k: 'Bölüm', i: 'fa-solid fa-briefcase' },
+      { t: 'Süreç nasıl ilerliyor?', u: '#surec', k: 'Bölüm', i: 'fa-solid fa-list-check' },
+      { t: 'Sık sorulan sorular', u: '#sss', k: 'Bölüm', i: 'fa-regular fa-circle-question' },
+      { t: 'Blog yazıları', u: 'blog/', k: 'Sayfa', i: 'fa-regular fa-newspaper' },
       { t: 'Hakkımda', u: 'hakkimda.html', k: 'Sayfa', i: 'fa-regular fa-user' },
       { t: 'Okuma yolları', u: 'blog/yollar.html', k: 'Sayfa', i: 'fa-solid fa-route' },
       { t: 'Erişilebilirlik ayarları', u: '#erisilebilirlik', k: 'Ayar', i: 'fa-solid fa-universal-access' },
@@ -646,7 +646,7 @@
           return { x: x, s: sc };
         }).sort(function (a, b) { return b.s - a.s; }).slice(0, 9).map(function (o) { return o.x; });
         if (/(^| )(surpriz|gizli|sir|sirlar|rozet|furkan)/.test(norm(q))) shown.unshift({ t: 'Gizli sürprizler ve rozetler', u: '#rozetler', k: 'Sürpriz', i: 'fa-solid fa-wand-magic-sparkles', d: 'Bu sitede saklı sürprizleri keşfedin' });
-        shown.push({ t: '“' + q + '” için blogda ara', u: 'blog/index.html?q=' + encodeURIComponent(q), k: 'Arama', i: 'fa-solid fa-magnifying-glass' });
+        shown.push({ t: '“' + q + '” için blogda ara', u: 'blog/?q=' + encodeURIComponent(q), k: 'Arama', i: 'fa-solid fa-magnifying-glass' });
         html = shown.map(row).join('');
         if (shown.length === 1) html = '<li class="cmdk__empty" aria-hidden="true">Başlıklarda eşleşme bulunamadı. Blog yazılarının içinde aramak için Enter’a basın.</li>' + html;
       }
@@ -674,7 +674,7 @@
         var el = document.querySelector(target.hash);
         if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); history.replaceState(null, '', target.hash); return; }
       }
-      if (window.FKNav) window.FKNav(url); else location.href = url;
+      location.href = url;
     };
     var openK = function () {
       if (!dlg) build();
@@ -693,58 +693,17 @@
     window.FKSearch = { open: openK };
   })();
 
-  /* Sayfa geçişi (gidiş): site içi bağlantıya tıklanınca konsol tarzı geçiş ekranı açılır,
-     ardından yeni sayfaya gidilir. Varış tarafı boot-head.js içindedir. */
+  /* Site içi bağlantının üzerine gelindiğinde sayfayı önceden indir: tıklayınca anında açılır */
   (function () {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-motion');
-    var cmdFor = function (u) {
-      var path = decodeURIComponent(u.pathname).replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/^\/+|\/+$/g, '');
-      return 'PS C:\\kapukaya.dev> cd ' + (path ? '.\\' + path.replace(/\//g, '\\') : '~');
-    };
-    var layer = null;
-    var go = function (url) {
-      var u = new URL(url, location.href);
-      if (reduceMotion) { location.href = u.href; return; }
-      var cmd = cmdFor(u);
-      try { sessionStorage.setItem('fk-pt', JSON.stringify({ t: Date.now(), c: cmd + '  ✓' })); } catch (e) {}
-      if (!layer) {
-        layer = document.createElement('div');
-        layer.className = 'pt';
-        layer.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(layer);
-      }
-      var pre = cmd.split('> ');
-      layer.innerHTML = '<div class="pt__box"><p class="pt__cmd">' + pre[0].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '&gt; <b>' + pre[1].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</b><i></i></p><div class="pt__bar"><i></i></div></div>';
-      void layer.offsetWidth;
-      layer.classList.add('is-on');
-      setTimeout(function () { location.href = u.href; }, 300);
-    };
-    window.FKNav = go;
-    var internal = function (a, e) {
-      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return null;
-      if ((a.target && a.target !== '_self') || a.hasAttribute('download') || a.hasAttribute('data-no-pt')) return null;
-      var u;
-      try { u = new URL(a.href, location.href); } catch (err) { return null; }
-      if (u.origin !== location.origin || !/^https?:$/.test(u.protocol)) return null;
-      if (/\.(pdf|zip|png|jpe?g|webp|svg|xml|txt|json|mp4|webm)$/i.test(u.pathname)) return null;
-      var norm = function (p) { return p.replace(/index\.html$/, ''); };
-      if (norm(u.pathname) === norm(location.pathname) && u.search === location.search) return null;
-      return u;
-    };
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href]');
-      var u = internal(a, e);
-      if (!u) return;
-      e.preventDefault();
-      go(u.href);
-    });
-    /* Fareyle üzerine gelindiğinde sayfayı önceden indir: geçiş daha kısa sürer */
     var done = {};
     var prefetch = function (e) {
       var a = e.target.closest && e.target.closest('a[href]');
-      if (!a) return;
-      var u = internal(a, { button: 0 });
-      if (!u || done[u.pathname]) return;
+      if (!a || a.hasAttribute('download') || (a.target && a.target !== '_self')) return;
+      var u;
+      try { u = new URL(a.href, location.href); } catch (err) { return; }
+      if (u.origin !== location.origin || !/^https?:$/.test(u.protocol)) return;
+      if (/\.(pdf|zip|png|jpe?g|webp|svg|xml|txt|json|mp4|webm)$/i.test(u.pathname)) return;
+      if (u.pathname === location.pathname || done[u.pathname]) return;
       done[u.pathname] = 1;
       var l = document.createElement('link');
       l.rel = 'prefetch'; l.href = u.pathname;
@@ -752,11 +711,6 @@
     };
     document.addEventListener('pointerover', prefetch, { passive: true });
     document.addEventListener('touchstart', prefetch, { passive: true });
-    /* Geri tuşuyla dönülünce (sayfa önbellekten gelirse) geçiş ekranını kaldır */
-    window.addEventListener('pageshow', function (e) {
-      if (e.persisted && layer) { layer.classList.remove('is-on'); layer.innerHTML = ''; }
-      try { sessionStorage.removeItem('fk-pt'); } catch (err) {}
-    });
   })();
 
   var y = document.querySelectorAll('[data-year]');

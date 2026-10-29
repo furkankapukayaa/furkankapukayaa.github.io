@@ -23,7 +23,7 @@
     ['Veri katmanı', 'SQL Server, Entity Framework Core', 'OK'],
     ['Arayüz', 'WinForms, WPF, ASP.NET Core', 'OK'],
     ['Modüller', 'Masaüstü, web, panel, konsol, eklenti', '5 bulundu'],
-    ['Referanslar', '7 işletme, 4 Chrome eklentisi', 'OK']
+    ['Referanslar', '8 işletme, 4 Chrome eklentisi', 'OK']
   ];
   var now = new Date();
   var hm = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });

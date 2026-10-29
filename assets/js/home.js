@@ -31,7 +31,7 @@
      1) Sektöre göre kişiselleşen ana sayfa
      ===================================================================== */
   var SECTORS = {
-    salon: { label: 'Kuaför ve salon', win: ['desk'], work: 'olivia-hair-mansion', tile: 'Masaüstü uygulaması',
+    salon: { label: 'Kuaför ve salon', win: ['desk'], work: 'emre-gunduz-hair-design', tile: 'Masaüstü uygulaması',
       lead: 'Randevu, müşteri, personel ve kasa takibini tek programda toplayan salon yazılımları geliştiriyorum. Online randevu ve hatırlatma mesajlarıyla boş kalan koltukları azaltın.',
       posts: [['kuafor-salon-yonetim-programi', 'Kuaför ve salon yönetim programı'], ['online-randevu-sistemi', 'Online randevu sistemi'], ['musteri-sadakat-programi', 'Müşteri sadakat programı']] },
     emlak: { label: 'Emlak ofisi', win: ['web'], work: 'metrekare-gayrimenkul', tile: 'Web sitesi',

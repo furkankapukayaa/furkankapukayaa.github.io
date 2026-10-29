@@ -847,7 +847,7 @@
     var load = function () {
       if (data || !window.fetch) return;
       fetch('assets/data/blog-latest.json').then(function (r) { return r.json(); }).then(function (j) { data = j; draw(); })
-        .catch(function () { body.innerHTML = '<p class="ba-empty">Yazılar yüklenemedi. <a href="blog/index.html">Bloga gidin</a>.</p>'; });
+        .catch(function () { body.innerHTML = '<p class="ba-empty">Yazılar yüklenemedi. <a href="blog/">Bloga gidin</a>.</p>'; });
     };
     qsa('[data-ba]', win).forEach(function (b) { b.addEventListener('click', function () { tab = b.dataset.ba; draw(); }); });
     new MutationObserver(function () { if (!win.hidden) { load(); draw(); } }).observe(win, { attributes: true, attributeFilter: ['hidden'] });
