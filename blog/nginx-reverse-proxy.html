@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="google-adsense-account" content="ca-pub-1772204959473379">
 <title>Nginx ve Reverse Proxy Nedir? Uygulamanızın Önündeki Kapı | Furkan Kapukaya</title>
@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261029"></script>
+<script src="../assets/js/boot-head.js?v=2026103102"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/nginx-reverse-proxy.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/nginx-reverse-proxy.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/nginx-reverse-proxy.html">
@@ -41,13 +41,14 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
 <link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261029">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<link rel="preload" href="../assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/fonts.css?v=2026103102">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=2026103102">
+<link rel="stylesheet" href="../assets/css/site.css?v=2026103102">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Nginx ve Reverse Proxy Nedir? Uygulamanızın Önündeki Kapı", "description": "Reverse proxy kavramı, Nginx'in görevleri, HTTPS sonlandırma, ASP.NET Core uygulamasını Nginx arkasında yayınlama, sıkıştırma, önbellek ve sık yapılan yapılandırma hataları.", "url": "https://kapukaya.dev/blog/nginx-reverse-proxy.html", "mainEntityOfPage": "https://kapukaya.dev/blog/nginx-reverse-proxy.html", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "inLanguage": "tr", "articleSection": "Sunucu, Bulut ve DevOps", "wordCount": 400, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/nginx-reverse-proxy.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "nginx nedir, reverse proxy, ters vekil sunucu, nginx asp.net core, ssl termination, yük dengeleme"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "Sunucu, Bulut ve DevOps", "item": "https://kapukaya.dev/blog/kategori/sunucu-bulut-devops.html"}, {"@type": "ListItem", "position": 4, "name": "Nginx ve Reverse Proxy Nedir? Uygulamanızın Önündeki Kapı", "item": "https://kapukaya.dev/blog/nginx-reverse-proxy.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kestrel doğrudan internete açılamaz mı?", "acceptedAnswer": {"@type": "Answer", "text": "Açılabilir; ancak aynı sunucuda birden çok site, merkezi sertifika yönetimi ve statik dosya önbelleği gibi ihtiyaçlarda reverse proxy hâlâ pratik bir tercihtir."}}, {"@type": "Question", "name": "Nginx yerine ne kullanılabilir?", "acceptedAnswer": {"@type": "Answer", "text": "Caddy (otomatik HTTPS ile), Apache, Traefik (konteyner ortamlarında) ve Windows'ta IIS yaygın alternatiflerdir."}}]}</script>
-<script src="../assets/js/analytics.js?v=20261029" defer></script>
+<script src="../assets/js/analytics.js?v=2026103102" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
@@ -112,7 +113,7 @@ server {
 <h2 id="sertifika-yonetimi">Sertifika yönetimi</h2>
 <p>Let's Encrypt ve Certbot ile ücretsiz sertifika alınıp otomatik yenilenebilir. Sertifika ömürlerinin sektör genelinde kademeli olarak kısaltıldığı düşünüldüğünde, <strong>otomatik yenileme ve yenilemenin izlenmesi</strong> artık zorunluluktur. Bkz. <a href="ssl-sertifikasi-https-nedir.html">SSL sertifikası ve HTTPS</a>.</p>
 <h2 id="guvenlik-basliklari">Güvenlik başlıkları</h2>
-<p>HSTS, CSP ve benzeri başlıklar Nginx üzerinden tek noktadan eklenebilir. Ayrıntılar: <a href="http-guvenlik-basliklari" target="_blank" rel="noopener">HTTP güvenlik başlıkları</a>.</p>
+<p>HSTS, CSP ve benzeri başlıklar Nginx üzerinden tek noktadan eklenebilir. Ayrıntılar: <a href="http-guvenlik-basliklari.html" target="_blank" rel="noopener">HTTP güvenlik başlıkları</a>.</p>
 <h2 id="sik-yapilan-hatalar">Sık yapılan hatalar</h2>
 <ul>
 <li>Uygulamayı <code>0.0.0.0</code> üzerinde dinletip Nginx'i atlayarak doğrudan erişime açık bırakmak</li>
@@ -183,12 +184,12 @@ server {
   </div>
   <div class="k-footer__bottom">
     <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a><a href="../kullanim-kosullari.html">Kullanım koşulları</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261029" defer></script>
-<script src="../assets/js/blog.js?v=20261029" defer></script>
-<script src="../assets/js/ads.js?v=20261029" defer></script>
-<script src="../assets/js/extras.js?v=20261029" defer></script>
+<script src="../assets/js/site.js?v=2026103102" defer></script>
+<script src="../assets/js/blog.js?v=2026103102" defer></script>
+<script src="../assets/js/ads.js?v=2026103102" defer></script>
+<script src="../assets/js/ui.js?v=2026103102" defer></script>
 </body>
 </html>

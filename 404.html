@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com; frame-src 'none'; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="google-adsense-account" content="ca-pub-1772204959473379">
 <title>Sayfa bulunamadı | Furkan Kapukaya</title>
@@ -13,9 +13,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="/assets/js/boot-head.js?v=20261029"></script>
-<link rel="alternate" hreflang="tr" href="https://kapukaya.dev/404.html">
-<link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/404.html">
+<script src="/assets/js/boot-head.js?v=2026103102"></script>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="Furkan Kapukaya">
@@ -36,11 +34,12 @@
 <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="/llms.txt">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="/assets/css/chrome.css?v=20261029">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261030">
-
-<script src="/assets/js/analytics.js?v=20261029" defer></script>
+<link rel="preload" href="/assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=2026103102">
+<link rel="stylesheet" href="/assets/css/chrome.css?v=2026103102">
+<link rel="stylesheet" href="/assets/css/site.css?v=2026103102">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://kapukaya.dev/404.html#sayfa", "url": "https://kapukaya.dev/404.html", "name": "Sayfa bulunamadı | Furkan Kapukaya", "description": "Aradığınız sayfa bulunamadı.", "inLanguage": "tr", "dateModified": "2026-10-31", "isPartOf": {"@id": "https://kapukaya.dev/#site"}, "publisher": {"@id": "https://kapukaya.dev/#furkan"}}]}</script>
+<script src="/assets/js/analytics.js?v=2026103102" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
@@ -55,26 +54,12 @@
   </div>
 </header>
 <main id="icerik">
-<section class="bsod" data-bsod>
-  <div class="bsod__in">
-    <p class="bsod__face" aria-hidden="true">:(</p>
-    <h1>Bu sayfa bir sorunla karşılaştı ve bulunamadı.</h1>
-    <p class="bsod__lead">Aradığınız adres taşınmış, silinmiş ya da hiç var olmamış olabilir. Hata bilgileri toplanıyor, ardından devam etmeniz için birkaç seçenek sunulacak.</p>
-    <p class="bsod__pct" aria-live="polite"><span data-bsod-pct>100</span>% tamamlandı</p>
-    <div class="bsod__row">
-      <span class="bsod__qr" data-bsod-qr aria-hidden="true"></span>
-      <div class="bsod__meta">
-        <p>Bu hata hakkında endişelenmeyin; sitenin geri kalanı sorunsuz çalışıyor.</p>
-        <p>Bir sır: Bu sayfaya gelmek de sitedeki gizli sürprizlerden biri. Kalanları bulmak için klavyeden <b>furkan</b> yazmayı deneyin.</p>
-        <p>Durdurma kodu: <b>PAGE_NOT_FOUND (404)</b></p>
-        <p>Başarısız olan adres: <code data-bsod-url>/</code></p>
-      </div>
-    </div>
-    <div class="bsod__act" data-bsod-act>
-      <a class="bsod__btn bsod__btn--main" href="/">Ana sayfaya dön</a>
-      <a class="bsod__btn" href="/#iletisim">İletişime geç</a>
-      <a class="bsod__btn" href="/blog/" data-bsod-search>Sitede ara</a>
-    </div>
+<section class="page-hero nf">
+  <div class="wrap">
+    <p class="nf__code">404</p>
+    <h1>Aradığınız sayfa bulunamadı.</h1>
+    <p class="page-hero__lead">Sayfa taşınmış veya adres yanlış yazılmış olabilir. Aşağıdaki bağlantılardan devam edebilirsiniz.</p>
+    <div class="hero__actions"><a class="btn btn--primary" href="/">Ana sayfaya dön</a><a class="btn btn--ghost" href="/blog/">Blog yazıları</a><a class="btn btn--ghost" href="/#iletisim">İletişim</a></div>
   </div>
 </section>
 </main>
@@ -106,11 +91,9 @@
   </div>
   <div class="k-footer__bottom">
     <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="/privacy.html">Gizlilik</a><a href="/kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="/cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="/guvenlik.html">Güvenlik</a></nav>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="/privacy.html">Gizlilik</a><a href="/kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="/cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="/guvenlik.html">Güvenlik</a><a href="/kullanim-kosullari.html">Kullanım koşulları</a></nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=20261029" defer></script>
-<script src="/assets/js/bsod.js?v=20261029" defer></script>
-<script src="/assets/js/extras.js?v=20261029" defer></script>
+<script src="/assets/js/site.js?v=2026103102" defer></script>
 </body>
 </html>

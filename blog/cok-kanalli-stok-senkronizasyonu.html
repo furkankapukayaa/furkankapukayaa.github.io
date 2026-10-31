@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: https:; connect-src 'self' https:; form-action 'self' https://api.web3forms.com; frame-src https:; worker-src 'self'; manifest-src 'self'; media-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="google-adsense-account" content="ca-pub-1772204959473379">
 <title>Çok Kanallı Stok Senkronizasyonu: Mağaza, Site ve Pazaryeri Tek Stokta | Furkan Kapukaya</title>
@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#121212">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<script src="../assets/js/boot-head.js?v=20261029"></script>
+<script src="../assets/js/boot-head.js?v=2026103102"></script>
 <link rel="canonical" href="https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html">
 <link rel="alternate" hreflang="tr" href="https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html">
 <link rel="alternate" hreflang="x-default" href="https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html">
@@ -41,13 +41,14 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM özeti" href="../llms.txt">
 <link rel="alternate" type="application/rss+xml" title="Furkan Kapukaya Blog" href="../feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="../assets/css/chrome.css?v=20261029">
-<link rel="stylesheet" href="../assets/css/site.css?v=20261030">
+<link rel="preload" href="../assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/fonts.css?v=2026103102">
+<link rel="stylesheet" href="../assets/css/chrome.css?v=2026103102">
+<link rel="stylesheet" href="../assets/css/site.css?v=2026103102">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Çok Kanallı Stok Senkronizasyonu: Mağaza, Site ve Pazaryeri Tek Stokta", "description": "Fiziksel mağaza, e-ticaret sitesi ve pazaryerlerinde satılan ürünlerin stoğunu tek merkezden senkronize etmek, fazla satışı önlemek ve zamanlanmış stok aktarımı kurmak için rehber.", "url": "https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html", "mainEntityOfPage": "https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html", "datePublished": "2026-07-29", "dateModified": "2026-07-29", "inLanguage": "tr", "articleSection": "E-ticaret ve Ödeme", "wordCount": 318, "timeRequired": "PT2M", "image": "https://kapukaya.dev/assets/images/blog/og/cok-kanalli-stok-senkronizasyonu.jpg", "author": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/hakkimda.html"}, "publisher": {"@type": "Person", "name": "Furkan Kapukaya", "url": "https://kapukaya.dev/"}, "keywords": "stok senkronizasyonu, çok kanallı satış, omnichannel stok, stok entegrasyonu, fazla satış önleme"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://kapukaya.dev/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://kapukaya.dev/blog/"}, {"@type": "ListItem", "position": 3, "name": "E-ticaret ve Ödeme", "item": "https://kapukaya.dev/blog/kategori/e-ticaret-odeme.html"}, {"@type": "ListItem", "position": 4, "name": "Çok Kanallı Stok Senkronizasyonu: Mağaza, Site ve Pazaryeri Tek Stokta", "item": "https://kapukaya.dev/blog/cok-kanalli-stok-senkronizasyonu.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Mağazadaki satışlar da senkronize edilebilir mi?", "acceptedAnswer": {"@type": "Answer", "text": "Kasa veya satış programınız stok merkezine bağlanabiliyorsa evet. Bu, çok kanallı yapının en kritik parçasıdır."}}, {"@type": "Question", "name": "Barkod kullanmak gerekli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Zorunlu değil, ama ürünlerin her kanalda aynı kodla eşleşmesi için güçlü bir yöntemdir."}}]}</script>
-<script src="../assets/js/analytics.js?v=20261029" defer></script>
+<script src="../assets/js/analytics.js?v=2026103102" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
@@ -85,7 +86,7 @@
 <h2 id="guvenlik-payi">Güvenlik payı</h2>
 <p>Hızlı satılan ürünlerde kanallara stoğun tamamı yerine bir kısmını göstermek, senkronizasyon gecikmelerinde fazla satışı önler. Örneğin mağazada son birkaç ürün kaldığında online kanallarda ürünü &quot;tükendi&quot; göstermek gibi kurallar tanımlanabilir.</p>
 <h2 id="ana-sayfamizdaki-ornek">Ana sayfamızdaki örnek</h2>
-<p>Ana sayfadaki sanal bilgisayarda yer alan &quot;StokSenkron&quot; konsol uygulaması, bu işin nasıl otomatikleştirilebileceğini canlandırır: veritabanından ürünleri okur, fiyat değişikliklerini bulur, e-ticaret sitesine aktarır ve kritik stokları raporlar. Konsola <code>stok</code> veya <code>rapor</code> yazarak örnek çıktıları görebilirsiniz.</p>
+<p>Bu iş genellikle arka planda çalışan bir konsol uygulamasıyla otomatikleştirilir: Uygulama veritabanından ürünleri okur, fiyat ve stok değişikliklerini bulur, satış kanallarına aktarır ve kritik stokları raporlar. Ayrıntılar için <a href="../hizmetler/otomasyon-konsol-uygulamalari.html">otomasyon ve konsol uygulamaları</a> sayfasına bakabilirsiniz.</p>
 <h2 id="zamanlanmis-gorevler">Zamanlanmış görevler</h2>
 <p>Bu tür aktarımlar genellikle bir sunucuda zamanlanmış görev veya arka plan servisi olarak çalışır. Ayrıntılar için <a href="zamanlanmis-gorevler-otomasyon.html">zamanlanmış görevler</a> ve <a href="dotnet-background-service.html">.NET BackgroundService</a> yazılarımıza bakabilirsiniz.</p>
 <h2 id="hata-ve-izleme">Hata ve izleme</h2>
@@ -158,12 +159,12 @@
   </div>
   <div class="k-footer__bottom">
     <span>© <span data-year>2026</span> Furkan Kapukaya</span>
-    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a></nav>
+    <nav class="k-footer__legal" aria-label="Yasal bilgiler"><a href="../privacy.html">Gizlilik</a><a href="../kvkk-aydinlatma-metni.html">KVKK aydınlatma</a><a href="../cerez-politikasi.html">Çerez politikası</a><button type="button" data-consent-open>Çerez tercihleri</button><a href="../guvenlik.html">Güvenlik</a><a href="../kullanim-kosullari.html">Kullanım koşulları</a></nav>
   </div>
 </footer>
-<script src="../assets/js/site.js?v=20261029" defer></script>
-<script src="../assets/js/blog.js?v=20261029" defer></script>
-<script src="../assets/js/ads.js?v=20261029" defer></script>
-<script src="../assets/js/extras.js?v=20261029" defer></script>
+<script src="../assets/js/site.js?v=2026103102" defer></script>
+<script src="../assets/js/blog.js?v=2026103102" defer></script>
+<script src="../assets/js/ads.js?v=2026103102" defer></script>
+<script src="../assets/js/ui.js?v=2026103102" defer></script>
 </body>
 </html>

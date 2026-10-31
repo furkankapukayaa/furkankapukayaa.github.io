@@ -22,12 +22,12 @@
 
 ## Hizmetler
 
-- Masaüstü uygulamaları: Randevu, stok, satış, servis, personel ve kasa takibi için Windows uygulamaları
-- Kurumsal web siteleri: Mobil uyumlu, arama motorlarına uygun tanıtım siteleri
-- Web tabanlı yönetim panelleri: Yetkilendirmeli iş takibi, finans ve raporlama ekranları
-- API ve sistem entegrasyonu: Ödeme altyapıları, barkod ve etiket yazıcılar, üçüncü taraf servisler
-- Konsol uygulamaları: Zamanlanmış veri aktarımı, toplu işlemler, raporlama ve bildirim görevleri
-- Tarayıcı eklentileri: Chrome eklentileri
+- [Masaüstü uygulamaları](https://kapukaya.dev/hizmetler/masaustu-uygulamalari.html): Stok, satış, servis, randevu, personel ve kasa takibini tek Windows programında toplayan C# ve .NET çözümleri.
+- [Kurumsal web siteleri](https://kapukaya.dev/hizmetler/kurumsal-web-siteleri.html): Hızlı, mobil uyumlu, erişilebilir ve arama motorlarına uygun kurumsal siteler; online randevu ve teklif formları.
+- [Web tabanlı yönetim panelleri](https://kapukaya.dev/hizmetler/yonetim-panelleri.html): Tarayıcıdan erişilen, yetkilendirmeli iş takibi, finans, personel ve raporlama panelleri.
+- [API ve sistem entegrasyonu](https://kapukaya.dev/hizmetler/api-entegrasyon.html): ERP, e-fatura, e-irsaliye, pazaryeri, kargo, banka ve ödeme sistemleri arasında otomatik veri aktarımı.
+- [Otomasyon ve konsol uygulamaları](https://kapukaya.dev/hizmetler/otomasyon-konsol-uygulamalari.html): Zamanlanmış veri aktarımı, otomatik rapor e-postaları, dosya işlemleri ve bildirim görevleri.
+- [Tarayıcı eklentileri](https://kapukaya.dev/hizmetler/tarayici-eklentileri.html): Ekiplerin tarayıcıda tekrarladığı işleri kısaltan, gizlilik odaklı Chrome eklentileri.
 
 ## Referans projeler
 
@@ -54,6 +54,7 @@ Tümü: https://chromewebstore.google.com/search/kapukaya.dev
 - [Açık Rıza Metni](https://kapukaya.dev/acik-riza-metni.html)
 - [Çerez Politikası](https://kapukaya.dev/cerez-politikasi.html)
 - [Güvenlik Politikası](https://kapukaya.dev/guvenlik.html)
+- [Kullanım Koşulları](https://kapukaya.dev/kullanim-kosullari.html)
 
 ## Blog kategorileri
 

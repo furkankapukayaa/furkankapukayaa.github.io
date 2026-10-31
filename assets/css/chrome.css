@@ -1,4 +1,3 @@
-/* Ortak üst menü ve alt bilgi. Ana sayfalar, blog ve eklenti sayfaları kullanır. */
 :root {
   --k-bg: hsl(0, 0%, 7%);
   --k-surface: hsl(240, 2%, 12%);
@@ -14,7 +13,6 @@
   --k-wrap: 1160px;
   --k-pad: clamp(18px, 4vw, 32px);
 }
-
 .k-header {
   position: sticky;
   top: 0;
@@ -27,7 +25,6 @@
   transition: border-color .25s ease;
 }
 .k-header.is-scrolled { border-bottom-color: var(--k-line); }
-
 .k-header__inner {
   display: flex;
   align-items: center;
@@ -37,7 +34,6 @@
   margin: 0 auto;
   padding: 14px var(--k-pad);
 }
-
 .k-brand {
   display: inline-flex;
   align-items: center;
@@ -60,7 +56,6 @@
 }
 .k-brand__name { display: block; font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
 .k-brand__role { display: block; font-size: 12px; color: var(--k-dim); font-weight: 400; }
-
 .k-nav { display: flex; align-items: center; gap: 4px; }
 .k-nav a {
   color: var(--k-text);
@@ -81,7 +76,6 @@
   padding: 9px 16px;
 }
 .k-nav .k-nav__cta:hover { background: var(--k-accent-2); color: var(--k-ink); }
-
 .k-menu-btn {
   display: none;
   width: 42px;
@@ -93,14 +87,12 @@
   cursor: pointer;
   font-size: 17px;
 }
-
 .k-header a:focus-visible,
 .k-header button:focus-visible,
 .k-footer a:focus-visible {
   outline: 2px solid var(--k-accent);
   outline-offset: 2px;
 }
-
 @media (max-width: 860px) {
   .k-menu-btn { display: grid; place-items: center; }
   .k-nav {
@@ -120,8 +112,6 @@
   .k-nav a { padding: 12px 10px; font-size: 16px; }
   .k-nav .k-nav__cta { margin: 8px 0 0; text-align: center; }
 }
-
-/* Alt bilgi */
 .k-footer {
   font-family: var(--k-font);
   border-top: 1px solid var(--k-line);
@@ -167,98 +157,28 @@
   .k-footer__inner { grid-template-columns: 1fr 1fr; }
   .k-footer__inner > :first-child { grid-column: 1 / -1; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .k-header, .k-nav a { transition: none; }
 }
-
 .k-footer .k-footer__slogan { color: var(--k-white); font-size: 17px; font-weight: 500; letter-spacing: -.01em; margin-top: 18px; }
 .k-footer .k-footer__slogan + p { margin-top: 6px; }
-
-/* Açılış ekranı (oturumda bir kez) */
-/* ============ AÇILIŞ EKRANI (bilgisayar açılışı) ============ */
-.boot { display: none; }
-.is-booting .boot {
-  position: fixed; inset: 0; z-index: 200;
-  display: block; overflow: hidden;
-  background: #050506;
-  color: hsl(0, 0%, 78%);
-  font-family: var(--k-font);
-  cursor: pointer;
-  clip-path: inset(0 0 0 0 round 0);
-  transition: opacity .35s ease, visibility 0s linear .35s, background-color .5s ease;
-  animation: bootFallback .4s ease 7.5s forwards;
-}
 .is-booting, .is-booting body { overflow: hidden; }
-.boot.is-done { opacity: 0; visibility: hidden; }
-@keyframes bootFallback { to { opacity: 0; visibility: hidden; } }
-.boot > div { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s; }
 .boot[data-stage="post"] .boot__post,
 .boot[data-stage="logo"] .boot__logo,
 .boot[data-stage="lock"] .boot__lock { opacity: 1; visibility: visible; transition: opacity .35s ease; }
-
-/* 1) POST */
-.boot__post { padding: clamp(22px, 5vw, 56px) clamp(18px, 6vw, 72px); font: 400 clamp(12px, 1.35vw, 15px)/1.85 ui-monospace, "Cascadia Mono", "Cascadia Code", Consolas, "Courier New", monospace; }
-.boot__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px dashed hsl(0, 0%, 22%); color: hsl(0, 0%, 60%); line-height: 1.6; }
-.boot__head b { color: var(--k-accent); font-weight: 600; }
-.boot__badge { display: grid; place-items: center; width: 54px; height: 54px; border: 2px solid var(--k-accent); border-radius: 12px; color: var(--k-accent); font: 600 20px/1 var(--k-font); letter-spacing: -.04em; flex: none; }
-.boot__list { list-style: none; margin: 0; padding: 0; max-width: 780px; }
-.boot__ln { display: flex; align-items: baseline; gap: 10px; opacity: 0; }
-.boot__ln.is-on { opacity: 1; }
-.boot__k { color: hsl(0, 0%, 90%); flex: none; min-width: 13ch; }
-.boot__lead { flex: 1; min-width: 12px; border-bottom: 1px dotted hsl(0, 0%, 28%); transform: translateY(-4px); }
-.boot__v { color: hsl(0, 0%, 66%); text-align: right; flex: none; max-width: 52%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.boot__ok { flex: none; min-width: 11ch; text-align: right; color: hsl(0, 0%, 30%); font-weight: 400; }
-.boot__ln.is-ok .boot__ok { color: hsl(142, 60%, 62%); }
-.boot__start { margin-top: 22px; color: hsl(0, 0%, 90%); opacity: 0; }
-.boot.is-starting .boot__start { opacity: 1; }
-.boot__cur { display: inline-block; width: .6em; height: 1.05em; margin-left: 4px; vertical-align: -3px; background: hsl(0, 0%, 85%); animation: bootBlink .8s steps(1) infinite; }
-@keyframes bootBlink { 50% { opacity: 0; } }
-.boot__skip { position: absolute; left: clamp(18px, 6vw, 72px); right: 18px; bottom: clamp(18px, 4vw, 40px); color: hsl(0, 0%, 42%); font-size: 12px; }
-
-/* 2) Logo */
-.boot__logo { display: grid; place-content: center; justify-items: center; gap: 40px; background: #050506; }
-.boot__fk { display: grid; place-items: center; width: clamp(96px, 14vw, 132px); aspect-ratio: 1; border-radius: 28%; background: var(--k-accent); color: var(--k-ink); font: 600 clamp(40px, 6vw, 58px)/1 var(--k-font); letter-spacing: -.06em; box-shadow: 0 0 80px -10px hsla(45, 100%, 72%, .45); }
 .boot[data-stage="logo"] .boot__fk { animation: bootPop .55s cubic-bezier(.2, .9, .3, 1.2) both; }
 @keyframes bootPop { from { transform: scale(.82); opacity: 0; } }
-.boot__spin { position: relative; width: 40px; height: 40px; }
-.boot__spin i { position: absolute; inset: 0; animation: bootOrbit 1.6s cubic-bezier(.5, .1, .5, .9) infinite; }
-.boot__spin i::before { content: ""; position: absolute; left: 50%; top: 0; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: var(--k-accent); }
-.boot__spin i:nth-child(2) { animation-delay: .08s; } .boot__spin i:nth-child(3) { animation-delay: .16s; }
-.boot__spin i:nth-child(4) { animation-delay: .24s; } .boot__spin i:nth-child(5) { animation-delay: .32s; }
-@keyframes bootOrbit { to { transform: rotate(360deg); } }
-
-/* 3) Kilit ekranı: hero'daki masaüstü duvar kâğıdıyla aynı */
-.boot__lock {
-  display: grid; grid-template-rows: 1fr auto; justify-items: center; padding: 12vh 20px 10vh; text-align: center;
-  background:
-    radial-gradient(60% 70% at 88% 100%, hsla(35, 100%, 62%, .30), transparent 70%),
-    radial-gradient(45% 55% at 70% 85%, hsla(45, 100%, 72%, .16), transparent 70%),
-    radial-gradient(70% 80% at 0% 0%, hsla(220, 40%, 30%, .45), transparent 70%),
-    linear-gradient(160deg, hsl(228, 18%, 11%), hsl(240, 10%, 7%));
-  transform-origin: 50% 50%;
-}
-.boot__clock b { display: block; color: var(--k-white); font: 500 clamp(64px, 11vw, 120px)/1 var(--k-font); letter-spacing: -.04em; }
-.boot__clock span { display: block; margin-top: 10px; color: var(--k-text); font-size: clamp(15px, 1.6vw, 19px); }
-.boot__user { display: grid; justify-items: center; gap: 4px; }
-.boot__avatar { display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 10px; border-radius: 50%; background: var(--k-accent); color: var(--k-ink); font: 600 28px/1 var(--k-font); letter-spacing: -.04em; box-shadow: 0 0 0 6px hsla(45, 100%, 72%, .14); }
-.boot__user b { color: var(--k-white); font-weight: 500; font-size: 18px; }
-.boot__user small { color: var(--k-dim); font-size: 14px; }
 .boot[data-stage="lock"] .boot__clock, .boot[data-stage="lock"] .boot__user { animation: bootUp .5s cubic-bezier(.2, .8, .2, 1) both; }
 .boot[data-stage="lock"] .boot__user { animation-delay: .12s; }
 @keyframes bootUp { from { opacity: 0; transform: translateY(14px); } }
-
-/* 4) Monitöre küçülerek geçiş */
-.boot.is-zoom { background: transparent; clip-path: var(--clip); transition: clip-path .7s cubic-bezier(.65, 0, .25, 1), opacity .35s ease, visibility 0s linear .35s; }
-.boot.is-zoom .boot__lock { transform: translate(var(--zx), var(--zy)) scale(var(--zs)); transition: transform .7s cubic-bezier(.65, 0, .25, 1); }
-.boot.is-zoom .boot__user, .boot.is-zoom .boot__clock { opacity: 0; transition: opacity .3s ease .25s; }
-.boot.is-done.is-zoom { transition: opacity .3s ease, visibility 0s linear .3s; }
-
-@media (max-width: 560px) {
-  .boot__k { min-width: 0; }
-  .boot__v { display: none; }
-  .boot__ok { min-width: 0; }
-  .boot__badge { width: 44px; height: 44px; font-size: 16px; }
-}
-@media (prefers-reduced-motion: reduce) { .boot { display: none !important; } }
-
+@view-transition { navigation: auto; }
+.k-header { view-transition-name: k-header; }
+::view-transition-old(root) { animation: vtOut .22s cubic-bezier(.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: vtIn .42s cubic-bezier(0, 0, .2, 1) both; }
+::view-transition-group(k-header) { animation: none; }
+@keyframes vtOut { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vtIn { from { opacity: 0; transform: translateY(14px); } }
+@supports not (view-transition-name: a) { main { animation: vtIn .45s cubic-bezier(0, 0, .2, 1) both; } }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } main { animation: none !important; } }
+html.a11y-motion main { animation: none !important; }
+html.a11y-motion::view-transition-old(root), html.a11y-motion::view-transition-new(root) { animation: none; }
