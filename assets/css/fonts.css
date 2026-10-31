@@ -7,9 +7,9 @@
 @font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/poppins-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/poppins-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{--fa-font-solid:normal 900 1em/1 'Font Awesome 6 Free';--fa-font-regular:normal 400 1em/1 'Font Awesome 6 Free';--fa-font-brands:normal 400 1em/1 'Font Awesome 6 Brands'}
-@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:900;font-display:block;src:url(../fonts/fa-solid-900.woff2?v=2) format('woff2')}
-@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:400;font-display:block;src:url(../fonts/fa-regular-400.woff2?v=2) format('woff2')}
-@font-face{font-family:'Font Awesome 6 Brands';font-style:normal;font-weight:400;font-display:block;src:url(../fonts/fa-brands-400.woff2?v=2) format('woff2')}
+@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:900;font-display:block;src:url(../fonts/fa-solid-900.woff2?v=3) format('woff2')}
+@font-face{font-family:'Font Awesome 6 Free';font-style:normal;font-weight:400;font-display:block;src:url(../fonts/fa-regular-400.woff2?v=3) format('woff2')}
+@font-face{font-family:'Font Awesome 6 Brands';font-style:normal;font-weight:400;font-display:block;src:url(../fonts/fa-brands-400.woff2?v=3) format('woff2')}
 .fa-solid,.fa-regular,.fa-brands{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}
 .fa-solid,.fa-regular{font-family:'Font Awesome 6 Free'}
 .fa-solid{font-weight:900}
@@ -23,9 +23,12 @@
 .fa-bookmark::before{content:"\f02e"}
 .fa-boxes-stacked::before{content:"\f468"}
 .fa-briefcase::before{content:"\f0b1"}
+.fa-calculator::before{content:"\f1ec"}
+.fa-calendar-check::before{content:"\f274"}
 .fa-cart-shopping::before{content:"\f07a"}
 .fa-chart-column::before{content:"\e0e3"}
 .fa-check::before{content:"\f00c"}
+.fa-chevron-left::before{content:"\f053"}
 .fa-chrome::before{content:"\f268"}
 .fa-circle-question::before{content:"\f059"}
 .fa-clock::before{content:"\f017"}
@@ -44,6 +47,7 @@
 .fa-file-lines::before{content:"\f15c"}
 .fa-file-pdf::before{content:"\f1c1"}
 .fa-folder::before{content:"\f07b"}
+.fa-gear::before{content:"\f013"}
 .fa-gears::before{content:"\f085"}
 .fa-github::before{content:"\f09b"}
 .fa-globe::before{content:"\f0ac"}
@@ -58,6 +62,7 @@
 .fa-linkedin-in::before{content:"\f0e1"}
 .fa-list-check::before{content:"\f0ae"}
 .fa-location-dot::before{content:"\f3c5"}
+.fa-lock::before{content:"\f023"}
 .fa-magnifying-glass::before{content:"\f002"}
 .fa-magnifying-glass-chart::before{content:"\e522"}
 .fa-map::before{content:"\f279"}
@@ -65,6 +70,7 @@
 .fa-paper-plane::before{content:"\f1d8"}
 .fa-percent::before{content:"\25"}
 .fa-plug::before{content:"\f1e6"}
+.fa-plus::before{content:"\2b"}
 .fa-puzzle-piece::before{content:"\f12e"}
 .fa-qrcode::before{content:"\f029"}
 .fa-robot::before{content:"\f544"}
@@ -79,6 +85,7 @@
 .fa-sitemap::before{content:"\f0e8"}
 .fa-star::before{content:"\f005"}
 .fa-stopwatch::before{content:"\f2f2"}
+.fa-sun::before{content:"\f185"}
 .fa-table-columns::before{content:"\f0db"}
 .fa-telegram::before{content:"\f2c6"}
 .fa-thumbs-down::before{content:"\f165"}
