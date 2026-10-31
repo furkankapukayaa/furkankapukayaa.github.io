@@ -148,3 +148,27 @@
     };
   })();
 })();
+(function() {
+  if (window.CSS && CSS.supports && CSS.supports('view-transition-name', 'a')) return;
+  var d = document.documentElement;
+  document.addEventListener('click', function(e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || a.target && a.target !== '_self' || a.hasAttribute('download')) return;
+    var u;
+    try {
+      u = new URL(a.href, location.href);
+    } catch (err) {
+      return;
+    }
+    if (u.origin !== location.origin || u.pathname === location.pathname && u.search === location.search) return;
+    e.preventDefault();
+    d.classList.add('is-leaving');
+    setTimeout(function() {
+      location.href = u.href;
+    }, 170);
+  });
+  window.addEventListener('pageshow', function() {
+    d.classList.remove('is-leaving');
+  });
+})();

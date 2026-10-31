@@ -25,36 +25,35 @@
   if (a.motion) d.classList.add('a11y-motion');
 })();
 (function() {
-  var d = document.documentElement, seen = false;
+  var d = document.documentElement;
+  var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var type = nav ? nav.type : 'navigate';
+  var inner = false;
   try {
-    seen = sessionStorage.getItem('fk-splash') === '1';
-    sessionStorage.setItem('fk-splash', '1');
-  } catch (e) {
-    seen = true;
-  }
-  var calm = d.classList.contains('a11y-motion') || window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (seen || calm || navigator.webdriver && !/splash/.test(location.hash)) return;
+    inner = !!document.referrer && new URL(document.referrer).host === location.host;
+  } catch (e) {}
+  if (type === 'back_forward' || type === 'navigate' && inner) return;
   d.classList.add('fk-splash');
   var end = function() {
     d.classList.remove('fk-splash');
     var s = document.getElementById('fk-splash');
     if (s) s.remove();
   };
-  var t = setTimeout(end, 4000);
-  document.addEventListener('DOMContentLoaded', (function() {
+  var t = setTimeout(end, 3500);
+  document.addEventListener('DOMContentLoaded', function() {
     var s = document.createElement('div');
     s.id = 'fk-splash';
     s.className = 'splash';
     s.setAttribute('aria-hidden', 'true');
-    s.innerHTML = '<div class="splash__in"><span class="splash__mark">FK</span><span class="splash__name">Kapukaya Development</span><span class="splash__line"><i></i></span></div>';
+    s.innerHTML = '<div class="splash__in"><span class="splash__mark">FK</span><span class="splash__copy">© ' + new Date().getFullYear() + ' Kapukaya Development</span></div>';
     document.body.appendChild(s);
-    setTimeout((function() {
+    setTimeout(function() {
       s.classList.add('is-out');
       d.classList.remove('fk-splash');
-      setTimeout((function() {
+      setTimeout(function() {
         clearTimeout(t);
         end();
-      }), 700);
-    }), 1500);
-  }));
+      }, 650);
+    }, 1300);
+  });
 })();
